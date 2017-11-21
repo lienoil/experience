@@ -125,9 +125,7 @@
                 </v-container>
 
                 <v-container fluid fill-height grid-list-lg>
-
                     <v-layout row wrap fill-height>
-
                         <slot name="content">
                             <v-flex v-for="(dataset, i) in dataset.items" :key="i" sm3>
                                 <v-slide-y-transition>
@@ -146,8 +144,8 @@
                                                             <v-card-actions class="px-2 white--text">
                                                                 <v-icon class="white--text" v-html="dataset.icon"></v-icon>
                                                                 <v-spacer></v-spacer>
-                                                                <span v-html="dataset.mimetype"></span>
-                                                                <span v-html="dataset.size"></span>
+                                                                <!-- <span v-html="dataset.mimetype"></span> -->
+                                                                <!-- <span v-html="dataset.size"></span> -->
                                                             </v-card-actions>
                                                         </v-layout>
                                                     </v-container>
@@ -180,7 +178,7 @@
             autoRemoveFiles: { type: Boolean, default: false },
             dropzoneOptions: { type: Object, default: () => { return {autoProcessQueue: true} } },
             dropzoneParams: { type: Object, default: () => {} },
-            height: { type: String, default: '250px' },
+            height: { type: String, default: '150px' },
             closeOnClick: { type: Boolean, default: false },
             multiple: { type: Boolean, default: true },
             drawer: { type: Boolean, default: true },

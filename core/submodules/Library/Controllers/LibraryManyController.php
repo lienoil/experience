@@ -28,6 +28,22 @@ class LibraryManyController extends AdminController
     }
 
     /**
+     * Delete the specified resource from storage permanently.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Request $request)
+    {
+        foreach ($request->input('library') as $id) {
+            $library = Library::withTrashed()->findOrFail($id);
+            $library->forceDelete();
+        }
+
+        return back();
+    }
+
+    /**
      * Restore the specified resource from storage.
      *
      * @param  \Illuminate\Http\Request  $request

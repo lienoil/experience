@@ -2,11 +2,9 @@
 
 namespace Category\API\Controllers;
 
-use Category\Models\Category;
-use Category\Models\Grant;
-use Category\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 use Pluma\API\Controllers\APIController;
+use Category\Models\Category;
 
 class CategoryController extends APIController
 {
@@ -34,12 +32,12 @@ class CategoryController extends APIController
     }
 
     /**
-     * Get a paginated list of resources.
+     * Get all resources.
      *
      * @param  Illuminate\Http\Request $request [description]
      * @return Illuminate\Http\Response
      */
-    public function paginated(Request $request)
+    public function all(Request $request)
     {
         $onlyTrashed = $request->get('trashedOnly') !== 'null' && $request->get('trashedOnly') ? $request->get('trashedOnly'): false;
         $order = $request->get('descending') === 'true' && $request->get('descending') !== 'null' ? 'DESC' : 'ASC';
@@ -62,17 +60,6 @@ class CategoryController extends APIController
      * @param  Illuminate\Http\Request $request [description]
      * @return Illuminate\Http\Response
      */
-    public function all(Request $request)
-    {
-        return response()->json(Category::all());
-    }
-
-    /**
-     * Get all resources.
-     *
-     * @param  Illuminate\Http\Request $request [description]
-     * @return Illuminate\Http\Response
-     */
     public function getTrash(Request $request)
     {
         $search = $request->get('q') !== 'null' && $request->get('q') ? $request->get('q'): '';
@@ -86,26 +73,6 @@ class CategoryController extends APIController
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Category\Requests\CategoryRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(CategoryRequest $request)
-    {
-        $category = new Category();
-        $category->name = $request->input('name');
-        $category->alias = $request->input('alias');
-        $category->code = $request->input('code');
-        $category->description = $request->input('description');
-        $category->icon = $request->input('icon');
-        $category->categorable_type = $request->input('categorable_type');
-        $category->save();
-
-        return response()->json($this->successResponse);
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -114,28 +81,16 @@ class CategoryController extends APIController
      */
     public function destroy(Request $request, $id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
+        $categories = Category::findOrFail($id);
 
-        return response()->json($this->successResponse);
-    }
+        if (in_array($categories->code, config('auth.rootcategories', []))) {
+            $this->errorResponse['text'] = "Deleting Root Categories is not permitted";
 
-    /**
-     * Copy the resource as a new resource.
-     * @param  Request $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function clone(Request $request, $id)
-    {
-        $category = Category::findOrFail($id);
+            return response()->json($this->errorResponse);
+        }
 
-        $clone = new Category();
-        $clone->name = $category->name;
-        $clone->code = "{$category->code}-clone-".rand((int) $id, (int) date('Y'));
-        $clone->description = $category->description;
-        $clone->save();
-        $clone->grants()->attach($category->grants->pluck('id')->toArray());
+        $this->successResponse['text'] = "{$categories->name} moved to trash.";
+        $categories->delete();
 
         return response()->json($this->successResponse);
     }
@@ -149,8 +104,8 @@ class CategoryController extends APIController
      */
     public function restore(Request $request, $id)
     {
-        $category = Category::onlyTrashed()->findOrFail($id);
-        $category->restore();
+        $categories = Category::onlyTrashed()->findOrFail($id);
+        $categories->restore();
 
         return response()->json($this->successResponse);
     }
@@ -163,8 +118,8 @@ class CategoryController extends APIController
      */
     public function delete(Request $request, $id)
     {
-        $category = Category::withTrashed()->findOrFail($id);
-        $category->forceDelete();
+        $categories = Category::withTrashed()->findOrFail($id);
+        $categories->forceDelete();
 
         return response()->json($this->successResponse);
     }

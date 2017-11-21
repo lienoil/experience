@@ -8,13 +8,13 @@ return [
      * Specify here the menus to appear on the sidebar.
      *
      */
-    'divider-catalogue' => [
-        'name' => 'divider-catalogue',
-        'is_header' => true,
-        'is_divider' => true,
-        'parent' => 'library',
-        'order' => 9,
-    ],
+    // 'divider-catalogue' => [
+    //     'name' => 'divider-catalogue',
+    //     'is_header' => true,
+    //     'is_divider' => true,
+    //     'parent' => 'library',
+    //     'order' => 9,
+    // ],
 
     'view-catalogue' => [
         'name' => 'view-catalogue',

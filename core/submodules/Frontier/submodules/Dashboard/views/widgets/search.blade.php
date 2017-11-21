@@ -1,6 +1,6 @@
 <v-dialog v-model="search" fullscreen transition="dialog-bottom-transition" :overlay=false>
-    <v-btn slot="activator" icon v-tooltip:left="{ html: 'Search' }" class="grey--text text--darken-3">
-        <v-icon>search</v-icon>
+    <v-btn slot="activator" icon v-tooltip:left="{ html: 'Search' }">
+        <v-icon :light.sync="dark" :dark.sync="light">search</v-icon>
     </v-btn>
     <v-card>
         <v-toolbar class="light-blue">

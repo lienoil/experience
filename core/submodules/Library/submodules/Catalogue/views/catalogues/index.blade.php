@@ -1,156 +1,203 @@
 @extends("Theme::layouts.admin")
 
 @section("content")
+    @include("Theme::partials.banner")
+    <v-toolbar dark class="light-blue elevation-1 sticky">
+        <v-toolbar-title>{{ __('Catalogues') }}</v-toolbar-title>
+        <v-spacer></v-spacer>
+
+        {{-- Search --}}
+        <template>
+            <v-text-field
+                :append-icon-cb="() => {dataset.searchform.model = !dataset.searchform.model}"
+                :prefix="dataset.searchform.prefix"
+                :prepend-icon="dataset.searchform.prepend"
+                append-icon="close"
+                light solo hide-details single-line
+                label="Search"
+                v-model="dataset.searchform.query"
+                v-show="dataset.searchform.model"
+            ></v-text-field>
+            <v-btn v-show="!dataset.searchform.model" icon v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search resources'}" @click.native="dataset.searchform.model = !dataset.searchform.model;dataset,searchform.query = '';"><v-icon>search</v-icon></v-btn>
+        </template>
+        {{-- /Search --}}
+
+        {{-- add --}}
+        <v-btn icon @click.native="hidden = !hidden" v-tooltip:left="{ 'html':  hidden ? 'Add' : 'Close' }">
+            <v-icon>@{{ hidden ? 'add' : 'remove' }}</v-icon>
+        </v-btn>
+
+        <v-btn icon v-tooltip:left="{ html: 'Filter' }">
+            <v-icon class="subheading">fa fa-filter</v-icon>
+        </v-btn>
+
+        <v-btn icon v-tooltip:left="{ html: 'Sort' }">
+            <v-icon class="subheading">fa fa-sort-amount-asc</v-icon>
+        </v-btn>
+
+        {{-- Batch Commands --}}
+        <v-btn
+            v-show="dataset.selected.length < 2"
+            flat
+            icon
+            v-model="bulk.destroy.model"
+            :class="bulk.destroy.model ? 'btn--active primary primary--text' : ''"
+            v-tooltip:left="{'html': '{{ __('Toggle the bulk command checboxes') }}'}"
+            @click.native="bulk.destroy.model = !bulk.destroy.model"
+        ><v-icon>@{{ bulk.destroy.model ? 'check_circle' : 'check_circle' }}</v-icon></v-btn>
+        {{-- Bulk Delete --}}
+        <v-slide-y-transition>
+            <template v-if="dataset.selected.length > 1">
+                <form action="{{ route('catalogues.many.destroy') }}" method="POST" class="inline">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <template v-for="item in dataset.selected">
+                        <input type="hidden" name="catalogues[]" :value="item.id">
+                    </template>
+                    <v-btn
+                        flat
+                        icon
+                        type="submit"
+                        v-tooltip:left="{'html': `Move ${dataset.selected.length} selected items to Trash`}"
+                    ><v-icon warning>delete_sweep</v-icon></v-btn>
+                </form>
+            </template>
+        </v-slide-y-transition>
+        {{-- /Bulk Delete --}}
+        {{-- /Batch Commands --}}
+
+        {{-- Trashed --}}
+        <v-btn
+            icon
+            flat
+            href="{{ route('catalogues.trash') }}"
+            light
+            v-tooltip:left="{'html': `View trashed items`}"
+        ><v-icon class="white--text warning--after" v-badge:{{ $trashed }}.overlap>archive</v-icon></v-btn>
+        {{-- /Trashed --}}
+    </v-toolbar>
     <v-container fluid grid-list-lg>
-
-        @include("Theme::partials.banner")
-
         <v-layout row wrap>
+            <v-flex xs12>
+                {{-- create --}}
+                <v-slide-y-transition>
+                    <v-card class="elevation-1 mb-3" v-show="!hidden" transition="slide-y-transition">
+                        <v-toolbar card class="transparent">
+                            <v-toolbar-title class="accent--text">{{ __('New Catalogue') }}</v-toolbar-title>
+                        </v-toolbar>
 
-            <v-flex sm5 md4 xs12>
-                <v-card class="elevation-1 mb-3">
-                    <v-toolbar card class="transparent">
-                        <v-icon class="accent--text">book</v-icon>
-                        <v-toolbar-title class="accent--text">{{ __('New Catalogue') }}</v-toolbar-title>
-                    </v-toolbar>
-
-                    <form action="{{ route('catalogues.store') }}" method="POST">
-                        {{ csrf_field() }}
                         <v-card-text>
-                            <v-text-field
-                                :error-messages="resource.errors.name"
-                                label="{{ _('Name') }}"
-                                name="name"
-                                value="{{ old('name') }}"
-                                @input="(val) => { resource.item.name = val; }"
-                            ></v-text-field>
-                            <v-text-field
-                                :error-messages="resource.errors.code"
-                                :value="resource.item.name ? resource.item.name : '{{ old('code') }}' | slugify"
-                                hint="{{ __('Will be used as a unique catalogue name.') }}"
-                                label="{{ _('Code') }}"
-                                name="code"
-                            ></v-text-field>
-                            <v-text-field
-                                :error-messages="resource.errors.description"
-                                label="{{ _('Short Description') }}"
-                                name="description"
-                                value="{{ old('description') }}"
-                            ></v-text-field>
-                            <v-text-field
-                                :error-messages="resource.errors.alias"
-                                :value="resource.item.name ? resource.item.name : '{{ old('alias') }}'"
-                                hint="{{ __('Will be used as an alias.') }}"
-                                label="{{ _('Alias') }}"
-                                name="alias"
-                            ></v-text-field>
+                            <form action="{{ route('catalogues.store') }}" method="POST">
+                                {{ csrf_field() }}
+                                <v-layout row wrap>
+                                    <v-flex xs4>
+                                        <v-subheader>{{ __('Name') }}</v-subheader>
+                                    </v-flex>
+                                    <v-flex xs8>
+                                        <v-text-field
+                                            :error-messages="resource.errors.name"
+                                            label="{{ _('Name') }}"
+                                            name="name"
+                                            value="{{ old('name') }}"
+                                            @input="(val) => { resource.item.name = val; }"
+                                            >
+                                        </v-text-field>
+                                    </v-flex>
+                                </v-layout>
+                                <v-layout row wrap>
+                                    <v-flex xs4>
+                                        <v-subheader>{{ __('Code') }}</v-subheader>
+                                    </v-flex>
+                                    <v-flex xs8>
 
-                            <v-menu
-                                :position-absolutely="true"
-                                offset-x
-                                offset-y
-                                style="width: 100%"
-                                v-model="resource.icons.model"
-                            >
-                                <v-text-field
-                                    slot="activator"
-                                    :append-icon-cb="() => { resource.icons.model = !resource.icons.model }"
-                                    :error-messages="resource.errors.icon"
-                                    :prepend-icon="'{{ old('icon') }}' ? '{{ old('icon') }}' : resource.icons.value"
-                                    :value="'{{ old('icon') }}' ? '{{ old('icon') }}' : resource.icons.value"
-                                    append-icon="fa-ellipsis-h"
-                                    hint="{{ __('Browse through suggested icons by clicking the button above') }}"
-                                    label="{{ _('Icon') }}"
-                                    name="icon"
-                                    @input="val => { resource.icons.value = val }"
+                                        <v-text-field
+                                            :error-messages="resource.errors.code"
+                                            :value="resource.item.name ? resource.item.name : '{{ old('code') }}' | slugify"
+                                            hint="{{ __('Will be used as a unique catalogue name.') }}"
+                                            label="{{ _('Code') }}"
+                                            name="code"
+                                            >
+                                        </v-text-field>
+                                    </v-flex>
+                                </v-layout>
+                                <v-layout row wrap>
+                                    <v-flex xs4>
+                                        <v-subheader>{{ __('Description') }}</v-subheader>
+                                    </v-flex>
+                                    <v-flex xs8>
+                                        <v-text-field
+                                            :error-messages="resource.errors.description"
+                                            label="{{ _('Short Description') }}"
+                                            name="description"
+                                            value="{{ old('description') }}"
+                                            >
+                                        </v-text-field>
+                                    </v-flex>
+                                </v-layout>
+                                <v-layout row wrap>
+                                    <v-flex xs4>
+                                        <v-subheader>{{ __('Alias') }}</v-subheader>
+                                    </v-flex>
+                                    <v-flex xs8>
+                                        <v-text-field
+                                            :error-messages="resource.errors.alias"
+                                            :value="resource.item.name ? resource.item.name : '{{ old('alias') }}'"
+                                            hint="{{ __('Will be used as an alias.') }}"
+                                            label="{{ _('Alias') }}"
+                                            name="alias"
+                                            >
+                                        </v-text-field>
+                                    </v-flex>
+                                </v-layout>
+                                <v-layout row wrap>
+                                    <v-flex xs4>
+                                        <v-subheader>{{ __('Icon') }}</v-subheader>
+                                    </v-flex>
+                                    <v-flex xs8>
+                                        <v-menu
+                                            :position-absolutely="true"
+                                            offset-x
+                                            offset-y
+                                            style="width: 100%"
+                                            v-model="resource.icons.model"
+                                        >
+                                            <v-text-field
+                                                slot="activator"
+                                                :append-icon-cb="() => { resource.icons.model = !resource.icons.model }"
+                                                :error-messages="resource.errors.icon"
+                                                :prepend-icon="'{{ old('icon') }}' ? '{{ old('icon') }}' : resource.icons.value"
+                                                :value="'{{ old('icon') }}' ? '{{ old('icon') }}' : resource.icons.value"
+                                                append-icon="more_horiz"
+                                                hint="{{ __('Browse through suggested icons by clicking the button above') }}"
+                                                label="{{ _('Icon') }}"
+                                                name="icon"
+                                                @input="val => { resource.icons.value = val }"
 
-                                ></v-text-field>
-                                <v-card>
-                                    <v-list>
-                                        <v-list-tile v-for="item in resource.icons.items" :key="item.name" @click="resource.icons.value = item.name">
-                                            <v-list-tile-action>
-                                                <v-icon>@{{ item.name }}</v-icon>
-                                            </v-list-tile-action>
-                                            <v-list-tile-title>@{{ item.name }}</v-list-tile-title>
-                                        </v-list-tile>
-                                    </v-list>
-                                </v-card>
-                            </v-menu>
+                                            ></v-text-field>
+                                            <v-card>
+                                                <v-list>
+                                                    <v-list-tile v-for="item in resource.icons.items" :key="item.name" @click="resource.icons.value = item.name">
+                                                        <v-list-tile-action>
+                                                            <v-icon>@{{ item.name }}</v-icon>
+                                                        </v-list-tile-action>
+                                                        <v-list-tile-title>@{{ item.name }}</v-list-tile-title>
+                                                    </v-list-tile>
+                                                </v-list>
+                                            </v-card>
+                                        </v-menu>
+                                    </v-flex>
+                                </v-layout>
+                            </v-card-text>
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn type="submit" primary class="elevation-1">{{ __('Save') }}</v-btn>
+                            </v-card-actions>
+                        </form>
+                    </v-card>
+                </v-slide-y-transition>
+                {{-- /create --}}
 
-                        </v-card-text>
-
-                        <v-card-actions>
-                            <v-spacer></v-spacer>
-                            <v-btn type="submit" primary class="elevation-1">{{ __('Save') }}</v-btn>
-                        </v-card-actions>
-                    </form>
-
-                </v-card>
-            </v-flex>
-
-            <v-flex sm7 md8 xs12>
                 <v-card class="mb-3 elevation-1">
-                    <v-toolbar class="transparent elevation-0">
-                        <v-toolbar-title class="accent--text">{{ __('Catalogues') }}</v-toolbar-title>
-                        <v-spacer></v-spacer>
-
-                        {{-- Batch Commands --}}
-                        <v-btn
-                            v-show="dataset.selected.length < 2"
-                            flat
-                            icon
-                            v-model="bulk.destroy.model"
-                            :class="bulk.destroy.model ? 'btn--active error error--text' : ''"
-                            v-tooltip:left="{'html': '{{ __('Toggle the bulk command checboxes') }}'}"
-                            @click.native="bulk.destroy.model = !bulk.destroy.model"
-                        ><v-icon>@{{ bulk.destroy.model ? 'indeterminate_check_box' : 'check_box_outline_blank' }}</v-icon></v-btn>
-                        {{-- Bulk Delete --}}
-                        <v-slide-y-transition>
-                            <template v-if="dataset.selected.length > 1">
-                                <form action="{{ route('catalogues.many.destroy') }}" method="POST" class="inline">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <template v-for="item in dataset.selected">
-                                        <input type="hidden" name="catalogues[]" :value="item.id">
-                                    </template>
-                                    <v-btn
-                                        flat
-                                        icon
-                                        type="submit"
-                                        v-tooltip:left="{'html': `Move ${dataset.selected.length} selected items to Trash`}"
-                                    ><v-icon error>delete_sweep</v-icon></v-btn>
-                                </form>
-                            </template>
-                        </v-slide-y-transition>
-                        {{-- /Bulk Delete --}}
-                        {{-- /Batch Commands --}}
-
-                        {{-- Search --}}
-                        <v-text-field
-                            append-icon="search"
-                            label="{{ _('Search') }}"
-                            single-line
-                            hide-details
-                            v-if="dataset.searchform.model"
-                            v-model="dataset.searchform.query"
-                            light
-                        ></v-text-field>
-                        <v-btn v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search resources'}" icon flat light @click.native="dataset.searchform.model = !dataset.searchform.model; dataset.searchform.query = '';">
-                            <v-icon>@{{ !dataset.searchform.model ? 'search' : 'clear' }}</v-icon>
-                        </v-btn>
-                        {{-- /Search --}}
-
-                        {{-- Trashed --}}
-                        <v-btn
-                            icon
-                            flat
-                            href="{{ route('catalogues.trash') }}"
-                            light
-                            v-tooltip:left="{'html': `View trashed items`}"
-                        ><v-icon>archive</v-icon></v-btn>
-                        {{-- /Trashed --}}
-                    </v-toolbar>
-
                     <v-data-table
                         :loading="dataset.loading"
                         :total-items="dataset.totalItems"
@@ -177,9 +224,9 @@
                                 ></v-checkbox>
                             </td>
                             <td>@{{ prop.item.id }}</td>
-                            <td><v-icon v-html="prop.item.icon"></v-icon></td>
+                            <td><v-icon class="red--text text--lighten-2" v-html="prop.item.icon"></v-icon></td>
                             <td width="100%">
-                                <a :href="route(urls.catalogues.edit, prop.item.id)">
+                                <a :href="route(urls.catalogues.edit, prop.item.id)" class="no-decoration accent--text">
                                     <strong v-tooltip:bottom="{'html': prop.item.description ? prop.item.description : prop.item.name}">@{{ prop.item.name }}</strong>
                                 </a>
                             </td>
@@ -190,16 +237,6 @@
                                 <v-menu bottom left>
                                     <v-btn icon flat slot="activator"><v-icon>more_vert</v-icon></v-btn>
                                     <v-list>
-                                        <v-list-tile :href="route(urls.catalogues.show, (prop.item.id))">
-                                            <v-list-tile-action>
-                                                <v-icon info>search</v-icon>
-                                            </v-list-tile-action>
-                                            <v-list-tile-content>
-                                                <v-list-tile-title>
-                                                    {{ __('View details') }}
-                                                </v-list-tile-title>
-                                            </v-list-tile-content>
-                                        </v-list-tile>
                                         <v-list-tile :href="route(urls.catalogues.edit, (prop.item.id))">
                                             <v-list-tile-action>
                                                 <v-icon accent>edit</v-icon>
@@ -241,10 +278,17 @@
                     </v-data-table>
                 </v-card>
             </v-flex>
-
         </v-layout>
     </v-container>
 @endsection
+
+@push('css')
+    <style>
+        .no-decoration {
+            text-decoration: none !important;
+        }
+    </style>
+@endpush
 
 @push('pre-scripts')
     <script src="{{ assets('frontier/vendors/vue/resource/vue-resource.min.js') }}"></script>
@@ -254,6 +298,7 @@
         mixins.push({
             data () {
                 return {
+                    hidden: true,
                     bulk: {
                         destroy: {
                             model: false,
@@ -416,6 +461,7 @@
                         { name: 'folder_open' },
                         { name: 'insert_drive_file' },
                         { name: 'verified_user' },
+                        { name: 'video_library' },
                     ];
                 }
             },

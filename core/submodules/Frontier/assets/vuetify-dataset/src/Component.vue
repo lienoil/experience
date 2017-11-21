@@ -1,78 +1,77 @@
 <template>
-  <div>
-    <v-slide-y-transition>
-      <v-data-table
-        :headers="dataset.headers"
-        :item-key="itemKey"
-        :items="dataset.items"
-        :total-items="dataset.pagination.totalItems"
-        :rows-per-page-items="rowsPerPageItems"
-        :rows-per-page-text="rowsPerPageText"
-        :pagination.sync="dataset.pagination"
-        class="elevation-1"
-        v-bind="selectAll?{'select-all':'primary'}:null"
-        v-model="dataset.selected"
-        v-show="table"
-      >
-        <template slot="header" scope="prop">
-          <slot name="header" :prop="prop"></slot>
-        </template>
-        <template slot="items" scope="prop">
-          <!-- <span v-html="prop.selected"></span> -->
-          <slot name="items" :prop="prop">
-            <tr role="button" :active="prop.selected" @click="prop.selected = !prop.selected">
-              <td v-if="selectAll">
-                <v-checkbox
-                  color="primary"
-                  primary
-                  hide-details
-                  :input-value="prop.selected"
-                ></v-checkbox>
-              </td>
-              <td v-html="prop.item[itemValue]"></td>
-              <td v-html="prop.item[itemKey]"></td>
-            </tr>
-          </slot>
-        </template>
-      </v-data-table>
-    </v-slide-y-transition>
+    <div>
+        <v-slide-y-transition>
+            <v-data-table
+                :headers="dataset.headers"
+                :item-key="itemKey"
+                :items="dataset.items"
+                :total-items="dataset.pagination.totalItems"
+                :rows-per-page-items="rowsPerPageItems"
+                :rows-per-page-text="rowsPerPageText"
+                :pagination.sync="dataset.pagination"
+                class="elevation-1"
+                v-bind="selectAll?{'select-all':'primary'}:null"
+                v-model="dataset.selected"
+                v-show="table"
+                >
+                <template slot="header" scope="prop">
+                    <slot name="header" :prop="prop"></slot>
+                </template>
+                <template slot="items" scope="prop">
+                    <!-- <span v-html="prop.selected"></span> -->
+                    <slot name="items" :prop="prop">
+                        <tr role="button" :active="prop.selected" @click="prop.selected = !prop.selected">
+                            <td v-if="selectAll">
+                                <v-checkbox
+                                    color="primary"
+                                    primary
+                                    hide-details
+                                    :input-value="prop.selected"
+                                ></v-checkbox>
+                            </td>
+                            <td v-html="prop.item[itemValue]"></td>
+                            <td v-html="prop.item[itemKey]"></td>
+                        </tr>
+                    </slot>
+                </template>
+          </v-data-table>
+        </v-slide-y-transition>
 
-    <v-scale-transition>
-      <div v-show="card">
-        <v-layout row wrap v-if="(paginationTop || paginationBoth) && pages > 1">
-          <v-flex sm12 class="text-xs-center">
-            <v-pagination :circle="paginationCircle" v-model="dataset.pagination.page" :length="pages"></v-pagination>
-          </v-flex>
-        </v-layout>
-        <v-layout row wrap style="min-height: 200px">
-          <!-- <v-spacer></v-spacer> -->
-          <v-flex xs12 sm6 md3 v-for="(item, i) in dataset.items" :key="i">
-            <v-card class="elevation-1">
-              <slot name="card" :prop="{item, index: i, selected: computedSelected }">
-                <v-card-media v-if="item.thumbnail" :src="item.thumbnail" height="250"></v-card-media>
-                <v-card-text v-html="item.name"></v-card-text>
-              </slot>
-            </v-card>
-          </v-flex>
-          <infinite-loading v-if="infinite" spinner="waveDots" @infinite="listen" ref="infiniteLoading">
-            <template slot="no-more" class="text-xs-center">
-              <slot name="no-more">
-                <div>No more resource found.</div>
-              </slot>
-            </template>
-          </infinite-loading>
-          <!-- <v-spacer></v-spacer> -->
-        </v-layout>
-        <slot name="pagination" :prop="{pagination: dataset.pagination}">
-          <v-layout row wrap v-if="(!paginationTop || paginationBoth) && pages > 1">
-            <v-flex sm12 class="text-xs-center">
-              <v-pagination :circle="paginationCircle" v-model="dataset.pagination.page" :length="pages"></v-pagination>
-            </v-flex>
-          </v-layout>
-        </slot>
-      </div>
-    </v-scale-transition>
-  </div>
+        <v-scale-transition>
+            <div v-show="card">
+                <v-layout row wrap v-if="(paginationTop || paginationBoth) && pages > 1">
+                      <v-flex sm12 class="text-xs-center">
+                            <v-pagination :circle="paginationCircle" v-model="dataset.pagination.page" :length="pages"></v-pagination>
+                      </v-flex>
+                </v-layout>
+                <v-layout row wrap>
+                    <v-flex md3 sm6 xs12 v-for="(item, i) in dataset.items" :key="i">
+                        <v-card class="elevation-1">
+                            <slot name="card" :prop="{item, index: i, selected: computedSelected }">
+                                <v-card-media v-if="item.thumbnail" :src="item.thumbnail" height="250"></v-card-media>
+                                <v-card-text v-html="item.name"></v-card-text>
+                            </slot>
+                        </v-card>
+                    </v-flex>
+                    <infinite-loading v-if="infinite" spinner="waveDots" @infinite="listen" ref="infiniteLoading">
+                        <template slot="no-more" class="text-xs-center">
+                            <slot name="no-more">
+                                <div>No more resource found.</div>
+                            </slot>
+                        </template>
+                    </infinite-loading>
+                    <v-spacer></v-spacer>
+                </v-layout>
+                <slot name="pagination" :prop="{pagination: dataset.pagination}">
+                    <v-layout row wrap v-if="(!paginationTop || paginationBoth) && pages > 1">
+                        <v-flex sm12 class="text-xs-center">
+                            <v-pagination :circle="paginationCircle" v-model="dataset.pagination.page" :length="pages"></v-pagination>
+                        </v-flex>
+                    </v-layout>
+                </slot>
+            </div>
+        </v-scale-transition>
+    </div>
 </template>
 
 <script>
@@ -170,7 +169,7 @@
         this.$set(this.dataset, 'pagination', val)
       },
       'dataset.pagination': function (val) {
-        // console.log('pag', this.dataset.pagination)
+        console.log('pag', this.dataset.pagination)
         this.$emit('pagination', val)
       },
       'pagination.descending': function (val) {
@@ -226,7 +225,7 @@
         this.dataset.selected.forEach(i => {
           selected[i[this.itemKey]] = true
         })
-        return typeof selected[this.itemKey] != 'undefined'
+        return selected
       }
     }
   }

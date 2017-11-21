@@ -4,7 +4,6 @@ namespace Frontier\Composers;
 
 use Crowfeather\Traverser\Traverser;
 use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
 use Pluma\Support\Composers\BaseViewComposer;
 use Pluma\Support\Modules\Traits\Module;
@@ -82,8 +81,7 @@ class NavigationViewComposer extends BaseViewComposer
             if (user()->isRoot() ||
                 (isset($menu['always_viewable']) && $menu['always_viewable']) ||
                 (isset($menu['is_header']) && $menu['is_header']) ||
-                user()->isPermittedTo($menu['name']) ||
-                (isset($menu['permission']) && user()->isPermittedTo($menu['permission']))) {
+                user()->isPermittedTo($menu['name'])) {
                 $menu['can_be_accessed'] = true;
             }
 
@@ -107,9 +105,6 @@ class NavigationViewComposer extends BaseViewComposer
         $url = explode('/', $currentUrl);
         $old = "";
         foreach ($url as &$segment) {
-            if (is_numeric($segment)) {
-                $segment = $this->guessStringFromNumeric($segment, $old);
-            }
             $old .= "/$segment";
             $segment = $this->swapWord($segment);
 
@@ -118,7 +113,7 @@ class NavigationViewComposer extends BaseViewComposer
                 'label' => ucfirst($segment),
                 'name' => $segment,
                 'slug' => $old,
-                'url' => strtolower(url($old)),
+                'url' => url($old),
             ];
         }
 
@@ -176,16 +171,6 @@ class NavigationViewComposer extends BaseViewComposer
         // This will remove the headers if no menus are under it.
         // TODO: refactor this.
         foreach ($this->menus as $i => &$current) {
-            // This will remove all parent where the only child is a header/divider.
-            if (count($current['children']) == 1) {
-                $firstChild = reset($current['children']);
-                if ((isset($firstChild['is_header']) && $firstChild['is_header']) ||
-                    (isset($firstChild['is_divider']) && $firstChild['is_divider'])
-                ) {
-                    unset($this->menus[$i]);
-                }
-            }
-
             $next = next($this->menus);
             if (isset($current['is_header'])) {
                 if (! $next) {
@@ -245,37 +230,5 @@ class NavigationViewComposer extends BaseViewComposer
         }
 
         return $menus;
-    }
-
-    /**
-     * Try to get the column `code` from the database.
-     *
-     * @param  int $segment
-     * @param  string $url
-     * @return string
-     */
-    public function guessStringFromNumeric($segment, $url)
-    {
-
-        try {
-            $action = app('request')->route()->getAction();
-            $controller = class_basename($action['controller']);
-            $table = strtolower(str_plural(explode("Controller", $controller)[0]));
-            $result = \Illuminate\Support\Facades\DB::table($table)->find($segment);
-
-            if (isset($result->title)) {
-                $segment = $result->title;
-            } elseif (isset($result->name)) {
-                $segment = $result->title;
-            } elseif (isset($result->code)) {
-                $segment = $result->code;
-            } else {
-                $segment = $segment;
-            }
-        } catch (\Exception $e) {
-            return $segment;
-        }
-
-        return $segment;
     }
 }

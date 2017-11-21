@@ -4,13 +4,7 @@
         <v-toolbar card class="transparent">
             <v-toolbar-title class="accent--text">{{ __('Change Password') }}</v-toolbar-title>
         </v-toolbar>
-        @can('change-password')
-            <v-alert class="info white--text" value="true" color="info">
-                <div class="subheading">{{ __("You can change passwords without knowing the old one.") }}</div>
-            </v-alert>
-        @endcan
         <v-card-text>
-            @cannot('change-password')
             <v-text-field
                 :error-messages="resource.errors.old_password"
                 label="{{ _('Old Password') }}"
@@ -20,10 +14,9 @@
                 prepend-icon="fa-key"
                 input-group
             ></v-text-field>
-            @endcannot
             <v-text-field
                 :error-messages="resource.errors.password"
-                label="{{ _('New Password') }}"
+                label="{{ _('Password') }}"
                 type="password"
                 name="password"
                 value="{{ old('password') }}"

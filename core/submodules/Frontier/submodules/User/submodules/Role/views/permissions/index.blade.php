@@ -3,32 +3,97 @@
 @section("head-title", __('Permissions'))
 
 @section("content")
+    @include("Frontier::partials.banner")
+
+    <v-card class="elevation-0" style="background: linear-gradient(141deg, rgb(0, 74, 107) 0%, rgb(25, 160, 255) 51%, rgb(0, 74, 107) 75%);">
+        <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.60); position: absolute; width: 100%; height: 100%; z-index: 0;"></div>
+        <v-layout column class="media">
+            <v-card-text class="white--text">
+                <v-flex md8 offset-md2 class="pt-5 pb-5">
+                    <v-card-text class="white--text title">Permissions</v-card-text>
+                    <v-card-text class="subheading">
+                        <code>Refreshing</code>
+                        {{ __(" will add and/or update all new permissions specified by the modules you've installed. Existing permissions will not be removed.") }}
+                    </v-card-text>
+                    <v-card-text class="subheading">
+                        <code>Resetting</code>
+                        {{ __(" will remove all existing permissions from the database. Then it will re-populate the database with all of the permissions defined from the modules you've installed. Doing this will not reset the roles you've created - you have to manually redefine each roles again. Proceed with caution!") }}
+                    </v-card-text>
+                    <v-card-text class="subheading">
+                        {{ __("Refreshing will add and/or update all new permissions specified by the modules you've installed. Existing permissions will not be removed.") }}
+                    </v-card-text>
+
+                   <v-card-text>
+                        <v-card-actions class="pa-0">
+                            <form action="{{ route('permissions.refresh.refresh') }}" method="POST">
+                                {{ csrf_field() }}
+
+                                <div class="text-sm-right" class="">
+                                    <v-btn outline type="submit" class="btn btn--raised white white--text ma-0">
+                                        <span v-tooltip:left="{'html': 'Doing this action is relatively safe'}">Refresh</span>
+                                    </v-btn>
+                                </div>
+                            </form>
+                            <form class="text-xs-center" id="reset-permissions-form" action="{{ route('permissions.reset.reset') }}" method="POST">
+                                {{ csrf_field() }}
+                                <v-dialog max-width="50%" v-model="permissions.dialog.model" lazy width="auto">
+                                    <v-btn flat outline class="white--text" slot="activator" v-tooltip:bottom="{'html': 'Caution: This action is irreversible'}">
+                                        Reset
+                                    </v-btn>
+                                    <v-card style="max-width: 700px;">
+                                        <v-card-text class="text-xs-center">
+                                            <p class="headline ma-4"><v-icon round class="error white--text" style="font-size: 80px; border-radius: 50%; padding: 10px;">delete_forever</v-icon></p>
+                                            <p class="title">{{ __('Permanently Delete') }}</p>
+                                            <v-flex xs8 offset-xs2>
+                                                <p class="grey--text text--darken-1">
+                                                    {{ __("Performing this action will completely remove all Permissions data. The Application might not work properly after this action. You might need to setup the Users' Roles, Grants, and Permissions manually again. If you do not know what the message means, DO NOT PROCEED!") }}
+                                                </p>
+                                            </v-flex>
+                                            <p class="grey--text text--darken-1">
+                                                {{ __("Would you like to proceed?") }}
+                                            </p>
+                                        </v-card-text>
+                                        <v-divider></v-divider>
+                                        <v-card-actions>
+                                            <v-btn class="grey--text darken-1" flat @click.native="permissions.dialog.model=false">{{ __('Cancel') }}</v-btn>
+                                            <v-spacer></v-spacer>
+                                            <v-btn class="text--lighten-2 red--text" flat @click.native="proceed()">{{ __('Yes, Proceed') }}</v-btn>
+                                        </v-card-actions>
+                                    </v-card>
+                                </v-dialog>
+                            </form>
+                        </v-card-actions>
+                   </v-card-text>
+                </v-flex>
+            </v-card-text>
+        </v-layout>
+    </v-card>
+
+    <v-toolbar dark class="light-blue elevation-1 sticky">
+        <v-toolbar-title>{{ __('Permissions') }}</v-toolbar-title>
+        <v-spacer></v-spacer>
+
+        {{-- Search --}}
+        <template>
+            <v-text-field
+                class="mr-3"
+                :append-icon-cb="() => {dataset.searchform.model = !dataset.searchform.model}"
+                :prefix="dataset.searchform.prefix"
+                :prepend-icon="dataset.searchform.prepend"
+                append-icon="close"
+                light solo hide-details single-line
+                label="Search"
+                v-model="dataset.searchform.query"
+                v-show="dataset.searchform.model"
+            ></v-text-field>
+            <v-btn v-show="!dataset.searchform.model" icon v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search'}" @click.native="dataset.searchform.model = !dataset.searchform.model;dataset,searchform.query = '';"><v-icon>search</v-icon></v-btn>
+        </template>
+        {{-- /Search --}}
+    </v-toolbar>
     <v-container fluid grid-list-lg>
-        @include("Frontier::partials.banner")
         <v-layout row wrap>
-            <v-flex sm8 xs12>
-                <v-card class="mb-3">
-                    <v-toolbar class="transparent elevation-0">
-                        <v-toolbar-title class="accent--text">{{ __('Permissions') }}</v-toolbar-title>
-                        <v-spacer></v-spacer>
-
-                        {{-- Search --}}
-                        <v-text-field
-                            append-icon="search"
-                            label="{{ _('Search') }}"
-                            single-line
-                            hide-details
-                            v-if="dataset.searchform.model"
-                            v-model="dataset.searchform.query"
-                            light
-                        ></v-text-field>
-                        <v-btn v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search resources'}" icon flat light @click.native="dataset.searchform.model = !dataset.searchform.model; dataset.searchform.query = '';">
-                            <v-icon>@{{ !dataset.searchform.model ? 'search' : 'clear' }}</v-icon>
-                        </v-btn>
-                        {{-- /Search --}}
-
-                    </v-toolbar>
-
+            <v-flex xs12>
+                <v-card class="elevation-1">
                     <v-data-table
                         :loading="dataset.loading"
                         :total-items="dataset.totalItems"
@@ -55,55 +120,26 @@
                     </v-data-table>
                 </v-card>
             </v-flex>
-            <v-flex sm4 xs12>
-                <v-card class="mb-3">
-                    <v-card-title class="primary--text"><strong><v-icon class="primary--text">refresh</v-icon>{{ __("Refresh Permissions") }}</strong></v-card-title>
-                    <v-card-text>
-                        <form action="{{ route('permissions.refresh.refresh') }}" method="POST">
-                            {{ csrf_field() }}
-                            <p class="grey--text text-sm-right">{{ __("Refreshing will add and/or update all new permissions specified by the modules you've installed. Existing permissions will not be removed.") }}</p>
-
-                            <div class="text-sm-right">
-                                <button type="submit" class="btn btn--raised primary ma-0">
-                                    <span v-tooltip:left="{'html': 'Doing this action is relatively safe'}">Refresh</span>
-                                </button>
-                            </div>
-                        </form>
-                    </v-card-text>
-                </v-card>
-
-                {{-- @can("reset-permission") --}}
-                <v-card class="error mb-3" dark>
-                    <v-card-title><strong><v-icon>priority_high</v-icon>{{ __("Reset Permissions") }}</strong></v-card-title>
-                    <v-card-text>
-                        <form id="reset-permissions-form" action="{{ route('permissions.reset.reset') }}" method="POST" class="text-sm-right">
-                            {{ csrf_field() }}
-                            <p>{{ __("Resetting will remove all existing permissions from the database. Then it will re-populate the database with all of the permissions defined from the modules you've installed. Doing this will not reset the roles you've created - you have to manually redefine each roles again. Proceed with caution!") }}</p>
-
-                            <v-dialog v-model="permissions.dialog.model" width="100%">
-                                <v-btn white slot="activator"><span v-tooltip:left="{'html': 'Caution: This action is irreversible'}">Reset</span></v-btn>
-                                <v-card class="text-xs-center">
-                                    <v-card-title class="error white--text headline">{{ _("Warning, here be dragons") }}<v-spacer></v-spacer><v-icon class="white--text">priority_high</v-icon></v-card-title>
-                                    <v-card-text >
-                                        {{ __("Performing this action will completely remove all Permissions data. The Application might not work properly after this action. You might need to setup the Users' Roles, Grants, and Permissions manually again. If you do not know what the message means, then for the love of Talos, DO NOT PROCEED!") }}
-                                    </v-card-text>
-                                    <v-card-text class="text-xs-center"><strong>{{ __("Would you like to proceed?") }}</strong></v-card-text>
-                                    <v-card-actions>
-                                        <v-spacer></v-spacer>
-                                        <v-btn class="green--text darken-1" flat @click.native="permissions.dialog.model = false">Cancel</v-btn>
-                                        <v-btn class="error--text darken-1" flat @click.native="proceed()">Yes, Proceed</v-btn>
-                                    </v-card-actions>
-                                </v-card>
-                            </v-dialog>
-
-                        </form>
-                    </v-card-text>
-                </v-card>
-                {{-- @endcan --}}
-            </v-flex>
         </v-layout>
     </v-container>
 @endsection
+
+@push('css')
+    <style>
+        .overlay-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .media .card__text {
+            z-index: 1;
+        }
+        .weight-600 {
+            font-weight: 600 !important;
+        }
+    </style>
+@endpush
 
 @push('pre-scripts')
     <script src="{{ assets('frontier/vendors/vue/resource/vue-resource.min.js') }}"></script>
@@ -113,6 +149,7 @@
         mixins.push({
             data () {
                 return {
+                    hidden: true,
                     dataset: {
                         headers: [
                             { text: '{{ __("ID") }}', align: 'left', value: 'id' },

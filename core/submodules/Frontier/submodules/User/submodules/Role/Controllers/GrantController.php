@@ -21,8 +21,9 @@ class GrantController extends AdminController
     {
         $resources = Grant::paginate();
         $permissions = Permission::select('name', 'description', 'code', 'id')->get()->toArray();
+        $trashed = Grant::onlyTrashed()->count();
 
-        return view("Role::grants.index")->with(compact('resources', 'permissions'));
+        return view("Role::grants.index")->with(compact('resources', 'permissions', 'trashed'));
     }
 
     /**

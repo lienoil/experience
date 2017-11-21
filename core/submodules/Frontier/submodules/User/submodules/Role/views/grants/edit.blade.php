@@ -16,7 +16,7 @@
 @section("content")
     <v-container fluid grid-list-lg>
         <v-layout row wrap>
-            <v-flex sm8 offset-sm2>
+            <v-flex xs12>
 
                 @include("Theme::partials.banner")
 
@@ -29,26 +29,47 @@
                         <v-card-text>
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
-                            <v-text-field
-                                :error-messages="resource.errors.name"
-                                label="Name"
-                                name="name"
-                                value="{{ old('name') ? old('name') : $resource->name }}"
-                                @input="(val) => { resource.item.name = val; }"
-                            ></v-text-field>
-                            <v-text-field
-                                :error-messages="resource.errors.code"
-                                hint="{{ __('Will be used as an ID for Grants. Make sure the code is unique.') }}"
-                                label="Code"
-                                name="code"
-                                :value="resource.item.name ? resource.item.name : '{{ old('code') ? old('code') : $resource->code }}' | slugify"
-                            ></v-text-field>
-                            <v-text-field
-                                :error-messages="resource.errors.description"
-                                label="Description"
-                                name="description"
-                                value="{{ old('description') ? old('description') : $resource->description }}"
-                            ></v-text-field>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Name') }}</v-subheader>
+                                </v-flex>
+                                 <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.name"
+                                        label="Name"
+                                        name="name"
+                                        value="{{ old('name') ? old('name') : $resource->name }}"
+                                        @input="(val) => { resource.item.name = val; }"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Code') }}</v-subheader>
+                                </v-flex>
+                                 <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.code"
+                                        hint="{{ __('Will be used as an ID for Grants. Make sure the code is unique.') }}"
+                                        label="Code"
+                                        name="code"
+                                        :value="resource.item.name ? resource.item.name : '{{ old('code') ? old('code') : $resource->code }}' | slugify"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Description') }}</v-subheader>
+                                </v-flex>
+                                 <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.description"
+                                        label="Description"
+                                        name="description"
+                                        value="{{ old('description') ? old('description') : $resource->description }}"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
                         </v-card-text>
 
                         <v-layout row wrap>
@@ -67,7 +88,7 @@
                                                 success
                                                 @click.native.stop
                                                 @input="suppliments.permissions.selected.splice(i, 1)"
-                                                class="chip--select-multi pink darken-3 white--text"
+                                                class="chip--select-multi green lighten-2 white--text"
                                                 :key="i"
                                             >
                                                 <input type="hidden" name="json_permissions[]" :value="JSON.stringify(permission)">
@@ -96,7 +117,7 @@
                                 <v-data-table
                                     class="elevation-0"
                                     no-data-text="{{ _('No resource found') }}"
-                                    select-all
+                                    select-all="green lighten-2"
                                     selected-key="id"
                                     {{-- hide-actions --}}
                                     v-bind:search="suppliments.permissions.searchform.query"
@@ -112,6 +133,7 @@
                                                     primary
                                                     hide-details
                                                     class="pa-0"
+                                                    color="green lighten-2"
                                                     :input-value="prop.selected"
                                                 ></v-checkbox>
                                             </td>

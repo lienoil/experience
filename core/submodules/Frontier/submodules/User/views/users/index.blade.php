@@ -1,76 +1,82 @@
 @extends("Theme::layouts.admin")
 
 @section("content")
+    @include("Theme::partials.banner")
+    <v-toolbar card dark class="light-blue elevation-1 sticky">
+        <v-toolbar-title>{{ __($application->page->title) }}</v-toolbar-title>
+        <v-spacer></v-spacer>
+
+        {{-- Search --}}
+        <template>
+            <v-text-field
+                :append-icon-cb="() => {dataset.searchform.model = !dataset.searchform.model}"
+                :prefix="dataset.searchform.prefix"
+                :prepend-icon="dataset.searchform.prepend"
+                append-icon="close"
+                light solo hide-details single-line
+                label="Search"
+                v-model="dataset.searchform.query"
+                v-show="dataset.searchform.model"
+            ></v-text-field>
+            <v-btn v-show="!dataset.searchform.model" icon v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search resources'}" @click.native="dataset.searchform.model = !dataset.searchform.model;dataset,searchform.query = '';"><v-icon>search</v-icon></v-btn>
+        </template>
+        {{-- /Search --}}
+
+        <v-btn icon v-tooltip:left="{ html: 'Filter' }">
+            <v-icon class="subheading">fa fa-filter</v-icon>
+        </v-btn>
+
+        <v-btn icon v-tooltip:left="{ html: 'Sort' }">
+            <v-icon class="subheading">fa fa-sort-amount-asc</v-icon>
+        </v-btn>
+
+        {{-- Batch Commands --}}
+        <v-btn
+            v-show="dataset.selected.length < 2"
+            flat
+            icon
+            v-model="bulk.destroy.model"
+            :class="bulk.destroy.model ? 'btn--active primary primary--text' : ''"
+            v-tooltip:left="{'html': '{{ __('Toggle the bulk command checboxes') }}'}"
+            @click.native="bulk.destroy.model = !bulk.destroy.model"
+        ><v-icon>@{{ bulk.destroy.model ? 'check_circle' : 'check_circle' }}</v-icon></v-btn>
+        {{-- Bulk Delete --}}
+        <v-slide-y-transition>
+            <template v-if="dataset.selected.length > 1">
+                <form action="{{ route('users.many.destroy') }}" method="POST" class="inline">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <template v-for="item in dataset.selected">
+                        <input type="hidden" name="users[]" :value="item.id">
+                    </template>
+                    <v-btn
+                        flat
+                        icon
+                        type="submit"
+                        v-tooltip:left="{'html': `Move ${dataset.selected.length} selected items to Trash`}"
+                    ><v-icon warning>delete_sweep</v-icon></v-btn>
+                </form>
+            </template>
+        </v-slide-y-transition>
+        {{-- /Bulk Delete --}}
+        {{-- /Batch Commands --}}
+
+        {{-- Trashed --}}
+        <v-btn
+            icon
+            flat
+            href="{{ route('users.trash') }}"
+            dark
+            v-tooltip:left="{'html': `View trashed items`}"
+        ><v-icon class="warning--after" v-badge:{{ $trashed }}.overlap>archive</v-icon></v-btn>
+        {{-- /Trashed --}}
+    </v-toolbar>
 
     <v-container fluid grid-list-lg>
-        @include("Theme::partials.banner")
         <v-layout row wrap>
-            <v-flex sm12>
+            <v-flex xs12>
                 <v-card class="mb-3 elevation-1">
-                    <v-toolbar card class="transparent">
-                        <v-toolbar-title class="accent--text">{{ __($application->page->title) }}</v-toolbar-title>
-                        <v-spacer></v-spacer>
 
-                        {{-- Create Resource --}}
-                        {{-- <v-btn primary dark class="elevation-0" href="{{ route('users.create') }}" v-tooltip:left="{'html': `Add new user`}"><v-icon>add</v-icon> {{ __('Create User') }}</v-btn> --}}
-                        {{-- /Create Resource --}}
-
-                        {{-- Batch Commands --}}
-                        <v-btn
-                            v-show="dataset.selected.length < 2"
-                            flat
-                            icon
-                            v-model="bulk.destroy.model"
-                            :class="bulk.destroy.model ? 'btn--active info info--text' : ''"
-                            v-tooltip:left="{'html': '{{ __('Toggle the bulk command checboxes') }}'}"
-                            @click.native="bulk.destroy.model = !bulk.destroy.model"
-                        ><v-icon>@{{ bulk.destroy.model ? 'fa-check-circle' : 'check_box_outline_blank' }}</v-icon></v-btn>
-                        {{-- Bulk Delete --}}
-                        <v-slide-y-transition>
-                            <template v-if="dataset.selected.length > 1">
-                                <form action="{{ route('users.many.destroy') }}" method="POST" class="inline">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <template v-for="item in dataset.selected">
-                                        <input type="hidden" name="users[]" :value="item.id">
-                                    </template>
-                                    <v-btn
-                                        flat
-                                        icon
-                                        type="submit"
-                                        v-tooltip:left="{'html': `Move ${dataset.selected.length} selected items to Trash`}"
-                                    ><v-icon error>indeterminate_check_box</v-icon></v-btn>
-                                </form>
-                            </template>
-                        </v-slide-y-transition>
-                        {{-- /Bulk Delete --}}
-                        {{-- /Batch Commands --}}
-
-                        {{-- Search --}}
-                        <v-text-field
-                            append-icon="search"
-                            label="{{ _('Search') }}"
-                            single-line
-                            hide-details
-                            v-if="dataset.searchform.model"
-                            v-model="dataset.searchform.query"
-                            light
-                        ></v-text-field>
-                        <v-btn v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search resources'}" icon flat light @click.native="dataset.searchform.model = !dataset.searchform.model; dataset.searchform.query = '';">
-                            <v-icon>@{{ !dataset.searchform.model ? 'search' : 'clear' }}</v-icon>
-                        </v-btn>
-                        {{-- /Search --}}
-
-                        {{-- Trashed --}}
-                        <v-btn
-                            icon
-                            flat
-                            href="{{ route('users.trash') }}"
-                            light
-                            v-tooltip:left="{'html': `View trashed items`}"
-                        ><v-icon class="grey--after" v-badge:{{ $trashed }}.overlap>archive</v-icon></v-btn>
-                        {{-- /Trashed --}}
-                    </v-toolbar>
 
                     <v-data-table
                         :loading="dataset.loading"
@@ -100,7 +106,14 @@
                             </td>
                             <td>@{{ prop.item.id }}</td>
                             <td>
-                                <strong v-tooltip:bottom="{'html': prop.item.displayname ? prop.item.displayname : prop.item.propername}">@{{ prop.item.propername }}</strong>
+                                <v-avatar size="36px" slot="activator">
+                                    <img v-bind:src="prop.item.avatar">
+                                </v-avatar>
+                            </td>
+                            <td width="20%">
+                                <a class="black--text ripple no-decoration" :href="route(urls.roles.show, prop.item.id)">
+                                    <strong v-tooltip:bottom="{ html: 'Show Detail' }">@{{ prop.item.propername }}</strong>
+                                </a>
                             </td>
                             <td>@{{ prop.item.username }}</td>
                             <td>@{{ prop.item.email }}</td>
@@ -132,7 +145,8 @@
                                             </v-list-tile-content>
                                         </v-list-tile>
                                         <v-list-tile
-                                            @click.native.stop="destroy(route(urls.roles.api.destroy, prop.item.id),
+                                            ripple
+                                            @click="destroy(route(urls.roles.api.destroy, prop.item.id),
                                             {
                                                 '_token': '{{ csrf_token() }}'
                                             })">
@@ -156,6 +170,14 @@
     </v-container>
 @endsection
 
+@push('css')
+    <style>
+        .no-decoration {
+            text-decoration: none;
+        }
+    </style>
+@endpush
+
 @push('pre-scripts')
     <script src="{{ assets('frontier/vendors/vue/resource/vue-resource.min.js') }}"></script>
     <script>
@@ -168,6 +190,9 @@
                         destroy: {
                             model: false,
                         },
+                        searchform: {
+                            model: false,
+                        },
                     },
                     dataset: {
                         bulk: {
@@ -175,6 +200,7 @@
                         },
                         headers: [
                             { text: '{{ __("ID") }}', align: 'left', value: 'id' },
+                            { text: '{{ __("Avatar") }}', align: 'left', value: 'avatar' },
                             { text: '{{ __("Name") }}', align: 'left', value: 'name' },
                             { text: '{{ __("Username") }}', align: 'left', value: 'alias' },
                             { text: '{{ __("Email") }}', align: 'left', value: 'code' },

@@ -19,6 +19,7 @@ class LibraryController extends AdminController
     public function index(Request $request)
     {
         $resources = Library::all();
+        $trashed = Library::onlyTrashed()->count();
         $count = $resources->count();
         $catalogues = Catalogue::orderBy('name')->get();
 
@@ -26,7 +27,7 @@ class LibraryController extends AdminController
             $resources = Library::where('catalogue_id', $request->get('catalogue'))->get();
         }
 
-        return view("Theme::library.index")->with(compact('resources', 'catalogues', 'count'));
+        return view("Theme::library.index")->with(compact('resources', 'catalogues', 'count', 'trashed'));
     }
 
     /**
@@ -132,9 +133,9 @@ class LibraryController extends AdminController
      */
     public function trash()
     {
-        //
+        $resources = Library::onlyTrashed()->paginate();
 
-        return view("Theme::library.trash");
+        return view("Theme::library.trash")->with(compact('resources'));
     }
 
     /**
@@ -158,9 +159,10 @@ class LibraryController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete(LibraryRequest $request, $id)
+    public function delete(Request $request, $id)
     {
-        //
+        $library = Library::withTrashed()->findOrFail($id);
+        $library->forceDelete();
 
         return redirect()->route('library.trash');
     }

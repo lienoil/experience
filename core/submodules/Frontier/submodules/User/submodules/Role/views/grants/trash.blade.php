@@ -1,24 +1,49 @@
-@extends("Frontier::layouts.admin")
+@extends("Theme::layouts.admin")
 
 @section("head-title", __('Trashed Grants'))
+@section("page-title", __('Trashed Grants'))
 
 @push("utilitybar")
-    {{-- <a class="btn btn--raised primary white--text" href="{{ route('permissions.refresh') }}">Refresh</a> --}}
+    {{--  --}}
 @endpush
 
 @section("content")
-
-    <v-container fluid grid-list-lg>
+    @include("Theme::partials.banner")
+    <v-container fluid>
         <v-layout row wrap>
-            <v-flex sm8 offset-sm2>
-                @include("Frontier::partials.banner")
-
+            <v-flex xs12>
                 <v-card class="mb-3">
                     <v-toolbar class="transparent elevation-0">
                         <v-toolbar-title class="accent--text">{{ __('Trashed Grants') }}</v-toolbar-title>
                         <v-spacer></v-spacer>
 
+                        {{-- Search --}}
+                        <template>
+                            <v-text-field
+                                :append-icon-cb="() => {dataset.searchform.model = !dataset.searchform.model}"
+                                :prefix="dataset.searchform.prefix"
+                                :prepend-icon="dataset.searchform.prepend"
+                                append-icon="close"
+                                light solo hide-details single-line
+                                label="Search"
+                                v-model="dataset.searchform.query"
+                                v-show="dataset.searchform.model"
+                            ></v-text-field>
+                            <v-btn v-show="!dataset.searchform.model" icon v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search resources'}" @click.native="dataset.searchform.model = !dataset.searchform.model;dataset,searchform.query = '';"><v-icon>search</v-icon></v-btn>
+                        </template>
+
+                        {{-- /Search --}}
+
                         {{-- Batch Commands --}}
+                        <v-btn
+                            v-show="dataset.selected.length < 2"
+                            flat
+                            icon
+                            v-model="bulk.delete.model"
+                            :class="bulk.delete.model ? 'btn--active light-blue light-blue--text' : ''"
+                            v-tooltip:left="{'html': '{{ __('Toggle the bulk command checboxes') }}'}"
+                            @click.native="bulk.delete.model = !bulk.delete.model"
+                        ><v-icon>@{{ bulk.delete.model ? 'check_circle' : 'check_circle' }}</v-icon></v-btn>
                         <v-slide-y-transition>
                             <template v-if="dataset.selected.length > 1">
                                 <div>
@@ -28,23 +53,27 @@
                                         <template v-for="item in dataset.selected">
                                             <input type="hidden" name="grants[]" :value="item.id">
                                         </template>
-                                        <v-btn type="submit" flat icon v-tooltip:left="{'html': `Restore ${dataset.selected.length} selected items`}">
-                                            <v-icon>restore</v-icon>
-                                        </v-btn>
+                                        <button type="submit" v-tooltip:left="{'html': `Restore ${dataset.selected.length} selected items`}" class="btn btn--flat btn--icon"><span class="btn__content"><v-icon info>restore</v-icon></span></button>
                                     </form>
                                     {{-- /Bulk Restore --}}
 
                                     {{-- Bulk Delete --}}
                                     <v-dialog v-model="dataset.dialog.model" lazy width="auto">
-                                        <v-btn flat icon slot="activator" v-tooltip:left="{'html': `Permanently delete ${dataset.selected.length} selected items`}"><v-icon>delete_forever</v-icon></v-btn>
-                                        <v-card class="text-xs-center">
-                                            <v-card-title class="headline">{{ __('Permanent Delete') }}</v-card-title>
-                                            <v-card-text >
-                                                {{ __("You are about to permanently delete the resources. This action is irreversible. Do you want to proceed?") }}
+                                        <v-btn flat icon slot="activator" v-tooltip:left="{'html': `Permanently delete ${dataset.selected.length} selected items`}">
+                                            <v-icon class="error--text">delete_forever</v-icon>
+                                        </v-btn>
+                                        <v-card>
+                                            <v-card-text class="text-xs-center">
+                                                <p class="headline ma-4"><v-icon round class="error white--text" style="font-size: 80px; border-radius: 50%; padding: 10px;">delete_forever</v-icon></p>
+                                                <p class="title">{{ __('Permanently Delete') }}</p>
+                                                <p class="grey--text text--darken-1">
+                                                    {{ __("You are about to permanently delete the resources. This action is irreversible. Do you want to proceed?") }}
+                                                </p>
                                             </v-card-text>
+                                            <v-divider></v-divider>
                                             <v-card-actions>
+                                                <v-btn class="grey--text darken-1" flat @click.native.stop="dataset.dialog.model=false">{{ __('Cancel') }}</v-btn>
                                                 <v-spacer></v-spacer>
-                                                <v-btn class="green--text darken-1" flat @click.native.stop="dataset.dialog.model=false">{{ __('Cancel') }}</v-btn>
                                                 <form action="{{ route('grants.many.delete') }}" method="POST" class="inline">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
@@ -61,47 +90,29 @@
                             </template>
                         </v-slide-y-transition>
                         {{-- /Batch Commands --}}
-
-                        {{-- Search --}}
-                        <v-slide-y-transition>
-                            <v-text-field
-                                append-icon="search"
-                                label="{{ _('Search') }}"
-                                single-line
-                                hide-details
-                                v-if="dataset.searchform.model"
-                                v-model="dataset.searchform.query"
-                                light
-                            ></v-text-field>
-                        </v-slide-y-transition>
-                        <v-btn v-tooltip:left="{'html': !dataset.searchform.model ? 'Search resources' : 'Clear'}" icon flat light @click.native="dataset.searchform.model = !dataset.searchform.model; dataset.searchform.query = '';">
-                            <v-icon>@{{ !dataset.searchform.model ? 'search' : 'clear' }}</v-icon>
-                        </v-btn>
-                        {{-- /Search --}}
-
                     </v-toolbar>
 
                     <v-data-table
                         :loading="dataset.loading"
+                        v-bind="bulk.delete.model?{'select-all':'primary'}:[]"
                         :total-items="dataset.totalItems"
                         class="elevation-0"
                         no-data-text="{{ _('No resource found') }}"
-                        select-all
                         selected-key="id"
                         v-bind:headers="dataset.headers"
                         v-bind:items="dataset.items"
                         v-bind:pagination.sync="dataset.pagination"
                         v-model="dataset.selected"
-                    >
+                        >
                         <template slot="headerCell" scope="props">
                             <span v-tooltip:bottom="{'html': props.header.text}">
                                 @{{ props.header.text }}
                             </span>
                         </template>
                         <template slot="items" scope="prop">
-                            <td>
+                            <td v-show="bulk.delete.model">
                                 <v-checkbox
-                                    primary
+                                    color="primary"
                                     hide-details
                                     class="pa-0"
                                     v-model="prop.selected"
@@ -115,29 +126,32 @@
                                 <span v-tooltip:bottom="{'html': 'Number of permissions associated'}">@{{ prop.item.permissions.length }}</span>
                             </td>
                             <td>@{{ prop.item.created }}</td>
-                            <td width="100%" class="text-xs-center">
-                                <form :action="route(urls.grants.restore, (prop.item.id))" method="POST" class="inline">
-                                    {{ csrf_field() }}
-                                    <button type="submit" class="btn btn--flat btn--icon" v-tooltip:bottom="{'html': '{{ __('Restore resource') }}'}"><span class="btn__content"><v-icon>restore</v-icon></span></button>
-                                </form>
-                                <v-dialog v-model="prop.item.dialog" lazy width="auto" min-width="200px">
-                                    <v-btn flat icon slot="activator" v-tooltip:bottom="{'html': '{{ __('Move to Trash') }}'}"><v-icon>delete_forever</v-icon></v-btn>
-                                    <v-card class="text-xs-center">
-                                        <v-card-title class="headline">{{ __('Permanently Delete') }} "@{{ prop.item.name }}"</v-card-title>
-                                        <v-card-text >
-                                            {{ __("You are about to permanently delete the resource. This action is irreversible. Do you want to proceed?") }}
-                                        </v-card-text>
-                                        <v-card-actions>
-                                            <v-spacer></v-spacer>
-                                            {{-- <v-btn class="green--text darken-1" flat @click.native="prop.item.dialog=false">{{ __('Cancel') }}</v-btn> --}}
-                                            <form :action="route(urls.grants.delete, (prop.item.id))" method="POST" class="inline">
-                                                {{ csrf_field() }}
-                                                {{ method_field('DELETE') }}
-                                                <button type="submit" class="btn btn--flat error--text"><span class="btn__content">{{ __('Delete Forever') }}</span></button>
-                                            </form>
-                                        </v-card-actions>
-                                    </v-card>
-                                </v-dialog>
+                            <td class="text-xs-center">
+                                <v-menu bottom left>
+                                    <v-btn icon flat slot="activator" v-tooltip:bottom="{ html: 'More Actions' }"><v-icon>more_vert</v-icon></v-btn>
+                                    <v-list>
+                                        <v-list-tile ripple @click="post(route(urls.grants.api.restore, (prop.item.id)))">
+                                            <v-list-tile-action>
+                                                <v-icon info>restore</v-icon>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <v-list-tile-title>
+                                                    {{ __('Restore') }}
+                                                </v-list-tile-title>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                        <v-list-tile ripple @click="setDialog(true, prop.item)">
+                                            <v-list-tile-action>
+                                                <v-icon error>delete_forever</v-icon>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <v-list-tile-title>
+                                                    {{ __('Permanently Delete') }}
+                                                </v-list-tile-title>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                    </v-list>
+                                </v-menu>
                             </td>
                         </template>
                     </v-data-table>
@@ -145,6 +159,28 @@
             </v-flex>
         </v-layout>
     </v-container>
+    <v-dialog v-model="resource.dialog.model" persistent lazy width="auto" min-width="200px">
+        <v-card class="text-xs-center">
+            <v-card-text >
+                <p class="headline ma-4"><v-icon round class="error white--text" style="font-size: 80px; border-radius: 50%; padding: 10px;">delete_forever</v-icon></p>
+                <p class="title">{{ __('Permanently Delete') }} "@{{ resource.dialog.data.name }}"</p>
+                <p class="grey--text text--darken-1">
+                    {{ __("You are about to permanently delete the resource. This action is irreversible. Do you want to proceed?") }}
+                </p>
+            </v-card-text>
+            <v-divider></v-divider>
+            <v-card-actions>
+                <v-btn class="green--text darken-1" flat @click.native="resource.dialog.model=false">{{ __('Cancel') }}</v-btn>
+                <v-spacer></v-spacer>
+                <form :action="route(urls.grants.delete, (resource.dialog.data.id))" method="POST" class="inline">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <v-btn type="submit" flat class="error error--text">{{ __('Delete Forever') }}</v-btn>
+                </form>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
+
 @endsection
 
 
@@ -164,8 +200,16 @@
         mixins.push({
             data () {
                 return {
+                    bulk: {
+                        delete: {
+                            model: false,
+                        },
+                    },
                     dataset: {
                         dialog: {
+                            model: false,
+                        },
+                        bulk: {
                             model: false,
                         },
                         headers: [
@@ -196,21 +240,31 @@
                             name: '',
                             code: '',
                             description: '',
-                            grants: '',
                         },
                         errors: JSON.parse('{!! json_encode($errors->getMessages()) !!}'),
-                    },
-                    suppliments: {
-                        grants: {
-                            items: [],
-                            selected: [],
+                        dialog: {
+                            model: false,
+                            data: {},
                         }
                     },
                     urls: {
                         grants: {
+                            api: {
+                                restore: '{{ route('api.grants.restore', 'null') }}',
+                                delete: '{{ route('api.grants.delete', 'null') }}',
+                            },
                             restore: '{{ route('grants.restore', 'null') }}',
                             delete: '{{ route('grants.delete', 'null') }}',
                         },
+                    },
+
+                    snackbar: {
+                        model: false,
+                        text: '',
+                        context: '',
+                        timeout: 2000,
+                        y: 'bottom',
+                        x: 'right'
                     },
                 };
             },
@@ -244,27 +298,47 @@
                     }, 1000);
                 },
             },
+
             methods: {
                 get () {
-                    const { sortBy, descending, page, rowsPerPage, totalItems } = this.dataset.pagination;
-                    let query = {
-                        descending: descending,
-                        page: page,
-                        sort: sortBy,
-                        take: rowsPerPage,
-                        trashedOnly: this.dataset.pagination.trashedOnly,
-                    };
-                    this.api().get('{{ route('api.grants.all') }}', query)
+                    this.api().get('{{ route('api.grants.all') }}', this.dataset.pagination)
                         .then((data) => {
                             this.dataset.items = data.items.data ? data.items.data : data.items;
                             this.dataset.totalItems = data.items.total ? data.items.total : data.total;
                             this.dataset.loading = false;
                         });
                 },
+
+                post (url, query) {
+                    var self = this;
+                    this.api().post(url, query)
+                        .then((data) => {
+                            console.log(data);
+                            self.get('{{ route('api.grants.all') }}');
+                            self.snackbar = Object.assign(self.snackbar, data.items);
+                            self.snackbar.model = true;
+                        });
+                },
+
+                destroy (url, query) {
+                    var self = this;
+                    this.api().delete(url, query)
+                        .then((data) => {
+                            self.get('{{ route('api.grants.all') }}');
+                            self.snackbar = Object.assign(self.snackbar, data);
+                            self.snackbar.model = true;
+                        });
+                },
+
+                setDialog (model, data) {
+                    this.resource.dialog.model = model;
+                    this.resource.dialog.data = data;
+                },
             },
+
             mounted () {
                 this.get();
-            }
+            },
         });
     </script>
 @endpush

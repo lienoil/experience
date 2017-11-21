@@ -61,15 +61,14 @@
         </v-fade-transition>
     </v-card-text>
 
-    <div v-else class="pa-2">
-        <img
-            width="100%"
-            height="auto"
-            :src="resource.item.feature ? resource.item.feature.thumbnail : ''"
-            role="button"
-            @click.stop="resource.feature.model = !resource.feature.model"
-        >
-    </div>
+    <img
+        v-else
+        width="100%"
+        height="auto"
+        :src="resource.item.feature ? resource.item.feature.thumbnail : ''"
+        role="button"
+        @click.stop="resource.feature.model = !resource.feature.model"
+    >
     <input type="hidden" name="feature_obj" :value="JSON.stringify(resource.item.feature)">
     <input type="hidden" name="feature" :value="resource.item.feature ? resource.item.feature.thumbnail : ''">
     {{-- <v-card-media

@@ -1,15 +1,46 @@
 @extends("Theme::layouts.admin")
 
 @section("content")
+    @include("Theme::partials.banner")
     <v-toolbar class="light-blue elevation-1 sticky" dark>
-        <template v-if="dataset.searchform.model">
+		<v-menu :nudge-width="100">
+            <v-toolbar-title slot="activator">
+                <v-icon class="white--text pr-2" v-html="suppliments.catalogues.current.icon">view_module</v-icon>
+                <span v-html="suppliments.catalogues.current.name"></span>
+                <v-icon dark>arrow_drop_down</v-icon>
+            </v-toolbar-title>
+            <v-list>
+                <v-list-tile @click="supplimentary().select(item)" ripple v-for="(item, i) in suppliments.catalogues.items" :key="i">
+                    <v-list-tile-action>
+                        <v-icon accent v-html="item.icon"></v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                        <v-list-tile-title v-html="item.name"></v-list-tile-title>
+                    </v-list-tile-content>
+                    <v-list-tile-action>
+                        <div class="caption grey--text">@{{ item.libraries?item.libraries.length:item.count }}</div>
+                    </v-list-tile-action>
+                </v-list-tile>
+            </v-list>
+        </v-menu>
+        <v-spacer></v-spacer>
+        {{-- Search --}}
+        <template>
             <v-text-field
-                prepend-icon="search"
+                :append-icon-cb="() => {dataset.searchform.model = !dataset.searchform.model}"
+                :prefix="dataset.searchform.prefix"
+                :prepend-icon="dataset.searchform.prepend"
                 append-icon="close"
-                :append-icon-cb="() => searchbox().close()"
                 light solo hide-details single-line
-                v-model="dataset.searchform.query"></v-text-field>
+                label="Search"
+                autofocus="autofocus"
+                v-model="dataset.searchform.query"
+                v-show="dataset.searchform.model"
+            ></v-text-field>
+            <v-btn v-show="!dataset.searchform.model" icon v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search resources'}" @click.native="dataset.searchform.model = !dataset.searchform.model;dataset,searchform.query = '';"><v-icon>search</v-icon></v-btn>
         </template>
+        {{-- /Search --}}
+
         <template v-else>
             <v-menu :nudge-width="100">
                 <v-toolbar-title slot="activator">
@@ -26,7 +57,7 @@
                             <v-list-tile-title v-html="item.name"></v-list-tile-title>
                         </v-list-tile-content>
                         <v-list-tile-action>
-                            <v-chip class="blue white--text" label v-html="item.libraries?item.libraries.length:item.count"></v-chip>
+                            <v-chip small class="blue white--text" label v-html="item.libraries?item.libraries.length:item.count"></v-chip>
                         </v-list-tile-action>
                     </v-list-tile>
                 </v-list>
@@ -35,16 +66,6 @@
             <v-spacer></v-spacer>
             <span class="caption" v-if="bulk.selection.model" v-html="`${dataset.selected.length}/${dataset.pagination.totalItems} Selected`"></span>
             <v-spacer v-if="bulk.selection.model"></v-spacer>
-
-            {{-- Search --}}
-            <v-btn
-                icon
-                v-tooltip:left="{ html: 'Search' }"
-                @click="dataset.searchform.model = !dataset.searchform.model"
-            >
-                <v-icon>search</v-icon>
-            </v-btn>
-            {{-- /Search --}}
         </template>
 
         <v-btn icon v-tooltip:left="{ html: 'Upload files' }" :class="bulk.upload.model ? 'btn--active primary' : ''" @click.native.stop="setStorage('bulk.upload.model', (bulk.upload.model = !bulk.upload.model))">
@@ -52,48 +73,47 @@
         </v-btn>
 
         {{-- Selection --}}
-        <v-btn v-model="bulk.selection.model" :class="{'primary': bulk.selection.model}" ripple @click="bulk.selection.model = !bulk.selection.model; bulk.selection.model?bulk.toggle.model = true : null" icon v-tooltip:left="{ html: 'Toggle Bulk Selection' }">
+        <v-btn v-model="bulk.selection.model" :class="{'primary--text': bulk.selection.model}" ripple @click="bulk.selection.model = !bulk.selection.model; bulk.selection.model?bulk.toggle.model = true : null" icon v-tooltip:left="{ html: 'Toggle Bulk Selection' }">
             <v-icon>check_circle</v-icon>
         </v-btn>
+
         <template v-if="bulk.selection.model && dataset.selected.length > 1">
             <form action="{{ route('library.many.destroy') }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <input type="hidden" name="library[]" v-for="(selected, i) in dataset.selected" :key="i" :value="selected.id">
-                <v-btn type="submit" small ripple @click="datasetbox().trash()" icon class="white" v-tooltip:left="{html:'{{ __('Move to Trash') }}'}"><v-icon class="error--text">delete</v-icon></v-btn>
+                <v-btn type="submit" small ripple @click="datasetbox().trash()" icon v-tooltip:left="{html:'{{ __('Move to Trash') }}'}">
+                    <v-icon class="warning--text">delete_sweep</v-icon>
+                </v-btn>
             </form>
-            {{-- <v-btn small icon v-tooltip:left="{html:'{{ __('Download') }}'}"><v-icon>cloud_download</v-icon></v-btn> --}}
         </template>
         {{-- /Selection --}}
 
-        <v-btn icon v-tooltip:left="{html: 'Grid / List'}" @click="bulk.toggle.model = !bulk.toggle.model">
-            <v-icon small v-if="!bulk.toggle.model">view_module</v-icon>
-            <v-icon small v-else>list</v-icon>
-        </v-btn>
+        {{-- Move --}}
+        <template v-if="bulk.selection.model && dataset.selected.length > 1">
+            <form action="" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <input type="hidden" name="library[]" v-for="(selected, i) in dataset.selected" :key="i" :value="selected.id">
+                <v-btn type="submit" small ripple @click="datasetbox().trash()" icon v-tooltip:left="{html:'{{ __('Move to other category') }}'}">
+                    <v-icon class="text--darken-1 pink--text">move_to_inbox</v-icon>
+                </v-btn>
+            </form>
+        </template>
+        {{-- /Move --}}
 
-        <v-menu transition="slide-y-transition" v-if="!bulk.toggle.model">
-            <v-btn icon slot="activator" v-tooltip:left="{html: 'Filter'}">
-                <v-icon>filter_list</v-icon>
-            </v-btn>
-            <v-card>
-                <v-list>
-                    <v-list-tile
-                        href="" ripple @click="datasetbox().sortBy(header)"
-                        v-for="(header, i) in dataset.headers"
-                        :disabled="typeof header.sortable != 'undefined' && !header.sortable"
-                        :key="i"
-                    >
-                        <v-list-tile-title v-html="header.text"></v-list-tile-title>
-                    </v-list-tile>
-                </v-list>
-            </v-card>
-        </v-menu>
         <v-btn ripple v-if="!bulk.toggle.model" icon v-tooltip:left="{html: 'Sort'}" @click="datasetbox().sort()">
             <v-icon class="subheading" v-if="dataset.pagination.descending">fa-sort-amount-desc</v-icon>
             <v-icon class="subheading" v-else>fa-sort-amount-asc</v-icon>
         </v-btn>
+
+        <v-btn icon v-tooltip:left="{html: bulk.toggle.model ? 'View as Thumbnail' : 'View as Table' }" @click="bulk.toggle.model = !bulk.toggle.model">
+            <v-icon small v-if="!bulk.toggle.model">list</v-icon>
+            <v-icon small v-else>view_module</v-icon>
+        </v-btn>
+
         {{-- v-if="!bulk.toggle.model" --}}
-        <v-menu :nudge-width="100" transition="slide-y-transition" >
+        <v-menu bottom right>
             <span flat class="px-2" slot="activator" v-tooltip:left="{html: 'Rows per page'}">
                 <span v-html="dataset.pagination.rowsPerPageText"></span>
                 <v-icon dark>arrow_drop_down</v-icon>
@@ -105,13 +125,24 @@
                         v-for="(row, i) in dataset.rowsPerPageItems"
                         :key="i"
                     >
-                        <v-list-tile-title class="text-xs-right" v-html="typeof row.text != 'undefined' ? row.text : row"></v-list-tile-title>
+                        <v-list-tile-title class="text-xs-left" v-html="typeof row.text != 'undefined' ? row.text : row"></v-list-tile-title>
                     </v-list-tile>
                 </v-list>
             </v-card>
         </v-menu>
+
+        {{-- Trashed --}}
+        <v-btn
+            icon
+            flat
+            href="{{ route('library.trash') }}"
+            dark
+            v-tooltip:left="{'html': `View trashed items`}"
+        ><v-icon class="warning--after" v-badge:{{ $trashed }}.overlap>archive</v-icon></v-btn>
+        {{-- /Trashed --}}
     </v-toolbar>
 
+    {{-- upload --}}
     <v-slide-y-transition>
         <v-card flat tile v-show="bulk.upload.model" class="grey lighten-4">
             <v-dropzone
@@ -120,19 +151,18 @@
                 auto-remove-files
                 @complete="dropzonebox().completed($event)"
                 @sending="dropzonebox().sending($event)"
-            >
+                >
                 <template>
                     <div class="caption grey--text text--darken-2">
                         <span>{{ __('You may drag 20 files at a time.') }}</span>
                         <em class="caption" v-html="`{{ __('Uploads will be catalogued as') }} <strong>${suppliments.catalogues.current.name}</strong>`"></em>
                     </div>
-                    <v-switch label="Extract archive files" persistent-hint v-model="dropzone.extract" value="true"></v-switch>
-                    <input type="hidden" name="extract" :value="dropzone.extract">
                 </template>
             </v-dropzone>
         </v-card>
     </v-slide-y-transition>
 
+    {{-- pre-loading --}}
     <v-container fluid v-if="dataset.loading">
         <v-layout fill-height row wrap>
             <v-flex xs12 class="text-xs-center">
@@ -141,128 +171,106 @@
         </v-layout>
     </v-container>
 
-    <v-container fluid class="grey lighten-4" grid-list-lg v-if="!dataset.items.length && !bulk.upload.model">
-        <v-layout fill-height row wrap>
-            <v-flex xs12>
-                <div class="text-xs-center grey--text">
-                    <v-icon class="display-4 grey--text">fa-frown-o</v-icon>
-                    <div class="mb-3">{{ __('There seems to be only loneliness here.') }}</div>
-                    <div><v-btn info class="elevation-1" @click="bulk.upload.model = !bulk.upload.model">{{ __('Upload') }}</v-btn></div>
-                </div>
-            </v-flex>
-        </v-layout>
-    </v-container>
+    {{-- Empty --}}
+    <v-card flat class="text-xs-center pa-5" v-if="!dataset.items.length && !bulk.upload.model">
+        <v-card-text class=" grey--text">
+            <img src="{{ assets('frontier/images/placeholder/zip.png') }}" class="pb-4" width="100%" style="max-width: 120px !important;" height="auto">
+            <h4>{{ __('Your library is empty') }}</h4>
+            <h6>{{ __("Everything you upload will be here.") }}</h6>
+            <v-btn primary round class="elevation-0" @click="bulk.upload.model = !bulk.upload.model">{{ __('Start Upload') }}</v-btn>
+        </v-card-text>
+    </v-card>
+    {{-- /Empty --}}
 
-    <v-container fluid class="grey lighten-4" grid-list-lg>
-        <v-layout fill-height row wrap>
-            <v-flex sm12>
-                <v-dataset
-                    :card="!bulk.toggle.model"
-                    :headers="dataset.headers"
-                    :items="dataset.items"
-                    :pagination="dataset.pagination"
-                    :rows-per-page-items="dataset.rowsPerPageItems"
-                    :table="bulk.toggle.model"
-                    :total-items="dataset.pagination.totalItems"
-                    item-key="id"
-                    item-name="name"
-                    pagination-both
-                    pagination-circle
-                    v-bind="bulk.selection.model?{'select-all':'primary'}:null"
-                    v-model="dataset.selected"
-                    @pagination="datasetbox().pagination($event)"
-                >
-                    <template slot="items" scope="{prop}">
-                        <tr role="button" :active="prop.selected" @click="prop.selected = !prop.selected">
-                            <td v-if="bulk.selection.model">
-                                <v-checkbox
-                                    color="primary"
-                                    primary
-                                    hide-details
-                                    :input-value="prop.selected"
-                                ></v-checkbox>
-                            </td>
-                            <td v-html="prop.item.id"></td>
-                            <td>
-                                <v-avatar size="35px">
-                                    <img :src="prop.item.thumbnail">
-                                </v-avatar>
-                                <span v-html="prop.item.name"></span>
-                            </td>
-                            <td><v-chip class="red lighten-3 white--text"><v-icon left class="white--text" v-html="prop.item.icon"></v-icon><span v-html="prop.item.mimetype"></span></v-chip></td>
-                            <td v-html="prop.item.filesize"></td>
-                            <td v-html="prop.item.created"></td>
-                            <td v-html="prop.item.modified"></td>
-                        </tr>
-                    </template>
-                    <template slot="card" scope="{prop}">
-                        <v-card-media height="250px" :src="prop.item.thumbnail" class="grey lighten-4">
-                            <v-container fill-height class="pa-0 white--text">
-                                <v-layout fill-height wrap column>
-                                    {{-- <v-scale-transition>
-                                        <v-btn v-show="bulk.selection.model" icon small class="white success--text" ripple @click.stop="prop.selected = !prop.selected">
-                                            <v-icon v-if="prop.selected" ripple small class="success--text">check_circle</v-icon>
-                                            <v-icon v-else ripple small class="success--text">radio_button_unchecked</v-icon>
-                                        </v-btn>
-                                    </v-scale-transition> --}}
-                                    <v-spacer></v-spacer>
-                                </v-layout>
-                            </v-container>
-                        </v-card-media>
-                        {{-- <v-divider></v-divider> --}}
-                        <v-toolbar card dense class="transparent">
-                            <v-toolbar-title class="subheading">
-                                <span v-html="prop.item.name"></span>
-                                <div class="caption grey--text" v-html="prop.item.filesize"></div>
-                            </v-toolbar-title>
-                            <v-spacer></v-spacer>
-                            <v-btn small absolute fab top right class="info darken-1 elevation-1"><v-icon class="white--text" v-html="prop.item.icon"></v-icon></v-btn>
-                        </v-toolbar>
-                        <v-card-actions class="grey--text px-2">
-                            <span class="caption" v-html="prop.item.mimetype"></span>
-                            <v-spacer></v-spacer>
-                            <div class="caption text-xs-right" v-html="prop.item.created"></div>
-                        </v-card-actions>
-                    </template>
-                </v-dataset>
-            </v-flex>
-            {{-- <v-flex fill-height md3 v-for="(item, i) in dataset.items" :key="i">
-                <v-card tile class="elevation-1" @click.stop="item.active = !item.active">
-                    <v-card-media height="250px" :src="item.thumbnail" class="grey lighten-4">
-                        <v-container fill-height class="pa-0 white--text">
-                            <v-layout fill-height wrap column>
-                                <v-scale-transition>
-                                    <v-btn v-show="bulk.selection.model" icon small class="white success--text" ripple @click.stop="item.active = !item.active">
-                                        <v-icon v-if="!item.active" ripple small class="success--text">radio_button_unchecked</v-icon>
-                                        <v-icon v-else ripple small class="success--text">check_circle</v-icon>
-                                    </v-btn>
-                                </v-scale-transition>
-                                <v-spacer></v-spacer>
-                                <v-card-actions class="px-2 white--text">
-                                </v-card-actions>
-                            </v-layout>
-                        </v-container>
-                    </v-card-media>
-                    <v-toolbar card dense class="transparent">
-                        <v-toolbar-title class="subheading" v-html="item.name"></v-toolbar-title>
-
-                        <v-spacer></v-spacer>
-                        <v-btn small absolute fab top right class="info darken-1 elevation-1"><v-icon class="white--text" v-html="item.icon"></v-icon></v-btn>
-                    </v-toolbar>
-                    <v-card-actions class="grey--text px-2">
-                        <span class="caption" v-html="item.mimetype"></span>
-                        <v-spacer></v-spacer>
-                        <span class="caption" v-html="item.filesize"></span>
-                    </v-card-actions>
-                </v-card>
-            </v-flex> --}}
-        </v-layout>
+    <v-container fluid grid-list-lg>
+        <v-dataset
+            :card="!bulk.toggle.model"
+            :headers="dataset.headers"
+            :items="dataset.items"
+            :pagination="dataset.pagination"
+            :rows-per-page-items="dataset.rowsPerPageItems"
+            :table="bulk.toggle.model"
+            :total-items="dataset.pagination.totalItems"
+            item-key="id"
+            item-name="name"
+            pagination-primary
+            class="caption"
+            pagination-both
+            :total-visible="2"
+            pagination-circle
+            v-bind="bulk.selection.model?{'select-all':'primary'}:null"
+            v-model="dataset.selected"
+            @pagination="datasetbox().pagination($event)"
+            >
+            {{-- Table --}}
+            <template slot="items" scope="{prop}">
+                <tr role="button" :active="prop.selected" @click="prop.selected = !prop.selected">
+                    <td v-if="bulk.selection.model">
+                        <v-checkbox
+                            color="primary"
+                            primary
+                            hide-details
+                            :input-value="prop.selected"
+                        ></v-checkbox>
+                    </td>
+                    <td class="text-xs-left" v-html="prop.item.id"></td>
+                    <td>
+                        <v-avatar size="35px">
+                            <img :src="prop.item.thumbnail">
+                        </v-avatar>
+                    </td>
+                    <td><span v-html="prop.item.name"></span></td>
+                    <td>
+                        <v-icon class="pink--text text--lighten-1" v-html="prop.item.icon"></v-icon>
+                        <span class="caption ml-2" v-html="prop.item.mimetype"></span>
+                    </td>
+                    <td v-html="prop.item.filesize"></td>
+                    <td v-html="prop.item.created"></td>
+                    <td v-html="prop.item.modified"></td>
+                </tr>
+            </template>
+            {{-- Thumbnail --}}
+            <template slot="card" scope="{prop}">
+                <v-card-media height="150px" :src="prop.item.thumbnail" class="grey lighten-4"></v-card-media>
+                <v-divider class="grey lighten-3"></v-divider>
+                <v-toolbar card dense class="transparent pt-2">
+                    <v-toolbar-title class="mr-3 subheading">
+                        <span class="body-2" v-html="prop.item.name"></span>
+                    </v-toolbar-title>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        small
+                        absolute
+                        fab
+                        top
+                        right
+                        class="pink lighten-1 elevation-1"
+                        v-tooltip:bottom="{'html': prop.item.mimetype ? prop.item.mimetype : prop.item.mimetype}"
+                        >
+                        <v-icon class="white--text" v-html="prop.item.icon"></v-icon>
+                    </v-btn>
+                </v-toolbar>
+                <v-card-text class="grey--text pt-1">
+                    <span class="caption" v-html="prop.item.filesize"></span>
+                    <div class="caption grey--text" v-html="prop.item.created"></div>
+                </v-card-text>
+            </template>
+        </v-dataset>
     </v-container>
 @endsection
 
 @push('css')
     <link rel="stylesheet" href="{{ assets('frontier/vuetify-dataset/dist/vuetify-dataset.min.css') }}">
     <link rel="stylesheet" href="{{ assets('library/vuetify-dropzone/dist/vuetify-dropzone.min.css') }}">
+    <style>
+        .pagination__item,
+        .pagination__navigation {
+            box-shadow: none !important;
+        }
+        .application--light .pagination__item--active {
+            background: #03a9f4 !important;
+        }
+    </style>
 @endpush
 
 @push('pre-scripts')
@@ -285,16 +293,23 @@
                         selection: {
                             model: false,
                         },
+                        searchform: {
+                            model: false,
+                        },
+                    },
+                    searchform: {
+                        model: false,
+                        query: '',
                     },
                     dataset: {
                         headers: [
                             { text: '{{ __("ID") }}', align: 'left', value: 'id' },
-                            // { text: '{{ __("Thumbnail") }}', align: 'left', value: 'thumbnail' },
+                            { text: '{{ __("Avatar") }}', align: 'left', value: 'thumbnail' },
                             { text: '{{ __("Name") }}', align: 'left', value: 'name' },
                             { text: '{{ __("File Type") }}', align: 'left', value: 'mimetype' },
                             { text: '{{ __("File Size") }}', align: 'left', value: 'size' },
                             { text: '{{ __("Upload Date") }}', align: 'left', value: 'created_at' },
-                            { text: '{{ __("Actions") }}', align: 'center', sortable: false },
+                            { text: '{{ __("Modified Date") }}', align: 'left', value: 'updated_at' },
                         ],
                         items: [],
                         loading: true,
@@ -321,14 +336,17 @@
 
                     urls: {
                         library: {
+                            api: {
+                                destroy: '{{ route('api.library.destroy', 'null') }}',
+                            },
                             catalogue: '{{ route('api.library.catalogue', 'null') }}',
                             index: '{{ route('library.index') }}',
+                            destroy: '{{ route('library.destroy', 'null') }}',
                         },
                     },
 
                     dropzone: {
                         currentfile: {},
-                        extract: true,
                         params: {
                             _token: '{{ csrf_token() }}',
                         },
@@ -337,10 +355,26 @@
             },
 
             watch: {
-                'dataset.searchform.query': function (q) {
-                    // console.log('se', q)
-                    this.search('{{ route('api.library.search') }}', q)
-                }
+                'dataset.searchform.query': function (filter) {
+                    setTimeout(() => {
+                        const { sortBy, descending, page, rowsPerPage } = this.dataset.pagination;
+
+                        let query = {
+                            descending: descending,
+                            page: page,
+                            q: filter,
+                            sort: sortBy,
+                            take: rowsPerPage,
+                        };
+
+                        this.api().search('{{ route('api.library.search') }}', query)
+                            .then((data) => {
+                                this.dataset.items = data.items.data ? data.items.data : data.items;
+                                this.dataset.totalItems = data.items.total ? data.items.total : data.total;
+                                this.dataset.loading = false;
+                            });
+                    }, 1000);
+                },
             },
 
             methods: {
@@ -405,23 +439,6 @@
                         });
                 },
 
-                mountSuppliments () {
-                    // this.suppliments.catalogues.current = '{{ request()->getQueryString() }}';
-
-                    // this.api().get('{{ route('api.library.catalogues') }}')
-                    //     .then((data) => {
-                    //         console.log(data);
-                    //         this.suppliments.catalogues.items = data.items.data ? data.items.data : data.items;
-                    //         for (var i = this.suppliments.catalogues.items.length - 1; i >= 0; i--) {
-                    //             let current = this.suppliments.catalogues.items[i];
-                    //             if (current.id == this.suppliments.catalogues.current.split('=')[1]) {
-                    //                 this.suppliments.catalogues.items[i].active = true;
-                    //             }
-                    //         }
-                    //     });
-
-                },
-
                 storage () {
                     // this.bulk.upload.model = this.getStorage('bulk.upload.model') === 'true';
                 },
@@ -435,7 +452,7 @@
 
                     return {
                         mount (items) {
-                            self.suppliments.catalogues.items.push({name:'{{ __('All') }}', code: 'all', icon: 'perm_media', count: '{{ $resources->count() }}'});
+                            self.suppliments.catalogues.items.push({name:'{{ __('All') }}', code: 'all', icon: 'view_list', count: '{{ $resources->count() }}'});
 
                             for (var i = 0; i < items.length; i++) {
                                 items[i].count = items[i].count ? items[i].count : items[i].libraries.length;
@@ -533,12 +550,20 @@
                         },
 
                         sending ({file, xhr, formData}) {
-                            self.dropzone.params.extract = self.dropzone.extract;
                             self.dropzone.params.originalname = file.upload.filename;
                             self.dropzone.params.catalogue_id = self.suppliments.catalogues.current.id ? self.suppliments.catalogues.current.id : 0;
                         },
                     }
-                }
+                },
+                destroy (url, query) {
+                    var self = this;
+                    this.api().delete(url, query)
+                        .then((data) => {
+                            self.get('{{ route('api.library.all') }}');
+                            self.snackbar = Object.assign(self.snackbar, data.response.body);
+                            self.snackbar.model = true;
+                        });
+                },
             },
 
             mounted () {

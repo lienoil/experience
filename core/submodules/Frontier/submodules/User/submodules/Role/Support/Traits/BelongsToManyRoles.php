@@ -11,7 +11,7 @@ trait BelongsToManyRoles
      *
      * @var array
      */
-    protected $rootroles = ['root', 'dev', 'superadmin', 'super-administrator', 'super-admin'];
+    protected $rootroles = ['root', 'dev', 'superadmin'];
 
     /**
      * The Code column's name

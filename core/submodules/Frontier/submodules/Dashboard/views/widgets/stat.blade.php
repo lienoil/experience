@@ -1,6 +1,6 @@
-<v-card class="elevation-1">
+<v-card class="elevation-1 m-0 p-0 transparent">
     <v-card-media src="{{ assets('frontier/images/placeholder/sql.jpg') }}">
-        <div class="insert-overlay" style="background: rgba(9, 53, 74, 0.94); position: absolute; width: 100%; height: 100%;"></div>
+        <div class="insert-overlay" style="background: rgba(1, 18, 27, 0.88); position: absolute; width: 100%; height: 100%;"></div>
         <v-toolbar class="transparent elevation-0">
             <v-menu
                 transition="slide-y-transition"
@@ -8,7 +8,7 @@
                 dark
                 >
                 <v-btn round  slot="activator" flat class="white--text">
-                    Daily <v-icon class="white--text">arrow_drop_down</v-icon>
+                    Monthly <v-icon class="white--text">arrow_drop_down</v-icon>
                 </v-btn>
                 <v-list>
                     <v-list-tile v-for="item in year" :key="item.title" @click="">
@@ -20,126 +20,117 @@
             <v-btn icon v-tooltip:left="{html: 'Download'}" dark class="mr-4">
                 <v-icon>file_download</v-icon>
             </v-btn>
+            <v-btn dark icon @click.native="hidden = !hidden" v-tooltip:left="{ 'html':  hidden ? 'Show Analytics' : 'Hide Analytics' }">
+                <v-icon>@{{ hidden ? 'visibility' : 'visibility_off' }}</v-icon>
+            </v-btn>
         </v-toolbar>
-        <v-card-text class="pa-5">
-            <v-layout row wrap class="media" justify-center align-center>
-                <v-flex sm4 xs12 class="text-xs-center">
-                    <v-layout row wrap>
-                        <v-flex xs6>
+        <v-slide-y-transition>
+            <v-card class="elevation-0 transparent" v-show="!hidden" transition="slide-y-transition">
+                <v-card-text>
+                    <v-layout row wrap justify-center align-center>
+                        <v-flex sm8 xs12>
+                            <div class="chart-container">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </v-flex>
+                        <v-flex sm4 xs12>
                             <v-layout row wrap class="media">
-                                <v-card-text class="white--text">
-                                    <div class="headline"><v-icon dark class="green--text">arrow_drop_up</v-icon>103</div>
-                                    <div class="caption"> New Students</div>
-                                </v-card-text>
+                                <v-flex xs6>
+                                    <v-layout row wrap class="media">
+                                        <v-card-text class="white--text text-xs-center">
+                                            <div class="headline"><v-icon dark class="success--text">arrow_drop_up</v-icon>1240</div>
+                                            <div class="caption"> Overall Active Users</div>
+                                        </v-card-text>
+                                    </v-layout>
+                                </v-flex>
+                                <v-flex xs6>
+                                    <v-layout row wrap class="media">
+                                        <v-card-text class="white--text text-xs-center">
+                                            <div class="headline"><v-icon dark class="error--text">arrow_drop_down</v-icon>1030</div>
+                                            <div class="caption"> Overall Inactive Users</div>
+                                        </v-card-text>
+                                    </v-layout>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap class="text-xs-center">
+                                <v-flex xs6>
+                                    <v-progress-circular
+                                        v-bind:size="80"
+                                        v-bind:width="8"
+                                        v-bind:value="male"
+                                        class="cyan--text text--lighten-1"
+                                        >
+                                        @{{ male }}
+                                    </v-progress-circular>
+                                    <v-layout row wrap class="media">
+                                        <v-card-text class="pa-0">
+                                            <div class="caption white--text">Male, <em>55%</em></div>
+                                        </v-card-text>
+                                    </v-layout>
+                                </v-flex>
+                                <v-flex xs6>
+                                    <v-progress-circular
+                                        v-bind:size="80"
+                                        v-bind:width="8"
+                                        v-bind:value="female"
+                                        class="cyan--text text--lighten-1"
+                                        >
+                                        @{{ female }}
+                                    </v-progress-circular>
+                                    <v-layout row wrap class="media">
+                                        <v-card-text class="pa-0">
+                                            <div class="caption white--text">Female, <em>45%</em></div>
+                                        </v-card-text>
+                                    </v-layout>
+                                </v-flex>
                             </v-layout>
                         </v-flex>
-                        <v-flex xs6>
-                            <v-layout row wrap class="media">
-                                <v-card-text class="white--text">
-                                    <div class="headline"><v-icon dark class="green--text">arrow_drop_up</v-icon>124</div>
-                                    <div class="caption"> New Courses</div>
-                                </v-card-text>
-                            </v-layout>
-                        </v-flex>
                     </v-layout>
-
-                    <v-layout row wrap>
-                        <v-flex xs6>
-                            <v-layout row wrap class="media">
-                                <v-card-text class="white--text">
-                                    <div class="headline"><v-icon dark class="green--text">arrow_drop_up</v-icon> 567</div>
-                                    <div class="caption"> Total Students</div>
-                                </v-card-text>
-                            </v-layout>
-                        </v-flex>
-                        <v-flex xs6>
-                            <v-layout row wrap class="media">
-                                <v-card-text class="white--text">
-                                    <div class="headline"><v-icon dark class="green--text">arrow_drop_up</v-icon> 566</div>
-                                    <div class="caption"> Total Courses</div>
-                                </v-card-text>
-                            </v-layout>
-                        </v-flex>
+                </v-card-text>
+                <v-card-text class="pa-2 white">
+                    <v-layout wrap justify-space-around align-center>
+                        <v-list class="text-xs-center">
+                            <div class="title cyan--text text--darken-2">103</div>
+                            <div class="mt-2 caption">New Students</div>
+                        </v-list>
+                        <v-list class="text-xs-center">
+                            <div class="title cyan--text text--darken-2">2270</div>
+                            <div class="mt-2 caption">Overall Students</div>
+                        </v-list>
+                        <v-list class="text-xs-center">
+                            <div class="title cyan--text text--darken-2">124</div>
+                            <div class="mt-2 caption">New Courses</div>
+                        </v-list>
+                        <v-list class="text-xs-center">
+                            <div class="title cyan--text text--darken-2">566</div>
+                            <div class="mt-2 caption">Overall Courses</div>
+                        </v-list>
                     </v-layout>
-                </v-flex>
-
-                <v-flex sm4 xs12>
-                    <v-layout row wrap class="media">
-                        <v-card-text class="body-2 cyan--text text--lighten-3 pa-3 text-xs-center">Individual Progress vs Overall Progress</v-card-text>
-                        <v-card-text>
-                            <div class="white--text body-1">Course X</div>
-                            <v-progress-linear value="35" color-front="cyan" color-back="accent lighten-4" background-opacity="3" height="10"></v-progress-linear>
-
-                            <div class="white--text body-1">Course Y</div>
-                            <v-progress-linear value="35" color-front="cyan" color-back="accent lighten-4" height="10"></v-progress-linear>
-
-                        </v-card-text>
-                    </v-layout>
-                </v-flex>
-
-                <v-flex sm4 xs12 class="text-xs-center">
-                    <v-layout row wrap class="media">
-                        <v-card-text class="body-2 cyan--text text--lighten-3">Comparison of Classes</v-card-text>
-                    </v-layout>
-                    <v-layout row wrap>
-                            <v-flex sm6 xs12>
-                                <v-progress-circular
-                                    v-bind:size="100"
-                                    v-bind:width="10"
-                                    v-bind:value="value"
-                                    class="cyan--text text--lighten-1"
-                                    >
-                                    @{{ value }}
-                                </v-progress-circular>
-                                <v-layout row wrap class="media">
-                                    <v-card-text class="pa-0">
-                                        <div class="caption white--text">50%</div>
-                                    </v-card-text>
-                                </v-layout>
-                            </v-flex>
-                            <v-flex sm6 xs12>
-                                <v-progress-circular
-                                    v-bind:size="100"
-                                    v-bind:width="10"
-                                    v-bind:value="value"
-                                    class="cyan--text text--lighten-1"
-                                    >
-                                    @{{ value }}
-                                </v-progress-circular>
-                                <v-layout row wrap class="media">
-                                    <v-card-text class="pa-0">
-                                        <div class="caption white--text">50%</div>
-                                    </v-card-text>
-                                </v-layout>
-                            </v-flex>
-                    </v-layout>
-                </v-flex>
-            </v-layout>
-        </v-card-text>
+                </v-card-text>
+            </v-card>
+        </v-slide-y-transition>
     </v-card-media>
 </v-card>
-<v-card class="elevation-1">
-    <v-card-text>
-        <v-layout wrap justify-space-around align-center>
-            <v-list class="text-xs-center">
-                    <v-icon dark class="cyan--text text--darken-1">fa fa-book</v-icon>
-                <div class="mt-2 caption">2 On-going classes</div>
-            </v-list>
-            <v-list class="text-xs-center">
-                    <v-icon dark class="cyan--text text--darken-1">bookmark</v-icon>
-                <div class="mt-2 caption">2 Courses Bookmarked</div>
-            </v-list>
-            <v-list class="text-xs-center">
-                    <v-icon dark class="cyan--text text--darken-1">star</v-icon>
-                <div class="mt-2 caption">2 Badge Earned</div>
-            </v-list>
-            <v-list class="text-xs-center">
-                <v-icon dark class="cyan--text text--darken-1">bookmark</v-icon>
-                <div class="mt-2 caption">2 Courses Bookmarked</div>
-            </v-list>
-        </v-layout>
-    </v-card-text>
-</v-card>
+
+@push('css')
+    <style>
+        .media {
+            z-index: 1;
+        }
+        .media .card__text {
+            z-index: 1
+        }
+        .alert {
+            border-width: 0 !important;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 200px;
+            width: 100%;
+        }
+    </style>
+@endpush
 
 @push('pre-scripts')
     <script src="{{ assets('frontier/vendors/vue/resource/vue-resource.min.js') }}"></script>
@@ -149,15 +140,15 @@
         mixins.push({
             data () {
                 return {
+                    hidden: false,
                     year: [
-                        { title: 'Daily' },
-                        { title: 'Weekly' },
+                        { title: 'Quarterly' },
                         { title: 'Monthly' },
                         { title: 'Yearly' }
                     ],
                     interval: {},
-                    value: 30,
-                    rotate: 30,
+                    male: 55,
+                    female: 45,
                 }
             },
             beforeDestroy () {
@@ -167,3 +158,65 @@
     </script>
 @endpush
 
+@push('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+    <script>
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var gradient = ctx.createLinearGradient(0, 0, 0, 200);
+
+        gradient.addColorStop(0.25, 'rgba(0, 188,212, 0.9)');
+        gradient.addColorStop(0.5, 'rgba(0, 188,212, 0.7)');
+        gradient.addColorStop(1, 'rgba(0, 188,212, 0.2)');
+
+        Chart.defaults.global.defaultFontColor = '#fff';
+        var mixedChart = new Chart(ctx, {
+            type: 'bar',
+
+            data: {
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    type: 'line',
+                    label: 'Total Inactive Users',
+                    data: [60, 62, 17, 76, 44, 59, 56, 59, 32, 56, 47, 10],
+                    borderColor: "#e91e63",
+                    borderWidth: 2,
+                    hoverBackgroundColor: "rgba(63, 81, 181, 0.4)",
+                    hoverBorderColor: "rgba(63, 81, 181 ,1)",
+                },
+                {
+                    label: "Total Active Users",
+                    data: [65, 59, 20, 81, 56, 55, 65, 59, 20, 61, 56, 15],
+                    backgroundColor: gradient,
+                    borderColor: "#00bcd4",
+                    borderWidth: 2,
+                    hoverBackgroundColor: "rgba(0, 188,212 ,0.8)",
+                    hoverBorderColor: "rgba(0, 188,212 ,1)",
+                }]
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        stacked: true,
+                        gridLines: {
+                            display: false,
+                            color: "rgba(255,255,255,0.2)"
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutQuart'
+                }
+            }
+        });
+    </script>
+@endpush

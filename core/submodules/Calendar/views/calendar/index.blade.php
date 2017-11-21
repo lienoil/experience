@@ -3,21 +3,6 @@
 @section("content")
     <v-container fluid grid-list-lg>
         <v-card class="grey lighten-4 elevation-1">
-            <v-card-text>
-                <calendar>
-                    {{-- <template scope="props">
-                        <v-card class="elevation-1 mb-3" v-for="(event, index) in props.showEvents">
-                            <v-toolbar card class="">
-                                <v-toolbar-title class="subheading">@{{ event.title }}</v-toolbar-title>
-                                <v-spacer></v-spacer>
-                                <v-btn icon><v-icon>close</v-icon></v-btn>
-                            </v-toolbar>
-                            <v-card-title class="grey--text"><v-icon>fa-calendar</v-icon>&nbsp;@{{ event.date }}</v-card-title>
-                            <v-card-text v-html="event.description"></v-card-text>
-                        </v-card>
-                    </template> --}}
-                </calendar>
-            </v-card-text>
         </v-card>
     </v-container>
 @endsection

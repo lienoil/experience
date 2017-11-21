@@ -13,10 +13,10 @@
 @endpush
 
 @section("content")
+    @include("Theme::partials.banner")
     <v-container fluid grid-list-lg>
         <v-layout row wrap>
-            <v-flex sm8 offset-sm2>
-                @include("Theme::partials.banner")
+            <v-flex xs12>
                 <v-card class="grey--text elevation-1 mb-2">
                     <v-toolbar class="transparent elevation-0">
                         <v-toolbar-title class="accent--text">{{ __('Edit Role') }}</v-toolbar-title>
@@ -27,34 +27,63 @@
                         <v-card-text>
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
-                            <v-text-field
-                                :error-messages="resource.errors.name"
-                                label="Name"
-                                name="name"
-                                value="{{ $resource->name }}"
-                                @input="(val) => { resource.item.name = val; }"
-                            ></v-text-field>
-                            <v-text-field
-                                :error-messages="resource.errors.code"
-                                hint="{{ __('Will be used as an ID for Roles. Make sure the code is unique.') }}"
-                                label="Code"
-                                name="code"
-                                :value="resource.item.name ? resource.item.name : '{{ $resource->code }}' | slugify"
-                            ></v-text-field>
-                            <v-text-field
-                                :error-messages="resource.errors.description"
-                                label="Description"
-                                name="description"
-                                value="{{ $resource->description }}"
-                            ></v-text-field>
-                            <v-text-field
-                                :error-messages="resource.errors.alias"
-                                hint="{{ __('Will be used as an alias.') }}"
-                                label="{{ _('Alias') }}"
-                                value="{{ $resource->alias }}"
-                                name="alias"
-                            ></v-text-field>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Name') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.name"
+                                        label="Name"
+                                        name="name"
+                                        value="{{ $resource->name }}"
+                                        @input="(val) => { resource.item.name = val; }"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Code') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.code"
+                                        hint="{{ __('Will be used as an ID for Roles. Make sure the code is unique.') }}"
+                                        label="Code"
+                                        name="code"
+                                        :value="resource.item.name ? resource.item.name : '{{ $resource->code }}' | slugify"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Description') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.description"
+                                        label="Description"
+                                        name="description"
+                                        value="{{ $resource->description }}"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Alias') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.alias"
+                                        hint="{{ __('Will be used as an alias.') }}"
+                                        label="{{ _('Alias') }}"
+                                        value="{{ $resource->alias }}"
+                                        name="alias"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
                         </v-card-text>
+                        <v-divider></v-divider>
                         <v-layout row wrap>
                             <v-flex xs12>
                                 <v-toolbar class="transparent elevation-0">
@@ -71,7 +100,7 @@
                                                 success
                                                 @click.native.stop
                                                 @input="suppliments.grants.selected.splice(i, 1)"
-                                                class="chip--select-multi pink darken-3 white--text"
+                                                class="chip--select-multi green lighten-2 white--text"
                                                 :key="i"
                                             >
                                                 <input type="hidden" name="grants[]" :value="grant.id">
@@ -99,7 +128,7 @@
                                 <v-data-table
                                     class="elevation-0"
                                     no-data-text="{{ _('No resource found') }}"
-                                    select-all
+                                    select-all="green lighten-2"
                                     selected-key="id"
                                     {{-- hide-actions --}}
                                     v-bind:search="suppliments.grants.searchform.query"
@@ -114,7 +143,7 @@
                                                 <v-checkbox
                                                     primary
                                                     hide-details
-                                                    class="pa-0"
+                                                    class="pa-0 green--text text--lighten-2"
                                                     :input-value="prop.selected"
                                                 ></v-checkbox>
                                             </td>
@@ -124,10 +153,10 @@
                                 </v-data-table>
                             </v-flex>
                         </v-layout>
-                        <v-card-actions>
+                        <v-card-text class="text-xs-right">
                             <v-spacer></v-spacer>
                             <v-btn primary type="submit" class="elevation-1">{{ _('Update') }}</v-btn>
-                        </v-card-actions>
+                        </v-card-text>
                     </form>
                 </v-card>
             </v-flex>

@@ -1,1 +1,2 @@
-@include("Theme::auth.login")
+
+{{ $page->title }}

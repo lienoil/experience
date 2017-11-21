@@ -1,19 +1,63 @@
 @extends("Theme::layouts.admin")
 
+@section("head-title", __('Trashed Catalogues'))
+@section("page-title", __('Trashed Catalogues'))
+
+@push("utilitybar")
+    {{--  --}}
+@endpush
+
 @section("content")
-    <v-container fluid grid-list-lg>
+    @include("Theme::partials.banner")
+    <v-container fluid>
         <v-layout row wrap>
-
-            <v-flex sm8 offset-sm2>
-
-                @include("Theme::partials.banner")
-
+            <v-flex xs12>
                 <v-card class="mb-3">
-                    <v-toolbar class="transparent elevation-0">
-                        <v-toolbar-title class="accent--text">{{ __('Trashed Catalogues') }}</v-toolbar-title>
+                    <v-toolbar light class="transparent elevation-0">
+                        <v-toolbar-title>{{ __('Trashed Catalogues') }}</v-toolbar-title>
                         <v-spacer></v-spacer>
 
+                        <template>
+                            <v-text-field
+                                :append-icon-cb="() => {dataset.searchform.model = !dataset.searchform.model}"
+                                :prefix="dataset.searchform.prefix"
+                                :prepend-icon="dataset.searchform.prepend"
+                                append-icon="close"
+                                light solo hide-details single-line
+                                placeholder="Search"
+                                v-model="dataset.searchform.query"
+                                v-show="dataset.searchform.model"
+                            ></v-text-field>
+                            <v-btn v-show="!dataset.searchform.model" icon v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search resources'}" @click.native="dataset.searchform.model = !dataset.searchform.model;dataset,searchform.query = '';"><v-icon>search</v-icon></v-btn>
+                        </template>
+
+                        {{-- Search --}}
+                       {{--  <v-slide-y-transition>
+                            <v-text-field
+                                append-icon="search"
+                                label="{{ _('Search') }}"
+                                single-line
+                                hide-details
+                                v-if="dataset.searchform.model"
+                                v-model="dataset.searchform.query"
+                                light
+                            ></v-text-field>
+                        </v-slide-y-transition>
+                        <v-btn v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search resources'}" icon flat light @click.native="dataset.searchform.model = !dataset.searchform.model; dataset.searchform.query = '';">
+                            <v-icon>@{{ !dataset.searchform.model ? 'search' : 'clear' }}</v-icon>
+                        </v-btn> --}}
+                        {{-- /Search --}}
+
                         {{-- Batch Commands --}}
+                        <v-btn
+                            v-show="dataset.selected.length < 2"
+                            flat
+                            icon
+                            v-model="bulk.delete.model"
+                            :class="bulk.delete.model ? 'btn--active light-blue light-blue--text' : ''"
+                            v-tooltip:left="{'html': '{{ __('Toggle the bulk command checboxes') }}'}"
+                            @click.native="bulk.delete.model = !bulk.delete.model"
+                        ><v-icon>@{{ bulk.delete.model ? 'check_circle' : 'check_circle' }}</v-icon></v-btn>
                         <v-slide-y-transition>
                             <template v-if="dataset.selected.length > 1">
                                 <div>
@@ -23,21 +67,27 @@
                                         <template v-for="item in dataset.selected">
                                             <input type="hidden" name="catalogues[]" :value="item.id">
                                         </template>
-                                        <button type="submit" v-tooltip:left="{'html': `Restore ${dataset.selected.length} selected items`}" class="btn btn--flat btn--icon"><span class="btn__content"><v-icon>restore</v-icon></span></button>
+                                        <button type="submit" v-tooltip:left="{'html': `Restore ${dataset.selected.length} selected items`}" class="btn btn--flat btn--icon"><span class="btn__content"><v-icon info>restore</v-icon></span></button>
                                     </form>
                                     {{-- /Bulk Restore --}}
 
                                     {{-- Bulk Delete --}}
                                     <v-dialog v-model="dataset.dialog.model" lazy width="auto">
-                                        <v-btn flat icon slot="activator" v-tooltip:left="{'html': `Permanently delete ${dataset.selected.length} selected items`}"><v-icon>delete_forever</v-icon></v-btn>
-                                        <v-card class="text-xs-center">
-                                            <v-card-title class="headline">{{ __('Permanent Delete') }}</v-card-title>
-                                            <v-card-text >
-                                                {{ __("You are about to permanently delete the resources. This action is irreversible. Do you want to proceed?") }}
+                                        <v-btn flat icon slot="activator" v-tooltip:left="{'html': `Permanently delete ${dataset.selected.length} selected items`}">
+                                            <v-icon class="error--text">delete_forever</v-icon>
+                                        </v-btn>
+                                        <v-card>
+                                            <v-card-text class="text-xs-center">
+                                                <p class="headline ma-4"><v-icon round class="error white--text" style="font-size: 80px; border-radius: 50%; padding: 10px;">delete_forever</v-icon></p>
+                                                <p class="title">{{ __('Permanently Delete') }}</p>
+                                                <p class="grey--text text--darken-1">
+                                                    {{ __("You are about to permanently delete the resources. This action is irreversible. Do you want to proceed?") }}
+                                                </p>
                                             </v-card-text>
+                                            <v-divider></v-divider>
                                             <v-card-actions>
+                                                <v-btn class="grey--text darken-1" flat @click.native.stop="dataset.dialog.model=false">{{ __('Cancel') }}</v-btn>
                                                 <v-spacer></v-spacer>
-                                                <v-btn class="green--text darken-1" flat @click.native.stop="dataset.dialog.model=false">{{ __('Cancel') }}</v-btn>
                                                 <form action="{{ route('catalogues.many.delete') }}" method="POST" class="inline">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
@@ -54,45 +104,26 @@
                             </template>
                         </v-slide-y-transition>
                         {{-- /Batch Commands --}}
-
-                        {{-- Search --}}
-                        <v-slide-y-transition>
-                            <v-text-field
-                                append-icon="search"
-                                label="{{ _('Search') }}"
-                                single-line
-                                hide-details
-                                v-if="dataset.searchform.model"
-                                v-model="dataset.searchform.query"
-                                light
-                            ></v-text-field>
-                        </v-slide-y-transition>
-                        <v-btn v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search resources'}" icon flat light @click.native="dataset.searchform.model = !dataset.searchform.model; dataset.searchform.query = '';">
-                            <v-icon>@{{ !dataset.searchform.model ? 'search' : 'clear' }}</v-icon>
-                        </v-btn>
-                        {{-- /Search --}}
-
                     </v-toolbar>
-
                     <v-data-table
                         :loading="dataset.loading"
+                        v-bind="bulk.delete.model?{'select-all':'primary'}:[]"
                         :total-items="dataset.totalItems"
                         class="elevation-0"
                         no-data-text="{{ _('No resource found') }}"
-                        select-all="primary"
                         selected-key="id"
                         v-bind:headers="dataset.headers"
                         v-bind:items="dataset.items"
                         v-bind:pagination.sync="dataset.pagination"
                         v-model="dataset.selected"
-                    >
+                        >
                         <template slot="headerCell" scope="props">
                             <span v-tooltip:bottom="{'html': props.header.text}">
                                 @{{ props.header.text }}
                             </span>
                         </template>
                         <template slot="items" scope="prop">
-                            <td>
+                            <td v-show="bulk.delete.model">
                                 <v-checkbox
                                     color="primary"
                                     hide-details
@@ -101,20 +132,20 @@
                                 ></v-checkbox>
                             </td>
                             <td>@{{ prop.item.id }}</td>
-                            <td class="text-xs-right">
-                                <v-icon v-html="prop.item.icon"></v-icon>
+                            <td><v-icon class="red--text text--lighten-2" v-html="prop.item.icon"></v-icon></td>
+                            <td width="100%">
+                                <strong v-tooltip:bottom="{'html': prop.item.description ? prop.item.description : prop.item.name}">@{{ prop.item.name }}</strong>
                             </td>
-                            <td><strong v-tooltip:bottom="{'html': prop.item.description ? prop.item.description : prop.item.name}">@{{ prop.item.name }}</strong></td>
+                            <td>@{{ prop.item.alias }}</td>
                             <td>@{{ prop.item.code }}</td>
-                            <td>@{{ prop.item.excerpt }}</td>
                             <td>@{{ prop.item.created }}</td>
                             <td class="text-xs-center">
                                 <v-menu bottom left>
-                                    <v-btn icon flat slot="activator"><v-icon>more_vert</v-icon></v-btn>
+                                    <v-btn icon flat slot="activator" v-tooltip:bottom="{ html: 'More Actions' }"><v-icon>more_vert</v-icon></v-btn>
                                     <v-list>
-                                        <v-list-tile @click="post(route(urls.catalogues.api.restore, (prop.item.id)))">
+                                        <v-list-tile ripple @click="post(route(urls.catalogues.api.restore, (prop.item.id)))">
                                             <v-list-tile-action>
-                                                <v-icon accent>restore</v-icon>
+                                                <v-icon info>restore</v-icon>
                                             </v-list-tile-action>
                                             <v-list-tile-content>
                                                 <v-list-tile-title>
@@ -122,11 +153,9 @@
                                                 </v-list-tile-title>
                                             </v-list-tile-content>
                                         </v-list-tile>
-                                        <v-list-tile
-                                            @click="setDialog(true, prop.item)"
-                                        >
+                                        <v-list-tile ripple @click="setDialog(true, prop.item)">
                                             <v-list-tile-action>
-                                                <v-icon>delete_forever</v-icon>
+                                                <v-icon error>delete_forever</v-icon>
                                             </v-list-tile-action>
                                             <v-list-tile-content>
                                                 <v-list-tile-title>
@@ -143,16 +172,19 @@
             </v-flex>
         </v-layout>
     </v-container>
-
     <v-dialog v-model="resource.dialog.model" persistent lazy width="auto" min-width="200px">
         <v-card class="text-xs-center">
-            <v-card-title class="headline">{{ __('Permanently Delete') }} "@{{ resource.dialog.data.name }}"</v-card-title>
-            <v-card-text >
-                {{ __("You are about to permanently delete the resource. This action is irreversible. Do you want to proceed?") }}
+            <v-card-text>
+                <p class="headline ma-4"><v-icon round class="error white--text" style="font-size: 80px; border-radius: 50%; padding: 10px;">delete_forever</v-icon></p>
+                <p class="title">{{ __('Permanently Delete') }} "@{{ resource.dialog.data.name }}"</p>
+                <p class="grey--text text--darken-1">
+                    {{ __("You are about to permanently delete the resource. This action is irreversible. Do you want to proceed?") }}
+                </p>
             </v-card-text>
+            <v-divider></v-divider>
             <v-card-actions>
-                <v-spacer></v-spacer>
                 <v-btn class="green--text darken-1" flat @click.native="resource.dialog.model=false">{{ __('Cancel') }}</v-btn>
+                <v-spacer></v-spacer>
                 <form :action="route(urls.catalogues.delete, (resource.dialog.data.id))" method="POST" class="inline">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
@@ -161,7 +193,17 @@
             </v-card-actions>
         </v-card>
     </v-dialog>
+
 @endsection
+
+
+@push('css')
+    <style>
+        .inline {
+            display: inline-block;
+        }
+    </style>
+@endpush
 
 @push('pre-scripts')
     <script src="{{ assets('frontier/vendors/vue/resource/vue-resource.min.js') }}"></script>
@@ -171,16 +213,24 @@
         mixins.push({
             data () {
                 return {
+                    bulk: {
+                        delete: {
+                            model: false,
+                        },
+                    },
                     dataset: {
                         dialog: {
+                            model: false,
+                        },
+                        bulk: {
                             model: false,
                         },
                         headers: [
                             { text: '{{ __("ID") }}', align: 'left', value: 'id' },
                             { text: '{{ __("Icon") }}', align: 'left', value: 'icon' },
                             { text: '{{ __("Name") }}', align: 'left', value: 'name' },
+                            { text: '{{ __("Alias") }}', align: 'left', value: 'alias' },
                             { text: '{{ __("Code") }}', align: 'left', value: 'code' },
-                            { text: '{{ __("Excerpt") }}', align: 'left', value: 'description' },
                             { text: '{{ __("Last Modified") }}', align: 'left', value: 'updated_at' },
                             { text: '{{ __("Actions") }}', align: 'center', sortable: false, value: 'updated_at' },
                         ],
@@ -203,18 +253,11 @@
                             name: '',
                             code: '',
                             description: '',
-                            grants: '',
                         },
                         errors: JSON.parse('{!! json_encode($errors->getMessages()) !!}'),
                         dialog: {
                             model: false,
                             data: {},
-                        }
-                    },
-                    suppliments: {
-                        grants: {
-                            items: [],
-                            selected: [],
                         }
                     },
                     urls: {

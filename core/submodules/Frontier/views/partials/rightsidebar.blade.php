@@ -75,7 +75,9 @@
                             </div>
                             <v-switch v-bind:label="`Extend Utilitybar`" v-on:change="setStorage('sidebar.floating', sidebar.floating)" v-model="sidebar.floating"></v-switch>
                             <v-switch v-bind:label="`Mini sidebar`" v-on:change="setStorage('sidebar.mini', sidebar.mini)" v-model="sidebar.mini"></v-switch>
+                            <v-switch primary label="Dark Sidebar" v-model="dark" true></v-switch>
                         </v-card-text>
+
 
                         {{-- Color Scheme --}}
                         {{-- <v-card-text>
@@ -107,6 +109,54 @@
                 </v-flex>
             </v-layout>
 
+            {{-- <v-layout row wrap>
+                <v-flex xs12>
+                    <v-subheader>Widgets</v-subheader>
+                    <div class="text-xs-center">
+                        <v-bottom-sheet v-model="sheet">
+                            <v-btn slot="activator" flat success class="success" dark>Manage Widgets</v-btn>
+                            <v-list>
+                                <v-toolbar class="transparent elevation-0">
+                                    <v-btn flat accent @click="sheet = false">Cancel</v-btn>
+                                    <v-spacer></v-spacer>
+                                    <v-btn flat accent @click="sheet = false">Save</v-btn>
+                                </v-toolbar>
+                                <v-subheader>Remove</v-subheader>
+                                <v-list-tile
+                                    ripple
+                                    @click=""
+                                    v-for="tile in remove"
+                                    :key="tile.title"
+                                    >
+                                    <v-list-tile-avatar>
+                                        <v-avatar icon size="32px" tile>
+                                            <v-icon error>remove_circle</v-icon>
+                                        </v-avatar>
+                                    </v-list-tile-avatar>
+                                    <v-list-tile-title>@{{ tile.title }}</v-list-tile-title>
+                                </v-list-tile>
+                                <v-divider></v-divider>
+
+                                <v-subheader>More widgets</v-subheader>
+                                <v-list-tile
+                                    ripple
+                                    @click=""
+                                    v-for="tile in add"
+                                    :key="tile.title"
+                                    >
+                                    <v-list-tile-avatar>
+                                        <v-avatar icon size="32px" tile>
+                                            <v-icon success>add_circle</v-icon>
+                                        </v-avatar>
+                                    </v-list-tile-avatar>
+                                    <v-list-tile-title>@{{ tile.title }}</v-list-tile-title>
+                                </v-list-tile>
+                            </v-list>
+                        </v-bottom-sheet>
+                    </div>
+                </v-flex>
+            </v-layout> --}}
+
             <v-subheader
                 :dark.sync="light" :light.sync="dark"
                 class="text--lighten-1"
@@ -116,20 +166,51 @@
                 <v-icon :dark.sync="light" :light.sync="dark">save</v-icon>
             </v-subheader>
             <v-list-tile
-                @click="showDialog({
-                    {{-- icon: 'delete', --}}
-                    title: '{{ __("Reset Application Settings") }}',
-                    description: '{{ __("You are about to reset settings for Sidebar Mode, Theme, and any other features settings stored on your Local Storage. This will revert all user interface in its default state. Proceed?") }}',
+                @click.native.stop="showDialog({
+                    icon: 'delete',
+                    title: '{{ __("Delete Storage Data") }}',
+                    description: '{{ __("You are about to reset settings for Sidebar Mode, Theme, and any other features settings stored on your Local Storage. Are you sure you want to proceed?") }}',
                     confirmHandler: () => { clearStorage() },
                 })">
                 <v-list-tile-action>
                     <v-icon>delete</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title>{{ __("Reset Application Settings") }}</v-list-tile-title>
+                    <v-list-tile-title>
+                        Reset UI to Defaults
+                    </v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>
     </v-toolbar>
 
 </v-navigation-drawer>
+
+
+{{-- @push('pre-scripts')
+    <script src="{{ assets('frontier/vendors/vue/resource/vue-resource.min.js') }}"></script>
+    <script>
+        Vue.use(VueResource);
+
+        mixins.push({
+            data () {
+                return {
+                    rightsidebar: false,
+                    sheet: false,
+                    remove: [
+                        { title: 'To-do List' },
+                        { title: 'Assignment' },
+                        { title: 'Announcement' },
+                        { title: 'Profile' },
+                    ],
+                    add: [
+                        { title: 'Categories' },
+                        { title: 'Courses' },
+                        { title: 'Lessons' },
+                        { title: 'Library' },
+                    ],
+                };
+            },
+        });
+    </script>
+@endpush --}}
