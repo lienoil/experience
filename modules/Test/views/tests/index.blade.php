@@ -33,7 +33,27 @@
     <v-container fluid grid-list-lg>
         <v-card class="elevation-1">
             <v-card-text>
+                <v-text-field
+                    eppend-icon="close"
+                    light
+                    solo
+                    hide-details
+                    single-line
+                    label="Search">
+                </v-text-field>
+            </v-card-text>
+        </v-card>
 
+    </v-container>
+
+    <v-container fluid grid-list-lg>
+        <v-card class="elevation-1">
+            <v-card-text>
+                <v-text-field
+                    append-icon="close"
+                    light solo hide-details single-line
+                    label="Search"
+                ></v-text-field>
             </v-card-text>
         </v-card>
     </v-container>
