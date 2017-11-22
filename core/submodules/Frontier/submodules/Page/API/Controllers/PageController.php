@@ -73,19 +73,6 @@ class PageController extends APIController
     }
 
     /**
-     * Gets the grants.
-     *
-     * @param  array $modules
-     * @return void
-     */
-    public function grants($modules = null)
-    {
-        $grants = Grant::pluck('name', 'id');
-
-        return response()->json($grants);
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -106,26 +93,7 @@ class PageController extends APIController
         $page->delete();
 
         return response()->json($this->successResponse);
-    }
-
-    /**
-     * Copy the resource as a new resource.
-     * @param  Request $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function clone(Request $request, $id)
-    {
-        $page = Page::findOrFail($id);
-
-        $clone = new Page();
-        $clone->name = $page->name;
-        $clone->code = "{$page->code}-clone-".rand((int) $id, (int) date('Y'));
-        $clone->description = $page->description;
-        $clone->save();
-        $clone->grants()->attach($page->grants->pluck('id')->toArray());
-
-        return response()->json($this->successResponse);
+        // return redirect()->route('pages.index');
     }
 
     /**

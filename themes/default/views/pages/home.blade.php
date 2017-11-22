@@ -1,2 +1,1 @@
-
-{{ $page->title }}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur et, est voluptatem aspernatur ut ullam non inventore cum. Provident ea ipsa debitis vitae veritatis laboriosam soluta eos consequatur enim tenetur!

@@ -110,7 +110,7 @@
                                     <img v-bind:src="prop.item.avatar">
                                 </v-avatar>
                             </td>
-                            <td width="20%">
+                            <td width="40%">
                                 <a class="black--text ripple no-decoration" :href="route(urls.roles.show, prop.item.id)">
                                     <strong v-tooltip:bottom="{ html: 'Show Detail' }">@{{ prop.item.propername }}</strong>
                                 </a>
