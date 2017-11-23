@@ -230,7 +230,7 @@
                 </tr>
             </template>
             {{-- Thumbnail --}}
-            <template slot="card" scope="{prop}">
+            {{-- <template slot="card" scope="{prop}">
                 <v-card-media height="150px" :src="prop.item.thumbnail" class="grey lighten-4"></v-card-media>
                 <v-divider class="grey lighten-3"></v-divider>
                 <v-toolbar card dense class="transparent pt-2">
@@ -254,7 +254,7 @@
                     <span class="caption" v-html="prop.item.filesize"></span>
                     <div class="caption grey--text" v-html="prop.item.created"></div>
                 </v-card-text>
-            </template>
+            </template> --}}
         </v-dataset>
     </v-container>
 @endsection
