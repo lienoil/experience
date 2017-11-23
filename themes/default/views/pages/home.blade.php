@@ -83,11 +83,11 @@
                                         :src="card.src"
                                         height="250px"
                                         >
-                                        <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.50); position: absolute; width: 100%; height: 100%;"></div>
+                                        <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.40); position: absolute; width: 100%; height: 100%;"></div>
                                         <v-container fill-height fluid class="pa-0 white--text">
                                             <v-layout row wrap align-center justify-center>
-                                            <v-card class="elevation-0 transparent">
-                                                <v-card-text class="white--text text-xs-center title" v-html="card.title"></v-card-text>
+                                            <v-card class="elevation-0 transparent text-xs-center">
+                                                <h4 class="white--text text-xs-center" v-html="card.title"></h4>
                                             </v-card>
                                             </v-layout>
                                         </v-container>
@@ -218,6 +218,36 @@
         </v-container>
     </section>
 
+    <section id="video">
+        <v-layout row wrap>
+            <v-flex xs12>
+                <v-layout row wrap align-center>
+                    <v-flex xs12>
+                        <v-parallax class="mb-4 mt-5" height="450" src="https://placeimg.com/2880/1799/nature/1">
+                            <v-layout
+                                column
+                                align-center
+                                justify-center
+                                class="white--text"
+                                >
+                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.40); position: absolute; width: 100%; height: 100%;"></div>
+                                <v-card dark class="elevation-0 transparent text-xs-center">
+                                    <v-card-text>
+                                        <h3><strong>{{ __("EXPERIENCE PHILIPPINES ROAD TRIPS") }}</strong></h3>
+                                        <h6 class="fw-400">Random Road Trips where the destination is a SECRET <br> and the activities are always a SURPRISE</h6>
+                                        <a class="no-decoration" href="">
+                                            <v-icon class="display-3 white--text">play_circle_filled</v-icon>
+                                        </a>
+                                    </v-card-text>
+                                </v-card>
+                            </v-layout>
+                        </v-parallax>
+                    </v-flex>
+                </v-layout>
+            </v-flex>
+        </v-layout>
+    </section>
+
     <section id="stories">
         <v-container fluid grid-list-lg>
             <v-layout row wrap>
@@ -328,12 +358,12 @@
         </v-container>
     </section>
 
-    <section id="video">
+    <section id="testimonial">
         <v-layout row wrap>
             <v-flex xs12>
                 <v-layout row wrap align-center>
                     <v-flex xs12>
-                        <v-parallax class="mb-4 mt-5" height="450" src="{{ assets('frontier/images/placeholder/galaxy.jpg') }}">
+                        <v-parallax class="mb-4 mt-5" src="{{ assets('frontier/images/placeholder/galaxy.jpg') }}">
                             <v-layout
                                 column
                                 align-center
@@ -343,11 +373,26 @@
                                 <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.40); position: absolute; width: 100%; height: 100%;"></div>
                                 <v-card dark class="elevation-0 transparent text-xs-center">
                                     <v-card-text>
-                                        <h3><strong>{{ __("EXPERIENCE PHILIPPINES ROAD TRIPS") }}</strong></h3>
-                                        <h6 class="fw-400">Random Road Trips where the destination is a SECRET <br> and the activities are always a SURPRISE</h6>
-                                        <a class="no-decoration" href="">
-                                            <v-icon class="display-3 white--text">play_circle_filled</v-icon>
-                                        </a>
+                                        <h5 class="mb-2"><strong>{{ __("Happy Customers") }}</strong></h5>
+                                        <p class="fw-400">Checkout our best promotion tours</p>
+                                        <v-layout row wrap>
+                                            <v-flex lg4 offset-lg4 md8 offset-md2 sm12 xs12>
+                                                    <div class="subheading mb-5 mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum eaque explicabo recusandae blanditiis. Nostrum quidem blanditiis commodi ipsum magnam eaque magni, enim repudiandae quam ut totam alias maxime accusantium. Provident!</div>
+
+                                                    <v-avatar class="mb-3">
+                                                        <img src="https://placeimg.com/1280/480/people/1" alt="">
+                                                    </v-avatar>
+
+                                                    <div class="subheading">Jane Appleseed</div>
+                                                    <div class="body-1">Facebook Messanger</div>
+
+                                                    <v-avatar dark icon class="mt-5">
+                                                        <v-icon class="white--text caption">fiber_manual_record</v-icon>
+                                                        <v-icon class="white--text caption">fiber_manual_record</v-icon>
+                                                        <v-icon class="white--text caption">fiber_manual_record</v-icon>
+                                                    </v-avatar>
+                                            </v-flex>
+                                        </v-layout>
                                     </v-card-text>
                                 </v-card>
                             </v-layout>
@@ -358,26 +403,29 @@
         </v-layout>
     </section>
 
-    <section id="testimonial">
+    <section id="partnership">
         <v-container fluid>
             <v-layout row wrap>
                 <v-flex lg8 offset-lg2 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
-                        <h2 class="display-1">{{ __("TESTIMONIALS") }}</h2>
+                        <h2 class="display-1">{{ __("PARTNERSHIPS") }}</h2>
                         <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
                     </v-card-text>
                     <v-layout row wrap>
-                        <v-flex sm4>
-                            <v-card class="elevation-1">
-                                <v-card-text>
-                                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Seperate they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
-                                </v-card-text>
-                                <v-toolbar class="transparent elevation-0">
-                                    <v-toolbar-title>Jane Appleseed</v-toolbar-title>
-                                    <v-spacer></v-spacer>
-                                    <v-avatar><img src="https://placeimg.com/640/480/people/1" alt=""></v-avatar>
-                                </v-toolbar>
-                            </v-card>
+                        <v-flex sm4 xs12>
+                            <v-card-text>
+                                <img src="{{ assets('frontier/images/public/exph.png') }}" width="100%" alt="">
+                            </v-card-text>
+                        </v-flex>
+                        <v-flex sm4 xs12>
+                            <v-card-text>
+                                <img src="{{ assets('frontier/images/public/exph.png') }}" width="100%" alt="">
+                            </v-card-text>
+                        </v-flex>
+                        <v-flex sm4 xs12>
+                            <v-card-text>
+                                <img src="{{ assets('frontier/images/public/exph.png') }}" width="100%" alt="">
+                            </v-card-text>
                         </v-flex>
                     </v-layout>
                 </v-flex>
@@ -385,73 +433,85 @@
         </v-container>
     </section>
 </div>
-    <section id="cta">
-        <v-layout row wrap>
-            <v-flex xs12>
-                <v-card class="elevation-1 py-4">
-                    <v-flex lg6 offset-lg3 md12 sm12 xs12>
-                        <v-layout row wrap>
-                            <v-flex md6>
-                                <v-card-text>
-                                    <v-menu
-                                        lazy
-                                        :close-on-content-click="false"
-                                        v-model="menu"
-                                        transition="scale-transition"
-                                        right
-                                        bottom
-                                        full-width
-                                        max-width="290px"
-                                        min-width="290px"
-                                        >
-                                        <v-text-field
-                                            slot="activator"
-                                            append-icon="date_range"
-                                            light solo hide-details single-line
-                                            placeholder="From"
-                                            v-model="schedule"
-                                            readonly
-                                        ></v-text-field>
-                                        <v-date-picker v-model="to" no-title scrollable actions>
-                                        </v-date-picker>
-                                    </v-menu>
-                                </v-card-text>
-                            </v-flex>
-                            <v-flex md6>
-                                <v-card-text>
-                                    <v-menu
-                                        lazy
-                                        :close-on-content-click="false"
-                                        v-model="from"
-                                        transition="scale-transition"
-                                        right
-                                        bottom
-                                        full-width
-                                        max-width="290px"
-                                        min-width="290px"
-                                        >
-                                        <v-text-field
-                                            slot="activator"
-                                            append-icon="date_range"
-                                            light solo hide-details single-line
-                                            placeholder="To"
-                                            v-model="schedule"
-                                            readonly
-                                        ></v-text-field>
-                                        <v-date-picker v-model="from" no-title scrollable actions>
-                                        </v-date-picker>
-                                    </v-menu>
-                                </v-card-text>
-                            </v-flex>
-                            <v-card-text class="text-xs-center">
-                                <v-btn large flat round dark class="deep-orange lighten-1">Book Now</v-btn>
-                            </v-card-text>
-                        </v-layout>
-                    </v-flex>
-                </v-card>
-            </v-flex>
-        </v-layout>
-    </section>
+<section id="cta">
+    <v-layout row wrap>
+        <v-flex xs12>
+            <v-parallax height="300" src="{{ assets('frontier/images/placeholder/galaxy.jpg') }}">
+                <v-layout
+                    column
+                    align-center
+                    justify-center
+                    class="white--text"
+                    >
+                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.40); position: absolute; width: 100%; height: 100%;"></div>
+                    <v-card class="elevation-0 transparent">
+                        <v-flex xs12>
+                            <v-layout row wrap>
+                                <v-flex md5 xs12>
+                                    <v-card-text>
+                                        <v-menu
+                                            lazy
+                                            :close-on-content-click="false"
+                                            v-model="menu"
+                                            transition="scale-transition"
+                                            right
+                                            bottom
+                                            full-width
+                                            max-width="290px"
+                                            min-width="290px"
+                                            >
+                                            <v-text-field
+                                                slot="activator"
+                                                append-icon="date_range"
+                                                light solo hide-details single-line
+                                                placeholder="From"
+                                                v-model="schedule"
+                                                readonly
+                                            ></v-text-field>
+                                            <v-date-picker v-model="to" no-title scrollable actions>
+                                            </v-date-picker>
+                                        </v-menu>
+                                    </v-card-text>
+                                </v-flex>
+                                <v-flex md5 xs12>
+                                    <v-card-text>
+                                        <v-menu
+                                            lazy
+                                            :close-on-content-click="false"
+                                            v-model="from"
+                                            transition="scale-transition"
+                                            right
+                                            bottom
+                                            full-width
+                                            max-width="290px"
+                                            min-width="290px"
+                                            >
+                                            <v-text-field
+                                                slot="activator"
+                                                append-icon="date_range"
+                                                light solo hide-details single-line
+                                                placeholder="To"
+                                                v-model="schedule"
+                                                readonly
+                                            ></v-text-field>
+                                            <v-date-picker v-model="from" no-title scrollable actions>
+                                            </v-date-picker>
+                                        </v-menu>
+                                    </v-card-text>
+                                </v-flex>
+                                <v-flex md2 xs12>
+                                    <v-card-text class="text-xs-center">
+                                        <v-btn large flat round dark class="deep-orange lighten-1">Book Now</v-btn>
+                                    </v-card-text>
+                                </v-flex>
+                            </v-layout>
+                        </v-flex>
+                    </v-card>
+                </v-layout>
+            </v-parallax>
+        </v-flex>
+    </v-layout>
+</section>
 
 @endsection
 
@@ -506,11 +566,11 @@
                         'Washington','West Virginia','Wisconsin','Wyoming'
                     ],
                     stories: [
-                        { title: '2017 Schedule', src: 'https://placeimg.com/640/480/arch/1', flex: 8, height: '100%' },
-                        { title: 'Eat and Explore', src: 'https://placeimg.com/640/480/arch/2', flex: 4 },
-                        { title: 'Singles', src: 'https://placeimg.com/640/480/arch/3', flex: 3},
-                        { title: 'Random OUTing', src: 'https://placeimg.com/640/480/arch/4', flex: 6},
-                        { title: 'Retro', src: 'https://placeimg.com/640/480/arch/4', flex: 3},
+                        { title: '2017 SCHEDULE', src: 'https://placeimg.com/1280/480/nature/1', flex: 8, height: '100%' },
+                        { title: 'SPECIAL', src: 'https://placeimg.com/640/480/nature/2', flex: 4 },
+                        { title: 'SINGLES', src: 'https://placeimg.com/640/480/nature/3', flex: 3},
+                        { title: 'EAT AND EXPLORE', src: 'https://placeimg.com/1280/480/nature/4', flex: 6},
+                        { title: 'RETRO', src: 'https://placeimg.com/640/480/nature/5', flex: 3},
                     ],
                     exp: [
                         {
