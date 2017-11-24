@@ -6,7 +6,7 @@
 @section("content")
 <main>
     <section id="hero">
-        <v-parallax height="600" src="{{ assets('frontier/images/placeholder/galaxy.jpg') }}">
+        <v-parallax height="600" src="{{ assets('frontier/images/placeholder/9.png') }}">
             <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.30); position: absolute; width: 100%; height: 100%;"></div>
             <v-toolbar class="elevation-0 transparent sticky" dark>
                 <a href="">
@@ -29,8 +29,8 @@
                 class="white--text"
                 >
                 <v-card dark class="elevation-0 transparent">
-                    <h1 class="mb-2 display-1 text-xs-center"><strong>{{ __("WHAT DO YOU WANT TO EXPERIENCE?") }}</strong></h1>
-                    <div class="headline mb-3 text-xs-center">{{ __("Let's Go Travel Differently.") }}</div>
+                    <h1 class="mb-2 display-1 text-xs-center"><strong>{{ __("LET'S GO TRAVEL DIFFERENTLY") }}</strong></h1>
+                    <div class="subheading fw-400 mb-3 text-xs-center">{{ __("We are pioneers of Random Road Trips where the destination is a SECRET and the activities are always a SURPRISE.") }}</div>
                     <v-card-text>
                         <v-flex xs12 class="hero-search">
                             <v-select
@@ -66,7 +66,7 @@
     <section id="categories">
         <v-container fluid grid-list-lg>
             <v-layout row wrap>
-                <v-flex lg8 offset-lg2 md12 sm12 xs12>
+                <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("POPULAR ROAD TRIPS") }}</h2>
                         <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
@@ -77,7 +77,7 @@
                             v-for="card in stories"
                             :key="card.title"
                             >
-                            <a href="" ripple class="no-decoration">
+                            <a href="" ripple class="td-n">
                                 <v-card class="elevation-1">
                                     <v-card-media
                                         :src="card.src"
@@ -87,7 +87,7 @@
                                         <v-container fill-height fluid class="pa-0 white--text">
                                             <v-layout row wrap align-center justify-center>
                                             <v-card class="elevation-0 transparent text-xs-center">
-                                                <h4 class="white--text text-xs-center" v-html="card.title"></h4>
+                                                <h5 class="white--text text-xs-center"><strong>@{{ card.title }}</strong></h5>
                                             </v-card>
                                             </v-layout>
                                         </v-container>
@@ -104,14 +104,14 @@
     <section id="hotlist">
         <v-container fluid grid-list-lg>
             <v-layout row wrap>
-                <v-flex lg8 offset-lg2 md12 sm12 xs12>
+                <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("CURATED EXPERIENCES") }}</h2>
                         <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
                     </v-card-text>
                     <v-layout row wrap align-center>
                         <v-flex xs12 sm6 md3 v-for="card in exp">
-                            <a href="" ripple class="no-decoration">
+                            <a href="" ripple class="td-n">
                                 <v-card class="elevation-1">
                                     <v-card-media
                                         height="180px"
@@ -137,7 +137,7 @@
                                         </v-toolbar-title>
                                     </v-toolbar>
                                     <v-card-text class="grey--text pt-4">
-                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">local_offer</v-icon>
+                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
                                         <span class="caption">RETRO ROAD TRIP</span>
                                         <div>
                                             <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
@@ -154,7 +154,7 @@
                     </v-layout>
                     <v-card-text class="text-xs-center">
                         <v-btn outline large class="deep-orange--text text--lighten-1">
-                            <v-icon left>place</v-icon> View All Experiences
+                            <v-icon left>place</v-icon> {{ __('View All Experiences') }}
                         </v-btn>
                     </v-card-text>
                 </v-flex>
@@ -165,14 +165,14 @@
     <section id="recommended">
         <v-container fluid grid-list-lg>
             <v-layout row wrap>
-                <v-flex lg8 offset-lg2 md12 sm12 xs12>
+                <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("EXPERIENCE RECOMMENDED") }}</h2>
                         <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
                     </v-card-text>
                     <v-layout row wrap align-center>
                         <v-flex xs12 sm6 md3 v-for="card in exp">
-                            <a href="" ripple class="no-decoration">
+                            <a href="" ripple class="td-n">
                                 <v-card class="elevation-1">
                                     <v-card-media
                                         height="180px"
@@ -198,7 +198,7 @@
                                         </v-toolbar-title>
                                     </v-toolbar>
                                     <v-card-text class="grey--text pt-4">
-                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">local_offer</v-icon>
+                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
                                         <span class="caption">RETRO ROAD TRIP</span>
                                         <div>
                                             <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
@@ -223,7 +223,7 @@
             <v-flex xs12>
                 <v-layout row wrap align-center>
                     <v-flex xs12>
-                        <v-parallax class="mb-4 mt-5" height="450" src="https://placeimg.com/2880/1799/nature/1">
+                        <v-parallax class="mb-4 mt-5" height="450" src="{{ assets('frontier/images/public/how_to_use.jpg') }}">
                             <v-layout
                                 column
                                 align-center
@@ -235,8 +235,10 @@
                                     <v-card-text>
                                         <h3><strong>{{ __("EXPERIENCE PHILIPPINES ROAD TRIPS") }}</strong></h3>
                                         <h6 class="fw-400">Random Road Trips where the destination is a SECRET <br> and the activities are always a SURPRISE</h6>
-                                        <a class="no-decoration" href="">
-                                            <v-icon class="display-3 white--text">play_circle_filled</v-icon>
+                                        <a class="td-n" href="">
+                                            <v-avatar v-tooltip:bottom="{ html: 'More Actions' }">
+                                                <v-icon class="display-3 white--text">play_circle_filled</v-icon>
+                                            </v-avatar>
                                         </a>
                                     </v-card-text>
                                 </v-card>
@@ -251,7 +253,7 @@
     <section id="stories">
         <v-container fluid grid-list-lg>
             <v-layout row wrap>
-                <v-flex lg8 offset-lg2 md12 sm12 xs12>
+                <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("STORIES FROM THE ROAD") }}</h2>
                         <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
@@ -262,95 +264,103 @@
                                 <v-flex xs12>
                                     <v-layout row wrap>
                                         <v-flex xs12>
-                                            <v-card class="elevation-1">
-                                                <v-card-media
-                                                    src="{{ assets('frontier/images/public/s2.jpg') }}"
-                                                    height="200px"
-                                                    >
-                                                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.20); position: absolute; width: 100%; height: 100%;"></div>
-                                                    <v-container fill-height fluid class="pa-0 white--text">
-                                                        <v-layout row wrap align-end justify-left>
-                                                        <v-card dark class="elevation-0 transparent">
-                                                            <v-card-text class="py-3 px-4 white--textbody-2">
-                                                            <div class="body-2">Road Tripper Monday: Jen Medrano</div>
-                                                            <div class="caption">November 13, 2017</div>
-                                                            <div class="caption">by El Joy beneza</div>
-                                                        </v-card-text>
-                                                        </v-card>
-                                                        </v-layout>
-                                                    </v-container>
-                                                </v-card-media>
-                                            </v-card>
+                                            <a href="" class="td-n">
+                                                <v-card class="elevation-1">
+                                                    <v-card-media
+                                                        src="{{ assets('frontier/images/public/s2.jpg') }}"
+                                                        height="200px"
+                                                        >
+                                                        <div class="insert-overlay" style="background: rgba(76, 175, 80, 0.15); position: absolute; width: 100%; height: 100%;"></div>
+                                                        <v-container fill-height fluid class="pa-0 white--text">
+                                                            <v-layout row wrap align-end justify-left>
+                                                            <v-card dark class="elevation-0 transparent">
+                                                                <v-card-text class="py-3 px-4 white--textbody-2">
+                                                                <div class="body-2">Road Tripper Monday: Jen Medrano</div>
+                                                                <div class="caption">November 13, 2017</div>
+                                                                <div class="caption">by El Joy beneza</div>
+                                                            </v-card-text>
+                                                            </v-card>
+                                                            </v-layout>
+                                                        </v-container>
+                                                    </v-card-media>
+                                                </v-card>
+                                            </a>
                                         </v-flex>
                                     </v-layout>
                                     <v-layout row wrap>
                                         <v-flex sm6 xs12>
-                                            <v-card class="elevation-1">
-                                                <v-card-media
-                                                    src="{{ assets('frontier/images/public/s3.jpg') }}"
-                                                    height="200px"
-                                                    >
-                                                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.20); position: absolute; width: 100%; height: 100%;"></div>
-                                                    <v-container fill-height fluid class="pa-0 white--text">
-                                                        <v-layout row wrap align-end justify-left>
-                                                            <v-card dark class="elevation-0 transparent">
-                                                                <v-card-text class="py-3 px-4 white--textbody-2">
-                                                                <div class="body-2">Road Tripper Monday: Don Davis Pido</div>
-                                                                <div class="caption">October 16, 2017</div>
-                                                                <div class="caption">by El Joy beneza</div>
-                                                            </v-card-text>
-                                                            </v-card>
-                                                        </v-layout>
-                                                    </v-container>
-                                                </v-card-media>
-                                            </v-card>
+                                            <a href="" class="td-n">
+                                                <v-card class="elevation-1">
+                                                    <v-card-media
+                                                        src="{{ assets('frontier/images/public/s3.jpg') }}"
+                                                        height="200px"
+                                                        >
+                                                        <div class="insert-overlay" style="background: rgba(76, 175, 80, 0.15); position: absolute; width: 100%; height: 100%;"></div>
+                                                        <v-container fill-height fluid class="pa-0 white--text">
+                                                            <v-layout row wrap align-end justify-left>
+                                                                <v-card dark class="elevation-0 transparent">
+                                                                    <v-card-text class="py-3 px-4 white--textbody-2">
+                                                                    <div class="body-2">Road Tripper Monday: Don Davis Pido</div>
+                                                                    <div class="caption">October 16, 2017</div>
+                                                                    <div class="caption">by El Joy beneza</div>
+                                                                </v-card-text>
+                                                                </v-card>
+                                                            </v-layout>
+                                                        </v-container>
+                                                    </v-card-media>
+                                                </v-card>
+                                            </a>
                                         </v-flex>
                                         <v-flex sm6 xs12>
-                                            <v-card class="elevation-1">
-                                                <v-card-media
-                                                    src="{{ assets('frontier/images/public/s4.jpg') }}"
-                                                    height="200px"
-                                                    >
-                                                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.20); position: absolute; width: 100%; height: 100%;"></div>
-                                                    <v-container fill-height fluid class="pa-0 white--text">
-                                                        <v-layout row wrap align-end justify-left>
-                                                            <v-card dark class="elevation-0 transparent">
-                                                                <v-card-text class="py-3 px-4 white--textbody-2">
-                                                                <div class="body-2">Road Tripper Monday: Alanna Tan</div>
-                                                                <div class="caption">August 7, 2017</div>
-                                                                <div class="caption">by El Joy beneza</div>
-                                                            </v-card-text>
-                                                            </v-card>
-                                                        </v-layout>
-                                                    </v-container>
-                                                </v-card-media>
-                                            </v-card>
+                                            <a href="" class="td-n">
+                                                <v-card class="elevation-1">
+                                                    <v-card-media
+                                                        src="{{ assets('frontier/images/public/s4.jpg') }}"
+                                                        height="200px"
+                                                        >
+                                                        <div class="insert-overlay" style="background: rgba(76, 175, 80, 0.15); position: absolute; width: 100%; height: 100%;"></div>
+                                                        <v-container fill-height fluid class="pa-0 white--text">
+                                                            <v-layout row wrap align-end justify-left>
+                                                                <v-card dark class="elevation-0 transparent">
+                                                                    <v-card-text class="py-3 px-4 white--textbody-2">
+                                                                    <div class="body-2">Road Tripper Monday: Alanna Tan</div>
+                                                                    <div class="caption">August 7, 2017</div>
+                                                                    <div class="caption">by El Joy beneza</div>
+                                                                </v-card-text>
+                                                                </v-card>
+                                                            </v-layout>
+                                                        </v-container>
+                                                    </v-card-media>
+                                                </v-card>
+                                            </a>
                                         </v-flex>
                                     </v-layout>
                                 </v-flex>
                             </v-layout>
                         </v-flex>
                         <v-flex sm6 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-media
-                                    src="{{ assets('frontier/images/public/s1.jpg') }}"
-                                    height="100%"
-                                    style="min-height: 200px;"
-                                    >
-                                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.20); position: absolute; width: 100%; height: 100%;"></div>
-                                    <v-container fill-height fluid class="pa-0 white--text">
-                                        <v-layout row wrap align-end justify-left>
-                                            <v-card dark class="elevation-0 transparent">
-                                                <v-card-text class="py-3 px-4 white--textbody-2">
-                                                <div class="body-2">Road Tripper Monday: Kevin Cheung</div>
-                                                <div class="caption">October 9, 2017</div>
-                                                <div class="caption">by El Joy beneza</div>
-                                            </v-card-text>
-                                            </v-card>
-                                        </v-layout>
-                                    </v-container>
-                                </v-card-media>
-                            </v-card>
+                            <a href="" class="td-n">
+                                <v-card class="elevation-1" height="100%">
+                                    <v-card-media
+                                        src="{{ assets('frontier/images/public/s1.jpg') }}"
+                                        height="100%"
+                                        style="min-height: 200px;"
+                                        >
+                                        <div class="insert-overlay" style="background: rgba(76, 175, 80, 0.15); position: absolute; width: 100%; height: 100%;"></div>
+                                        <v-container fill-height fluid class="pa-0 white--text">
+                                            <v-layout row wrap align-end justify-left>
+                                                <v-card dark class="elevation-0 transparent">
+                                                    <v-card-text class="py-3 px-4 white--textbody-2">
+                                                    <div class="body-2">Road Tripper Monday: Kevin Cheung</div>
+                                                    <div class="caption">October 9, 2017</div>
+                                                    <div class="caption">by El Joy beneza</div>
+                                                </v-card-text>
+                                                </v-card>
+                                            </v-layout>
+                                        </v-container>
+                                    </v-card-media>
+                                </v-card>
+                            </a>
                         </v-flex>
                     </v-layout>
                 </v-flex>
@@ -358,12 +368,12 @@
         </v-container>
     </section>
 
-    <section id="testimonial">
+    {{-- <section id="testimonial">
         <v-layout row wrap>
             <v-flex xs12>
                 <v-layout row wrap align-center>
                     <v-flex xs12>
-                        <v-parallax class="mb-4 mt-5" src="{{ assets('frontier/images/placeholder/galaxy.jpg') }}">
+                        <v-parallax height="100%" class="mb-4 mt-5" src="{{ assets('frontier/images/placeholder/galaxy.jpg') }}">
                             <v-layout
                                 column
                                 align-center
@@ -371,26 +381,26 @@
                                 class="white--text"
                                 >
                                 <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.40); position: absolute; width: 100%; height: 100%;"></div>
-                                <v-card dark class="elevation-0 transparent text-xs-center">
+                                <v-card dark class="py-4 elevation-0 transparent text-xs-center">
                                     <v-card-text>
-                                        <h5 class="mb-2"><strong>{{ __("Happy Customers") }}</strong></h5>
+                                        <h4 class="pb-0 mb-0"><strong>{{ __("Happy Customers") }}</strong></h4>
                                         <p class="fw-400">Checkout our best promotion tours</p>
                                         <v-layout row wrap>
                                             <v-flex lg4 offset-lg4 md8 offset-md2 sm12 xs12>
-                                                    <div class="subheading mb-5 mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum eaque explicabo recusandae blanditiis. Nostrum quidem blanditiis commodi ipsum magnam eaque magni, enim repudiandae quam ut totam alias maxime accusantium. Provident!</div>
+                                                <div class="subheading mb-5 mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum eaque explicabo recusandae blanditiis. Nostrum quidem blanditiis commodi ipsum magnam eaque magni, enim repudiandae quam ut totam alias maxime accusantium. Provident!</div>
 
-                                                    <v-avatar class="mb-3">
-                                                        <img src="https://placeimg.com/1280/480/people/1" alt="">
-                                                    </v-avatar>
+                                                <v-avatar class="mb-3">
+                                                    <img src="{{ assets('frontier/images/public/s4.jpg') }}" alt="">
+                                                </v-avatar>
 
-                                                    <div class="subheading">Jane Appleseed</div>
-                                                    <div class="body-1">Facebook Messanger</div>
+                                                <div class="subheading"><strong>Jane Appleseed</strong></div>
+                                                <div class="caption">Facebook Messanger</div>
 
-                                                    <v-avatar dark icon class="mt-5">
-                                                        <v-icon class="white--text caption">fiber_manual_record</v-icon>
-                                                        <v-icon class="white--text caption">fiber_manual_record</v-icon>
-                                                        <v-icon class="white--text caption">fiber_manual_record</v-icon>
-                                                    </v-avatar>
+                                                <v-avatar dark icon class="mt-5">
+                                                    <v-icon class="white--text caption">fiber_manual_record</v-icon>
+                                                    <v-icon class="white--text caption">fiber_manual_record</v-icon>
+                                                    <v-icon class="white--text caption">fiber_manual_record</v-icon>
+                                                </v-avatar>
                                             </v-flex>
                                         </v-layout>
                                     </v-card-text>
@@ -401,12 +411,12 @@
                 </v-layout>
             </v-flex>
         </v-layout>
-    </section>
+    </section> --}}
 
     <section id="partnership">
         <v-container fluid>
             <v-layout row wrap>
-                <v-flex lg8 offset-lg2 md12 sm12 xs12>
+                <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("PARTNERSHIPS") }}</h2>
                         <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
@@ -436,7 +446,7 @@
 <section id="cta">
     <v-layout row wrap>
         <v-flex xs12>
-            <v-parallax height="300" src="{{ assets('frontier/images/placeholder/galaxy.jpg') }}">
+            <v-parallax height="200" src="{{ assets('frontier/images/placeholder/9.png') }}">
                 <v-layout
                     column
                     align-center
@@ -444,13 +454,13 @@
                     class="white--text"
                     >
                     <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.40); position: absolute; width: 100%; height: 100%;"></div>
-                    <v-card class="elevation-0 transparent">
+                    <v-card dark class="elevation-0 transparent">
                         <v-flex xs12>
+                            {{-- <v-card-text class="title text-xs-center">Travel discounts up to 60% off</v-card-text> --}}
                             <v-layout row wrap>
                                 <v-flex md5 xs12>
                                     <v-card-text>
                                         <v-menu
-                                            lazy
                                             :close-on-content-click="false"
                                             v-model="menu"
                                             transition="scale-transition"
@@ -476,7 +486,6 @@
                                 <v-flex md5 xs12>
                                     <v-card-text>
                                         <v-menu
-                                            lazy
                                             :close-on-content-click="false"
                                             v-model="from"
                                             transition="scale-transition"
@@ -513,13 +522,120 @@
     </v-layout>
 </section>
 
+<footer>
+    <v-layout row wrap>
+        <v-flex xs12>
+            <v-card class="elevation-0 black py-5">
+                <v-layout row wrap>
+                    <v-flex lg10 offset-lg1 md12 sm12>
+                        <v-container fill-height fluid class="pa-0 white--text">
+                            <v-layout row wrap align-top justify-top>
+                                <v-flex md3 xs12>
+                                    <v-card dark class="elevation-0 transparent">
+                                        <v-card-text class="grey--text">
+                                            <img src="{{ assets('frontier/images/public/footer.png') }}" alt="" width="120">
+                                            <div class="body-2 mb-1">About Experience Philippines</div>
+                                            <div class="caption mb-3">
+                                                Experience Philippines is about UNIQUE ADVENTURES. We are a travel group that organizes RANDOM ROAD TRIPS where the destination is a SECRET and the activities are a SURPRISE.
+                                            </div>
+                                        </v-card-text>
+                                    </v-card>
+                                </v-flex>
+                                <v-flex md6 xs12>
+                                    <v-card dark class="elevation-0 transparent">
+                                        {{-- <div class="body-2 text-xs-center">IMPORTANT LINKS</div> --}}
+                                        <v-card-text class="body-1">
+                                            <v-layout row wrap>
+                                                <v-flex x6>
+                                                    <div class="body-2 mb-2 white--text">Experience Philippines</div>
+                                                    <div class="mb-1">
+                                                    <a href="" class="td-n grey--text">
+                                                        Who We Are
+                                                    </a>
+                                                    </div>
+                                                    <div class="mb-1"><a href="" class="td-n grey--text">
+                                                        Crowd Funding
+                                                    </a></div>
+                                                    <div class="mb-1"><a href="" class="td-n grey--text">
+                                                        Stories From The Road
+                                                    </a></div>
+                                                    <div class="mb-1"><a href="" class="td-n grey--text">
+                                                        Privacy Policy
+                                                    </a></div>
+                                                    <div class="mb-1"><a href="" class="td-n grey--text">
+                                                        Contact Us
+                                                    </a></div>
+                                                    <div class="mb-1"><a href="" class="td-n grey--text">
+                                                        Sponsorships Opportunities
+                                                    </a></div>
+                                                </v-flex>
+                                                <v-flex xs6>
+                                                    <div class="body-2 mb-2 white--text">Road Trips</div>
+                                                    <div class="mb-1"><a href="" class="td-n grey--text">
+                                                        Random Road Trips
+                                                    </a></div>
+                                                    <div class="mb-1"><a href="" class="td-n grey--text">
+                                                        Singles Road Trips
+                                                    </a></div>
+                                                    <div class="mb-1"><a href="" class="td-n grey--text">
+                                                        Random OUTings
+                                                    </a></div>
+                                                    <div class="mb-1"><a href="" class="td-n grey--text">
+                                                        Retro Road Trips
+                                                    </a></div>
+                                                    <div class="mb-1"><a href="" class="td-n grey--text">
+                                                        Quick Getaway
+                                                    </a></div>
+                                                    <div class="mb-1"><a href="" class="td-n grey--text">
+                                                        Special Road Trips
+                                                    </a></div>
+                                                </v-flex>
+                                            </v-layout>
+                                        </v-card-text>
+                                    </v-card>
+                                </v-flex>
+                                <v-flex md3 xs12>
+                                    <v-card dark class="elevation-0 transparent">
+                                        <v-card-text class="caption grey--text">
+                                            <div class="body-2 mb-2 white--text">Contact Us</div>
+                                            <v-btn outline class="mb-2 mx-0 grey--text">Ask Experience Philippines</v-btn>
+                                            <div>Mobile: +63 917 563 9692</div>
+                                            <div>Landline: +632 710 5641</div>
+                                            <div>Email: giancarlo@experience.ph</div>
+                                            <div>Unit 10G Le Grande Tower 2, Eastwood City, Bagumbayan, Quezon City, PHILIPPINES 1110.</div>
+                                        </v-card-text>
+                                    </v-card>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
+                    </v-flex>
+                </v-layout>
+            </v-card>
+
+            <v-card class="elevation-0 black">
+                <v-layout row wrap>
+                    <v-flex lg10 offset-lg1 md12 sm12>
+                        <v-divider class="grey darken-3"></v-divider>
+                        <v-card-actions>
+                            <div class="caption grey--text">© 2017 EXPERIENCE PHILIPPINES</div>
+                            <v-spacer></v-spacer>
+                            <v-btn icon><v-icon class="subheading grey--text">fa fa-facebook</v-icon></v-btn>
+                            <v-btn icon><v-icon class="subheading grey--text">fa fa-twitter</v-icon></v-btn>
+                            <v-btn icon><v-icon class="subheading grey--text">fa fa-youtube</v-icon></v-btn>
+                            <v-btn icon><v-icon class="subheading grey--text">fa fa-instagram</v-icon></v-btn>
+                            <v-btn icon><v-icon class="subheading grey--text">fa fa-pinterest</v-icon></v-btn>
+                        </v-card-actions>
+                    </v-flex>
+                </v-layout>
+            </v-card>
+        </v-flex>
+    </v-layout>
+</footer>
+
 @endsection
 
 @push('css')
     <style>
-        .no-decoration {
-            text-decoration: none;
-        }
         .hero-search .input-group.input-group--solo {
             min-height: 55px !important;
         }

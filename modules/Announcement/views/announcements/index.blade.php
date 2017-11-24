@@ -70,7 +70,6 @@
             </form>
         </template>
     </v-slide-y-transition>
-
     {{-- /Bulk Delete --}}
     {{-- /Batch Commands --}}
 
