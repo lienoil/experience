@@ -29,14 +29,14 @@
                 class="white--text"
                 >
                 <v-card dark class="elevation-0 transparent">
-                    <h2 class="mb-2 text-xs-center"><strong>{{ __("LET'S GO TRAVEL DIFFERENTLY") }}</strong></h2>
-                    <h5 class="mb-3 text-xs-center fw-500">Experience a different kind of adventure</h5>
+                    <h1 class="mb-2 display-1 text-xs-center"><strong>{{ __("LET'S GO TRAVEL DIFFERENTLY") }}</strong></h1>
+                    <h5 class=" fw-400 mb-3 text-xs-center">We are pioneers of Random Road Trips where the destination is a SECRET <br> and the activities are always a SURPRISE.</h5>
                     <v-card-text>
                         <v-flex xs12 class="hero-search">
                             <v-select
                                 v-bind:items="states"
                                 v-model="search"
-                                label="What do you want to do or where do you want to go?"
+                                label="Search by destination or activity"
                                 {{-- append-icon="close" --}}
                                 light solo hide-details single-line
                                 autocomplete
@@ -109,49 +109,258 @@
                         <h2 class="display-1">{{ __("CURATED EXPERIENCES") }}</h2>
                         <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
                     </v-card-text>
-                    <v-layout row wrap align-center>
-                        <v-flex xs12 sm6 md3 v-for="card in exp">
-                            <a href="" ripple class="td-n">
-                                <v-card class="elevation-1">
-                                    <v-card-media
-                                        height="180px"
-                                        :src="card.src"
-                                        class="grey lighten-4">
-                                        <v-container fill-height fluid class="pa-0 white--text">
-                                            <v-layout column>
-                                                <v-spacer></v-spacer>
-                                                <v-card-actions>
-                                                <v-spacer></v-spacer>
-                                                <v-card-text class="pa-0 white--text title text-xs-right">
-                                                    <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="card.price"></v-chip>
-                                                </v-card-text>
-                                                </v-card-actions>
-                                            </v-layout>
-                                        </v-container>
-                                    </v-card-media>
-                                    <v-divider class="grey lighten-3"></v-divider>
-                                    <v-toolbar card dense class="transparent pt-2">
-                                        <v-toolbar-title class="mr-3 subheading">
-                                            <span class="body-2">@{{ card.title }}</span><br>
-                                            <span class="caption">October 21-22</span><br>
-                                        </v-toolbar-title>
-                                    </v-toolbar>
-                                    <v-card-text class="grey--text pt-4">
-                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                        <span class="caption">RETRO ROAD TRIP</span>
-                                        <div>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
-                                            4.6
-                                        </div>
-                                    </v-card-text>
-                                </v-card>
-                            </a>
-                        </v-flex>
-                    </v-layout>
+                    <v-card class="elevation-0 transparent">
+                        <v-card-text class="pa-0">
+                            <section class="regular slider my-2">
+                                <div class="my-2">
+                                    <a href="" ripple class="td-n">
+                                        <v-card class="elevation-1">
+                                            <v-card-media
+                                                height="180px"
+                                                src="https://placeimg.com/640/480/nature/5"
+                                                class="grey lighten-4">
+                                                <v-container fill-height fluid class="pa-0 white--text">
+                                                    <v-layout column>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-actions>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-text class="pa-0 white--text title text-xs-right">
+                                                            <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">₱ 6,000</v-chip>
+                                                        </v-card-text>
+                                                        </v-card-actions>
+                                                    </v-layout>
+                                                </v-container>
+                                            </v-card-media>
+                                            <v-divider class="grey lighten-3"></v-divider>
+                                            <v-toolbar card dense class="transparent pt-2">
+                                                <v-toolbar-title class="mr-3 subheading">
+                                                    <span class="body-2">sdsds</span><br>
+                                                    <span class="caption">October 21-22</span><br>
+                                                </v-toolbar-title>
+                                            </v-toolbar>
+                                            <v-card-text class="grey--text pt-4">
+                                                <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                                <span class="caption">RETRO ROAD TRIP</span>
+                                                <div>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                                    4.6
+                                                </div>
+                                            </v-card-text>
+                                        </v-card>
+                                    </a>
+                                </div>
+                                <div class="my-2">
+                                    <a href="" ripple class="td-n">
+                                        <v-card class="elevation-1">
+                                            <v-card-media
+                                                height="180px"
+                                                src="https://placeimg.com/640/480/nature/5"
+                                                class="grey lighten-4">
+                                                <v-container fill-height fluid class="pa-0 white--text">
+                                                    <v-layout column>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-actions>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-text class="pa-0 white--text title text-xs-right">
+                                                            <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">₱ 6,000</v-chip>
+                                                        </v-card-text>
+                                                        </v-card-actions>
+                                                    </v-layout>
+                                                </v-container>
+                                            </v-card-media>
+                                            <v-divider class="grey lighten-3"></v-divider>
+                                            <v-toolbar card dense class="transparent pt-2">
+                                                <v-toolbar-title class="mr-3 subheading">
+                                                    <span class="body-2">sdsds</span><br>
+                                                    <span class="caption">October 21-22</span><br>
+                                                </v-toolbar-title>
+                                            </v-toolbar>
+                                            <v-card-text class="grey--text pt-4">
+                                                <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                                <span class="caption">RETRO ROAD TRIP</span>
+                                                <div>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                                    4.6
+                                                </div>
+                                            </v-card-text>
+                                        </v-card>
+                                    </a>
+                                </div>
+                                <div class="my-2">
+                                    <a href="" ripple class="td-n">
+                                        <v-card class="elevation-1">
+                                            <v-card-media
+                                                height="180px"
+                                                src="https://placeimg.com/640/480/nature/5"
+                                                class="grey lighten-4">
+                                                <v-container fill-height fluid class="pa-0 white--text">
+                                                    <v-layout column>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-actions>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-text class="pa-0 white--text title text-xs-right">
+                                                            <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">₱ 6,000</v-chip>
+                                                        </v-card-text>
+                                                        </v-card-actions>
+                                                    </v-layout>
+                                                </v-container>
+                                            </v-card-media>
+                                            <v-divider class="grey lighten-3"></v-divider>
+                                            <v-toolbar card dense class="transparent pt-2">
+                                                <v-toolbar-title class="mr-3 subheading">
+                                                    <span class="body-2">sdsds</span><br>
+                                                    <span class="caption">October 21-22</span><br>
+                                                </v-toolbar-title>
+                                            </v-toolbar>
+                                            <v-card-text class="grey--text pt-4">
+                                                <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                                <span class="caption">RETRO ROAD TRIP</span>
+                                                <div>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                                    4.6
+                                                </div>
+                                            </v-card-text>
+                                        </v-card>
+                                    </a>
+                                </div>
+                                <div class="my-2">
+                                    <a href="" ripple class="td-n">
+                                        <v-card class="elevation-1">
+                                            <v-card-media
+                                                height="180px"
+                                                src="https://placeimg.com/640/480/nature/5"
+                                                class="grey lighten-4">
+                                                <v-container fill-height fluid class="pa-0 white--text">
+                                                    <v-layout column>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-actions>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-text class="pa-0 white--text title text-xs-right">
+                                                            <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">₱ 6,000</v-chip>
+                                                        </v-card-text>
+                                                        </v-card-actions>
+                                                    </v-layout>
+                                                </v-container>
+                                            </v-card-media>
+                                            <v-divider class="grey lighten-3"></v-divider>
+                                            <v-toolbar card dense class="transparent pt-2">
+                                                <v-toolbar-title class="mr-3 subheading">
+                                                    <span class="body-2">sdsds</span><br>
+                                                    <span class="caption">October 21-22</span><br>
+                                                </v-toolbar-title>
+                                            </v-toolbar>
+                                            <v-card-text class="grey--text pt-4">
+                                                <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                                <span class="caption">RETRO ROAD TRIP</span>
+                                                <div>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                                    4.6
+                                                </div>
+                                            </v-card-text>
+                                        </v-card>
+                                    </a>
+                                </div>
+                                <div class="my-2">
+                                    <a href="" ripple class="td-n">
+                                        <v-card class="elevation-1">
+                                            <v-card-media
+                                                height="180px"
+                                                src="https://placeimg.com/640/480/nature/5"
+                                                class="grey lighten-4">
+                                                <v-container fill-height fluid class="pa-0 white--text">
+                                                    <v-layout column>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-actions>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-text class="pa-0 white--text title text-xs-right">
+                                                            <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">₱ 6,000</v-chip>
+                                                        </v-card-text>
+                                                        </v-card-actions>
+                                                    </v-layout>
+                                                </v-container>
+                                            </v-card-media>
+                                            <v-divider class="grey lighten-3"></v-divider>
+                                            <v-toolbar card dense class="transparent pt-2">
+                                                <v-toolbar-title class="mr-3 subheading">
+                                                    <span class="body-2">sdsds</span><br>
+                                                    <span class="caption">October 21-22</span><br>
+                                                </v-toolbar-title>
+                                            </v-toolbar>
+                                            <v-card-text class="grey--text pt-4">
+                                                <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                                <span class="caption">RETRO ROAD TRIP</span>
+                                                <div>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                                    4.6
+                                                </div>
+                                            </v-card-text>
+                                        </v-card>
+                                    </a>
+                                </div>
+                                <div class="my-2">
+                                    <a href="" ripple class="td-n">
+                                        <v-card class="elevation-1">
+                                            <v-card-media
+                                                height="180px"
+                                                src="https://placeimg.com/640/480/nature/5"
+                                                class="grey lighten-4">
+                                                <v-container fill-height fluid class="pa-0 white--text">
+                                                    <v-layout column>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-actions>
+                                                        <v-spacer></v-spacer>
+                                                        <v-card-text class="pa-0 white--text title text-xs-right">
+                                                            <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">₱ 6,000</v-chip>
+                                                        </v-card-text>
+                                                        </v-card-actions>
+                                                    </v-layout>
+                                                </v-container>
+                                            </v-card-media>
+                                            <v-divider class="grey lighten-3"></v-divider>
+                                            <v-toolbar card dense class="transparent pt-2">
+                                                <v-toolbar-title class="mr-3 subheading">
+                                                    <span class="body-2">sdsds</span><br>
+                                                    <span class="caption">October 21-22</span><br>
+                                                </v-toolbar-title>
+                                            </v-toolbar>
+                                            <v-card-text class="grey--text pt-4">
+                                                <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                                <span class="caption">RETRO ROAD TRIP</span>
+                                                <div>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                                    4.6
+                                                </div>
+                                            </v-card-text>
+                                        </v-card>
+                                    </a>
+                                </div>
+                            </section>
+                        </v-card-text>
+                    </v-card>
                     <v-card-text class="text-xs-center">
                         <v-btn outline large class="deep-orange--text text--lighten-1">
                             <v-icon left>place</v-icon> {{ __('View All Experiences') }}
@@ -634,15 +843,37 @@
 @endsection
 
 @push('css')
-        <style>
+    <link rel="stylesheet" href="{{ assets('frontier/slick/slick/slick.css') }}">
+    <link rel="stylesheet" href="{{ assets('frontier/slick/slick/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ assets('frontier/slick/slick/fonts/slick.woff') }}">
+    <link rel="stylesheet" href="{{ assets('frontier/slick/slick/fonts/slick.ttf') }}">
+    <style>
+        /*slick*/
+
+        .slider {
+            height: 100%;
+        }
+        .slick-slide {
+            margin: 0px 10px;
+        }
+        .slick-slide img {
+            width: 100%;
+        }
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+        }
+        .slick-slide {
+            transition: all ease-in-out .3s;
+            /*opacity: 1;*/
+        }
+        /*end slick*/
+
         .hero-search .input-group.input-group--solo {
             min-height: 55px !important;
         }
         .fw-400 {
             font-weight: 400;
-        }
-        .fw-500 {
-            font-weight: 500;
         }
         #hero .parallax__content {
             padding: 0;
@@ -714,6 +945,50 @@
                     ],
                 }
             },
+        });
+    </script>
+@endpush
+
+@push('js')
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="{{ assets('frontier/slick/slick/slick.js') }}"></script>
+    <script>
+        $(document).on('ready', function() {
+            $(".regular").slick({
+                dots: false,
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                autoplay: false,
+                responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: false
+                  }
+                },
+                {
+                  breakpoint: 600,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                  }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+              ]
+            });
         });
     </script>
 @endpush
