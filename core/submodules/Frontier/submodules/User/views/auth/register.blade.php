@@ -1,7 +1,7 @@
 @extends("Theme::layouts.auth")
 
 @section("content")
-    <v-card flat class="blue lighten-1" height="100vh">
+    <v-card flat class="grey lighten-3" height="100vh">
         {{-- <div class="red" style="height: 3px;"></div> --}}
         <v-toolbar class="blue lighten-1 elevation-0" extended></v-toolbar>
         <v-layout>
@@ -31,37 +31,134 @@
                     <v-container fluid>
                         <form method="POST" action="{{ route('register.register') }}">
                             {{ csrf_field() }}
-                            <v-text-field
-                                :error-messages="resource.errors.email"
-                                class="input-group"
-                                label="Email"
-                                name="email"
-                                type="email"
-                                hide-details
-                                value="{{ old('email') }}"
-                            ></v-text-field>
-                            <v-text-field
-                                :append-icon-cb="() => (resource.visible = !resource.visible)"
-                                :append-icon="resource.visible ? 'visibility' : 'visibility_off'"
-                                :error-messages="resource.errors.password"
-                                :type="resource.visible ? 'text': 'password'"
-                                class="input-group"
-                                label="Password"
-                                hide-details
-                                min="6"
-                                name="password"
-                                value="{{ old('password') }}"
-                            ></v-text-field>
-                            <v-text-field
-                                :error-messages="resource.errors.password_confirmation"
-                                :type="resource.visible ? 'text': 'password'"
-                                class="input-group"
-                                label="Confirm Password"
-                                hide-details
-                                min="6"
-                                name="password_confirmation"
-                                value="{{ old('password_confirmation') }}"
-                            ></v-text-field>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Full Name') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.name"
+                                        class="input-group"
+                                        label="Full Name"
+                                        name="name"
+                                        type="name"
+                                        hide-details
+                                        value="{{ old('name') }}"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Email Address') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.email"
+                                        class="input-group"
+                                        label="Email Address"
+                                        name="email"
+                                        type="email"
+                                        hide-details
+                                        value="{{ old('email') }}"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Primary Number') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.contact"
+                                        class="input-group"
+                                        label="Primary Number"
+                                        type="contact"
+                                        hide-details
+                                        value="{{ old('contact') }}"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Emergency Contact Number') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.emergency"
+                                        class="input-group"
+                                        label="Emergency Contact Number"
+                                        type="emergency"
+                                        hide-details
+                                        value="{{ old('emergency') }}"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Country/City') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.country"
+                                        class="input-group"
+                                        label="Country/City"
+                                        type="country"
+                                        hide-details
+                                        value="{{ old('country') }}"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Date of Birth') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.birthday"
+                                        class="input-group"
+                                        label="Date of Birth"
+                                        type="birthday"
+                                        hide-details
+                                        value="{{ old('birthday') }}"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Password') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :append-icon-cb="() => (resource.visible = !resource.visible)"
+                                        :append-icon="resource.visible ? 'visibility' : 'visibility_off'"
+                                        :error-messages="resource.errors.password"
+                                        :type="resource.visible ? 'text': 'password'"
+                                        class="input-group"
+                                        label="Password"
+                                        hide-details
+                                        min="6"
+                                        name="password"
+                                        value="{{ old('password') }}"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
+                            <v-layout row wrap>
+                                <v-flex xs4>
+                                    <v-subheader>{{ __('Confirm Password') }}</v-subheader>
+                                </v-flex>
+                                <v-flex xs8>
+                                    <v-text-field
+                                        :error-messages="resource.errors.password_confirmation"
+                                        :type="resource.visible ? 'text': 'password'"
+                                        class="input-group"
+                                        label="Confirm Password"
+                                        hide-details
+                                        min="6"
+                                        name="password_confirmation"
+                                        value="{{ old('password_confirmation') }}"
+                                    ></v-text-field>
+                                </v-flex>
+                            </v-layout>
 
                             <v-checkbox
                                 :error-messages="resource.errors.terms_and_conditions"
