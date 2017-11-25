@@ -6,7 +6,7 @@
 @section("content")
 <main>
     <section id="hero">
-        <v-parallax height="600" src="{{ assets('frontier/images/public/h5.jpg') }}">
+        <v-parallax height="600" src="{{ assets('frontier/images/public/h8.jpg') }}">
             <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
             <v-toolbar class="elevation-0 transparent sticky" dark>
                 <a href="">
@@ -119,7 +119,7 @@
                             :key="card.title"
                             >
                             <a href="" ripple class="td-n">
-                                <v-card class="elevation-1">
+                                <v-card class="elevation-1 c-lift">
                                     <v-card-media
                                         :src="card.src"
                                         height="250px"
@@ -153,7 +153,7 @@
                     <v-layout row wrap align-center>
                         <v-flex xs12 sm6 md3 v-for="card in exp">
                             <a href="" ripple class="td-n">
-                                <v-card class="elevation-1">
+                                <v-card class="elevation-1 c-lift">
                                     <v-card-media
                                         height="180px"
                                         :src="card.src"
@@ -214,7 +214,7 @@
                     <v-layout row wrap align-center>
                         <v-flex xs12 sm6 md3 v-for="card in reco">
                             <a href="" ripple class="td-n">
-                                <v-card class="elevation-1">
+                                <v-card class="elevation-1 c-lift">
                                     <v-card-media
                                         height="180px"
                                         :src="card.src"
@@ -306,7 +306,7 @@
                                     <v-layout row wrap>
                                         <v-flex xs12>
                                             <a href="" class="td-n">
-                                                <v-card class="elevation-1">
+                                                <v-card class="elevation-1 c-lift">
                                                     <v-card-media
                                                         src="{{ assets('frontier/images/public/s2.jpg') }}"
                                                         height="200px"
@@ -331,7 +331,7 @@
                                     <v-layout row wrap>
                                         <v-flex sm6 xs12>
                                             <a href="" class="td-n">
-                                                <v-card class="elevation-1">
+                                                <v-card class="elevation-1 c-lift">
                                                     <v-card-media
                                                         src="{{ assets('frontier/images/public/s3.jpg') }}"
                                                         height="200px"
@@ -354,7 +354,7 @@
                                         </v-flex>
                                         <v-flex sm6 xs12>
                                             <a href="" class="td-n">
-                                                <v-card class="elevation-1">
+                                                <v-card class="elevation-1 c-lift">
                                                     <v-card-media
                                                         src="{{ assets('frontier/images/public/s4.jpg') }}"
                                                         height="200px"
@@ -381,7 +381,7 @@
                         </v-flex>
                         <v-flex sm6 xs12>
                             <a href="" class="td-n">
-                                <v-card class="elevation-1" height="100%">
+                                <v-card class="elevation-1 c-lift" height="100%">
                                     <v-card-media
                                         src="{{ assets('frontier/images/public/s1.jpg') }}"
                                         height="100%"
@@ -487,7 +487,7 @@
 <section id="cta">
     <v-layout row wrap>
         <v-flex xs12>
-            <v-parallax height="250" src="{{ assets('frontier/images/public/ski.jpg') }}">
+            <v-card height="250px" class="elevation-0 deep-orange darken-2">
                 <v-layout
                     column
                     align-center
@@ -497,7 +497,6 @@
                     <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
                     <v-card dark class="elevation-0 transparent">
                         <v-flex xs12>
-                            {{-- <v-card-text class="title text-xs-center">Travel discounts up to 60% off</v-card-text> --}}
                             <v-layout row wrap>
                                 <v-flex md5 xs12>
                                     <v-card-text>
@@ -558,7 +557,7 @@
                         </v-flex>
                     </v-card>
                 </v-layout>
-            </v-parallax>
+            </v-card>
         </v-flex>
     </v-layout>
 </section>
@@ -697,6 +696,14 @@
         footer a:hover,
         .social:hover {
             color: #ff6600 !important;
+        }
+        .c-lift {
+            transition: all .2s ease;
+        }
+        .c-lift:hover {
+            -webkit-transform: translateY(-6px);
+            transform: translateY(-6px);
+            box-shadow: 0 1px 8px rgba(0,0,0,.2),0 3px 4px rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.12) !important;
         }
     </style>
 @endpush
