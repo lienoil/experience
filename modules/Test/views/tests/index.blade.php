@@ -7,259 +7,254 @@
     <v-container fluid grid-list-lg>
         <v-layout row wrap>
             <v-flex xs12>
-                <v-card class="elevation-1">
-                    <v-card-text>
-                        <section class="regular slider my-2">
-                        <div class="my-2">
-                            <a href="" ripple class="td-n">
-                                <v-card class="elevation-1">
-                                    <v-card-media
-                                        height="180px"
-                                        src=""
-                                        class="grey lighten-4">
-                                        <v-container fill-height fluid class="pa-0 white--text">
-                                            <v-layout column>
-                                                <v-spacer></v-spacer>
-                                                <v-card-actions>
-                                                <v-spacer></v-spacer>
-                                                <v-card-text class="pa-0 white--text title text-xs-right">
-                                                    <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
-                                                </v-card-text>
-                                                </v-card-actions>
-                                            </v-layout>
-                                        </v-container>
-                                    </v-card-media>
-                                    <v-divider class="grey lighten-3"></v-divider>
-                                    <v-toolbar card dense class="transparent pt-2">
-                                        <v-toolbar-title class="mr-3 subheading">
-                                            <span class="body-2">sdsds</span><br>
-                                            <span class="caption">October 21-22</span><br>
-                                        </v-toolbar-title>
-                                    </v-toolbar>
-                                    <v-card-text class="grey--text pt-4">
-                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                        <span class="caption">RETRO ROAD TRIP</span>
-                                        <div>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
-                                            4.6
-                                        </div>
-                                    </v-card-text>
-                                </v-card>
-                            </a>
-                        </div>
-                        <div class="my-2">
-                            <a href="" ripple class="td-n">
-                                <v-card class="elevation-1">
-                                    <v-card-media
-                                        height="180px"
-                                        src=""
-                                        class="grey lighten-4">
-                                        <v-container fill-height fluid class="pa-0 white--text">
-                                            <v-layout column>
-                                                <v-spacer></v-spacer>
-                                                <v-card-actions>
-                                                <v-spacer></v-spacer>
-                                                <v-card-text class="pa-0 white--text title text-xs-right">
-                                                    <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
-                                                </v-card-text>
-                                                </v-card-actions>
-                                            </v-layout>
-                                        </v-container>
-                                    </v-card-media>
-                                    <v-divider class="grey lighten-3"></v-divider>
-                                    <v-toolbar card dense class="transparent pt-2">
-                                        <v-toolbar-title class="mr-3 subheading">
-                                            <span class="body-2">sdsds</span><br>
-                                            <span class="caption">October 21-22</span><br>
-                                        </v-toolbar-title>
-                                    </v-toolbar>
-                                    <v-card-text class="grey--text pt-4">
-                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                        <span class="caption">RETRO ROAD TRIP</span>
-                                        <div>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
-                                            4.6
-                                        </div>
-                                    </v-card-text>
-                                </v-card>
-                            </a>
-                        </div>
-                        <div class="my-2">
-                            <a href="" ripple class="td-n">
-                                <v-card class="elevation-1">
-                                    <v-card-media
-                                        height="180px"
-                                        src=""
-                                        class="grey lighten-4">
-                                        <v-container fill-height fluid class="pa-0 white--text">
-                                            <v-layout column>
-                                                <v-spacer></v-spacer>
-                                                <v-card-actions>
-                                                <v-spacer></v-spacer>
-                                                <v-card-text class="pa-0 white--text title text-xs-right">
-                                                    <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
-                                                </v-card-text>
-                                                </v-card-actions>
-                                            </v-layout>
-                                        </v-container>
-                                    </v-card-media>
-                                    <v-divider class="grey lighten-3"></v-divider>
-                                    <v-toolbar card dense class="transparent pt-2">
-                                        <v-toolbar-title class="mr-3 subheading">
-                                            <span class="body-2">sdsds</span><br>
-                                            <span class="caption">October 21-22</span><br>
-                                        </v-toolbar-title>
-                                    </v-toolbar>
-                                    <v-card-text class="grey--text pt-4">
-                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                        <span class="caption">RETRO ROAD TRIP</span>
-                                        <div>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
-                                            4.6
-                                        </div>
-                                    </v-card-text>
-                                </v-card>
-                            </a>
-                        </div>
-                        <div class="my-2">
-                            <a href="" ripple class="td-n">
-                                <v-card class="elevation-1">
-                                    <v-card-media
-                                        height="180px"
-                                        src=""
-                                        class="grey lighten-4">
-                                        <v-container fill-height fluid class="pa-0 white--text">
-                                            <v-layout column>
-                                                <v-spacer></v-spacer>
-                                                <v-card-actions>
-                                                <v-spacer></v-spacer>
-                                                <v-card-text class="pa-0 white--text title text-xs-right">
-                                                    <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
-                                                </v-card-text>
-                                                </v-card-actions>
-                                            </v-layout>
-                                        </v-container>
-                                    </v-card-media>
-                                    <v-divider class="grey lighten-3"></v-divider>
-                                    <v-toolbar card dense class="transparent pt-2">
-                                        <v-toolbar-title class="mr-3 subheading">
-                                            <span class="body-2">sdsds</span><br>
-                                            <span class="caption">October 21-22</span><br>
-                                        </v-toolbar-title>
-                                    </v-toolbar>
-                                    <v-card-text class="grey--text pt-4">
-                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                        <span class="caption">RETRO ROAD TRIP</span>
-                                        <div>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
-                                            4.6
-                                        </div>
-                                    </v-card-text>
-                                </v-card>
-                            </a>
-                        </div>
-                        <div class="my-2">
-                            <a href="" ripple class="td-n">
-                                <v-card class="elevation-1">
-                                    <v-card-media
-                                        height="180px"
-                                        src=""
-                                        class="grey lighten-4">
-                                        <v-container fill-height fluid class="pa-0 white--text">
-                                            <v-layout column>
-                                                <v-spacer></v-spacer>
-                                                <v-card-actions>
-                                                <v-spacer></v-spacer>
-                                                <v-card-text class="pa-0 white--text title text-xs-right">
-                                                    <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
-                                                </v-card-text>
-                                                </v-card-actions>
-                                            </v-layout>
-                                        </v-container>
-                                    </v-card-media>
-                                    <v-divider class="grey lighten-3"></v-divider>
-                                    <v-toolbar card dense class="transparent pt-2">
-                                        <v-toolbar-title class="mr-3 subheading">
-                                            <span class="body-2">sdsds</span><br>
-                                            <span class="caption">October 21-22</span><br>
-                                        </v-toolbar-title>
-                                    </v-toolbar>
-                                    <v-card-text class="grey--text pt-4">
-                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                        <span class="caption">RETRO ROAD TRIP</span>
-                                        <div>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
-                                            4.6
-                                        </div>
-                                    </v-card-text>
-                                </v-card>
-                            </a>
-                        </div>
-                        <div class="my-2">
-                            <a href="" ripple class="td-n">
-                                <v-card class="elevation-1">
-                                    <v-card-media
-                                        height="180px"
-                                        src=""
-                                        class="grey lighten-4">
-                                        <v-container fill-height fluid class="pa-0 white--text">
-                                            <v-layout column>
-                                                <v-spacer></v-spacer>
-                                                <v-card-actions>
-                                                <v-spacer></v-spacer>
-                                                <v-card-text class="pa-0 white--text title text-xs-right">
-                                                    <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
-                                                </v-card-text>
-                                                </v-card-actions>
-                                            </v-layout>
-                                        </v-container>
-                                    </v-card-media>
-                                    <v-divider class="grey lighten-3"></v-divider>
-                                    <v-toolbar card dense class="transparent pt-2">
-                                        <v-toolbar-title class="mr-3 subheading">
-                                            <span class="body-2">sdsds</span><br>
-                                            <span class="caption">October 21-22</span><br>
-                                        </v-toolbar-title>
-                                    </v-toolbar>
-                                    <v-card-text class="grey--text pt-4">
-                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                        <span class="caption">RETRO ROAD TRIP</span>
-                                        <div>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
-                                            4.6
-                                        </div>
-                                    </v-card-text>
-                                </v-card>
-                            </a>
-                        </div>
-                    </section>
-                    </v-card-text>
-                </v-card>
-
+                <section class="regular slider my-2">
+                    <div class="my-2">
+                        <a href="" ripple class="td-n" v-items:"card in cards">
+                            <v-card class="elevation-1">
+                                <v-card-media
+                                    height="180px"
+                                    src=""
+                                    class="grey lighten-4">
+                                    <v-container fill-height fluid class="pa-0 white--text">
+                                        <v-layout column>
+                                            <v-spacer></v-spacer>
+                                            <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                            <v-card-text class="pa-0 white--text title text-xs-right">
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                            </v-card-text>
+                                            </v-card-actions>
+                                        </v-layout>
+                                    </v-container>
+                                </v-card-media>
+                                <v-divider class="grey lighten-3"></v-divider>
+                                <v-toolbar card dense class="transparent pt-2">
+                                    <v-toolbar-title class="mr-3 subheading">
+                                        <span class="body-2">sdsds</span><br>
+                                        <span class="caption">October 21-22</span><br>
+                                    </v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text class="grey--text pt-4">
+                                    <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                    <span class="caption">RETRO ROAD TRIP</span>
+                                    <div>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                        4.6
+                                    </div>
+                                </v-card-text>
+                            </v-card>
+                        </a>
+                    </div>
+                    <div class="my-2">
+                        <a href="" ripple class="td-n">
+                            <v-card class="elevation-1">
+                                <v-card-media
+                                    height="180px"
+                                    src=""
+                                    class="grey lighten-4">
+                                    <v-container fill-height fluid class="pa-0 white--text">
+                                        <v-layout column>
+                                            <v-spacer></v-spacer>
+                                            <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                            <v-card-text class="pa-0 white--text title text-xs-right">
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                            </v-card-text>
+                                            </v-card-actions>
+                                        </v-layout>
+                                    </v-container>
+                                </v-card-media>
+                                <v-divider class="grey lighten-3"></v-divider>
+                                <v-toolbar card dense class="transparent pt-2">
+                                    <v-toolbar-title class="mr-3 subheading">
+                                        <span class="body-2">sdsds</span><br>
+                                        <span class="caption">October 21-22</span><br>
+                                    </v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text class="grey--text pt-4">
+                                    <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                    <span class="caption">RETRO ROAD TRIP</span>
+                                    <div>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                        4.6
+                                    </div>
+                                </v-card-text>
+                            </v-card>
+                        </a>
+                    </div>
+                    <div class="my-2">
+                        <a href="" ripple class="td-n">
+                            <v-card class="elevation-1">
+                                <v-card-media
+                                    height="180px"
+                                    src=""
+                                    class="grey lighten-4">
+                                    <v-container fill-height fluid class="pa-0 white--text">
+                                        <v-layout column>
+                                            <v-spacer></v-spacer>
+                                            <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                            <v-card-text class="pa-0 white--text title text-xs-right">
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                            </v-card-text>
+                                            </v-card-actions>
+                                        </v-layout>
+                                    </v-container>
+                                </v-card-media>
+                                <v-divider class="grey lighten-3"></v-divider>
+                                <v-toolbar card dense class="transparent pt-2">
+                                    <v-toolbar-title class="mr-3 subheading">
+                                        <span class="body-2">sdsds</span><br>
+                                        <span class="caption">October 21-22</span><br>
+                                    </v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text class="grey--text pt-4">
+                                    <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                    <span class="caption">RETRO ROAD TRIP</span>
+                                    <div>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                        4.6
+                                    </div>
+                                </v-card-text>
+                            </v-card>
+                        </a>
+                    </div>
+                    <div class="my-2">
+                        <a href="" ripple class="td-n">
+                            <v-card class="elevation-1">
+                                <v-card-media
+                                    height="180px"
+                                    src=""
+                                    class="grey lighten-4">
+                                    <v-container fill-height fluid class="pa-0 white--text">
+                                        <v-layout column>
+                                            <v-spacer></v-spacer>
+                                            <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                            <v-card-text class="pa-0 white--text title text-xs-right">
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                            </v-card-text>
+                                            </v-card-actions>
+                                        </v-layout>
+                                    </v-container>
+                                </v-card-media>
+                                <v-divider class="grey lighten-3"></v-divider>
+                                <v-toolbar card dense class="transparent pt-2">
+                                    <v-toolbar-title class="mr-3 subheading">
+                                        <span class="body-2">sdsds</span><br>
+                                        <span class="caption">October 21-22</span><br>
+                                    </v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text class="grey--text pt-4">
+                                    <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                    <span class="caption">RETRO ROAD TRIP</span>
+                                    <div>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                        4.6
+                                    </div>
+                                </v-card-text>
+                            </v-card>
+                        </a>
+                    </div>
+                    <div class="my-2">
+                        <a href="" ripple class="td-n">
+                            <v-card class="elevation-1">
+                                <v-card-media
+                                    height="180px"
+                                    src=""
+                                    class="grey lighten-4">
+                                    <v-container fill-height fluid class="pa-0 white--text">
+                                        <v-layout column>
+                                            <v-spacer></v-spacer>
+                                            <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                            <v-card-text class="pa-0 white--text title text-xs-right">
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                            </v-card-text>
+                                            </v-card-actions>
+                                        </v-layout>
+                                    </v-container>
+                                </v-card-media>
+                                <v-divider class="grey lighten-3"></v-divider>
+                                <v-toolbar card dense class="transparent pt-2">
+                                    <v-toolbar-title class="mr-3 subheading">
+                                        <span class="body-2">sdsds</span><br>
+                                        <span class="caption">October 21-22</span><br>
+                                    </v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text class="grey--text pt-4">
+                                    <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                    <span class="caption">RETRO ROAD TRIP</span>
+                                    <div>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                        4.6
+                                    </div>
+                                </v-card-text>
+                            </v-card>
+                        </a>
+                    </div>
+                    <div class="my-2">
+                        <a href="" ripple class="td-n">
+                            <v-card class="elevation-1">
+                                <v-card-media
+                                    height="180px"
+                                    src=""
+                                    class="grey lighten-4">
+                                    <v-container fill-height fluid class="pa-0 white--text">
+                                        <v-layout column>
+                                            <v-spacer></v-spacer>
+                                            <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                            <v-card-text class="pa-0 white--text title text-xs-right">
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                            </v-card-text>
+                                            </v-card-actions>
+                                        </v-layout>
+                                    </v-container>
+                                </v-card-media>
+                                <v-divider class="grey lighten-3"></v-divider>
+                                <v-toolbar card dense class="transparent pt-2">
+                                    <v-toolbar-title class="mr-3 subheading">
+                                        <span class="body-2">sdsds</span><br>
+                                        <span class="caption">October 21-22</span><br>
+                                    </v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text class="grey--text pt-4">
+                                    <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                    <span class="caption">RETRO ROAD TRIP</span>
+                                    <div>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                        4.6
+                                    </div>
+                                </v-card-text>
+                            </v-card>
+                        </a>
+                    </div>
+                </section>
             </v-flex>
         </v-layout>
     </v-container>

@@ -7,7 +7,7 @@
 
 @include("Theme::partials.banner")
 <v-toolbar dark class="light-blue elevation-1 sticky">
-    <v-toolbar-title >{{ __($application->page->title) }}</v-toolbar-title>
+    <v-toolbar-title>{{ __($application->page->title) }}</v-toolbar-title>
     <v-spacer></v-spacer>
 
     {{-- Search --}}

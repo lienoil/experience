@@ -6,8 +6,8 @@
 @section("content")
 <main>
     <section id="hero">
-        <v-parallax height="600" src="{{ assets('frontier/images/public/v1.jpg') }}">
-            <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.40); position: absolute; width: 100%; height: 100%;"></div>
+        <v-parallax height="600" src="{{ assets('frontier/images/public/h5.jpg') }}">
+            <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
             <v-toolbar class="elevation-0 transparent sticky" dark>
                 <a href="">
                     <img class="pt-5" src="{{ assets('frontier/images/public/exph_logo.png') }}" alt="" width="100%">
@@ -22,28 +22,69 @@
                     <v-btn small flat>{{ __('Register') }}</v-btn>
                 </div>
             </v-toolbar>
-            <v-layout
-                column
-                align-center
-                justify-center
-                class="white--text"
-                >
+            <v-layout column align-center justify-center class="white--text">
                 <v-card dark class="elevation-0 transparent">
                     <h2 class="mb-2 text-xs-center"><strong>{{ __("LET'S GO TRAVEL DIFFERENTLY") }}</strong></h2>
                     <h5 class="mb-3 text-xs-center fw-500">Experience a different kind of adventure</h5>
-                    <v-card-text>
-                        <v-flex xs12 class="hero-search">
-                            <v-select
-                                v-bind:items="states"
-                                v-model="search"
-                                label="What do you want to do or where do you want to go?"
-                                {{-- append-icon="close" --}}
-                                light solo hide-details single-line
-                                autocomplete
-                            ></v-select>
-                        </v-flex>
-                    </v-card-text>
-                </v-card>
+                    <v-menu
+                        offset-y
+                        :close-on-content-click="false"
+                        class="block"
+                        v-model="search"
+                        >
+                        <v-select
+                            autocomplete
+                            label="What do you want to do or where do you want to go?"
+                            slot="activator"
+                            hide-details
+                            append-icon=""
+                            prepend-icon="search"
+                            search-input
+                            light solo hide-details>
+                        </v-select>
+                        <v-card class="pa-3" style="max-width: 777px !important;">
+                            <v-container fluid grid-list-lg>
+                                <v-layout row wrap>
+                                    <v-flex xs6 sm3 v-for="card in exp">
+                                        <a href="" class="td-n">
+                                            <v-card class="elevation-1">
+                                                <v-card-media :src="card.src" width="100%" height="120">
+                                                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
+                                                    <v-card-text>
+                                                        <v-container fill-height fluid class="pa-0 white--text">
+                                                            <v-layout row wrap align-center justify-center>
+                                                            <v-card class="elevation-0 transparent text-xs-center">
+                                                               <div class="caption white--text text-xs-center">@{{ card.title }}</div>
+                                                            </v-card>
+                                                            </v-layout>
+                                                        </v-container>
+                                                    </v-card-text>
+                                                </v-card-media>
+                                            </v-card>
+                                        </a>
+                                    </v-flex>
+                                    <v-flex xs6 sm3 v-for="card in reco">
+                                        <a href="" class="td-n">
+                                            <v-card class="elevation-1">
+                                                <v-card-media :src="card.src" width="100%" height="120">
+                                                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
+                                                    <v-card-text>
+                                                        <v-container fill-height fluid class="pa-0 white--text">
+                                                            <v-layout row wrap align-center justify-center>
+                                                            <v-card class="elevation-0 transparent text-xs-center">
+                                                               <div class="caption white--text text-xs-center">@{{ card.title }}</div>
+                                                            </v-card>
+                                                            </v-layout>
+                                                        </v-container>
+                                                    </v-card-text>
+                                                </v-card-media>
+                                            </v-card>
+                                        </a>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                        </v-card>
+                    </v-menu>
             </v-layout>
         </v-parallax>
         <v-card-text class="white elevation-1 text-xs-center">
@@ -69,7 +110,7 @@
                 <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("POPULAR ROAD TRIPS") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
+                        <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</h2>
                     </v-card-text>
                     <v-layout row wrap align-center>
                         <v-flex xs12
@@ -83,7 +124,7 @@
                                         :src="card.src"
                                         height="250px"
                                         >
-                                        <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.40); position: absolute; width: 100%; height: 100%;"></div>
+                                        <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
                                         <v-container fill-height fluid class="pa-0 white--text">
                                             <v-layout row wrap align-center justify-center>
                                             <v-card class="elevation-0 transparent text-xs-center">
@@ -107,7 +148,7 @@
                 <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("CURATED EXPERIENCES") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
+                        <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</h2>
                     </v-card-text>
                     <v-layout row wrap align-center>
                         <v-flex xs12 sm6 md3 v-for="card in exp">
@@ -133,12 +174,12 @@
                                     <v-toolbar card dense class="transparent pt-2">
                                         <v-toolbar-title class="mr-3 subheading">
                                             <span class="body-2">@{{ card.title }}</span><br>
-                                            <span class="caption">October 21-22</span><br>
+                                            <span class="caption">@{{ card.date }}</span><br>
                                         </v-toolbar-title>
                                     </v-toolbar>
                                     <v-card-text class="grey--text pt-4">
                                         <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                        <span class="caption">RETRO ROAD TRIP</span>
+                                        <span class="caption">@{{ card.category }}</span>
                                         <div>
                                             <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
                                             <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
@@ -168,10 +209,10 @@
                 <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("EXPERIENCE RECOMMENDED") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
+                        <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</h2>
                     </v-card-text>
                     <v-layout row wrap align-center>
-                        <v-flex xs12 sm6 md3 v-for="card in exp">
+                        <v-flex xs12 sm6 md3 v-for="card in reco">
                             <a href="" ripple class="td-n">
                                 <v-card class="elevation-1">
                                     <v-card-media
@@ -194,12 +235,12 @@
                                     <v-toolbar card dense class="transparent pt-2">
                                         <v-toolbar-title class="mr-3 subheading">
                                             <span class="body-2">@{{ card.title }}</span><br>
-                                            <span class="caption">October 21-22</span><br>
+                                            <span class="caption">@{{ card.date }}</span><br>
                                         </v-toolbar-title>
                                     </v-toolbar>
                                     <v-card-text class="grey--text pt-4">
                                         <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                        <span class="caption">RETRO ROAD TRIP</span>
+                                        <span class="caption">@{{ card.category }}</span>
                                         <div>
                                             <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
                                             <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
@@ -230,7 +271,7 @@
                                 justify-center
                                 class="white--text"
                                 >
-                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.40); position: absolute; width: 100%; height: 100%;"></div>
+                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
                                 <v-card dark class="elevation-0 transparent text-xs-center">
                                     <v-card-text>
                                         <h3><strong>{{ __("EXPERIENCE PHILIPPINES ROAD TRIPS") }}</strong></h3>
@@ -256,7 +297,7 @@
                 <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("STORIES FROM THE ROAD") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
+                        <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</h2>
                     </v-card-text>
                     <v-layout row wrap>
                         <v-flex sm6 xs12>
@@ -270,7 +311,7 @@
                                                         src="{{ assets('frontier/images/public/s2.jpg') }}"
                                                         height="200px"
                                                         >
-                                                        <div class="insert-overlay" style="background: rgba(76, 175, 80, 0.15); position: absolute; width: 100%; height: 100%;"></div>
+                                                        <div class="insert-overlay" style="background: rgba(33, 150, 243, 0.15); position: absolute; width: 100%; height: 100%;"></div>
                                                         <v-container fill-height fluid class="pa-0 white--text">
                                                             <v-layout row wrap align-end justify-left>
                                                             <v-card dark class="elevation-0 transparent">
@@ -295,7 +336,7 @@
                                                         src="{{ assets('frontier/images/public/s3.jpg') }}"
                                                         height="200px"
                                                         >
-                                                        <div class="insert-overlay" style="background: rgba(76, 175, 80, 0.15); position: absolute; width: 100%; height: 100%;"></div>
+                                                        <div class="insert-overlay" style="background: rgba(33, 150, 243, 0.15); position: absolute; width: 100%; height: 100%;"></div>
                                                         <v-container fill-height fluid class="pa-0 white--text">
                                                             <v-layout row wrap align-end justify-left>
                                                                 <v-card dark class="elevation-0 transparent">
@@ -318,7 +359,7 @@
                                                         src="{{ assets('frontier/images/public/s4.jpg') }}"
                                                         height="200px"
                                                         >
-                                                        <div class="insert-overlay" style="background: rgba(76, 175, 80, 0.15); position: absolute; width: 100%; height: 100%;"></div>
+                                                        <div class="insert-overlay" style="background: rgba(33, 150, 243, 0.15); position: absolute; width: 100%; height: 100%;"></div>
                                                         <v-container fill-height fluid class="pa-0 white--text">
                                                             <v-layout row wrap align-end justify-left>
                                                                 <v-card dark class="elevation-0 transparent">
@@ -346,7 +387,7 @@
                                         height="100%"
                                         style="min-height: 200px;"
                                         >
-                                        <div class="insert-overlay" style="background: rgba(76, 175, 80, 0.15); position: absolute; width: 100%; height: 100%;"></div>
+                                        <div class="insert-overlay" style="background: rgba(33, 150, 243, 0.15); position: absolute; width: 100%; height: 100%;"></div>
                                         <v-container fill-height fluid class="pa-0 white--text">
                                             <v-layout row wrap align-end justify-left>
                                                 <v-card dark class="elevation-0 transparent">
@@ -380,7 +421,7 @@
                                 justify-center
                                 class="white--text"
                                 >
-                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.40); position: absolute; width: 100%; height: 100%;"></div>
+                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
                                 <v-card dark class="py-4 elevation-0 transparent text-xs-center">
                                     <v-card-text>
                                         <h4 class="pb-0 mb-0"><strong>{{ __("Happy Customers") }}</strong></h4>
@@ -419,7 +460,7 @@
                 <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("PARTNERSHIPS") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</h2>
+                        <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</h2>
                     </v-card-text>
                     <v-layout row wrap>
                         <v-flex sm4 xs12>
@@ -446,14 +487,14 @@
 <section id="cta">
     <v-layout row wrap>
         <v-flex xs12>
-            <v-parallax height="250" src="{{ assets('frontier/images/public/h7.jpg') }}">
+            <v-parallax height="250" src="{{ assets('frontier/images/public/ski.jpg') }}">
                 <v-layout
                     column
                     align-center
                     justify-center
                     class="white--text"
                     >
-                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.40); position: absolute; width: 100%; height: 100%;"></div>
+                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
                     <v-card dark class="elevation-0 transparent">
                         <v-flex xs12>
                             {{-- <v-card-text class="title text-xs-center">Travel discounts up to 60% off</v-card-text> --}}
@@ -597,7 +638,7 @@
                                     <v-card dark class="elevation-0 transparent">
                                         <v-card-text class="caption grey--text">
                                             <div class="body-2 mb-2 white--text">Contact Us</div>
-                                            <v-btn outline class="mb-2 mx-0 grey--text">Ask Experience Philippines</v-btn>
+                                            <v-btn outline class="mb-2 mx-0 grey--text">Ask Us</v-btn>
                                             <div>Mobile: +63 917 563 9692</div>
                                             <div>Landline: +632 710 5641</div>
                                             <div>Email: giancarlo@experience.ph</div>
@@ -618,11 +659,11 @@
                         <v-card-actions>
                             <div class="caption grey--text">© 2017 EXPERIENCE PHILIPPINES</div>
                             <v-spacer></v-spacer>
-                            <v-btn icon><v-icon class="subheading grey--text">fa fa-facebook</v-icon></v-btn>
-                            <v-btn icon><v-icon class="subheading grey--text">fa fa-twitter</v-icon></v-btn>
-                            <v-btn icon><v-icon class="subheading grey--text">fa fa-youtube</v-icon></v-btn>
-                            <v-btn icon><v-icon class="subheading grey--text">fa fa-instagram</v-icon></v-btn>
-                            <v-btn icon><v-icon class="subheading grey--text">fa fa-pinterest</v-icon></v-btn>
+                            <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-facebook</v-icon></v-btn>
+                            <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-twitter</v-icon></v-btn>
+                            <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-youtube</v-icon></v-btn>
+                            <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-instagram</v-icon></v-btn>
+                            <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-pinterest</v-icon></v-btn>
                         </v-card-actions>
                     </v-flex>
                 </v-layout>
@@ -634,7 +675,7 @@
 @endsection
 
 @push('css')
-        <style>
+    <style>
         .hero-search .input-group.input-group--solo {
             min-height: 55px !important;
         }
@@ -650,6 +691,13 @@
         #video .parallax__content {
             padding: 0;
         }
+        .block {
+            display: block !important;
+        }
+        footer a:hover,
+        .social:hover {
+            color: #ff6600 !important;
+        }
     </style>
 @endpush
 
@@ -661,28 +709,14 @@
         mixins.push({
             data () {
                 return {
+                    states: [
+                    'alabama', 'durian'],
                     from: null,
                     to: null,
                     schedule: null,
                     menu: false,
                     menu: false,
                     search: null,
-                    states: [
-                        'Alabama','Alaska','American Samoa','Arizona',
-                        'Arkansas','California','Colorado','Connecticut',
-                        'Delaware','District of Columbia','Federated States of Micronesia',
-                        'Florida','Georgia','Guam','Hawaii','Idaho',
-                        'Illinois','Indiana','Iowa','Kansas','Kentucky',
-                        'Louisiana','Maine','Marshall Islands','Maryland',
-                        'Massachusetts','Michigan','Minnesota','Mississippi',
-                        'Missouri','Montana','Nebraska','Nevada',
-                        'New Hampshire','New Jersey','New Mexico','New York',
-                        'North Carolina','North Dakota','Northern Mariana Islands','Ohio',
-                        'Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico',
-                        'Rhode Island','South Carolina','South Dakota','Tennessee',
-                        'Texas','Utah','Vermont','Virgin Island','Virginia',
-                        'Washington','West Virginia','Wisconsin','Wyoming'
-                    ],
                     stories: [
                         { title: '2017 SCHEDULE', src: '{{ assets('frontier/images/public/h7.jpg') }}', flex: 8, height: '100%' },
                         { title: 'SPECIAL', src: '{{ assets('frontier/images/public/h3.jpg') }}', flex: 4 },
@@ -694,22 +728,60 @@
                         {
                             title: 'FULL MOON PARTY Luna Sea: A Random Full Moon Party #4',
                             price: '₱ 6,000',
-                            src: 'https://placeimg.com/640/480/nature/5'
+                            category: 'Retro Road Trip',
+                            date: 'Oct 21-22',
+                            src: '{{ assets('frontier/images/public/alabama.jpg') }}'
                         },
                         {
                             title: 'Retro Road Trip #2',
-                            price: '₱ 6,000',
-                            src: 'https://placeimg.com/640/480/nature/6'
+                            price: '₱ 10,000',
+                            category: 'Singles Road Trip',
+                            date: 'Sep 11-13',
+                            src: '{{ assets('frontier/images/public/el_capitan.jpg') }}'
                         },
                         {
                             title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 6,000',
-                            src: 'https://placeimg.com/640/480/nature/7'
+                            price: '₱ 13,000',
+                            category: 'Random Road Trip',
+                            date: 'Aug 21-22',
+                            src: '{{ assets('frontier/images/placeholder/yosemite.jpg') }}'
                         },
                         {
-                            title: 'Pet Road Trip #1',
+                            title: 'Super Mega Awesome Random Road Trip #3',
+                            price: '₱ 4,000',
+                            category: 'Special Road Trip',
+                            date: 'July 11-13',
+                            src: '{{ assets('frontier/images/public/h3.jpg') }}'
+                        }
+                    ],
+                    reco: [
+                        {
+                            title: 'FULL MOON PARTY Luna Sea: A Random Full Moon Party #4',
                             price: '₱ 6,000',
-                            src: 'https://placeimg.com/640/480/nature/18'
+                            category: 'Retro Road Trip',
+                            date: 'Oct 21-22',
+                            src: '{{ assets('frontier/images/public/r1.jpg') }}'
+                        },
+                        {
+                            title: 'Retro Road Trip #2',
+                            price: '₱ 10,000',
+                            category: 'Singles Road Trip',
+                            date: 'Sep 11-13',
+                            src: '{{ assets('frontier/images/public/r3.jpg') }}'
+                        },
+                        {
+                            title: 'Super Mega Awesome Random Road Trip #3',
+                            price: '₱ 13,000',
+                            category: 'Random Road Trip',
+                            date: 'Aug 21-22',
+                            src: '{{ assets('frontier/images/public/r2.jpg') }}'
+                        },
+                        {
+                            title: 'Super Mega Awesome Random Road Trip #3',
+                            price: '₱ 4,000',
+                            category: 'Special Road Trip',
+                            date: 'July 11-13',
+                            src: '{{ assets('frontier/images/public/r4.jpg') }}'
                         }
                     ],
                 }
