@@ -4,13 +4,89 @@
 @section("page-title", __($application->page->title))
 
 @section("content")
+<header>
+    <v-toolbar class="elevation-4 white sticky" white>
+        <a href="">
+            <img src="{{ assets('frontier/images/public/exph_logo_o.png') }}" alt="" width="150">
+        </a>
+
+        <div class="mx-4">
+            <v-menu open-on-hover top offset-y>
+                <v-btn flat slot="activator"><v-icon left>search</v-icon> Search</v-btn>
+                <v-card id="search-hover" style="max-width: 777px !important;">
+                    <v-select
+                        autocomplete
+                        label="What do you want to do or where do you want to go?"
+                        slot="activator"
+                        hide-details
+                        append-icon=""
+                        prepend-icon="search"
+                        search-input
+                        light solo hide-details
+                        elevation-0>
+                    </v-select>
+                    <v-divider></v-divider>
+                    <v-container fluid grid-list-lg>
+                        <v-layout row wrap>
+                            <v-flex xs6 sm3 v-for="card in exp">
+                                <a href="" class="td-n">
+                                    <v-card class="elevation-1">
+                                        <v-card-media :src="card.src" width="100%" height="120">
+                                            <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
+                                            <v-card-text>
+                                                <v-container fill-height fluid class="pa-0 white--text">
+                                                    <v-layout row wrap align-center justify-center>
+                                                    <v-card class="elevation-0 transparent text-xs-center">
+                                                       <div class="caption white--text text-xs-center">@{{ card.title }}</div>
+                                                    </v-card>
+                                                    </v-layout>
+                                                </v-container>
+                                            </v-card-text>
+                                        </v-card-media>
+                                    </v-card>
+                                </a>
+                            </v-flex>
+                            <v-flex xs6 sm3 v-for="card in reco">
+                                <a href="" class="td-n">
+                                    <v-card class="elevation-1">
+                                        <v-card-media :src="card.src" width="100%" height="120">
+                                            <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
+                                            <v-card-text>
+                                                <v-container fill-height fluid class="pa-0 white--text">
+                                                    <v-layout row wrap align-center justify-center>
+                                                    <v-card class="elevation-0 transparent text-xs-center">
+                                                       <div class="caption white--text text-xs-center">@{{ card.title }}</div>
+                                                    </v-card>
+                                                    </v-layout>
+                                                </v-container>
+                                            </v-card-text>
+                                        </v-card-media>
+                                    </v-card>
+                                </a>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
+                </v-card>
+            </v-menu>
+        </div>
+        <v-spacer></v-spacer>
+        <div class="hidden-sm-and-down">
+            <v-btn small flat>{{ __('Experience') }}</v-btn>
+            <v-btn small flat>{{ __('Roadtrip') }}</v-btn>
+            <v-btn small flat>{{ __('Pack and Go') }}</v-btn>
+            <v-btn small flat>{{ __('Stories') }}</v-btn>
+            <v-btn small flat>{{ __('Login') }}</v-btn>
+            <v-btn small flat>{{ __('Register') }}</v-btn>
+        </div>
+    </v-toolbar>
+</header>
 <main>
     <section id="hero">
         <v-parallax height="600" src="{{ assets('frontier/images/public/h8.jpg') }}">
             <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
-            <v-toolbar class="elevation-0 transparent sticky" dark>
+            <v-toolbar class="elevation-0 transparent sticky my-3" dark>
                 <a href="">
-                    <img class="pt-5" src="{{ assets('frontier/images/public/exph_logo.png') }}" alt="" width="100%">
+                    <img class="pt-3" src="{{ assets('frontier/images/public/exph_logo.png') }}" alt="" width="100%">
                 </a>
                 <v-spacer></v-spacer>
                 <div class="hidden-sm-and-down">
@@ -22,6 +98,7 @@
                     <v-btn small flat>{{ __('Register') }}</v-btn>
                 </div>
             </v-toolbar>
+
             <v-layout column align-center justify-center class="white--text">
                 <v-card dark class="elevation-0 transparent">
                     <h2 class="mb-2 text-xs-center"><strong>{{ __("LET'S GO TRAVEL DIFFERENTLY") }}</strong></h2>
@@ -457,25 +534,30 @@
     <section id="partnership">
         <v-container fluid>
             <v-layout row wrap>
-                <v-flex lg10 offset-lg1 md12 sm12 xs12>
+                <v-flex lg8 offset-lg2 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("PARTNERSHIPS") }}</h2>
                         <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</h2>
                     </v-card-text>
                     <v-layout row wrap>
-                        <v-flex sm4 xs12>
-                            <v-card-text>
-                                <img src="{{ assets('frontier/images/public/exph.png') }}" width="100%" alt="">
+                        <v-flex sm3 xs12>
+                            <v-card-text class="text-xs-center">
+                                <img src="{{ assets('frontier/images/public/exph.png') }}" width="100%" alt="" style="max-width: 230px !important;">
                             </v-card-text>
                         </v-flex>
-                        <v-flex sm4 xs12>
-                            <v-card-text>
-                                <img src="{{ assets('frontier/images/public/exph.png') }}" width="100%" alt="">
+                        <v-flex sm3 xs12>
+                            <v-card-text class="text-xs-center">
+                                <img src="{{ assets('frontier/images/public/exph.png') }}" width="100%" alt="" style="max-width: 230px !important;">
+                            </v-card-text class="text-xs-center">
+                        </v-flex>
+                        <v-flex sm3 xs12>
+                            <v-card-text class="text-xs-center">
+                                <img src="{{ assets('frontier/images/public/exph.png') }}" width="100%" alt="" style="max-width: 230px !important;">
                             </v-card-text>
                         </v-flex>
-                        <v-flex sm4 xs12>
-                            <v-card-text>
-                                <img src="{{ assets('frontier/images/public/exph.png') }}" width="100%" alt="">
+                        <v-flex sm3 xs12>
+                            <v-card-text class="text-xs-center">
+                                <img src="{{ assets('frontier/images/public/exph.png') }}" width="100%" alt="" style="max-width: 230px !important;">
                             </v-card-text>
                         </v-flex>
                     </v-layout>
@@ -487,18 +569,15 @@
 <section id="cta">
     <v-layout row wrap>
         <v-flex xs12>
-            <v-card height="250px" class="elevation-0 deep-orange darken-2">
-                <v-layout
-                    column
-                    align-center
-                    justify-center
-                    class="white--text"
-                    >
-                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
-                    <v-card dark class="elevation-0 transparent">
-                        <v-flex xs12>
+
+            <v-card class="py-4 elevation-0 grey darken-3"
+                {{-- style="background: linear-gradient(141deg, rgb(0, 74, 107) 0%, rgb(25, 160, 255) 51%, rgb(0, 74, 107) 75%)" --}}
+                >
+                <v-card-text>
+                    <v-layout row wrap>
+                        <v-flex lg8 offset-lg2>
                             <v-layout row wrap>
-                                <v-flex md5 xs12>
+                                <v-flex md5 sm5 xs12>
                                     <v-card-text>
                                         <v-menu
                                             :close-on-content-click="false"
@@ -523,7 +602,7 @@
                                         </v-menu>
                                     </v-card-text>
                                 </v-flex>
-                                <v-flex md5 xs12>
+                                <v-flex md5 sm5 xs12>
                                     <v-card-text>
                                         <v-menu
                                             :close-on-content-click="false"
@@ -548,15 +627,15 @@
                                         </v-menu>
                                     </v-card-text>
                                 </v-flex>
-                                <v-flex md2 xs12>
+                                <v-flex md2 sm2 xs12>
                                     <v-card-text class="text-xs-center">
                                         <v-btn large flat round dark class="deep-orange lighten-1">Book Now</v-btn>
                                     </v-card-text>
                                 </v-flex>
                             </v-layout>
                         </v-flex>
-                    </v-card>
-                </v-layout>
+                    </v-layout>
+                </v-card-text>
             </v-card>
         </v-flex>
     </v-layout>
@@ -705,6 +784,21 @@
             transform: translateY(-6px);
             box-shadow: 0 1px 8px rgba(0,0,0,.2),0 3px 4px rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.12) !important;
         }
+        /**/
+        header {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 60px;
+            background: red;
+        }
+        #search-hover .input-group.input-group--solo {
+            background: #fff;
+            min-height: 46px;
+            border-radius: 2px;
+            padding: 0;
+            box-shadow: none;
+        }
     </style>
 @endpush
 
@@ -793,6 +887,21 @@
                     ],
                 }
             },
+        });
+    </script>
+@endpush
+
+@push('js')
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script>
+        $(window).scroll(function () {
+            if ( $(this).scrollTop() > 600 && !$('header').hasClass('open') ) {
+                $('header').addClass('open');
+                $('header').slideDown(200);
+            } else if ( $(this).scrollTop() <= 600 ) {
+                $('header').removeClass('open');
+                $('header').slideUp(200);
+            }
         });
     </script>
 @endpush
