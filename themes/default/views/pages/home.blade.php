@@ -90,7 +90,7 @@
                     </a>
                     <v-spacer></v-spacer>
                     <div class="hidden-sm-and-down">
-                        <v-btn small flat>{{ __('Experience') }}</v-btn>
+                        <v-btn small flat href="experiences">{{ __('Experience') }}</v-btn>
                         <v-btn small flat>{{ __('Roadtrip') }}</v-btn>
                         <v-btn small flat>{{ __('Pack and Go') }}</v-btn>
                         <v-btn small flat>{{ __('Stories') }}</v-btn>

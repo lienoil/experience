@@ -96,7 +96,7 @@
     </v-card>
 
     <v-card class="banner elevation-1">
-        <v-card-media class="elevation-0" height="350" src="{{ assets('frontier/images/public/h7.jpg') }}">
+        <v-card-media class="elevation-0" height="350" src="{{ assets('frontier/images/placeholder/9.png') }}">
             <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
             <v-layout column align-center justify-center class="white--text">
                 <v-card dark class="elevation-0 transparent">
@@ -112,7 +112,9 @@
                 <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("CHOOSE A RANDOM ROAD TRIP") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">Discover more about yourself, about others and about the beautiful country called the Philippines. Book your Experience with us now.</h2>
+                        <h2 class="subheading grey--text text--darken-1">
+                            {{ __("Discover more about yourself, about others and about the beautiful country called the Philippines. Book your Experience with us now.") }}
+                        </h2>
                     </v-card-text>
                     <v-layout row wrap align-center>
                         <v-flex xs12 sm4 md3 v-for="card in random">
@@ -166,92 +168,6 @@
             </v-layout>
         </v-container>
     </section>
-
-    {{-- <section id="why" class="white py-5">
-        <v-container fluid grid-list-lg>
-            <v-layout row wrap>
-                <v-flex lg8 offset-lg2 md10 offset-md1 sm12 xs12>
-                    <div class="text-xs-center">
-                        <h2 class="display-1">{{ __("WHY JOIN A RANDOM ROAD TRIP") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">
-                        {{ __("Random Road Trips is the unique and out of the box travel concept that Experience Philippines pioneered. It is for the risk takers who want to let go of control. It is for the adventurers who want the thrill of the unknown. It is for the traveler who wants to let go of expectations. But, most of all, it is for the seeking magic on the other side of fear.") }}
-                        </h2>
-                    </div>
-                </v-flex>
-                <v-flex lg6 offset-lg3 md8 offset-md2 sm12 xs12>
-                    <div class="text-xs-center">
-                        <v-layout row wrap>
-                            <v-flex xs12>
-                                <div class="py-3">
-                                    <div class="title pb-2">
-                                        The Destination Is A Secret
-                                    </div>
-                                    <div class="body-1">
-                                        We view travel as an experience. We focus on experience over the destination. Most travelers are familiar with the common and popular, but we will take you to the off-the-beaten path, to those secret places that we have found in our travels.
-                                    </div>
-                                </div>
-                                <div class="py-3">
-                                    <img src="{{ assets('frontier/images/public/r4.jpg') }}" alt="" width="100%">
-                                </div>
-                            </v-flex>
-                            <v-flex xs12>
-                                <div class="py-3">
-                                    <div class="title pb-2">
-                                        And The Activities A Surprise
-                                    </div>
-                                    <div class="body-1">
-                                        Sometimes we will take you swimming beneath majestic waterfalls, or we will hike through lush forests, and we will even encourage you to do cliff diving. But, whatever it may be, we will guarantee you will have lots of fun.
-                                    </div>
-                                </div>
-                                <div class="py-3">
-                                    <img src="{{ assets('frontier/images/public/r1.jpg') }}" alt="" width="100%">
-                                </div>
-                            </v-flex>
-                            <v-flex xs12>
-                                <div class="py-3">
-                                    <div class="title pb-2">
-                                        Travel With People You Don’t Know
-                                    </div>
-                                    <div class="body-1">
-                                        The most memorable connections are often made with like-minded people, and, when all of you are strangers in new places, you get to make even deeper friendships.
-                                    </div>
-                                </div>
-                                <div class="py-3">
-                                    <img src="{{ assets('frontier/images/public/h8.jpg') }}" alt="" width="100%">
-                                </div>
-                            </v-flex>
-                            <v-flex xs12>
-                                <div class="py-3">
-                                    <div class="title pb-2">
-                                        Step Out Of Your Comfort Zone
-                                    </div>
-                                    <div class="body-1">
-                                        Challenge yourself. Do what you never thought you could do. It is one of the most rewarding feeling ever. Trust us on that!
-                                    </div>
-                                </div>
-                                <div class="py-3">
-                                    <img src="{{ assets('frontier/images/public/h6.jpg') }}" alt="" width="100%">
-                                </div>
-                            </v-flex>
-                            <v-flex xs12>
-                                <div class="py-3">
-                                    <div class="title pb-2">
-                                        Take A Leap Of Faith
-                                    </div>
-                                    <div class="body-1">
-                                        Join the more than 600 people who have already “survived” one of our Random Road Trips. It is one of the best experiences you can give yourself.
-                                    </div>
-                                </div>
-                                <div class="py-3">
-                                    <img src="{{ assets('frontier/images/public/h5.jpg') }}" alt="" width="100%">
-                                </div>
-                            </v-flex>
-                        </v-layout>
-                    </div>
-                </v-flex>
-            </v-layout>
-        </v-container>
-    </section> --}}
 
     <section id="why" class="white">
         <v-container fluid class="pa-0">
@@ -309,9 +225,9 @@
                                         <v-card dark class="elevation-0 transparent">
                                             <v-card-text class="grey--text">
                                                 <img src="{{ assets('frontier/images/public/footer.png') }}" alt="" width="120">
-                                                <div class="body-2 mb-1">About Experience Philippines</div>
+                                                <div class="body-2 mb-1">{{ __("About Experience Philippines") }}</div>
                                                 <div class="caption mb-3">
-                                                    Experience Philippines is about UNIQUE ADVENTURES. We are a travel group that organizes RANDOM ROAD TRIPS where the destination is a SECRET and the activities are a SURPRISE.
+                                                    {{ __("Experience Philippines is about UNIQUE ADVENTURES. We are a travel group that organizes RANDOM ROAD TRIPS where the destination is a SECRET and the activities are a SURPRISE.") }}
                                                 </div>
                                             </v-card-text>
                                         </v-card>
@@ -321,47 +237,47 @@
                                             <v-card-text class="body-1">
                                                 <v-layout row wrap>
                                                     <v-flex sm5 offset-sm1>
-                                                        <div class="body-2 mb-2 white--text">Experience Philippines</div>
+                                                        <div class="body-2 mb-2 white--text">{{ __("Experience Philippines") }}</div>
                                                         <div class="mb-1">
                                                         <a href="" class="td-n grey--text">
-                                                            Who We Are
+                                                            {{ __("Who We Are") }}
                                                         </a>
                                                         </div>
                                                         <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Crowd Funding
+                                                            {{ __("Crowd Funding") }}
                                                         </a></div>
                                                         <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Stories From The Road
+                                                            {{ __("Stories From The Road") }}
                                                         </a></div>
                                                         <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Privacy Policy
+                                                            {{ __("Privacy Policy") }}
                                                         </a></div>
                                                         <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Contact Us
+                                                            {{ __("Contact Us") }}
                                                         </a></div>
                                                         <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Sponsorships Opportunities
+                                                            {{ __("Sponsorships Opportunities") }}
                                                         </a></div>
                                                     </v-flex>
                                                     <v-flex sm5 offset-sm1>
-                                                        <div class="body-2 mb-2 white--text">Road Trips</div>
+                                                        <div class="body-2 mb-2 white--text">{{ ("Road Trips") }}</div>
                                                         <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Random Road Trips
+                                                            {{ __("Random Road Trips") }}
                                                         </a></div>
                                                         <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Singles Road Trips
+                                                            {{ __("Singles Road Trips") }}
                                                         </a></div>
                                                         <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Random OUTings
+                                                            {{ __("Random OUTings") }}
                                                         </a></div>
                                                         <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Retro Road Trips
+                                                            {{ __("Retro Road Trips") }}
                                                         </a></div>
                                                         <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Quick Getaway
+                                                            {{ __("Quick Getaway") }}
                                                         </a></div>
                                                         <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Special Road Trips
+                                                            {{ __("Special Road Trips") }}
                                                         </a></div>
                                                     </v-flex>
                                                 </v-layout>

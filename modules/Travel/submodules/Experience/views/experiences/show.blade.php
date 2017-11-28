@@ -19,18 +19,15 @@
         </v-toolbar>
     </v-card>
 
-    <v-card class="banner elevation-1">
-        <v-card-media class="elevation-0" height="350" src="{{ assets('frontier/images/placeholder/9.png') }}">
-            <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
-            <v-layout column align-center justify-center class="white--text">
-                <v-card dark class="elevation-0 transparent">
-                    <h2 class="mb-2 text-xs-center"><strong>{{ __("RANDOM ROAD TRIP #1") }}</strong></h2>
-                    <h5 class="mb-3 text-xs-center fw-500">{{__("A Road Trip For The Adventure Seekers")}}</h5>
-            </v-layout>
-        </v-card-media>
-    </v-card>
+    <v-container fluid grid-list-lg>
+        <v-layout row wrap>
+            <v-flex xs12>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae distinctio repellat molestiae aperiam quas! Esse iste et repudiandae voluptas nemo. Voluptatem consequatur aperiam cumque pariatur recusandae eos, quas delectus in.
+            </v-flex>
+        </v-layout>
+    </v-container>
 
-    <v-layout row wrap>
+    {{-- <v-layout row wrap>
         <v-flex lg10 offset-lg1 md12 sm12 xs12>
             <div class="py-2">
                 <v-breadcrumbs icons divider="chevron_right" class="pl-0" style="justify-content: flex-start;">
@@ -56,17 +53,18 @@
                             <v-card class="elevation-0">
                                 <v-card-text>
                                     <h4 class="grey--text text--darken-3"><strong>{{ __("Random Road Trip #1") }}</strong></h4>
+                                    <h6 class="subheading"></h6>
                                 </v-card-text>
                             </v-card>
                         </v-flex>
                         <v-flex md4 xs12>
-                            dsdsdsdd
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ipsam possimus amet temporibus, minus, nemo aspernatur eum dignissimos rerum molestias molestiae ut. Quis vitae, voluptatibus dolorem officia, tenetur culpa molestiae?
                         </v-flex>
                     </v-layout>
                 </v-flex>
             </v-layout>
         </v-container>
-    </section>
+    </section> --}}
 
     <footer>
         <v-layout row wrap>
