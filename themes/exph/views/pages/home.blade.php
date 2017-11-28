@@ -800,6 +800,13 @@
             height: 60px;
             background: red;
         }
+        #search-hover .input-group.input-group--solo {
+            background: #fff;
+            min-height: 46px;
+            border-radius: 2px;
+            padding: 0;
+            box-shadow: none;
+        }
     </style>
 @endpush
 

@@ -29,12 +29,12 @@
                 <v-card class="elevation-1">
                     <v-card-text>
                         <v-layout row wrap grid-list-lg>
-                            <v-flex sm6 xs12>
+                            <v-flex md6>
                                 <v-card-text class="pb-0">
                                     <v-date-picker class="elevation-0" no-title v-model="from" portrait></v-date-picker>
                                 </v-card-text>
                             </v-flex>
-                            <v-flex sm6 xs12>
+                            <v-flex md6>
                                 <v-card-text class="pb-0">
                                     <v-date-picker class="elevation-0" no-title v-model="from" portrait></v-date-picker>
                                 </v-card-text>
@@ -49,12 +49,50 @@
                     </v-card-actions>
                 </v-card>
             </v-menu>
-            <v-btn flat class="grey--text text--darken-1">{{ __('Guests') }}</v-btn>
-            <v-btn flat class="grey--text text--darken-1">{{ __('Types') }}</v-btn>
-            <v-btn flat class="grey--text text--darken-1">{{ __('Categories') }}</v-btn>
+            <v-menu
+                origin="center center"
+                transition="scale-transition"
+                offset-y
+                :nudge-width="250"
+                >
+                <v-btn flat class="grey--text text--darken-1" slot="activator">
+                    {{ __('Guests') }}
+                </v-btn>
+                <v-card class="elevation-1">
+                    <v-card-text>
+                        <v-card-actions>
+                            <div class="title grey--text text--darken-3">Adults</div>
+                            <v-spacer></v-spacer>
+                            <v-btn outline small fab><v-icon>remove</v-icon></v-btn>
+                            <div class="title grey--text text--darken-1 px-3">0</div>
+                            <v-btn outline small fab><v-icon>add</v-icon></v-btn>
+                        </v-card-actions>
+                    </v-card-text>
+                    <v-divider></v-divider>
+                    <v-card-actions>
+                        <v-btn flat class="grey">Cancel</v-btn>
+                        <v-spacer></v-spacer>
+                        <v-btn flat primary>Apply</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-menu>
+            <v-menu
+                origin="center center"
+                transition="scale-transition"
+                offset-y
+                :nudge-width="250"
+                >
+                <v-btn flat class="grey--text text--darken-1" slot="activator">
+                    {{ __('Categories') }}
+                </v-btn>
+                <v-card class="elevation-1">
+                    <v-card-text>
+
+                    </v-card-text>
+                </v-card>
+            </v-menu>
         </v-card-text>
     </v-card>
-
 
     <v-card class="banner elevation-1">
         <v-card-media class="elevation-0" height="350" src="{{ assets('frontier/images/public/h7.jpg') }}">
@@ -76,7 +114,7 @@
                         <h2 class="subheading grey--text text--darken-1">Discover more about yourself, about others and about the beautiful country called the Philippines. Book your Experience with us now.</h2>
                     </v-card-text>
                     <v-layout row wrap align-center>
-                        <v-flex xs12 sm6 md3 v-for="card in random">
+                        <v-flex xs12 sm4 md3 v-for="card in random">
                             <a href="" ripple class="td-n">
                                 <v-card class="elevation-1 c-lift">
                                     <v-card-media
@@ -118,11 +156,17 @@
                             </a>
                         </v-flex>
                     </v-layout>
+                    <v-card-text>
+                        <div class="text-xs-center">
+                            <v-pagination circle :length="15" v-model="page" :total-visible="7" class="caption main-paginate"></v-pagination>
+                        </div>
+                    </v-card-text>
                 </v-flex>
             </v-layout>
         </v-container>
     </section>
-    <section id="why" class="white py-5">
+
+    {{-- <section id="why" class="white py-5">
         <v-container fluid grid-list-lg>
             <v-layout row wrap>
                 <v-flex lg8 offset-lg2 md10 offset-md1 sm12 xs12>
@@ -136,7 +180,7 @@
                 <v-flex lg6 offset-lg3 md8 offset-md2 sm12 xs12>
                     <div class="text-xs-center">
                         <v-layout row wrap>
-                             <v-flex xs12> {{-- 1 --}}
+                            <v-flex xs12>
                                 <div class="py-3">
                                     <div class="title pb-2">
                                         The Destination Is A Secret
@@ -149,7 +193,7 @@
                                     <img src="{{ assets('frontier/images/public/r4.jpg') }}" alt="" width="100%">
                                 </div>
                             </v-flex>
-                            <v-flex xs12> {{-- 2 --}}
+                            <v-flex xs12>
                                 <div class="py-3">
                                     <div class="title pb-2">
                                         And The Activities A Surprise
@@ -162,7 +206,7 @@
                                     <img src="{{ assets('frontier/images/public/r1.jpg') }}" alt="" width="100%">
                                 </div>
                             </v-flex>
-                            <v-flex xs12> {{-- 3 --}}
+                            <v-flex xs12>
                                 <div class="py-3">
                                     <div class="title pb-2">
                                         Travel With People You Don’t Know
@@ -175,7 +219,7 @@
                                     <img src="{{ assets('frontier/images/public/h8.jpg') }}" alt="" width="100%">
                                 </div>
                             </v-flex>
-                            <v-flex xs12> {{-- 4 --}}
+                            <v-flex xs12>
                                 <div class="py-3">
                                     <div class="title pb-2">
                                         Step Out Of Your Comfort Zone
@@ -188,7 +232,7 @@
                                     <img src="{{ assets('frontier/images/public/h6.jpg') }}" alt="" width="100%">
                                 </div>
                             </v-flex>
-                            <v-flex xs12> {{-- 5 --}}
+                            <v-flex xs12>
                                 <div class="py-3">
                                     <div class="title pb-2">
                                         Take A Leap Of Faith
@@ -206,7 +250,52 @@
                 </v-flex>
             </v-layout>
         </v-container>
+    </section> --}}
+
+    <section id="why" class="white">
+        <v-container fluid class="pa-0">
+            <v-layout row wrap>
+                <v-flex lg8 offset-lg2 md10 offset-md1 sm12 xs12>
+                    <div class="text-xs-center py-5 px-3">
+                        <h2 class="display-1">{{ __("WHY JOIN US") }}</h2>
+                        <h2 class="subheading grey--text text--darken-1">
+                        {{ __("Random Road Trips is the unique and out of the box travel concept that Experience Philippines pioneered. It is for the risk takers who want to let go of control. It is for the adventurers who want the thrill of the unknown. It is for the traveler who wants to let go of expectations. But, most of all, it is for the seeking magic on the other side of fear.") }}
+                        </h2>
+                    </div>
+                </v-flex>
+            </v-layout>
+            <v-layout row wrap align-center>
+                <v-flex xs12
+                    v-bind="{ [`md${card.flex}`]: true }"
+                    v-for="card in whys"
+                    :key="card.title"
+                    >
+                    <v-card dark class="elevation-0 content">
+                        <v-card-media
+                            :src="card.src"
+                            height="250px"
+                            >
+                            <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
+                            <div class="content-overlay"></div>
+                            <v-container fill-height fluid class="pa-0 white--text">
+                                <v-layout row wrap align-end justify-bottom>
+                                    <v-card class="elevation-0 transparent">
+                                        <v-card-text>
+                                            <h5 class="white--text fw-500 text-xs-center">@{{ card.title }}</h5>
+                                        </v-card-text>
+                                    </v-card>
+                                </v-layout>
+                            </v-container>
+                            <div class="content-details fadeIn-bottom">
+                                <p class="subheading">@{{ card.caption }}</p>
+                            </div>
+                        </v-card-media>
+                    </v-card>
+                </v-flex>
+            </v-layout>
+        </v-container>
     </section>
+
     <footer>
         <v-layout row wrap>
             <v-flex xs12>
@@ -343,6 +432,76 @@
             transform: translateY(-6px);
             box-shadow: 0 1px 8px rgba(0,0,0,.2),0 3px 4px rgba(0,0,0,.14),0 3px 3px -2px rgba(0,0,0,.12) !important;
         }
+
+        .input-group.input-group--solo {
+            background: #fff;
+            min-height: 46px;
+            border-radius: 2px;
+            padding: 0;
+            box-shadow: none;
+        }
+        .pagination__item,
+        .pagination__navigation {
+            box-shadow: none !important;
+        }
+        .application--light .pagination__item--active {
+            background: #ff8400 !important;
+        }
+        /* hoverlay on whys */
+        .content {
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .content .content-overlay {
+            background: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0;
+            z-index: 1;
+            -webkit-transition: all 0.4s ease-in-out 0s;
+            -moz-transition: all 0.4s ease-in-out 0s;
+            transition: all 0.4s ease-in-out 0s;
+        }
+
+        .content:hover .content-overlay {
+            opacity: 1;
+        }
+
+        .content-details {
+            position: absolute;
+            text-align: center;
+            padding-left: 1em;
+            padding-right: 1em;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            z-index: 2;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-transition: all 0.3s ease-in-out 0s;
+            -moz-transition: all 0.3s ease-in-out 0s;
+            transition: all 0.3s ease-in-out 0s;
+        }
+
+        .content:hover .content-details {
+            top: 50%;
+            left: 50%;
+            opacity: 1;
+        }
+
+        .fadeIn-bottom {
+            top: 80%;
+        }
+        /**/
     </style>
 @endpush
 
@@ -355,13 +514,46 @@
             data () {
                 return {
                     states: [
-                    'alabama', 'durian'],
+                        'alabama', 'durian'],
                     from: null,
                     to: null,
                     schedule: null,
                     menu: false,
                     menu: false,
                     search: null,
+                    whys: [
+                        {
+                            title: 'The Destination Is A Secret',
+                            caption: 'We view travel as an experience. We focus on experience over the destination. Most travelers are familiar with the common and popular, but we will take you to the off-the-beaten path, to those secret places that we have found in our travels.',
+                            src: '{{ assets('frontier/images/public/el_capitan.jpg') }}',
+                            flex: 8,
+                            height: '100%'
+                        },
+                        {
+                            title: 'The Activities A Surprise',
+                            caption: 'Sometimes we will take you swimming beneath majestic waterfalls, or we will hike through lush forests, and we will even encourage you to do cliff diving. But, whatever it may be, we will guarantee you will have lots of fun.',
+                            src: '{{ assets('frontier/images/public/r1.jpg') }}',
+                            flex: 4
+                        },
+                        {
+                            title: 'Travel With People You Don’t Know',
+                            caption: 'The most memorable connections are often made with like-minded people, and, when all of you are strangers in new places, you get to make even deeper friendships.',
+                            src: '{{ assets('frontier/images/public/alabama.jpg') }}',
+                            flex: 3
+                        },
+                        {
+                            title: 'Step Out Of Your Comfort Zone',
+                            caption: 'Challenge yourself. Do what you never thought you could do. It is one of the most rewarding feeling ever. Trust us on that!',
+                            src: '{{ assets('frontier/images/public/r3.jpg') }}',
+                            flex: 6
+                        },
+                        {
+                            title: 'Take A Leap Of Faith',
+                            caption: 'Join the more than 600 people who have already “survived” one of our Random Road Trips. It is one of the best experiences you can give yourself.',
+                            src: '{{ assets('frontier/images/public/h7.jpg') }}',
+                            flex: 3
+                        },
+                    ],
                     dates: [
                         { title: 'Click Me' },
                         { title: 'Click Me' },
