@@ -21,7 +21,7 @@
                                             <v-card-actions>
                                             <v-spacer></v-spacer>
                                             <v-card-text class="pa-0 white--text title text-xs-right">
-                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">$$$</v-chip>
                                             </v-card-text>
                                             </v-card-actions>
                                         </v-layout>
@@ -62,7 +62,7 @@
                                             <v-card-actions>
                                             <v-spacer></v-spacer>
                                             <v-card-text class="pa-0 white--text title text-xs-right">
-                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">$$$</v-chip>
                                             </v-card-text>
                                             </v-card-actions>
                                         </v-layout>
@@ -103,7 +103,7 @@
                                             <v-card-actions>
                                             <v-spacer></v-spacer>
                                             <v-card-text class="pa-0 white--text title text-xs-right">
-                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">$$$</v-chip>
                                             </v-card-text>
                                             </v-card-actions>
                                         </v-layout>
@@ -144,7 +144,7 @@
                                             <v-card-actions>
                                             <v-spacer></v-spacer>
                                             <v-card-text class="pa-0 white--text title text-xs-right">
-                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">$$$</v-chip>
                                             </v-card-text>
                                             </v-card-actions>
                                         </v-layout>
@@ -185,7 +185,7 @@
                                             <v-card-actions>
                                             <v-spacer></v-spacer>
                                             <v-card-text class="pa-0 white--text title text-xs-right">
-                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">$$$</v-chip>
                                             </v-card-text>
                                             </v-card-actions>
                                         </v-layout>
@@ -226,7 +226,7 @@
                                             <v-card-actions>
                                             <v-spacer></v-spacer>
                                             <v-card-text class="pa-0 white--text title text-xs-right">
-                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">sss</v-chip>
+                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="">$$$</v-chip>
                                             </v-card-text>
                                             </v-card-actions>
                                         </v-layout>
@@ -290,6 +290,28 @@
         }
         .slick-current {
             /*opacity: 1;*/
+        }
+
+        .slick-arrow {
+
+        }
+
+        .slick-next {
+            background: #fff !important;
+            right: -10px;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,.2),0 1px 1px rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12)!important;
+        }
+        .slick-prev {
+            background: #fff !important;
+            left: -10px;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 1px 3px rgba(0,0,0,.2),0 1px 1px rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12)!important;
         }
     </style>
 @endpush
