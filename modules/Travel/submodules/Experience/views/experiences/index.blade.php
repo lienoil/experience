@@ -8,7 +8,8 @@
             </a>
             <v-spacer></v-spacer>
             <div class="hidden-sm-and-down">
-                <v-btn small flat>{{ __('Home') }}</v-btn>
+                <v-btn small flat href="home">{{ __('Home') }}</v-btn>
+                <v-btn small flat primary href="experiences">{{ __('Experience') }}</v-btn>
                 <v-btn small flat>{{ __('Roadtrip') }}</v-btn>
                 <v-btn small flat>{{ __('Pack and Go') }}</v-btn>
                 <v-btn small flat>{{ __('Stories') }}</v-btn>
@@ -115,7 +116,7 @@
                     </v-card-text>
                     <v-layout row wrap align-center>
                         <v-flex xs12 sm4 md3 v-for="card in random">
-                            <a href="" ripple class="td-n">
+                            <a href="experiences/show" ripple class="td-n">
                                 <v-card class="elevation-1 c-lift">
                                     <v-card-media
                                         height="180px"
@@ -279,14 +280,14 @@
                             <div class="content-overlay"></div>
                             <v-container fill-height fluid class="pa-0 white--text">
                                 <v-layout row wrap align-end justify-bottom>
-                                    <v-card class="elevation-0 transparent">
+                                    <v-card class="elevation-0 transparent content-title">
                                         <v-card-text>
                                             <h5 class="white--text fw-500 text-xs-center">@{{ card.title }}</h5>
                                         </v-card-text>
                                     </v-card>
                                 </v-layout>
                             </v-container>
-                            <div class="content-details fadeIn-bottom">
+                            <div class="content-details fadeIn-top">
                                 <p class="subheading">@{{ card.caption }}</p>
                             </div>
                         </v-card-media>
@@ -447,6 +448,7 @@
         .application--light .pagination__item--active {
             background: #ff8400 !important;
         }
+
         /* hoverlay on whys */
         .content {
             position: relative;
@@ -455,7 +457,8 @@
         }
 
         .content .content-overlay {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.7);
+            /*background: linear-gradient(to top, rgba(0,0,0,0.65), transparent 100%);*/
             position: absolute;
             height: 100%;
             width: 100%;
@@ -472,6 +475,10 @@
 
         .content:hover .content-overlay {
             opacity: 1;
+        }
+
+        .content:hover .content-title {
+            opacity: 0;
         }
 
         .content-details {
@@ -501,6 +508,10 @@
         .fadeIn-bottom {
             top: 80%;
         }
+
+        .fadeIn-top {
+            top: 20%;
+        }
         /**/
     </style>
 @endpush
@@ -514,13 +525,12 @@
             data () {
                 return {
                     states: [
-                        'alabama', 'durian'],
+                        'alabama',
+                        'durian'
+                    ],
                     from: null,
                     to: null,
-                    schedule: null,
                     menu: false,
-                    menu: false,
-                    search: null,
                     whys: [
                         {
                             title: 'The Destination Is A Secret',
@@ -530,8 +540,8 @@
                             height: '100%'
                         },
                         {
-                            title: 'The Activities A Surprise',
-                            caption: 'Sometimes we will take you swimming beneath majestic waterfalls, or we will hike through lush forests, and we will even encourage you to do cliff diving. But, whatever it may be, we will guarantee you will have lots of fun.',
+                            title: 'Step Out Of Your Comfort Zone',
+                            caption: 'Challenge yourself. Do what you never thought you could do. It is one of the most rewarding feeling ever. Trust us on that!',
                             src: '{{ assets('frontier/images/public/r1.jpg') }}',
                             flex: 4
                         },
@@ -542,8 +552,8 @@
                             flex: 3
                         },
                         {
-                            title: 'Step Out Of Your Comfort Zone',
-                            caption: 'Challenge yourself. Do what you never thought you could do. It is one of the most rewarding feeling ever. Trust us on that!',
+                            title: 'The Activities A Surprise',
+                            caption: 'Sometimes we will take you swimming beneath majestic waterfalls, or we will hike through lush forests, and we will even encourage you to do cliff diving. But, whatever it may be, we will guarantee you will have lots of fun.',
                             src: '{{ assets('frontier/images/public/r3.jpg') }}',
                             flex: 6
                         },
@@ -623,21 +633,5 @@
         });
     </script>
 @endpush
-
-@push('js')
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-    <script>
-        $(window).scroll(function () {
-            if ( $(this).scrollTop() > 600 && !$('header').hasClass('open') ) {
-                $('header').addClass('open');
-                $('header').slideDown(200);
-            } else if ( $(this).scrollTop() <= 600 ) {
-                $('header').removeClass('open');
-                $('header').slideUp(200);
-            }
-        });
-    </script>
-@endpush
-
 
 
