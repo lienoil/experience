@@ -187,7 +187,9 @@
                     <v-flex lg10 offset-lg1 md12 sm12 xs12>
                         <v-card-text class="text-xs-center my-3">
                             <h2 class="display-1">{{ __("POPULAR ROAD TRIPS") }}</h2>
-                            <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</h2>
+                            <h2 class="subheading grey-
+
+                            -text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</h2>
                         </v-card-text>
                         <v-layout row wrap align-center>
                             <v-flex xs12

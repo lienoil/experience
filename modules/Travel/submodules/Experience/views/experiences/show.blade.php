@@ -113,6 +113,28 @@
                                 <v-divider></v-divider>
                                 <v-card class="elevation-0 py-3">
                                     <v-card-text class="px-0">
+                                        <div class="title mb-2 grey--text text--darken-2">Who is the Travel Manager</div>
+                                        <div class="body-1 mb-2">A Few Details You Might Want To Know</div>
+                                        <div class="pt-3">
+                                            <v-list three-line subheader>
+                                                <v-list-tile avatar>
+                                                    <v-list-tile-avatar>
+                                                        <img width="200px" src="{{ assets('frontier/images/placeholder/9.png') }}" alt="">
+                                                    </v-list-tile-avatar>
+                                                    <v-list-tile-content>
+                                                        <v-list-tile-title>Jane Appleseed</v-list-tile-title>
+                                                        <v-card-text>
+                                                            {{ __('These Travel Managers are the guys who will make sure your road trip will be full of adventures, excitement, tales to tell your grandchildren, epic memories and unforgettable experiences.') }}
+                                                        </v-card-text>
+                                                    </v-list-tile-content>
+                                                </v-list-tile>
+                                            </v-list>
+                                        </div>
+                                    </v-card-text>
+                                </v-card>
+                                <v-divider></v-divider>
+                                <v-card class="elevation-0 py-3">
+                                    <v-card-text class="px-0">
                                         <div class="title mb-2 grey--text text--darken-2">What is going to happen</div>
                                         <div class="body-1 mb-2">A Few Details You Might Want To Know</div>
                                         <div class="pt-3">
