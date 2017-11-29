@@ -128,12 +128,18 @@
                                         class="grey lighten-4">
                                         <v-container fill-height fluid class="pa-0 white--text">
                                             <v-layout column>
+                                                <v-card-actions>
+                                                    <v-spacer></v-spacer>
+                                                    <v-btn icon class="mr-3">
+                                                        <v-icon class="white--text">favorite_border</v-icon>
+                                                    </v-btn>
+                                                </v-card-actions>
                                                 <v-spacer></v-spacer>
                                                 <v-card-actions>
-                                                <v-spacer></v-spacer>
-                                                <v-card-text class="pa-0 white--text title text-xs-right">
-                                                    <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="card.price"></v-chip>
-                                                </v-card-text>
+                                                    <v-spacer></v-spacer>
+                                                    <v-card-text class="pa-0 white--text title text-xs-right">
+                                                        <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="card.price"></v-chip>
+                                                    </v-card-text>
                                                 </v-card-actions>
                                             </v-layout>
                                         </v-container>
