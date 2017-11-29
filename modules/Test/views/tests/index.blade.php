@@ -263,6 +263,8 @@
 @push('css')
     <link rel="stylesheet" href="{{ assets('frontier/slick/slick/slick.css') }}">
     <link rel="stylesheet" href="{{ assets('frontier/slick/slick/slick-theme.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff">
     <style>
         .slider {
             height: 100%;

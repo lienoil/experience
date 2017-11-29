@@ -5,7 +5,7 @@
 
 @section("content")
     <header>
-        <v-toolbar class="elevation-3 white sticky" white>
+        <v-toolbar class="elevation-1 white sticky" white>
             <a href="">
                 <img src="{{ assets('frontier/images/public/exph_logo_o.png') }}" alt="" width="150">
             </a>
@@ -70,7 +70,7 @@
                 </v-menu>
             </div>
             <v-spacer></v-spacer>
-            <div class="hidden-sm-and-down">
+            <div class="hidden-md-and-down">
                 <v-btn small flat>{{ __('Experience') }}</v-btn>
                 <v-btn small flat>{{ __('Roadtrip') }}</v-btn>
                 <v-btn small flat>{{ __('Pack and Go') }}</v-btn>
@@ -89,7 +89,7 @@
                         <img class="pt-3" src="{{ assets('frontier/images/public/exph_logo.png') }}" alt="" width="150">
                     </a>
                     <v-spacer></v-spacer>
-                    <div class="hidden-sm-and-down">
+                    <div class="hidden-md-and-down">
                         <v-btn small flat href="experiences">{{ __('Experience') }}</v-btn>
                         <v-btn small flat>{{ __('Roadtrip') }}</v-btn>
                         <v-btn small flat>{{ __('Pack and Go') }}</v-btn>
@@ -817,14 +817,13 @@
                     to: null,
                     schedule: null,
                     menu: false,
-                    menu: false,
                     search: null,
                     stories: [
                         { title: '2017 SCHEDULE', src: '{{ assets('frontier/images/public/h7.jpg') }}', flex: 8, height: '100%' },
                         { title: 'SPECIAL', src: '{{ assets('frontier/images/public/h3.jpg') }}', flex: 4 },
                         { title: 'SINGLES', src: '{{ assets('frontier/images/public/v2.jpg') }}', flex: 3},
                         { title: 'EAT AND EXPLORE', src: '{{ assets('frontier/images/public/h1.jpg') }}', flex: 6},
-                        { title: 'RETRO', src: '{{ assets('frontier/images/public/v1.jpg') }}', flex: 3},
+                        { title: 'RANDOM', src: '{{ assets('frontier/images/public/v1.jpg') }}', flex: 3},
                     ],
                     exp: [
                         {

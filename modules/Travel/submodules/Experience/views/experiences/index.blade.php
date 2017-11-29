@@ -1,13 +1,13 @@
 @extends("Theme::layouts.auth")
 
 @section("content")
-    <v-card class="elevation-2 sticky">
+    <v-card class="elevation-1 sticky">
         <v-toolbar light class="elevation-0 white">
             <a href="">
                 <img src="{{ assets('frontier/images/public/exph_logo_o.png') }}" alt="" width="150">
             </a>
             <v-spacer></v-spacer>
-            <div class="hidden-sm-and-down">
+            <div class="hidden-md-and-down">
                 <v-btn small flat href="home">{{ __('Home') }}</v-btn>
                 <v-btn small flat primary href="experiences">{{ __('Experience') }}</v-btn>
                 <v-btn small flat>{{ __('Roadtrip') }}</v-btn>
@@ -92,6 +92,8 @@
                     </v-card-text>
                 </v-card>
             </v-menu>
+
+            <v-btn flat primary>Random <v-icon>keyboard_arrow_down</v-icon></v-btn>
         </v-card-text>
     </v-card>
 
@@ -106,7 +108,7 @@
         </v-card-media>
     </v-card>
 
-    <section id="random" class="py-5">
+    <section id="experiences" class="py-5">
         <v-container fluid grid-list-lg>
             <v-layout row wrap>
                 <v-flex lg10 offset-lg1 md12 sm12 xs12>
@@ -117,7 +119,7 @@
                         </h2>
                     </v-card-text>
                     <v-layout row wrap align-center>
-                        <v-flex xs12 sm4 md3 v-for="card in random">
+                        <v-flex xs12 sm4 md3 v-for="card in experiences">
                             <a href="experiences/show" ripple class="td-n">
                                 <v-card class="elevation-1 c-lift">
                                     <v-card-media
@@ -175,7 +177,7 @@
                 <v-flex lg8 offset-lg2 md10 offset-md1 sm12 xs12>
                     <div class="text-xs-center py-5 px-3">
                         <h2 class="display-1">{{ __("WHY JOIN US") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">
+                        <h2 class="subheading grey--text text--darken-1" style="line-height: 1.5;">
                         {{ __("Random Road Trips is the unique and out of the box travel concept that Experience Philippines pioneered. It is for the risk takers who want to let go of control. It is for the adventurers who want the thrill of the unknown. It is for the traveler who wants to let go of expectations. But, most of all, it is for the seeking magic on the other side of fear.") }}
                         </h2>
                     </div>
@@ -486,7 +488,7 @@
                         { title: 'Click Me' },
                         { title: 'Click Me 2' }
                     ],
-                    random: [
+                    experiences: [
                         {
                             title: 'Random Road Trip #1',
                             price: '₱ 6,000',

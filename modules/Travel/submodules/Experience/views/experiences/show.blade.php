@@ -1,13 +1,73 @@
 @extends("Theme::layouts.auth")
 
 @section("content")
-    <v-card class="elevation-2 sticky">
+    <v-card class="elevation-1">
         <v-toolbar light class="elevation-0 white">
             <a href="">
                 <img src="{{ assets('frontier/images/public/exph_logo_o.png') }}" alt="" width="150">
             </a>
+
+            <div class="mx-4">
+                <v-menu open-on-hover top offset-y>
+                    <v-btn flat slot="activator"><v-icon left>search</v-icon> Search</v-btn>
+                    <v-card id="search-hover" style="max-width: 777px !important;">
+                        <v-select
+                            autocomplete
+                            label="What do you want to do or where do you want to go?"
+                            slot="activator"
+                            hide-details
+                            append-icon=""
+                            prepend-icon="search"
+                            search-input
+                            light solo hide-details
+                            elevation-0>
+                        </v-select>
+                        <v-divider></v-divider>
+                        <v-container fluid grid-list-lg>
+                            <v-layout row wrap>
+                                <v-flex xs6 sm3 v-for="card in exp">
+                                    <a href="" class="td-n">
+                                        <v-card class="elevation-1">
+                                            <v-card-media :src="card.src" width="100%" height="120">
+                                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
+                                                <v-card-text>
+                                                    <v-container fill-height fluid class="pa-0 white--text">
+                                                        <v-layout row wrap align-center justify-center>
+                                                        <v-card class="elevation-0 transparent text-xs-center">
+                                                           <div class="caption white--text text-xs-center">@{{ card.title }}</div>
+                                                        </v-card>
+                                                        </v-layout>
+                                                    </v-container>
+                                                </v-card-text>
+                                            </v-card-media>
+                                        </v-card>
+                                    </a>
+                                </v-flex>
+                                <v-flex xs6 sm3 v-for="card in reco">
+                                    <a href="" class="td-n">
+                                        <v-card class="elevation-1">
+                                            <v-card-media :src="card.src" width="100%" height="120">
+                                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
+                                                <v-card-text>
+                                                    <v-container fill-height fluid class="pa-0 white--text">
+                                                        <v-layout row wrap align-center justify-center>
+                                                        <v-card class="elevation-0 transparent text-xs-center">
+                                                           <div class="caption white--text text-xs-center">@{{ card.title }}</div>
+                                                        </v-card>
+                                                        </v-layout>
+                                                    </v-container>
+                                                </v-card-text>
+                                            </v-card-media>
+                                        </v-card>
+                                    </a>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
+                    </v-card>
+                </v-menu>
+            </div>
             <v-spacer></v-spacer>
-            <div class="hidden-sm-and-down">
+            <div class="hidden-md-and-down">
                 <v-btn small flat href="home">{{ __('Home') }}</v-btn>
                 <v-btn small flat primary href="experiences">{{ __('Experience') }}</v-btn>
                 <v-btn small flat>{{ __('Roadtrip') }}</v-btn>
@@ -19,52 +79,45 @@
         </v-toolbar>
     </v-card>
 
-    <v-container fluid grid-list-lg>
-        <v-layout row wrap>
-            <v-flex xs12>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae distinctio repellat molestiae aperiam quas! Esse iste et repudiandae voluptas nemo. Voluptatem consequatur aperiam cumque pariatur recusandae eos, quas delectus in.
-            </v-flex>
-        </v-layout>
-    </v-container>
-
-    {{-- <v-layout row wrap>
+    <div class="white">
+    <v-layout row wrap>
         <v-flex lg10 offset-lg1 md12 sm12 xs12>
-            <div class="py-2">
-                <v-breadcrumbs icons divider="chevron_right" class="pl-0" style="justify-content: flex-start;">
-                    <v-icon slot="divider">chevron_right</v-icon>
-                    <v-breadcrumbs-item
-                        v-for="item in crumbs"
-                        :key="item.text"
-                        :disabled="item.disabled"
-                        >
-                        <small class="caption">@{{ item.text }}</small>
-                    </v-breadcrumbs-item>
-                </v-breadcrumbs>
-            </div>
+            <v-breadcrumbs icons divider="chevron_right" class="pl-0" style="justify-content: flex-start;">
+                <v-icon slot="divider">chevron_right</v-icon>
+                <v-breadcrumbs-item
+                    v-for="item in crumbs"
+                    :key="item.text"
+                    :disabled="item.disabled"
+                    class="inline"
+                    >
+                    <small class="caption">@{{ item.text }}</small>
+                </v-breadcrumbs-item>
+            </v-breadcrumbs>
         </v-flex>
     </v-layout>
 
-    <section id="random">
+    <section id="show">
         <v-container fluid grid-list-lg>
             <v-layout row wrap>
-                <v-flex lg10 offset-lg1 md12 sm12 xs12 class="white">
+                <v-flex lg10 offset-lg1 md12 sm12 xs12>
                     <v-layout row wrap>
                         <v-flex md8 xs12>
                             <v-card class="elevation-0">
-                                <v-card-text>
-                                    <h4 class="grey--text text--darken-3"><strong>{{ __("Random Road Trip #1") }}</strong></h4>
-                                    <h6 class="subheading"></h6>
-                                </v-card-text>
+                                <h4 class="grey--text text--darken-3"><strong>{{ __("Random Road Trip #1") }}</strong></h4>
+                                <h6 class="subheading"></h6>
                             </v-card>
                         </v-flex>
-                        <v-flex md4 xs12>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ipsam possimus amet temporibus, minus, nemo aspernatur eum dignissimos rerum molestias molestiae ut. Quis vitae, voluptatibus dolorem officia, tenetur culpa molestiae?
+
+                        <v-flex md4 xs12 class="sticky">
+                            <v-card class="elevation-1" height="600px">
+                            </v-card>
                         </v-flex>
                     </v-layout>
                 </v-flex>
             </v-layout>
         </v-container>
-    </section> --}}
+    </section>
+    </div>
 
     <footer>
         <v-layout row wrap>
@@ -245,16 +298,76 @@
                         {
                             text: 'Experiences',
                             disabled: false
-                      },
-                      {
+                        },
+                        {
                             text: 'Random Road Trip',
                             disabled: false
-                      },
-                      {
-                            text: 'Random Road Trip #55',
+                        },
+                        {
+                            text: 'Random Road Trip #1',
                             disabled: true
-                      }
-                    ]
+                        }
+                    ],
+                     exp: [
+                        {
+                            title: 'FULL MOON PARTY Luna Sea: A Random Full Moon Party #4',
+                            price: '₱ 6,000',
+                            category: 'Retro Road Trip',
+                            date: 'Oct 21-22',
+                            src: '{{ assets('frontier/images/public/alabama.jpg') }}'
+                        },
+                        {
+                            title: 'Retro Road Trip #2',
+                            price: '₱ 10,000',
+                            category: 'Singles Road Trip',
+                            date: 'Sep 11-13',
+                            src: '{{ assets('frontier/images/public/el_capitan.jpg') }}'
+                        },
+                        {
+                            title: 'Super Mega Awesome Random Road Trip #3',
+                            price: '₱ 13,000',
+                            category: 'Random Road Trip',
+                            date: 'Aug 21-22',
+                            src: '{{ assets('frontier/images/placeholder/yosemite.jpg') }}'
+                        },
+                        {
+                            title: 'Super Mega Awesome Random Road Trip #3',
+                            price: '₱ 4,000',
+                            category: 'Special Road Trip',
+                            date: 'July 11-13',
+                            src: '{{ assets('frontier/images/public/h3.jpg') }}'
+                        }
+                    ],
+                    reco: [
+                        {
+                            title: 'FULL MOON PARTY Luna Sea: A Random Full Moon Party #4',
+                            price: '₱ 6,000',
+                            category: 'Retro Road Trip',
+                            date: 'Oct 21-22',
+                            src: '{{ assets('frontier/images/public/r1.jpg') }}'
+                        },
+                        {
+                            title: 'Retro Road Trip #2',
+                            price: '₱ 10,000',
+                            category: 'Singles Road Trip',
+                            date: 'Sep 11-13',
+                            src: '{{ assets('frontier/images/public/r3.jpg') }}'
+                        },
+                        {
+                            title: 'Super Mega Awesome Random Road Trip #3',
+                            price: '₱ 13,000',
+                            category: 'Random Road Trip',
+                            date: 'Aug 21-22',
+                            src: '{{ assets('frontier/images/public/r2.jpg') }}'
+                        },
+                        {
+                            title: 'Super Mega Awesome Random Road Trip #3',
+                            price: '₱ 4,000',
+                            category: 'Special Road Trip',
+                            date: 'July 11-13',
+                            src: '{{ assets('frontier/images/public/r4.jpg') }}'
+                        }
+                    ],
                 }
             },
         });
