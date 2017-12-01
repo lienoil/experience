@@ -347,7 +347,7 @@
         $(document).on('ready', function() {
             $(".regular").slick({
                 dots: false,
-                infinite: true,
+                infinite: false,
                 slidesToShow: 4,
                 slidesToScroll: 4,
                 autoplay: false,

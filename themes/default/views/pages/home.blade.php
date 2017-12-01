@@ -5,89 +5,110 @@
 
 @section("content")
     <header>
-        <v-toolbar class="elevation-1 white sticky" white>
-            <a href="">
+        <v-toolbar class="elevation-1 white" white>
+            <a href="home">
                 <img src="{{ assets('frontier/images/public/exph_logo_o.png') }}" alt="" width="150">
             </a>
-
-            <div class="mx-4">
-                <v-menu open-on-hover top offset-y>
-                    <v-btn flat slot="activator"><v-icon left>search</v-icon> Search</v-btn>
-                    <v-card id="search-hover" style="max-width: 777px !important;">
-                        <v-select
-                            autocomplete
-                            label="What do you want to do or where do you want to go?"
-                            slot="activator"
-                            hide-details
-                            append-icon=""
-                            prepend-icon="search"
-                            search-input
-                            light solo hide-details
-                            elevation-0>
-                        </v-select>
+            <div class="hidden-lg-and-up">
+                <v-menu
+                    transition="slide-x-transition"
+                    bottom
+                    right
+                    :nudge-width="200"
+                    >
+                    <v-btn icon slot="activator" v-tooltip:bottom="{html:'Menu'}"><v-icon>keyboard_arrow_down</v-icon></v-btn>
+                    <v-list>
+                        <v-list-tile ripple @click="">
+                            <v-list-tile-title>Experience</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile ripple @click="">
+                            <v-list-tile-title>Road Trips</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile ripple @click="">
+                            <v-list-tile-title>Pack &amp; Go</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile ripple @click="">
+                            <v-list-tile-title>Stories</v-list-tile-title>
+                        </v-list-tile>
                         <v-divider></v-divider>
-                        <v-container fluid grid-list-lg>
-                            <v-layout row wrap>
-                                <v-flex xs6 sm3 v-for="card in exp">
-                                    <a href="" class="td-n">
-                                        <v-card class="elevation-1">
-                                            <v-card-media :src="card.src" width="100%" height="120">
-                                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
-                                                <v-card-text>
-                                                    <v-container fill-height fluid class="pa-0 white--text">
-                                                        <v-layout row wrap align-center justify-center>
-                                                        <v-card class="elevation-0 transparent text-xs-center">
-                                                           <div class="caption white--text text-xs-center">@{{ card.title }}</div>
-                                                        </v-card>
-                                                        </v-layout>
-                                                    </v-container>
-                                                </v-card-text>
-                                            </v-card-media>
-                                        </v-card>
-                                    </a>
-                                </v-flex>
-                                <v-flex xs6 sm3 v-for="card in reco">
-                                    <a href="" class="td-n">
-                                        <v-card class="elevation-1">
-                                            <v-card-media :src="card.src" width="100%" height="120">
-                                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
-                                                <v-card-text>
-                                                    <v-container fill-height fluid class="pa-0 white--text">
-                                                        <v-layout row wrap align-center justify-center>
-                                                        <v-card class="elevation-0 transparent text-xs-center">
-                                                           <div class="caption white--text text-xs-center">@{{ card.title }}</div>
-                                                        </v-card>
-                                                        </v-layout>
-                                                    </v-container>
-                                                </v-card-text>
-                                            </v-card-media>
-                                        </v-card>
-                                    </a>
-                                </v-flex>
-                            </v-layout>
-                        </v-container>
-                    </v-card>
+                        <v-list-tile ripple @click="">
+                            <v-list-tile-title>Log in</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile ripple @click="">
+                            <v-list-tile-title>Register</v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
                 </v-menu>
             </div>
+
             <v-spacer></v-spacer>
+            <div class="hidden-md-and-up">
+                <v-dialog v-model="dialog.search" fullscreen transition="dialog-bottom-transition" :overlay=false>
+                    <v-btn icon slot="activator" v-tooltip:bottom="{html: 'Search'}"><v-icon>search</v-icon></v-btn>
+                    <v-card>
+                        <v-toolbar dark class="elevation-1">
+                            <v-btn icon @click.native="dialog.search = false" dark>
+                                <v-icon>close</v-icon>
+                            </v-btn>
+                            <v-toolbar-title>Settings</v-toolbar-title>
+                            <v-spacer></v-spacer>
+                            <v-toolbar-items>
+                                <v-btn dark flat @click.native="dialog.search = false">Save</v-btn>
+                            </v-toolbar-items>
+                        </v-toolbar>
+                    </v-card>
+                </v-dialog>
+            </div>
             <div class="hidden-md-and-down">
                 <v-btn small flat>{{ __('Experience') }}</v-btn>
                 <v-btn small flat>{{ __('Roadtrip') }}</v-btn>
-                <v-btn small flat>{{ __('Pack and Go') }}</v-btn>
+                <v-btn small flat>{{ __('Pack &amp; Go') }}</v-btn>
                 <v-btn small flat>{{ __('Stories') }}</v-btn>
                 <v-btn small flat>{{ __('Login') }}</v-btn>
                 <v-btn small flat>{{ __('Register') }}</v-btn>
             </div>
         </v-toolbar>
     </header>
+
     <main>
         <section id="hero">
-            <v-parallax height="600" src="{{ assets('frontier/images/public/h8.jpg') }}">
+            <v-parallax height="600" src="{{ assets('frontier/images/public/alabama.jpg') }}">
                 <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
-                <v-toolbar class="elevation-0 transparent sticky my-3" dark>
+                <v-toolbar class="elevation-0 transparent my-3" dark>
                     <a href="">
                         <img class="pt-3" src="{{ assets('frontier/images/public/exph_logo.png') }}" alt="" width="150">
                     </a>
+                    <div class="hidden-lg-and-up mt-3">
+                        <v-menu
+                            transition="slide-y-transition"
+                            bottom
+                            right
+                            :nudge-width="200"
+                            >
+                            <v-btn icon slot="activator" v-tooltip:bottom="{html:'Menu'}"><v-icon>keyboard_arrow_down</v-icon></v-btn>
+                            <v-list>
+                                <v-list-tile ripple @click="">
+                                    <v-list-tile-title>Experiences</v-list-tile-title>
+                                </v-list-tile>
+                                <v-list-tile ripple @click="">
+                                    <v-list-tile-title>Road Trips</v-list-tile-title>
+                                </v-list-tile>
+                                <v-list-tile ripple @click="">
+                                    <v-list-tile-title>Pack &amp; Go</v-list-tile-title>
+                                </v-list-tile>
+                                <v-list-tile ripple @click="">
+                                    <v-list-tile-title>Stories</v-list-tile-title>
+                                </v-list-tile>
+                                <v-divider></v-divider>
+                                <v-list-tile ripple @click="">
+                                    <v-list-tile-title>Log in</v-list-tile-title>
+                                </v-list-tile>
+                                <v-list-tile ripple @click="">
+                                    <v-list-tile-title>Register</v-list-tile-title>
+                                </v-list-tile>
+                            </v-list>
+                        </v-menu>
+                    </div>
                     <v-spacer></v-spacer>
                     <div class="hidden-md-and-down">
                         <v-btn small flat href="experiences">{{ __('Experience') }}</v-btn>
@@ -97,83 +118,136 @@
                         <v-btn small flat>{{ __('Login') }}</v-btn>
                         <v-btn small flat>{{ __('Register') }}</v-btn>
                     </div>
+                    <div class="hidden-md-and-up mt-3">
+                        <v-dialog v-model="dialog.search" fullscreen transition="dialog-bottom-transition" :overlay=false>
+                            <v-btn icon slot="activator" v-tooltip:bottom="{html: 'Search'}"><v-icon>search</v-icon></v-btn>
+                            <v-card>
+                                <v-toolbar dark class="elevation-1">
+                                    <v-btn icon @click.native="dialog.search = false" dark>
+                                        <v-icon>close</v-icon>
+                                    </v-btn>
+                                    <v-toolbar-title>Settings</v-toolbar-title>
+                                    <v-spacer></v-spacer>
+                                    <v-toolbar-items>
+                                        <v-btn dark flat @click.native="dialog.search = false">Save</v-btn>
+                                    </v-toolbar-items>
+                                </v-toolbar>
+                            </v-card>
+                        </v-dialog>
+                    </div>
                 </v-toolbar>
 
                 <v-layout column align-center justify-center class="white--text">
                     <v-card dark class="elevation-0 transparent">
                         <h2 class="mb-2 text-xs-center"><strong>{{ __("LET'S GO TRAVEL DIFFERENTLY") }}</strong></h2>
                         <h5 class="mb-3 text-xs-center fw-500">Experience a different kind of adventure</h5>
-                        <v-menu
-                            offset-y
-                            :close-on-content-click="false"
-                            class="block"
-                            v-model="search"
-                            >
-                            <v-select
-                                autocomplete
-                                label="What do you want to do or where do you want to go?"
-                                slot="activator"
-                                hide-details
-                                append-icon=""
-                                prepend-icon="search"
-                                search-input
-                                light solo hide-details>
-                            </v-select>
-                            <v-card class="pa-3" style="max-width: 777px !important;">
-                                <v-container fluid grid-list-lg>
-                                    <v-layout row wrap>
-                                        <v-flex xs6 sm3 v-for="card in exp">
-                                            <a href="" class="td-n">
-                                                <v-card class="elevation-1">
-                                                    <v-card-media :src="card.src" width="100%" height="120">
-                                                        <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
-                                                        <v-card-text>
-                                                            <v-container fill-height fluid class="pa-0 white--text">
-                                                                <v-layout row wrap align-center justify-center>
-                                                                <v-card class="elevation-0 transparent text-xs-center">
-                                                                   <div class="caption white--text text-xs-center">@{{ card.title }}</div>
-                                                                </v-card>
-                                                                </v-layout>
-                                                            </v-container>
-                                                        </v-card-text>
-                                                    </v-card-media>
-                                                </v-card>
-                                            </a>
-                                        </v-flex>
-                                        <v-flex xs6 sm3 v-for="card in reco">
-                                            <a href="" class="td-n">
-                                                <v-card class="elevation-1">
-                                                    <v-card-media :src="card.src" width="100%" height="120">
-                                                        <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
-                                                        <v-card-text>
-                                                            <v-container fill-height fluid class="pa-0 white--text">
-                                                                <v-layout row wrap align-center justify-center>
-                                                                <v-card class="elevation-0 transparent text-xs-center">
-                                                                   <div class="caption white--text text-xs-center">@{{ card.title }}</div>
-                                                                </v-card>
-                                                                </v-layout>
-                                                            </v-container>
-                                                        </v-card-text>
-                                                    </v-card-media>
-                                                </v-card>
-                                            </a>
-                                        </v-flex>
-                                    </v-layout>
-                                </v-container>
-                            </v-card>
-                        </v-menu>
+                        <div class="hidden-sm-and-down">
+                            <v-menu
+                                offset-y
+                                :close-on-content-click="false"
+                                class="block px-3"
+                                v-model="search"
+                                >
+                                <v-select
+                                    autocomplete
+                                    label="What do you want to do or where do you want to go?"
+                                    slot="activator"
+                                    hide-details
+                                    append-icon=""
+                                    prepend-icon="search"
+                                    search-input
+                                    light solo hide-details>
+                                </v-select>
+                                <v-card class="pa-3" style="max-width: 745px !important;">
+                                    <v-container fluid grid-list-lg>
+                                        <v-layout row wrap>
+                                            <v-flex xs6 sm3 v-for="card in exp">
+                                                <a href="" class="td-n">
+                                                    <v-card class="elevation-1">
+                                                        <v-card-media :src="card.src" width="100%" height="120">
+                                                            <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
+                                                            <v-card-text>
+                                                                <v-container fill-height fluid class="pa-0 white--text">
+                                                                    <v-layout row wrap align-center justify-center>
+                                                                    <v-card class="elevation-0 transparent text-xs-center">
+                                                                       <div class="caption white--text text-xs-center">@{{ card.title }}</div>
+                                                                    </v-card>
+                                                                    </v-layout>
+                                                                </v-container>
+                                                            </v-card-text>
+                                                        </v-card-media>
+                                                    </v-card>
+                                                </a>
+                                            </v-flex>
+                                            <v-flex xs6 sm3 v-for="card in reco">
+                                                <a href="" class="td-n">
+                                                    <v-card class="elevation-1">
+                                                        <v-card-media :src="card.src" width="100%" height="120">
+                                                            <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
+                                                            <v-card-text>
+                                                                <v-container fill-height fluid class="pa-0 white--text">
+                                                                    <v-layout row wrap align-center justify-center>
+                                                                    <v-card class="elevation-0 transparent text-xs-center">
+                                                                       <div class="caption white--text text-xs-center">@{{ card.title }}</div>
+                                                                    </v-card>
+                                                                    </v-layout>
+                                                                </v-container>
+                                                            </v-card-text>
+                                                        </v-card-media>
+                                                    </v-card>
+                                                </a>
+                                            </v-flex>
+                                        </v-layout>
+                                    </v-container>
+                                </v-card>
+                            </v-menu>
+                        </div>
                 </v-layout>
             </v-parallax>
-            <v-card-text class="white elevation-1 text-xs-center">
+            <v-card-text class="white elevation-1 text-xs-center hidden-xs-only">
                 <v-layout row wrap>
-                    <v-flex md4>
-                        <v-avatar><v-icon class="info--text">place</v-icon></v-avatar> TBA
-                    </v-flex>
-                    <v-flex md4>
-                        <v-avatar><v-icon class="info--text">place</v-icon></v-avatar> TBA
-                    </v-flex>
-                    <v-flex md4>
-                        <v-avatar><v-icon class="info--text">place</v-icon></v-avatar> TBA
+                    <v-flex lg10 offset-lg1 md12 xs12>
+                        <v-layout row wrap>
+                            <v-flex sm4>
+                                <v-list two-line subheader>
+                                    <v-list-tile avatar>
+                                        <v-list-tile-avatar tile>
+                                            <img src="{{ assets('frontier/images/public/sun.png') }}" alt="">
+                                        </v-list-tile-avatar>
+                                        <v-list-tile-content>
+                                            <v-list-tile-title>Discover a less touristy place</v-list-tile-title>
+                                            <v-list-tile-sub-title>Lorem ipsum dolor cit amet</v-list-tile-sub-title>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                </v-list>
+                            </v-flex>
+                            <v-flex sm4>
+                                <v-list two-line subheader>
+                                    <v-list-tile avatar>
+                                        <v-list-tile-avatar tile>
+                                            <img src="{{ assets('frontier/images/public/backpack.png') }}" alt="">
+                                        </v-list-tile-avatar>
+                                        <v-list-tile-content>
+                                            <v-list-tile-title>Travel with people you do not know</v-list-tile-title>
+                                            <v-list-tile-sub-title>Lorem ipsum dolor cit amet</v-list-tile-sub-title>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                </v-list>
+                            </v-flex>
+                            <v-flex sm4>
+                                <v-list two-line subheader>
+                                    <v-list-tile avatar>
+                                        <v-list-tile-avatar tile>
+                                            <img src="{{ assets('frontier/images/public/map.png') }}" alt="">
+                                        </v-list-tile-avatar>
+                                        <v-list-tile-content>
+                                            <v-list-tile-title>Seamless & Safe Booking</v-list-tile-title>
+                                            <v-list-tile-sub-title>Lorem ipsum dolor cit amet</v-list-tile-sub-title>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                </v-list>
+                            </v-flex>
+                        </v-layout>
                     </v-flex>
                 </v-layout>
             </v-card-text>
@@ -343,7 +417,7 @@
                 <v-flex xs12>
                     <v-layout row wrap align-center>
                         <v-flex xs12>
-                            <v-parallax class="mb-4 mt-5" height="450" src="{{ assets('frontier/images/public/how_to_use.jpg') }}">
+                            <v-parallax class="mb-4 mt-5" height="450" src="{{ assets('frontier/images/placeholder/18.jpg') }}">
                                 <v-layout
                                     column
                                     align-center
@@ -488,51 +562,6 @@
             </v-container>
         </section>
 
-        {{-- <section id="testimonial">
-            <v-layout row wrap>
-                <v-flex xs12>
-                    <v-layout row wrap align-center>
-                        <v-flex xs12>
-                            <v-parallax height="100%" class="mb-4 mt-5" src="{{ assets('frontier/images/placeholder/galaxy.jpg') }}">
-                                <v-layout
-                                    column
-                                    align-center
-                                    justify-center
-                                    class="white--text"
-                                    >
-                                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
-                                    <v-card dark class="py-4 elevation-0 transparent text-xs-center">
-                                        <v-card-text>
-                                            <h4 class="pb-0 mb-0"><strong>{{ __("Happy Customers") }}</strong></h4>
-                                            <p class="fw-400">Checkout our best promotion tours</p>
-                                            <v-layout row wrap>
-                                                <v-flex lg4 offset-lg4 md8 offset-md2 sm12 xs12>
-                                                    <div class="subheading mb-5 mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum eaque explicabo recusandae blanditiis. Nostrum quidem blanditiis commodi ipsum magnam eaque magni, enim repudiandae quam ut totam alias maxime accusantium. Provident!</div>
-
-                                                    <v-avatar class="mb-3">
-                                                        <img src="{{ assets('frontier/images/public/s4.jpg') }}" alt="">
-                                                    </v-avatar>
-
-                                                    <div class="subheading"><strong>Jane Appleseed</strong></div>
-                                                    <div class="caption">Facebook Messanger</div>
-
-                                                    <v-avatar dark icon class="mt-5">
-                                                        <v-icon class="white--text caption">fiber_manual_record</v-icon>
-                                                        <v-icon class="white--text caption">fiber_manual_record</v-icon>
-                                                        <v-icon class="white--text caption">fiber_manual_record</v-icon>
-                                                    </v-avatar>
-                                                </v-flex>
-                                            </v-layout>
-                                        </v-card-text>
-                                    </v-card>
-                                </v-layout>
-                            </v-parallax>
-                        </v-flex>
-                    </v-layout>
-                </v-flex>
-            </v-layout>
-        </section> --}}
-
         <section id="partnership">
             <v-container fluid>
                 <v-layout row wrap>
@@ -572,9 +601,8 @@
         <v-layout row wrap>
             <v-flex xs12>
 
-                <v-card class="elevation-0"
-                    >
-                    <v-card-media src="{{ assets('frontier/images/public/h7.jpg') }}" width="100%">
+                <v-card class="elevation-0">
+                    <v-card-media src="{{ assets('frontier/images/placeholder/17.jpg') }}" width="100%">
                         <div class="insert-overlay" style="background: rgba(0, 0, 0, .65); position: absolute; width: 100%; height: 100%;"></div>
                         <v-card-text class="pa-0 py-5">
                             <v-layout row wrap>
@@ -646,120 +674,12 @@
                             </v-layout>
                         </v-card-text>
                     </v-card-media>
-
                 </v-card>
             </v-flex>
         </v-layout>
     </section>
 
-    <footer>
-        <v-layout row wrap>
-            <v-flex xs12>
-                <v-card class="elevation-0 black py-5">
-                    <v-layout row wrap>
-                        <v-flex lg10 offset-lg1 md12 sm12>
-                            <v-container fill-height fluid class="pa-0 white--text">
-                                <v-layout row wrap align-top justify-top>
-                                    <v-flex sm3 xs12>
-                                        <v-card dark class="elevation-0 transparent">
-                                            <v-card-text class="grey--text">
-                                                <img src="{{ assets('frontier/images/public/footer.png') }}" alt="" width="120">
-                                                <div class="body-2 mb-1">About Experience Philippines</div>
-                                                <div class="caption mb-3">
-                                                    Experience Philippines is about UNIQUE ADVENTURES. We are a travel group that organizes RANDOM ROAD TRIPS where the destination is a SECRET and the activities are a SURPRISE.
-                                                </div>
-                                            </v-card-text>
-                                        </v-card>
-                                    </v-flex>
-                                    <v-flex sm6 xs12>
-                                        <v-card dark class="elevation-0 transparent">
-                                            <v-card-text class="body-1">
-                                                <v-layout row wrap>
-                                                    <v-flex sm5 offset-sm1>
-                                                        <div class="body-2 mb-2 white--text">Experience Philippines</div>
-                                                        <div class="mb-1">
-                                                        <a href="" class="td-n grey--text">
-                                                            Who We Are
-                                                        </a>
-                                                        </div>
-                                                        <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Crowd Funding
-                                                        </a></div>
-                                                        <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Stories From The Road
-                                                        </a></div>
-                                                        <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Privacy Policy
-                                                        </a></div>
-                                                        <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Contact Us
-                                                        </a></div>
-                                                        <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Sponsorships Opportunities
-                                                        </a></div>
-                                                    </v-flex>
-                                                    <v-flex sm5 offset-sm1>
-                                                        <div class="body-2 mb-2 white--text">Road Trips</div>
-                                                        <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Random Road Trips
-                                                        </a></div>
-                                                        <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Singles Road Trips
-                                                        </a></div>
-                                                        <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Random OUTings
-                                                        </a></div>
-                                                        <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Retro Road Trips
-                                                        </a></div>
-                                                        <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Quick Getaway
-                                                        </a></div>
-                                                        <div class="mb-1"><a href="" class="td-n grey--text">
-                                                            Special Road Trips
-                                                        </a></div>
-                                                    </v-flex>
-                                                </v-layout>
-                                            </v-card-text>
-                                        </v-card>
-                                    </v-flex>
-                                    <v-flex sm3 xs12>
-                                        <v-card dark class="elevation-0 transparent">
-                                            <v-card-text class="caption grey--text">
-                                                <div class="body-2 mb-2 white--text">Contact Us</div>
-                                                <v-btn outline class="mb-2 mx-0 grey--text">Ask Us</v-btn>
-                                                <div>Mobile: +63 917 563 9692</div>
-                                                <div>Landline: +632 710 5641</div>
-                                                <div>Email: giancarlo@experience.ph</div>
-                                                <div>Unit 10G Le Grande Tower 2, Eastwood City, Bagumbayan, Quezon City, PHILIPPINES 1110.</div>
-                                            </v-card-text>
-                                        </v-card>
-                                    </v-flex>
-                                </v-layout>
-                            </v-container>
-                        </v-flex>
-                    </v-layout>
-                </v-card>
-
-                <v-card class="elevation-0 black">
-                    <v-layout row wrap>
-                        <v-flex lg10 offset-lg1 md12 sm12>
-                            <v-divider class="grey darken-3"></v-divider>
-                            <v-card-actions>
-                                <div class="caption grey--text">© 2017 EXPERIENCE PHILIPPINES</div>
-                                <v-spacer></v-spacer>
-                                <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-facebook</v-icon></v-btn>
-                                <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-twitter</v-icon></v-btn>
-                                <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-youtube</v-icon></v-btn>
-                                <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-instagram</v-icon></v-btn>
-                                <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-pinterest</v-icon></v-btn>
-                            </v-card-actions>
-                        </v-flex>
-                    </v-layout>
-                </v-card>
-            </v-flex>
-        </v-layout>
-    </footer>
+    @include("Travel::public.footer")
 @endsection
 
 @push('css')
@@ -799,8 +719,9 @@
             position: fixed;
             display: none;
             width: 100%;
-            height: 60px;
-            background: red;
+            height: 64px;
+            top: 0;
+            background: transparent;
         }
     </style>
 @endpush
@@ -813,6 +734,9 @@
         mixins.push({
             data () {
                 return {
+                    dialog: {
+                        search: false
+                    },
                     states: [
                     'alabama', 'durian'],
                     from: null,
@@ -821,11 +745,11 @@
                     menu: false,
                     search: null,
                     stories: [
-                        { title: '2017 SCHEDULE', src: '{{ assets('frontier/images/public/h7.jpg') }}', flex: 8, height: '100%' },
-                        { title: 'SPECIAL', src: '{{ assets('frontier/images/public/h3.jpg') }}', flex: 4 },
-                        { title: 'SINGLES', src: '{{ assets('frontier/images/public/v2.jpg') }}', flex: 3},
-                        { title: 'EAT AND EXPLORE', src: '{{ assets('frontier/images/public/h1.jpg') }}', flex: 6},
-                        { title: 'RANDOM', src: '{{ assets('frontier/images/public/v1.jpg') }}', flex: 3},
+                        { title: '2017 SCHEDULE', src: '{{ assets('frontier/images/placeholder/9.png') }}', flex: 8, height: '100%' },
+                        { title: 'SPECIAL', src: '{{ assets('frontier/images/placeholder/14.jpg') }}', flex: 4 },
+                        { title: 'SINGLES', src: '{{ assets('frontier/images/placeholder/city.png') }}', flex: 3},
+                        { title: 'EAT AND EXPLORE', src: '{{ assets('frontier/images/placeholder/8.jpg') }}', flex: 6},
+                        { title: 'RANDOM', src: '{{ assets('frontier/images/placeholder/red2.jpg') }}', flex: 3},
                     ],
                     exp: [
                         {
@@ -833,28 +757,28 @@
                             price: '₱ 6,000',
                             category: 'Retro Road Trip',
                             date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/public/alabama.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/windmill.jpg') }}'
                         },
                         {
                             title: 'Retro Road Trip #2',
                             price: '₱ 10,000',
                             category: 'Singles Road Trip',
                             date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/public/el_capitan.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/red2.jpg') }}'
                         },
                         {
                             title: 'Super Mega Awesome Random Road Trip #3',
                             price: '₱ 13,000',
                             category: 'Random Road Trip',
                             date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/placeholder/yosemite.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/city.png') }}'
                         },
                         {
                             title: 'Super Mega Awesome Random Road Trip #3',
                             price: '₱ 4,000',
                             category: 'Special Road Trip',
                             date: 'July 11-13',
-                            src: '{{ assets('frontier/images/public/h3.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/9.png') }}'
                         }
                     ],
                     reco: [
@@ -863,28 +787,28 @@
                             price: '₱ 6,000',
                             category: 'Retro Road Trip',
                             date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/public/r1.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/9.jpg') }}'
                         },
                         {
                             title: 'Retro Road Trip #2',
                             price: '₱ 10,000',
                             category: 'Singles Road Trip',
                             date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/public/r3.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/13.jpg') }}'
                         },
                         {
                             title: 'Super Mega Awesome Random Road Trip #3',
                             price: '₱ 13,000',
                             category: 'Random Road Trip',
                             date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/public/r2.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/red.jpg') }}'
                         },
                         {
                             title: 'Super Mega Awesome Random Road Trip #3',
                             price: '₱ 4,000',
                             category: 'Special Road Trip',
                             date: 'July 11-13',
-                            src: '{{ assets('frontier/images/public/r4.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/8.jpg') }}'
                         }
                     ],
                 }
