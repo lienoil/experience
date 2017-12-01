@@ -34,6 +34,8 @@ return [
     'xlsx',
     'zip',
     'pdf',
+    'woff',
+    'ttf',
 
     // Uppercase
     '7Z',
@@ -64,4 +66,6 @@ return [
     'XLSX',
     'ZIP',
     'PDF',
+    'WOFF',
+    'TTF',
 ];

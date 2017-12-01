@@ -6,7 +6,7 @@
                     <v-flex lg10 offset-lg1 md12 sm12>
                         <v-container fill-height fluid class="pa-0 white--text">
                             <v-layout row wrap align-top justify-top>
-                                <v-flex sm3 xs12>
+                                <v-flex sm3 xs12 class="hidden-xs-only">
                                     <v-card dark class="elevation-0 transparent">
                                         <v-card-text class="grey--text">
                                             <img src="{{ assets('frontier/images/public/footer.png') }}" alt="" width="120">
@@ -17,7 +17,7 @@
                                         </v-card-text>
                                     </v-card>
                                 </v-flex>
-                                <v-flex sm6 xs12>
+                                <v-flex sm6 xs12 class="hidden-xs-only">
                                     <v-card dark class="elevation-0 transparent">
                                         <v-card-text class="body-1">
                                             <v-layout row wrap>
@@ -69,11 +69,31 @@
                                         </v-card-text>
                                     </v-card>
                                 </v-flex>
+                                <v-flex xs12 class="hidden-sm-and-up">
+                                    <v-card dark class="elevation-0 transparent">
+                                        <v-card-text>
+                                            <v-layout row justify-space-between>
+                                                <v-flex xs3>
+                                                    <a href="" class="td-n body-1 white--text">Home</a>
+                                                </v-flex>
+                                                <v-flex xs3>
+                                                    <a href="" class="td-n body-1 white--text">About Us</a>
+                                                </v-flex>
+                                                <v-flex xs3>
+                                                    <a href="" class="td-n body-1 white--text">Stories</a>
+                                                </v-flex>
+                                                <v-flex xs3>
+                                                    <a href="" class="td-n body-1 white--text">Policies</a>
+                                                </v-flex>
+                                            </v-layout>
+                                        </v-card-text>
+                                    </v-card>
+                                </v-flex>
                                 <v-flex sm3 xs12>
                                     <v-card dark class="elevation-0 transparent">
                                         <v-card-text class="caption grey--text">
                                             <div class="body-2 mb-2 white--text">Contact Us</div>
-                                            <v-btn outline class="mb-2 mx-0 grey--text">Ask Us</v-btn>
+                                            <v-btn outline block class="mb-2 mx-0 grey--text">Ask Us</v-btn>
                                             <div>Mobile: +63 917 563 9692</div>
                                             <div>Landline: +632 710 5641</div>
                                             <div>Email: giancarlo@experience.ph</div>

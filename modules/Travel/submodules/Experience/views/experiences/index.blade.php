@@ -57,33 +57,6 @@
                 :nudge-width="250"
                 >
                 <v-btn flat class="grey--text text--darken-1" slot="activator">
-                    {{ __('Guests') }}
-                </v-btn>
-                <v-card class="elevation-1">
-                    <v-card-text>
-                        <v-card-actions>
-                            <div class="title grey--text text--darken-3">Adults</div>
-                            <v-spacer></v-spacer>
-                            <v-btn outline small fab><v-icon>remove</v-icon></v-btn>
-                            <div class="title grey--text text--darken-1 px-3">0</div>
-                            <v-btn outline small fab><v-icon>add</v-icon></v-btn>
-                        </v-card-actions>
-                    </v-card-text>
-                    <v-divider></v-divider>
-                    <v-card-actions>
-                        <v-btn flat class="grey">Cancel</v-btn>
-                        <v-spacer></v-spacer>
-                        <v-btn flat primary>Apply</v-btn>
-                    </v-card-actions>
-                </v-card>
-            </v-menu>
-            <v-menu
-                origin="center center"
-                transition="scale-transition"
-                offset-y
-                :nudge-width="250"
-                >
-                <v-btn flat class="grey--text text--darken-1" slot="activator">
                     {{ __('Categories') }}
                 </v-btn>
                 <v-card class="elevation-1">
