@@ -60,7 +60,7 @@
 										<v-card-actions class="pt-0 pb-3">
 											Add another guest
 											<v-spacer></v-spacer>
-											<v-btn v-tooltip:bottom="{ html: 'Add' }" outline small fab success>
+											<v-btn v-tooltip:bottom="{ html: 'Add' }" outline small fab accent>
 										      	<v-icon>add</v-icon>
 										    </v-btn>
 										</v-card-actions>
@@ -68,8 +68,8 @@
                                 </v-card-text>
                             </v-card>
                             <v-divider class="hidden-sm-and-down"></v-divider>
-                            <v-card-text class="text-xs-right hidden-sm-and-down">
-								<v-btn primary large class="elevation-1">Next</v-btn>
+                            <v-card-text class="text-xs-right hidden-sm-and-down px-0">
+								<v-btn primary large class="elevation-1" href="\billings/show">Next</v-btn>
                             </v-card-text>
 						</v-flex>
 						<v-flex md4 offset-md1 xs12 class="hidden-sm-and-down">
@@ -101,6 +101,14 @@
 									</v-card-actions>
 	                            </v-card-text>
 	                        </v-card>
+                            <v-card class="elevation-1 mb-3">
+                                <v-card-text class="py-4">
+                                    <div class="subheading success--text mb-3">Cancellation Policy</div>
+                                    <div class="body-1 mb-2">Get a <strong>full refund</strong> if you cancel before 2 weeks ( more than 10 business days ) before the trip.</div>
+                                    <div class="body-1 mb-2"><strong>Half Refund</strong> within 10 business days but more than 5 days before the trip.</div>
+                                    <div class="body-1 mb-2"><strong>No Refund</strong> within 5 days or less before the trip</div>
+                                </v-card-text>
+                            </v-card>
 						</v-flex>
                 	</v-layout>
                 </v-flex>
@@ -149,17 +157,24 @@
 											<div class="title"><strong>₱ 6,000</strong></div>
 										</v-card-actions>
 	                            	</v-card-text>
+                                    <v-divider></v-divider>
+                                    <v-card-text class="py-4">
+                                        <div class="subheading success--text mb-3">Cancellation Policy</div>
+                                        <div class="body-1 mb-3">Get a <strong>full refund</strong> if you cancel before 2 weeks <br> ( more than 10 business days ) before the trip.</div>
+                                        <div class="body-1 mb-3"><strong>Half Refund</strong> within 10 business days but more than 5 days before the trip.</div>
+                                        <div class="body-1 mb-3"><strong>No Refund</strong> within 5 days or less before the trip</div>
+                                    </v-card-text>
 				                </v-card>
 				            </v-dialog>
                         </v-card-text>
                         <v-spacer></v-spacer>
                         <v-card-text class="py-2 text-xs-right">
-                            <v-btn large primary class="elevation-1 px-2" href="">Next</v-btn>
+                            <v-btn large primary class="elevation-1 px-2" href="\billings\show">Next</v-btn>
                         </v-card-text>
                     </v-card-actions>
                 </v-flex>
             </v-layout>
-        </v-card>	
+        </v-card>
     </section>
     @include("Public::sections.footer")
 @endsection

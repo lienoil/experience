@@ -24,6 +24,7 @@
                             <small class="caption">@{{ item.text }}</small>
                         </v-breadcrumbs-item>
                     </v-breadcrumbs>
+
                     <div class="sidebar hidden-sm-and-down">
                         <v-card class="elevation-1 mb-3">
                             <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
@@ -52,7 +53,7 @@
                                             <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
                                             <span class="caption">4.6</span>
                                             <div class="py-3 text-xs-center">
-                                                <v-btn primary large round class="elevation-1 px-4" href="\experience/billings">Book Now</v-btn>
+                                                <v-btn primary large round class="elevation-1 px-4" href="\..\experience/billings">Book Now</v-btn>
                                             </div>
                                         </div>
                                     </v-card>
@@ -67,18 +68,18 @@
                             </v-card-text>
                         </v-card>
                         <v-card class="elevation-1">
-                                <v-list subheader class="py-0">
-                                    <v-subheader>Frequestly Ask Questions</v-subheader>
-                                    <v-list-tile avatar ripple @click="">
-                                        <v-list-tile-avatar tile>
-                                            <img src="{{ assets('frontier/images/public/question.png') }}"/>
-                                        </v-list-tile-avatar>
-                                        <v-list-tile-content>
-                                            <v-list-tile-title>Experience Philippines</v-list-tile-title>
-                                            <v-list-tile-sub-title>Help Center</v-list-tile-sub-title>
-                                        </v-list-tile-content>
-                                    </v-list-tile>
-                                </v-list>
+                            <v-list subheader class="py-0">
+                                <v-subheader>Frequestly Ask Questions</v-subheader>
+                                <v-list-tile avatar ripple @click="">
+                                    <v-list-tile-avatar tile>
+                                        <img src="{{ assets('frontier/images/public/question.png') }}"/>
+                                    </v-list-tile-avatar>
+                                    <v-list-tile-content>
+                                        <v-list-tile-title>Experience Philippines</v-list-tile-title>
+                                        <v-list-tile-sub-title>Help Center</v-list-tile-sub-title>
+                                    </v-list-tile-content>
+                                </v-list-tile>
+                            </v-list>
                         </v-card>
                     </div>
 
@@ -233,7 +234,6 @@
                                                 </v-list-tile>
                                             </v-list>
                                             <div class="body-1">You can pay us through credit card via  Paypal's secured payment website</div>
-
                                         </div>
                                     </v-card-text>
                                 </v-card>
@@ -272,6 +272,34 @@
                                 </v-card>
                                 <v-divider></v-divider>
                                 <v-card class="elevation-0 py-3 hidden-md-and-up">
+                                    <v-card-text class="px-0">
+                                        {{-- <v-subheader class="grey--text text--darken-1">Details</v-subheader> --}}
+                                        <div class="title mb-2 grey--text text--darken-2">Deails</div>
+                                        <div class="body-1 mb-2">Your Roadtrip Essentials</div>
+                                        <div class="pt-3 subheading">
+                                            <v-card-actions class="pa-0 pb-1">
+                                                <v-avatar size="40px">
+                                                    <v-icon class="title mr-2">date_range</v-icon>
+                                                </v-avatar>
+                                                <div>November 24 to 26, 2017</div>
+                                            </v-card-actions>
+                                            <v-card-actions class="pa-0 pb-1">
+                                                <v-avatar size="40px">
+                                                    <v-icon class="title mr-2">schedule</v-icon>
+                                                </v-avatar>
+                                                <div>Starts at 8pm, Friday</div>
+                                            </v-card-actions>
+                                            <v-card-actions class="pa-0 pb-1">
+                                                <v-avatar size="40px">
+                                                    <v-icon class="title mr-2">wb_sunny</v-icon>
+                                                </v-avatar>
+                                                <div>3 days</div>
+                                            </v-card-actions>
+                                        </div>
+                                    </v-card-text>
+                                </v-card>
+                                <v-divider></v-divider>
+                                <v-card class="elevation-0 py-3 hidden-md-and-up">
                                     <v-list subheader class="py-0">
                                         <v-subheader>Frequestly Ask Questions</v-subheader>
                                         <v-list-tile avatar ripple @click="">
@@ -300,8 +328,8 @@
                                         <div class="body-1 mb-2"> Lorem ipsum dolor cit amet</div>
                                         <div class="pt-3">
                                             <v-card-actions class="mb-3">
-                                                <v-avatar size="40px" class="mr-4">
-                                                    <img src="{{ assets('frontier/images/placeholder/red2.jpg') }}" alt="">
+                                                <v-avatar size="50px" class="mr-4">
+                                                    <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
                                                 </v-avatar>
                                                 <div class="body-1">
                                                     <span class="body-2 block">Veronica</span>
@@ -467,10 +495,6 @@
             data () {
                 return {
                     e1: 'recent',
-                    states: [
-                        'alabama',
-                        'durian'
-                    ],
                     from: null,
                     to: null,
                     menu: false,

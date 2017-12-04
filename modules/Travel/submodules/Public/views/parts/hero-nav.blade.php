@@ -49,12 +49,12 @@
 </div>
 
 <div class="hidden-md-and-down">
-    <v-btn small flat>{{ __('Experience') }}</v-btn>
-    <v-btn small flat>{{ __('Roadtrip') }}</v-btn>
-    <v-btn small flat>{{ __('Pack &amp; Go') }}</v-btn>
-    <v-btn small flat>{{ __('Stories') }}</v-btn>
-    <v-btn small flat>{{ __('Login') }}</v-btn>
-    <v-btn small flat>{{ __('Register') }}</v-btn>
+    <v-btn flat>{{ __('Experience') }}</v-btn>
+    <v-btn flat>{{ __('Roadtrip') }}</v-btn>
+    <v-btn flat>{{ __('Pack &amp; Go') }}</v-btn>
+    <v-btn flat>{{ __('Stories') }}</v-btn>
+    <v-btn flat>{{ __('Login') }}</v-btn>
+    <v-btn flat>{{ __('Register') }}</v-btn>
 </div>
 
 @push('pre-scripts')

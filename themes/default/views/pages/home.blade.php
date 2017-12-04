@@ -14,10 +14,10 @@
         @include("Public::parts.recommended")
         @include("Public::parts.video")
         @include("Public::parts.stories")
-        @include("Public::parts.partners")  
+        @include("Public::parts.partners")
     </div>
-    
-    @include("Public::parts.cta")  
+
+    @include("Public::parts.cta")
     @include("Public::sections.footer")
 @endsection
 

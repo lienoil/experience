@@ -1,113 +1,113 @@
 <footer>
     <v-layout row wrap>
         <v-flex xs12>
-            <v-card class="elevation-0 black py-5">
-                <v-layout row wrap>
-                    <v-flex lg10 offset-lg1 md12 sm12>
-                        <v-container fill-height fluid class="pa-0 white--text">
-                            <v-layout row wrap align-top justify-top>
-                                <v-flex sm3 xs12 class="hidden-xs-only">
-                                    <v-card dark class="elevation-0 transparent">
-                                        <v-card-text class="grey--text pb-0">
-                                            <img src="{{ assets('frontier/images/public/footer.png') }}" alt="" width="120">
-                                            <div class="body-2 mb-1">About Experience Philippines</div>
-                                            <div class="caption mb-3">
-                                                Experience Philippines is about UNIQUE ADVENTURES. We are a travel group that organizes RANDOM ROAD TRIPS where the destination is a SECRET and the activities are a SURPRISE.
-                                            </div>
-                                        </v-card-text>
-                                    </v-card>
-                                </v-flex>
-                                <v-flex sm6 xs12 class="hidden-xs-only">
-                                    <v-card dark class="elevation-0 transparent">
-                                        <v-card-text class="body-1">
-                                            <v-layout row wrap>
-                                                <v-flex sm5 offset-sm1>
-                                                    <div class="body-2 mb-2 white--text">Experience Philippines</div>
-                                                    <div class="mb-1">
-                                                    <a href="" class="td-n grey--text">
-                                                        Who We Are
-                                                    </a>
-                                                    </div>
-                                                    <div class="mb-1"><a href="" class="td-n grey--text">
-                                                        Crowd Funding
-                                                    </a></div>
-                                                    <div class="mb-1"><a href="" class="td-n grey--text">
-                                                        Stories From The Road
-                                                    </a></div>
-                                                    <div class="mb-1"><a href="" class="td-n grey--text">
-                                                        Privacy Policy
-                                                    </a></div>
-                                                    <div class="mb-1"><a href="" class="td-n grey--text">
-                                                        Contact Us
-                                                    </a></div>
-                                                    <div class="mb-1"><a href="" class="td-n grey--text">
-                                                        Sponsorships Opportunities
-                                                    </a></div>
-                                                </v-flex>
-                                                <v-flex sm5 offset-sm1>
-                                                    <div class="body-2 mb-2 white--text">Road Trips</div>
-                                                    <div class="mb-1"><a href="" class="td-n grey--text">
-                                                        Random Road Trips
-                                                    </a></div>
-                                                    <div class="mb-1"><a href="" class="td-n grey--text">
-                                                        Singles Road Trips
-                                                    </a></div>
-                                                    <div class="mb-1"><a href="" class="td-n grey--text">
-                                                        Random OUTings
-                                                    </a></div>
-                                                    <div class="mb-1"><a href="" class="td-n grey--text">
-                                                        Retro Road Trips
-                                                    </a></div>
-                                                    <div class="mb-1"><a href="" class="td-n grey--text">
-                                                        Quick Getaway
-                                                    </a></div>
-                                                    <div class="mb-1"><a href="" class="td-n grey--text">
-                                                        Special Road Trips
-                                                    </a></div>
-                                                </v-flex>
-                                            </v-layout>
-                                        </v-card-text>
-                                    </v-card>
-                                </v-flex>
-                                <v-flex xs12 class="hidden-sm-and-up">
-                                    <v-card dark class="elevation-0 transparent">
-                                        <v-card-text>
-                                            <v-layout row justify-space-between>
-                                                <v-flex xs3>
-                                                    <a href="" class="td-n body-1 white--text">Home</a>
-                                                </v-flex>
-                                                <v-flex xs3>
-                                                    <a href="" class="td-n body-1 white--text">About Us</a>
-                                                </v-flex>
-                                                <v-flex xs3>
-                                                    <a href="" class="td-n body-1 white--text">Stories</a>
-                                                </v-flex>
-                                                <v-flex xs3>
-                                                    <a href="" class="td-n body-1 white--text">Policies</a>
-                                                </v-flex>
-                                            </v-layout>
-                                        </v-card-text>
-                                    </v-card>
-                                </v-flex>
-                                <v-flex sm3 xs12>
-                                    <v-card dark class="elevation-0 transparent">
-                                        <v-card-text class="caption grey--text">
-                                            <div class="body-2 mb-2 white--text">Contact Us</div>
-                                            <v-btn outline block class="mb-2 mx-0 grey--text">Ask Us</v-btn>
-                                            <div>Mobile: +63 917 563 9692</div>
-                                            <div>Landline: +632 710 5641</div>
-                                            <div>Email: giancarlo@experience.ph</div>
-                                            <div>Unit 10G Le Grande Tower 2, Eastwood City, Bagumbayan, Quezon City, PHILIPPINES 1110.</div>
-                                        </v-card-text>
-                                    </v-card>
-                                </v-flex>
-                            </v-layout>
-                        </v-container>
-                    </v-flex>
-                </v-layout>
-            </v-card>
-
             <v-card class="elevation-0 black">
+                <div class="py-5">
+                    <v-layout row wrap>
+                        <v-flex lg10 offset-lg1 md12 sm12>
+                            <v-container fill-height fluid class="pa-0 white--text">
+                                <v-layout row wrap align-top justify-top>
+                                    <v-flex sm3 xs12 class="hidden-xs-only">
+                                        <v-card dark class="elevation-0 transparent">
+                                            <v-card-text class="grey--text pb-0">
+                                                <img src="{{ assets('frontier/images/public/footer.png') }}" alt="" width="120">
+                                                <div class="body-2 mb-1">About Experience Philippines</div>
+                                                <div class="caption mb-3">
+                                                    Experience Philippines is about UNIQUE ADVENTURES. We are a travel group that organizes RANDOM ROAD TRIPS where the destination is a SECRET and the activities are a SURPRISE.
+                                                </div>
+                                            </v-card-text>
+                                        </v-card>
+                                    </v-flex>
+                                    <v-flex sm6 xs12 class="hidden-xs-only">
+                                        <v-card dark class="elevation-0 transparent">
+                                            <v-card-text class="body-1">
+                                                <v-layout row wrap>
+                                                    <v-flex sm5 offset-sm1>
+                                                        <div class="body-2 mb-2 white--text">Experience Philippines</div>
+                                                        <div class="mb-1">
+                                                        <a href="" class="td-n grey--text">
+                                                            Who We Are
+                                                        </a>
+                                                        </div>
+                                                        <div class="mb-1"><a href="" class="td-n grey--text">
+                                                            Crowd Funding
+                                                        </a></div>
+                                                        <div class="mb-1"><a href="" class="td-n grey--text">
+                                                            Stories From The Road
+                                                        </a></div>
+                                                        <div class="mb-1"><a href="" class="td-n grey--text">
+                                                            Privacy Policy
+                                                        </a></div>
+                                                        <div class="mb-1"><a href="" class="td-n grey--text">
+                                                            Contact Us
+                                                        </a></div>
+                                                        <div class="mb-1"><a href="" class="td-n grey--text">
+                                                            Sponsorships Opportunities
+                                                        </a></div>
+                                                    </v-flex>
+                                                    <v-flex sm5 offset-sm1>
+                                                        <div class="body-2 mb-2 white--text">Road Trips</div>
+                                                        <div class="mb-1"><a href="" class="td-n grey--text">
+                                                            Random Road Trips
+                                                        </a></div>
+                                                        <div class="mb-1"><a href="" class="td-n grey--text">
+                                                            Singles Road Trips
+                                                        </a></div>
+                                                        <div class="mb-1"><a href="" class="td-n grey--text">
+                                                            Random OUTings
+                                                        </a></div>
+                                                        <div class="mb-1"><a href="" class="td-n grey--text">
+                                                            Retro Road Trips
+                                                        </a></div>
+                                                        <div class="mb-1"><a href="" class="td-n grey--text">
+                                                            Quick Getaway
+                                                        </a></div>
+                                                        <div class="mb-1"><a href="" class="td-n grey--text">
+                                                            Special Road Trips
+                                                        </a></div>
+                                                    </v-flex>
+                                                </v-layout>
+                                            </v-card-text>
+                                        </v-card>
+                                    </v-flex>
+                                    <v-flex xs12 class="hidden-sm-and-up">
+                                        <v-card dark class="elevation-0 transparent">
+                                            <v-card-text>
+                                                <v-layout row justify-space-between>
+                                                    <v-flex xs3>
+                                                        <a href="" class="td-n body-1 white--text">Home</a>
+                                                    </v-flex>
+                                                    <v-flex xs3>
+                                                        <a href="" class="td-n body-1 white--text">About Us</a>
+                                                    </v-flex>
+                                                    <v-flex xs3>
+                                                        <a href="" class="td-n body-1 white--text">Stories</a>
+                                                    </v-flex>
+                                                    <v-flex xs3>
+                                                        <a href="" class="td-n body-1 white--text">Policies</a>
+                                                    </v-flex>
+                                                </v-layout>
+                                            </v-card-text>
+                                        </v-card>
+                                    </v-flex>
+                                    <v-flex sm3 xs12>
+                                        <v-card dark class="elevation-0 transparent">
+                                            <v-card-text class="caption grey--text">
+                                                <div class="body-2 mb-2 white--text">Contact Us</div>
+                                                <v-btn outline block class="mb-2 mx-0 grey--text">Ask Us</v-btn>
+                                                <div>Mobile: +63 917 563 9692</div>
+                                                <div>Landline: +632 710 5641</div>
+                                                <div>Email: giancarlo@experience.ph</div>
+                                                <div>Unit 10G Le Grande Tower 2, Eastwood City, Bagumbayan, Quezon City, PHILIPPINES 1110.</div>
+                                            </v-card-text>
+                                        </v-card>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
+                        </v-flex>
+                    </v-layout>
+                </div>
+
                 <v-layout row wrap>
                     <v-flex lg10 offset-lg1 md12 sm12>
                         <v-divider class="grey darken-3"></v-divider>

@@ -1,5 +1,5 @@
 <a href="home">
-    <img src="{{ assets('frontier/images/public/exph_logo_o.png') }}" alt="" width="150">
+    <img src="{{ assets('frontier/images/public/logo_icon.png') }}" alt="" width="80" style="padding-top: 8px;">
 </a>
 <div class="hidden-lg-and-up">
     <v-menu
@@ -95,24 +95,27 @@
                     light solo hide-details
                     class="elevation-0">
                 </v-select>
-                <v-btn light flat @click.native="dialog.search = false">Go</v-btn>
+                <v-btn primary flat @click.native="dialog.search = false">Go</v-btn>
             </v-card-actions>
             <v-divider></v-divider>
             <v-card-text>
                 <v-subheader>Popular Experiences</v-subheader>
                 <v-btn class="elevation-0" small accent>Random</v-btn>
+                <v-btn class="elevation-0" small accent>Special</v-btn>
+                <v-btn class="elevation-0" small accent>Retro</v-btn>
+                <v-btn class="elevation-0" small accent>Eat and Explore</v-btn>
             </v-card-text>
         </v-card>
     </v-dialog>
 </div>
 
 <div class="hidden-md-and-down">
-    <v-btn small flat>{{ __('Experience') }}</v-btn>
-    <v-btn small flat>{{ __('Roadtrip') }}</v-btn>
-    <v-btn small flat>{{ __('Pack &amp; Go') }}</v-btn>
-    <v-btn small flat>{{ __('Stories') }}</v-btn>
-    <v-btn small flat>{{ __('Login') }}</v-btn>
-    <v-btn small flat>{{ __('Register') }}</v-btn>
+    <v-btn flat>{{ __('Experience') }}</v-btn>
+    <v-btn flat>{{ __('Roadtrip') }}</v-btn>
+    <v-btn flat>{{ __('Pack &amp; Go') }}</v-btn>
+    <v-btn flat>{{ __('Stories') }}</v-btn>
+    <v-btn flat>{{ __('Login') }}</v-btn>
+    <v-btn flat>{{ __('Register') }}</v-btn>
 </div>
 
 @push('pre-scripts')

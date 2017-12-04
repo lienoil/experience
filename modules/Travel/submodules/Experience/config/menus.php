@@ -13,7 +13,7 @@ return [
         'order' => 51,
         'slug' => url(config('path.admin').'/experiences'),
         'always_viewable' => false,
-        'icon' => '',
+        'icon' => 'place',
         'labels' => [
             'title' => __('Experiences'),
             'description' => __('Manage experiences'),

@@ -9,7 +9,7 @@ Clone:
     create user
     create role
     create role_user
-
+https://a0.muscache.com/airbnb/static/business_travel/business_travel_landing/card-1-e305cc511f90a1607f4bb7ce28242f20.jpg
 Create Module:
     blacksmith/blacksmith forge:module ModuleName
 
@@ -60,12 +60,25 @@ User Interface per Page:
                     ☐ Failed Page
                 ☐ Bank Transfer: Acct Details EXPH
                     ☐ Success Page
-    ☐ About Us (corp.experience.ph?)
+    ☐ About Us
     ☐ Company Profile
     ☐ Meet the Team
     ☐ Press
     ☐ Partnerships
     ☐ Sponsor
-    ☐ Frequently Asked Questions
+    ✔ Frequently Asked Questions
     ☐ Sitemap
 
+DEC 4::
+    ✔ FAQ
+    Billing/show (confirm to pay) -- coins.ph, paypal & bank
+    User Profile
+    Stories/index
+
+
+Home
+FAQ
+Experiences
+Experiences/show
+Billings
+Billings/show
