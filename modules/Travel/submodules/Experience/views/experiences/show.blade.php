@@ -3,7 +3,11 @@
 @section("page-title", __($application->page->title))
 
 @section("content")
-    @include("Travel::public.nav")
+    <v-card class="elevation-1 sticky">
+        <v-toolbar class="elevation-0 white">
+            @include("Public::sections.nav")
+        </v-toolbar>
+    </v-card>
 
     <section id="show" class="white">
         <v-container fluid grid-list-lg>
@@ -15,7 +19,7 @@
                             v-for="item in crumbs"
                             :key="item.text"
                             :disabled="item.disabled"
-                            class="inline"
+                            class="crumbs-items"
                             >
                             <small class="caption">@{{ item.text }}</small>
                         </v-breadcrumbs-item>
@@ -48,7 +52,7 @@
                                             <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
                                             <span class="caption">4.6</span>
                                             <div class="py-3 text-xs-center">
-                                                <v-btn primary large round class="elevation-1 px-4">Book Now</v-btn>
+                                                <v-btn primary large round class="elevation-1 px-4" href="\experience/billings">Book Now</v-btn>
                                             </div>
                                         </div>
                                     </v-card>
@@ -100,11 +104,11 @@
                                         <div class="pt-3">
                                             <v-card-actions>
                                                 <v-avatar size="100px" class="mr-4">
-                                                    <img src="{{ assets('frontier/images/placeholder/red2.jpg') }}" alt="">
+                                                    <img src="{{ assets('frontier/images/placeholder/man.png') }}" alt="">
                                                 </v-avatar>
                                                 <v-spacer></v-spacer>
                                                 <div class="body-1">
-                                                <span class="body-2 block pb-2">Jane Appleseed</span>
+                                                <span class="body-2 block pb-2">Paul Appleseed</span>
                                                     The Travel Manager is the guy who will make sure your road trip will be full of adventures, excitement, tales to tell your grandchildren, epic memories and unforgettable experiences.
                                                 </div>
                                             </v-card-actions>
@@ -307,7 +311,7 @@
                                                 <v-btn icon v-tooltip:bottom="{html: 'Report Review'}"><v-icon class="title">fa fa-flag-o</v-icon></v-btn>
                                             </v-card-actions>
                                             <div class="subheading">
-                                                Definitely value for money! Very beautiful view in amazing location. Jane Appleseed was also very helpful. Very recommended!
+                                                Definitely value for money! Very beautiful view in amazing location. Paul Appleseed was also very helpful. Very recommended!
                                             </div>
                                         </div>
                                     </v-card-text>
@@ -326,53 +330,42 @@
                             <div class="body-1 mb-2"> Lorem ipsum dolor cit amet</div>
                             <div class="pt-3">
                                 <v-layout row wrap align-center>
-                                <v-flex xs12 sm4 md3 v-for="card in reco">
-                                    <a href="experiences/show" ripple class="td-n">
-                                        <v-card class="elevation-1 c-lift">
-                                            <v-card-media
-                                                height="180px"
-                                                :src="card.src"
-                                                class="grey lighten-4">
-                                                <v-container fill-height fluid class="pa-0 white--text">
-                                                    <v-layout column>
-                                                        <v-card-actions>
-                                                            <v-spacer></v-spacer>
-                                                            <v-btn icon class="mr-3">
-                                                                <v-icon class="white--text">favorite_border</v-icon>
-                                                            </v-btn>
-                                                        </v-card-actions>
-                                                        <v-spacer></v-spacer>
-                                                        <v-card-actions>
-                                                            <v-spacer></v-spacer>
-                                                            <v-card-text class="pa-0 white--text title text-xs-right">
-                                                                <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="card.price"></v-chip>
-                                                            </v-card-text>
-                                                        </v-card-actions>
-                                                    </v-layout>
-                                                </v-container>
-                                            </v-card-media>
-                                            <v-divider class="grey lighten-3"></v-divider>
-                                            <v-toolbar card dense class="transparent pt-2">
-                                                <v-toolbar-title class="mr-3 subheading">
-                                                    <span class="body-2">@{{ card.title }}</span><br>
-                                                    <span class="caption">@{{ card.date }}</span><br>
-                                                </v-toolbar-title>
-                                            </v-toolbar>
-                                            <v-card-text class="grey--text pt-4">
-                                                <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                                <span class="caption">@{{ card.category }}</span>
-                                                <div>
-                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                                    <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
-                                                    4.6
-                                                </div>
-                                            </v-card-text>
-                                        </v-card>
-                                    </a>
-                                </v-flex>
+                                    <v-flex xs12 sm4 md3 v-for="card in experiences">
+                                        <a href="experiences/show" ripple class="td-n">
+                                            <v-card class="elevation-1 c-lift">
+                                                <v-card-media
+                                                    height="180px"
+                                                    :src="card.src"
+                                                    class="grey lighten-4">
+                                                    <div class="text-xs-right" style="width: 100%;">
+                                                        <v-btn large icon class="mr-3">
+                                                            @include("Experience::components.wishlist")
+                                                        </v-btn>
+                                                        <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="card.price" style="position: absolute; bottom: 15px; right: 0;"></v-chip>
+                                                    </div>
+                                                </v-card-media>
+                                                <v-divider class="grey lighten-3"></v-divider>
+                                                <v-toolbar card dense class="transparent pt-2">
+                                                    <v-toolbar-title class="mr-3 subheading">
+                                                        <span class="body-2">@{{ card.title }}</span><br>
+                                                        <span class="caption">@{{ card.date }}</span><br>
+                                                    </v-toolbar-title>
+                                                </v-toolbar>
+                                                <v-card-text class="grey--text pt-4">
+                                                    <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                                    <span class="caption">@{{ card.category }}</span>
+                                                    <div>
+                                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                                        4.6
+                                                    </div>
+                                                </v-card-text>
+                                            </v-card>
+                                        </a>
+                                    </v-flex>
                                 </v-layout>
                             </div>
                         </v-card-text>
@@ -381,31 +374,34 @@
             </v-layout>
         </v-container>
 
-        <v-card class="elevation-1 fixed-nav hidden-md-and-up">
+        <v-card class="elevation-1 fixed-nav hidden-md-and-up" style="z-index: 3;">
             <v-divider></v-divider>
             <v-layout row wrap>
                 <v-flex xs12>
                     <v-card-actions>
                         <v-card-text class="py-2">
-                            <div class="title">₱ 6, 000</div>
+                            <div class="subheading"><strong>₱ 6,000</strong> <span class="body-1">per person</span></div>
                             <div class="body-1 grey--text text--darken-2">November 24 - 26</div>
                             {{-- <div class="body-1 grey--text text--darken-2">Starts at 8pm, Friday</div> --}}
                         </v-card-text>
                         <v-spacer></v-spacer>
                         <v-card-text class="py-2 text-xs-right">
-                            <v-btn large primary round class="elevation-1 px-2">Book Now</v-btn>
+                            <v-btn large primary round class="elevation-1 px-2" href="\experience/billings">Book Now</v-btn>
                         </v-card-text>
                     </v-card-actions>
                 </v-flex>
             </v-layout>
         </v-card>
     </section>
-    @include("Travel::public.footer")
+    @include("Public::sections.footer")
 @endsection
 
 
 @push('css')
     <style>
+        #show .crumbs-items:first-child .breadcrumbs__item {
+            padding-left: 0;
+        }
         .fixed-nav {
             position: fixed !important;
             bottom: 0;
@@ -423,10 +419,6 @@
         }
         .block {
             display: block !important;
-        }
-        footer a:hover,
-        .social:hover {
-            color: #ff6600 !important;
         }
         .c-lift {
             transition: all .2s ease;
@@ -561,6 +553,36 @@
                             date: 'July 11-13',
                             src: '{{ assets('frontier/images/public/r4.jpg') }}'
                         }
+                    ],
+                    experiences: [
+                        {
+                            title: 'Random Road Trip #1',
+                            price: '₱ 6,000',
+                            category: 'Random Road Trip',
+                            date: 'Oct 21-22',
+                            src: '{{ assets('frontier/images/placeholder/windmill.jpg') }}'
+                        },
+                        {
+                            title: 'Random Road Trip #2',
+                            price: '₱ 10,000',
+                            category: 'Random Road Trip',
+                            date: 'Sep 11-13',
+                            src: '{{ assets('frontier/images/placeholder/red2.jpg') }}'
+                        },
+                        {
+                            title: 'Random Road Trip #3',
+                            price: '₱ 13,000',
+                            category: 'Random Road Trip',
+                            date: 'Aug 21-22',
+                            src: '{{ assets('frontier/images/placeholder/city.png') }}'
+                        },
+                        {
+                            title: 'Random Road Trip #4',
+                            price: '₱ 4,000',
+                            category: 'Random Road Trip',
+                            date: 'July 11-13',
+                            src: '{{ assets('frontier/images/placeholder/9.png') }}'
+                        },
                     ],
                 }
             },

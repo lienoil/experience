@@ -2,20 +2,8 @@
 
 @section("content")
     <v-card class="elevation-1 sticky">
-        <v-toolbar light class="elevation-0 white">
-            <a href="">
-                <img src="{{ assets('frontier/images/public/exph_logo_o.png') }}" alt="" width="150">
-            </a>
-            <v-spacer></v-spacer>
-            <div class="hidden-md-and-down">
-                <v-btn small flat href="home">{{ __('Home') }}</v-btn>
-                <v-btn small flat primary href="experiences">{{ __('Experience') }}</v-btn>
-                <v-btn small flat>{{ __('Roadtrip') }}</v-btn>
-                <v-btn small flat>{{ __('Pack and Go') }}</v-btn>
-                <v-btn small flat>{{ __('Stories') }}</v-btn>
-                <v-btn small flat>{{ __('Login') }}</v-btn>
-                <v-btn small flat>{{ __('Register') }}</v-btn>
-            </div>
+        <v-toolbar class="elevation-0 white">
+            @include("Public::sections.nav")
         </v-toolbar>
         <v-divider></v-divider>
         <v-card-text class="pa-0">
@@ -23,21 +11,22 @@
                 origin="center center"
                 transition="scale-transition"
                 offset-y
+                class="elevation-0 hidden-sm-and-down"
                 >
                 <v-btn flat class="grey--text text--darken-1" slot="activator">
                     {{ __('Dates') }}
                 </v-btn>
-                <v-card class="elevation-1">
-                    <v-card-text>
+                <v-card class="elevation-0 hidden-sm-and-down">
+                    <v-card-text class="hidden-sm-and-down">
                         <v-layout row wrap grid-list-lg>
-                            <v-flex md6>
-                                <v-card-text class="pb-0">
-                                    <v-date-picker class="elevation-0" no-title v-model="from" portrait></v-date-picker>
+                            <v-flex xs6>
+                                <v-card-text class="pb-0 hidden-sm-and-down">
+                                    <v-date-picker class="elevation-0 hidden-sm-and-down" no-title v-model="from" portrait></v-date-picker>
                                 </v-card-text>
                             </v-flex>
-                            <v-flex md6>
-                                <v-card-text class="pb-0">
-                                    <v-date-picker class="elevation-0" no-title v-model="from" portrait></v-date-picker>
+                            <v-flex xs6>
+                                <v-card-text class="pb-0 hidden-sm-and-down">
+                                    <v-date-picker class="elevation-0 hidden-sm-and-down" no-title v-model="from" portrait></v-date-picker>
                                 </v-card-text>
                             </v-flex>
                         </v-layout>
@@ -50,29 +39,82 @@
                     </v-card-actions>
                 </v-card>
             </v-menu>
+            {{-- dialog on sm-viewport --}}
+            <v-dialog class="hidden-md-and-up" v-model="dialog.calendar" fullscreen transition="dialog-bottom-transition" :overlay=false>
+                <v-btn flat class="grey--text text--darken-1" slot="activator">
+                    {{ __('Dates') }}
+                </v-btn>
+                <v-card>
+                    <v-toolbar light class="white elevation-0">
+                        <v-btn icon @click.native="dialog.calendar = false">
+                            <v-icon>close</v-icon>
+                        </v-btn>
+                        <v-toolbar-title>When</v-toolbar-title>
+                        <v-spacer></v-spacer>
+                        <v-toolbar-items>
+                            <v-btn dark flat @click.native="dialog.calendar = false">Reset</v-btn>
+                        </v-toolbar-items>
+                    </v-toolbar>
+                    <v-divider></v-divider>
+                    <v-flex xs12>
+                        <v-card-text class="pb-0">
+                            <v-date-picker class="elevation-0 calendar" no-title v-model="from" landscape></v-date-picker>
+                        </v-card-text>
+                    </v-flex>
+                    <v-flex xs12>
+                        <v-card-text class="pb-0 ">
+                            <v-date-picker class="elevation-0 calendar" no-title v-model="from" landscape></v-date-picker>
+                        </v-card-text>
+                    </v-flex>
+                </v-card>
+            </v-dialog>
+
             <v-menu
                 origin="center center"
                 transition="scale-transition"
-                offset-y
-                :nudge-width="250"
+                offset-y center
+                class="elevation-0"
+                :nudge-width="150"
                 >
-                <v-btn flat class="grey--text text--darken-1" slot="activator">
-                    {{ __('Categories') }}
-                </v-btn>
-                <v-card class="elevation-1">
-                    <v-card-text>
-
-                    </v-card-text>
-                </v-card>
+                <v-btn flat primary slot="activator">Random <v-icon>keyboard_arrow_down</v-icon></v-btn>
+                <v-list>
+                    <v-list-tile ripple avatar v-for="item in items" v-bind:key="item.title" @click="">
+                        <v-list-tile-action>
+                            <v-icon color="pink">whatshot</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title v-text="item.title"></v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </v-list>
             </v-menu>
 
-            <v-btn flat primary>Random <v-icon>keyboard_arrow_down</v-icon></v-btn>
+            <v-menu
+                origin="center center"
+                transition="scale-transition"
+                offset-y center
+                class="elevation-0"
+                :nudge-width="150"
+                >
+                <v-btn class="grey--text text--darken-1" flat slot="activator">Types <v-icon>keyboard_arrow_down</v-icon></v-btn>
+                    <v-list>
+                    <v-list-tile ripple avatar v-for="item in types" v-bind:key="item.title" @click="">
+                        <v-list-tile-action>
+                            <v-icon color="pink">check_box_outline_blank</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title v-text="item.title"></v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </v-list>
+
+            </v-menu>
         </v-card-text>
     </v-card>
 
     <v-card class="banner elevation-1">
-        <v-card-media class="elevation-0" height="350" src="{{ assets('frontier/images/placeholder/9.png') }}">
-            <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
+        <v-card-media class="elevation-0" height="350" src="{{ assets('frontier/images/public/sierra.jpg') }}">
+            <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
             <v-layout column align-center justify-center class="white--text">
                 <v-card dark class="elevation-0 transparent">
                     <h2 class="mb-2 text-xs-center"><strong>{{ __("RANDOM ROAD TRIPS") }}</strong></h2>
@@ -99,23 +141,12 @@
                                         height="180px"
                                         :src="card.src"
                                         class="grey lighten-4">
-                                        <v-container fill-height fluid class="pa-0 white--text">
-                                            <v-layout column>
-                                                <v-card-actions>
-                                                    <v-spacer></v-spacer>
-                                                    <v-btn icon class="mr-3">
-                                                        <v-icon class="white--text">favorite_border</v-icon>
-                                                    </v-btn>
-                                                </v-card-actions>
-                                                <v-spacer></v-spacer>
-                                                <v-card-actions>
-                                                    <v-spacer></v-spacer>
-                                                    <v-card-text class="pa-0 white--text title text-xs-right">
-                                                        <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="card.price"></v-chip>
-                                                    </v-card-text>
-                                                </v-card-actions>
-                                            </v-layout>
-                                        </v-container>
+                                        <div class="text-xs-right" style="width: 100%;">
+                                            <v-btn large icon class="mr-3">
+                                                @include("Experience::components.wishlist")
+                                            </v-btn>
+                                            <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="card.price" style="position: absolute; bottom: 15px; right: 0;"></v-chip>
+                                        </div>
                                     </v-card-media>
                                     <v-divider class="grey lighten-3"></v-divider>
                                     <v-toolbar card dense class="transparent pt-2">
@@ -194,11 +225,20 @@
         </v-container>
     </section>
 
-    @include("Travel::public.footer")
+    @include("Public::sections.footer")
 @endsection
 
 @push('css')
     <style>
+        .calendar {
+            width: 100%;
+        }
+        .calendar .picker__body {
+            margin-left: 0;
+        }
+        .calendar .picker--date__table table {
+            width: 100%;
+        }
         .fw-400 {
             font-weight: 400;
         }
@@ -314,11 +354,26 @@
         mixins.push({
             data () {
                 return {
-                    states: [
-                        'alabama',
-                        'durian'
+                    filtercat: null,
+                    items: [
+                        { title: 'Random' },
+                        { title: 'Singles' },
+                        { title: 'Random OUTings' },
+                        { title: 'Retro' },
+                        { title: 'Quick Getaway' },
+                        { title: 'Special' },
+                    ],
+                    e7: [],
+                    types: [
+                        { title: 'Swim' },
+                        { title: 'Dive' },
+                        { title: 'Nightlife' },
+                        { title: 'Surf' }
                     ],
                     from: null,
+                    dialog: {
+                        calendar: false
+                    },
                     to: null,
                     menu: false,
                     whys: [
@@ -354,68 +409,62 @@
                             flex: 3
                         },
                     ],
-                    dates: [
-                        { title: 'Click Me' },
-                        { title: 'Click Me' },
-                        { title: 'Click Me' },
-                        { title: 'Click Me 2' }
-                    ],
                     experiences: [
                         {
                             title: 'Random Road Trip #1',
                             price: '₱ 6,000',
                             category: 'Random Road Trip',
                             date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/public/alabama.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/windmill.jpg') }}'
                         },
                         {
                             title: 'Random Road Trip #2',
                             price: '₱ 10,000',
                             category: 'Random Road Trip',
                             date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/public/el_capitan.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/red2.jpg') }}'
                         },
                         {
                             title: 'Random Road Trip #3',
                             price: '₱ 13,000',
                             category: 'Random Road Trip',
                             date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/placeholder/yosemite.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/city.png') }}'
                         },
                         {
                             title: 'Random Road Trip #4',
                             price: '₱ 4,000',
                             category: 'Random Road Trip',
                             date: 'July 11-13',
-                            src: '{{ assets('frontier/images/public/h3.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/9.png') }}'
                         },
                         {
                             title: 'Random Road Trip #5',
                             price: '₱ 4,000',
                             category: 'Random Road Trip',
                             date: 'July 11-13',
-                            src: '{{ assets('frontier/images/public/r1.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/9.jpg') }}'
                         },
                         {
                             title: 'Random Road Trip #6',
                             price: '₱ 6,000',
                             category: 'Random Road Trip',
                             date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/public/r3.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/13.jpg') }}'
                         },
                         {
                             title: 'Random Road Trip #7',
                             price: '₱ 10,000',
                             category: 'Random Road Trip',
                             date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/public/r2.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/red.jpg') }}'
                         },
                         {
                             title: 'Random Road Trip #8',
                             price: '₱ 13,000',
                             category: 'Random Road Trip',
                             date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/public/r4.jpg') }}'
+                            src: '{{ assets('frontier/images/placeholder/8.jpg') }}'
                         }
                     ],
                 }

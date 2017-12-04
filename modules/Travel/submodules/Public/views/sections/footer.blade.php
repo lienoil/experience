@@ -8,7 +8,7 @@
                             <v-layout row wrap align-top justify-top>
                                 <v-flex sm3 xs12 class="hidden-xs-only">
                                     <v-card dark class="elevation-0 transparent">
-                                        <v-card-text class="grey--text">
+                                        <v-card-text class="grey--text pb-0">
                                             <img src="{{ assets('frontier/images/public/footer.png') }}" alt="" width="120">
                                             <div class="body-2 mb-1">About Experience Philippines</div>
                                             <div class="caption mb-3">
@@ -127,11 +127,62 @@
     </v-layout>
 </footer>
 
+<v-btn
+    fixed
+    dark
+    fab
+    bottom
+    right
+    primary
+    dark
+    class="elevation-1"
+    id="back-to-top"
+    >
+    <v-icon>keyboard_arrow_up</v-icon>
+</v-btn>
+
 @push('css')
     <style>
         footer a:hover,
         .social:hover {
             color: #ff6600 !important;
         }
+
+        #back-to-top {
+            transition: opacity 0.2s ease-out;
+            opacity: 0;
+            z-index: 2;
+        }
+        #back-to-top.show {
+            opacity: 1;
+        }
     </style>
+@endpush
+
+
+@push('js')
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script>
+        if ($('#back-to-top').length) {
+            var scrollTrigger = 100, // px
+                backToTop = function () {
+                    var scrollTop = $(window).scrollTop();
+                    if (scrollTop > scrollTrigger) {
+                        $('#back-to-top').addClass('show');
+                    } else {
+                        $('#back-to-top').removeClass('show');
+                    }
+                };
+            backToTop();
+            $(window).on('scroll', function () {
+                backToTop();
+            });
+            $('#back-to-top').on('click', function (e) {
+                e.preventDefault();
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 400);
+            });
+        }
+    </script>
 @endpush
