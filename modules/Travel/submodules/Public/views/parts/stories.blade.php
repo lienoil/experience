@@ -12,7 +12,7 @@
                             <v-flex xs12>
                                 <v-layout row wrap>
                                     <v-flex xs12>
-                                        <a href="" class="td-n">
+                                        <a href="\stories/show" class="td-n">
                                             <v-card class="elevation-1 c-lift">
                                                 <v-card-media
                                                     src="{{ assets('frontier/images/public/s2.jpg') }}"
@@ -31,7 +31,7 @@
                                 </v-layout>
                                 <v-layout row wrap>
                                     <v-flex sm6 xs12>
-                                        <a href="" class="td-n">
+                                        <a href="\stories/show" class="td-n">
                                             <v-card class="elevation-1 c-lift">
                                                 <v-card-media
                                                     src="{{ assets('frontier/images/public/s3.jpg') }}"
@@ -48,7 +48,7 @@
                                         </a>
                                     </v-flex>
                                     <v-flex sm6 xs12>
-                                        <a href="" class="td-n">
+                                        <a href="\stories/show" class="td-n">
                                             <v-card class="elevation-1 c-lift">
                                                 <v-card-media
                                                     src="{{ assets('frontier/images/public/s4.jpg') }}"
@@ -69,7 +69,7 @@
                         </v-layout>
                     </v-flex>
                     <v-flex sm6 xs12>
-                        <a href="" class="td-n">
+                        <a href="\stories/show" class="td-n">
                             <v-card class="elevation-1 c-lift" height="100%">
                                 <v-card-media
                                     src="{{ assets('frontier/images/public/s1.jpg') }}"

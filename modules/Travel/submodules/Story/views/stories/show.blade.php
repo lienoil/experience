@@ -10,19 +10,56 @@
     </v-card>
 
     <section id="stories">
+        <v-parallax class="elevation-1" height="auto" src="{{ assets('frontier/images/placeholder/9.png') }}">
+            <v-layout row wrap align-end justify-center>
+                <v-flex md8 xs12 pa-0>
+                    <v-card tile flat class="mt-5" height="100%">
+                        <v-toolbar dense card class="white">
+                            <v-spacer></v-spacer>
+                            <v-menu full-width>
+                                <v-btn slot="activator" icon v-tooltip:bottom="{'html': 'More Actions'}"><v-icon>more_vert</v-icon></v-btn>
+                            </v-menu>
+                        </v-toolbar>
+                        <v-card-text>
+                            <v-container fluid grid-list-lg>
+                                <v-flex sm12>
+                                    <v-layout row wrap>
+                                        <v-flex md3 sm2>
+                                            <img src="{{ assets('frontier/images/public/s4.jpg') }}" width="100%" height="auto">
+                                        </v-flex>
+                                        <v-flex md9 sm10>
+                                            <v-card-title primary-title class="pa-0 mb-2">
+                                                <strong class="headline accent--text">Road Tripper Monday: Janrey Ligutan</strong>
+                                            </v-card-title>
+
+                                            <v-avatar size="30px">
+                                                <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}">
+                                            </v-avatar>
+                                            <v-chip label small class="pl-0 caption transparent grey--text elevation-0">
+                                                <a href="">Jane Appleseed</a>
+                                            </v-chip>
+
+                                            <v-footer class="transparent">
+                                                <v-chip label small class="pl-0 ml-0 caption transparent grey--text elevation-0"><v-icon left small class="subheading">label</v-icon><span>Canon Photo Adventure</span></v-chip>
+
+                                                <v-chip label small class="pl-0 ml-0 caption transparent grey--text elevation-0"><v-icon left small class="subheading">fa-clock-o</v-icon><span>November 11, 2017</span></v-chip>
+                                            </v-footer>
+                                        </v-flex>
+                                    </v-layout>
+                                </v-flex>
+                            </v-container>
+                        </v-card-text>
+                    </v-card>
+                </v-flex>
+            </v-layout>
+        </v-parallax>
         <v-container fluid grid-list-lg>
             <v-layout row wrap>
                 <v-flex lg10 offset-lg1 sm12 xs12>
                     <v-layout row wrap>
                         <v-flex md8 sm7 xs12>
                             <v-card class="elevation-1 mb-3" v-for="card in stories">
-                                <v-card-media :src="card.src" height="350px">
-                                    <div class="text-xs-right" style="width: 100%;">
-                                        <v-avatar size="120px" style="position: absolute; bottom: 15px; left: 15px;">
-                                            <img :src="card.avatar" alt="" style="border: 2px solid #fff;">
-                                        </v-avatar>
-                                    </div>
-                                </v-card-media>
+                                <v-card-media :src="card.src" height="350px"></v-card-media>
                                 <v-card-text>
                                     <div class="title mb-2">@{{ card.title }}</div>
                                     <div class="mb-4">
@@ -277,15 +314,27 @@
                     stories: [
                         {
                             src: '{{ assets('frontier/images/placeholder/17.jpg') }}',
-                            avatar: '{{ assets('frontier/images/public/s4.jpg') }}',
                             title: 'Road Tripper Monday: Janrey Ligutan',
                             user: 'Jane Appleseed',
                             date: 'November 21, 2017',
                             overview: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, aliquam! Est eveniet explicabo maiores ea beatae aperiam aliquid quia, dignissimos necessitatibus labore, assumenda consequatur commodi dolore, mollitia provident ad. Ut.'
                         },
                         {
+                            src: '{{ assets('frontier/images/placeholder/city.jpg') }}',
+                            title: 'Road Tripper Monday: Nikki Escanillas',
+                            user: 'Jane Appleseed',
+                            date: 'November 11, 2017',
+                            overview: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, aliquam! Est eveniet explicabo maiores ea beatae aperiam aliquid quia, dignissimos necessitatibus labore, assumenda consequatur commodi dolore, mollitia provident ad. Ut.'
+                        },
+                        {
                             src: '{{ assets('frontier/images/placeholder/8.jpg') }}',
-                            avatar: '{{ assets('frontier/images/public/s3.jpg') }}',
+                            title: 'Road Tripper Monday: Janrey Ligutan',
+                            user: 'Jane Appleseed',
+                            date: 'November 21, 2017',
+                            overview: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, aliquam! Est eveniet explicabo maiores ea beatae aperiam aliquid quia, dignissimos necessitatibus labore, assumenda consequatur commodi dolore, mollitia provident ad. Ut.'
+                        },
+                        {
+                            src: '{{ assets('frontier/images/placeholder/red2.jpg') }}',
                             title: 'Road Tripper Monday: Nikki Escanillas',
                             user: 'Jane Appleseed',
                             date: 'November 11, 2017',
@@ -293,12 +342,11 @@
                         },
                         {
                             src: '{{ assets('frontier/images/placeholder/city.png') }}',
-                            avatar: '{{ assets('frontier/images/public/1.jpg') }}',
-                            title: 'Road Tripper Monday: Nikki Escanillas',
+                            title: 'Road Tripper Monday: Ginie Gonnacao',
                             user: 'Jane Appleseed',
                             date: 'November 11, 2017',
                             overview: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, aliquam! Est eveniet explicabo maiores ea beatae aperiam aliquid quia, dignissimos necessitatibus labore, assumenda consequatur commodi dolore, mollitia provident ad. Ut.'
-                        },
+                        }
                     ],
                     pop: [
                         {

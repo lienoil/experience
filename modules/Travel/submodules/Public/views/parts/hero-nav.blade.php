@@ -7,23 +7,23 @@
         >
         <v-btn icon slot="activator" v-tooltip:bottom="{html:'Menu'}"><v-icon>keyboard_arrow_down</v-icon></v-btn>
         <v-list>
-            <v-list-tile ripple @click="">
+            <v-list-tile ripple href="\experiences">
                 <v-list-tile-title>Experience</v-list-tile-title>
             </v-list-tile>
-            <v-list-tile ripple @click="">
+            <v-list-tile ripple href="\experiences">
                 <v-list-tile-title>Road Trips</v-list-tile-title>
             </v-list-tile>
             <v-list-tile ripple @click="">
                 <v-list-tile-title>Pack &amp; Go</v-list-tile-title>
             </v-list-tile>
-            <v-list-tile ripple @click="">
+            <v-list-tile ripple href="\stories">
                 <v-list-tile-title>Stories</v-list-tile-title>
             </v-list-tile>
             <v-divider></v-divider>
-            <v-list-tile ripple @click="">
+            <v-list-tile ripple href="\login">
                 <v-list-tile-title>Log in</v-list-tile-title>
             </v-list-tile>
-            <v-list-tile ripple @click="">
+            <v-list-tile ripple href="\register">
                 <v-list-tile-title>Register</v-list-tile-title>
             </v-list-tile>
         </v-list>
@@ -49,12 +49,12 @@
 </div>
 
 <div class="hidden-md-and-down">
-    <v-btn flat>{{ __('Experience') }}</v-btn>
-    <v-btn flat>{{ __('Roadtrip') }}</v-btn>
-    <v-btn flat>{{ __('Pack &amp; Go') }}</v-btn>
-    <v-btn flat>{{ __('Stories') }}</v-btn>
-    <v-btn flat>{{ __('Login') }}</v-btn>
-    <v-btn flat>{{ __('Register') }}</v-btn>
+    <v-btn href="\experiences" flat>{{ __('Experience') }}</v-btn>
+    <v-btn href="\experiences"flat>{{ __('Roadtrip') }}</v-btn>
+    <v-btn href=""flat>{{ __('Pack &amp; Go') }}</v-btn>
+    <v-btn href="\stories"flat>{{ __('Stories') }}</v-btn>
+    <v-btn href="\login"flat>{{ __('Login') }}</v-btn>
+    <v-btn href="\register"flat>{{ __('Register') }}</v-btn>
 </div>
 
 @push('pre-scripts')

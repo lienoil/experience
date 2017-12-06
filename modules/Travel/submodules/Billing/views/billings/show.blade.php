@@ -5,8 +5,8 @@
 @section("content")
     <v-card class="elevation-1 sticky">
         <v-toolbar class="elevation-0 white">
-            <a href="home">
-                <img src="{{ assets('frontier/images/public/exph_logo_o.png') }}" alt="" width="150">
+            <a href="\home">
+                <img src="{{ assets('frontier/images/public/logo_icon.png') }}" alt="" width="80" style="padding-top: 8px;">
             </a>
             <v-spacer></v-spacer>
             <a href="">

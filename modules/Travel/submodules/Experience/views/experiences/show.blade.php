@@ -28,7 +28,7 @@
                     <div class="sidebar hidden-sm-and-down">
                         <v-card class="elevation-1 mb-3">
                             <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
-                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
+                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
                                 <v-card-text>
                                     <v-card dark class="elevation-0 transparent">
                                         <div class="headline pb-3 white--text"><strong>₱ 6, 000</strong></div>
@@ -53,7 +53,7 @@
                                             <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
                                             <span class="caption">4.6</span>
                                             <div class="py-3 text-xs-center">
-                                                <v-btn primary large round class="elevation-1 px-4" href="\..\experience/billings">Book Now</v-btn>
+                                                <v-btn primary large round class="elevation-1 px-4" href="..\billings">Book Now</v-btn>
                                             </div>
                                         </div>
                                     </v-card>
@@ -274,7 +274,7 @@
                                 <v-card class="elevation-0 py-3 hidden-md-and-up">
                                     <v-card-text class="px-0">
                                         {{-- <v-subheader class="grey--text text--darken-1">Details</v-subheader> --}}
-                                        <div class="title mb-2 grey--text text--darken-2">Deails</div>
+                                        <div class="title mb-2 grey--text text--darken-2">Details</div>
                                         <div class="body-1 mb-2">Your Roadtrip Essentials</div>
                                         <div class="pt-3 subheading">
                                             <v-card-actions class="pa-0 pb-1">
@@ -298,7 +298,7 @@
                                         </div>
                                     </v-card-text>
                                 </v-card>
-                                <v-divider></v-divider>
+                                <v-divider class="hidden-md-and-up"></v-divider>
                                 <v-card class="elevation-0 py-3 hidden-md-and-up">
                                     <v-list subheader class="py-0">
                                         <v-subheader>Frequestly Ask Questions</v-subheader>
@@ -313,7 +313,7 @@
                                         </v-list-tile>
                                     </v-list>
                                 </v-card>
-                                <v-divider></v-divider>
+                                <v-divider class="hidden-md-and-up"></v-divider>
                                 <v-card class="elevation-0 py-3">
                                     <v-card-text class="px-0">
                                         <div class="title mb-2 grey--text text--darken-2">1 Review
@@ -414,7 +414,7 @@
                         </v-card-text>
                         <v-spacer></v-spacer>
                         <v-card-text class="py-2 text-xs-right">
-                            <v-btn large primary round class="elevation-1 px-2" href="\experience/billings">Book Now</v-btn>
+                            <v-btn large primary round class="elevation-1 px-2" href="..\billings">Book Now</v-btn>
                         </v-card-text>
                     </v-card-actions>
                 </v-flex>

@@ -73,12 +73,14 @@ DEC 4::
     ✔ FAQ
     Billing/show (confirm to pay) -- coins.ph, paypal & bank
     User Profile
-    Stories/index
+    ✔ Stories/index
 
 
 Home
 FAQ
-Experiences
-Experiences/show
-Billings
-Billings/show
+Experience
+Experience/show
+Billing
+Billing/show
+Story
+Story/show

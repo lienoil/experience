@@ -74,7 +74,7 @@
                 <div class="title m-b-md">
                     <img class="404" src="{{ assets('frontier/images/placeholder/404.gif') }}" style="width: 80%;" alt="">
                 </div>
-                <p><strong>The page you request doesn't exist. Go back to <a href="">Dashboard</a></strong></p>
+                <p><strong>The page you request doesn't exist. Go back to <a href="\home">Home Page</a></strong></p>
             </div>
         </div>
     </body>

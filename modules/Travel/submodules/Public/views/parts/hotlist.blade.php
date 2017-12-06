@@ -6,7 +6,7 @@
                     <h2 class="display-1">{{ __("CURATED EXPERIENCES") }}</h2>
                     <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</h2>
                 </v-card-text>
-                
+
                 <v-layout row wrap>
                     <v-flex xs12>
                             <div class="ssl-1">
