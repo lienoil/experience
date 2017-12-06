@@ -6,8 +6,8 @@
                 <v-card-media src="{{ assets('frontier/images/public/sierra.jpg') }}" width="100%">
                     <div class="insert-overlay" style="background: rgba(0, 0, 0, .65); position: absolute; width: 100%; height: 100%;"></div>
                     <v-card-text class="pa-0 py-5">
-                        <v-layout row wrap>
-                            <v-flex lg8 offset-lg2>
+                        <v-layout row wrap align-center justify-center>
+                            <v-flex lg8>
                                 <v-card dark class="elevation-0 transparent">
                                     <v-card-text class="text-xs-center">
                                         <h4><strong>Lorem ipsum dolor</strong></h4>

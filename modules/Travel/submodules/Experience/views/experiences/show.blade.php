@@ -11,8 +11,8 @@
 
     <section id="show" class="white">
         <v-container fluid grid-list-lg>
-            <v-layout row wrap>
-                <v-flex lg10 offset-lg1 sm12 xs12>
+            <v-layout row wrap align-center justify-center>
+                <v-flex lg10 sm12 xs12>
                     <v-breadcrumbs icons divider="chevron_right" class="pl-0" style="justify-content: flex-start;">
                         <v-icon slot="divider">chevron_right</v-icon>
                         <v-breadcrumbs-item
@@ -349,8 +349,8 @@
                     </v-layout>
                 </v-flex>
             </v-layout>
-            <v-layout row wrap>
-                <v-flex lg10 offset-lg1 sm12 xs12>
+            <v-layout row wrap align-center justify-center>
+                <v-flex lg10 sm12 xs12>
                     <v-divider></v-divider>
                     <v-card class="elevation-0 py-3">
                         <v-card-text class="px-0">

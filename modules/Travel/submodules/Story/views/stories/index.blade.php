@@ -11,12 +11,12 @@
 
     <section id="stories">
         <v-container fluid grid-list-lg>
-            <v-layout row wrap>
-                <v-flex lg10 offset-lg1 sm12 xs12>
-                    <v-layout row wrap>
-                        <v-flex md8 sm7 xs12>
+            <v-layout row wrap align-top justify-center>
+                <v-flex lg9 md10 sm12 xs12>
+                    <v-layout row wrap align-top justify-center>
+                        <v-flex md8 xs12>
                             <v-card class="elevation-1 mb-3" v-for="card in stories">
-                                <v-card-media :src="card.src" height="350px">
+                                <v-card-media :src="card.src" height="280px">
                                     <div class="text-xs-right" style="width: 100%;">
                                         <v-avatar size="120px" style="position: absolute; bottom: 15px; left: 15px;">
                                             <img :src="card.avatar" alt="" style="border: 2px solid #fff;">
@@ -58,14 +58,8 @@
                                     </v-bottom-sheet>
                                 </v-card-actions>
                             </v-card>
-
-                            <v-card-text>
-                                <div class="text-xs-center">
-                                    <v-pagination circle :length="15" v-model="page" :total-visible="7" class="caption main-paginate"></v-pagination>
-                                </div>
-                            </v-card-text>
                         </v-flex>
-                        <v-flex md4 sm5 xs12>
+                        <v-flex md4 xs12>
                             <v-card class="elevation-1 mb-3">
                                 <v-select
                                     autocomplete
@@ -79,94 +73,96 @@
                                 </v-select>
                             </v-card>
 
-                            <v-card class="elevation-1 mb-3 ">
-                                <v-card-text class="py-0">
-                                    <v-subheader class="pl-0">{{ __('ABOUT US') }}</v-subheader>
-                                </v-card-text>
-                                <v-divider></v-divider>
-                                <v-card-text>
-                                    <div class="mb-3">
-                                        <img src="{{ assets('frontier/images/public/exph_logo_o.png') }}" alt="" width="100%" style="max-width: 200px;">
-                                    </div>
-                                    <div class="subheading mb-2">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ipsum, consectetur corporis! Incidunt ipsam, quibusdam voluptatum, iure officia dignissimos quo, harum sapiente illum repudiandae ab enim iusto mollitia. Doloribus, ipsam?
-                                    </div>
-                                    <div class="text-xs-center">
-                                        <v-btn icon><v-icon>fa fa-facebook-official</v-icon></v-btn>
-                                        <v-btn icon><v-icon>fa fa-instagram</v-icon></v-btn>
-                                        <v-btn icon><v-icon>fa fa-twitter</v-icon></v-btn>
-                                        <v-btn icon><v-icon>fa fa-pinterest</v-icon></v-btn>
-                                    </div>
-                                </v-card-text>
-                            </v-card>
+                            <v-card class="elevation-1 mb-3">
+                                <v-card class="elevation-0 mb-3 ">
+                                    <v-card-text class="py-0">
+                                        <v-subheader class="pl-0 grey--text text--darken-1">{{ __('ABOUT US') }}</v-subheader>
+                                    </v-card-text>
+                                    <v-card-text>
+                                        <div class="mb-3">
+                                            <img src="{{ assets('frontier/images/public/exph_logo_o.png') }}" alt="" width="100%" style="max-width: 200px;">
+                                        </div>
+                                        <div class="subheading mb-2">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores ipsum, consectetur corporis! Incidunt ipsam, quibusdam voluptatum, iure officia dignissimos quo, harum sapiente illum repudiandae ab enim iusto mollitia. Doloribus, ipsam?
+                                        </div>
+                                        <div class="text-xs-center">
+                                            <v-btn icon><v-icon>fa fa-facebook-official</v-icon></v-btn>
+                                            <v-btn icon><v-icon>fa fa-instagram</v-icon></v-btn>
+                                            <v-btn icon><v-icon>fa fa-twitter</v-icon></v-btn>
+                                            <v-btn icon><v-icon>fa fa-pinterest</v-icon></v-btn>
+                                        </div>
+                                    </v-card-text>
+                                </v-card>
 
-                            <v-card class="elevation-1 mb-3">
-                                <v-card-text class="py-0">
-                                    <v-subheader class="pl-0">{{ __('INSTAGRAM') }}</v-subheader>
-                                </v-card-text>
                                 <v-divider></v-divider>
-                                <v-card-text>
-                                    <v-layout row wrap>
-                                        <v-flex xs4>
-                                            <img src="{{ assets('frontier/images/placeholder/11.jpg') }}" alt="" width="100%">
-                                        </v-flex>
-                                        <v-flex xs4>
-                                            <img src="{{ assets('frontier/images/placeholder/15.jpg') }}" alt="" width="100%">
-                                        </v-flex>
-                                        <v-flex xs4>
-                                            <img src="{{ assets('frontier/images/placeholder/windmill.jpg') }}" alt="" width="100%">
-                                        </v-flex>
-                                    </v-layout>
-                                    <v-layout row wrap>
-                                        <v-flex xs4>
-                                            <img src="{{ assets('frontier/images/placeholder/windmill.jpg') }}" alt="" width="100%">
-                                        </v-flex>
-                                        <v-flex xs4>
-                                            <img src="{{ assets('frontier/images/placeholder/11.jpg') }}" alt="" width="100%">
-                                        </v-flex>
-                                        <v-flex xs4>
-                                            <img src="{{ assets('frontier/images/placeholder/15.jpg') }}" alt="" width="100%">
-                                        </v-flex>
-                                    </v-layout>
-                                    <v-btn block primary class="elevation-1">View on Instagram</v-btn>
-                                </v-card-text>
-                            </v-card>
+                                <v-card class="elevation-0 my-3">
+                                    <v-card-text class="py-0">
+                                    <v-subheader class="pl-0 grey--text text--darken-1">{{ __('INSTAGRAM') }}</v-subheader>
+                                    </v-card-text>
+                                    <v-card-text>
+                                        <v-layout row wrap>
+                                            <v-flex xs4>
+                                                <img src="{{ assets('frontier/images/placeholder/11.jpg') }}" alt="" width="100%">
+                                            </v-flex>
+                                            <v-flex xs4>
+                                                <img src="{{ assets('frontier/images/placeholder/15.jpg') }}" alt="" width="100%">
+                                            </v-flex>
+                                            <v-flex xs4>
+                                                <img src="{{ assets('frontier/images/placeholder/windmill.jpg') }}" alt="" width="100%">
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout row wrap>
+                                            <v-flex xs4>
+                                                <img src="{{ assets('frontier/images/placeholder/windmill.jpg') }}" alt="" width="100%">
+                                            </v-flex>
+                                            <v-flex xs4>
+                                                <img src="{{ assets('frontier/images/placeholder/11.jpg') }}" alt="" width="100%">
+                                            </v-flex>
+                                            <v-flex xs4>
+                                                <img src="{{ assets('frontier/images/placeholder/15.jpg') }}" alt="" width="100%">
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-btn block primary class="elevation-1">View on Instagram</v-btn>
+                                    </v-card-text>
+                                </v-card>
 
-                            <v-card class="elevation-1 mb-3">
-                                <v-card-text class="py-0">
-                                    <v-subheader class="pl-0">{{ __('POPULAR POSTS') }}</v-subheader>
-                                </v-card-text>
                                 <v-divider></v-divider>
-                                <v-list two-line>
-                                    <v-list-tile avatar @click="" ripple v-for="card in pop">
-                                        <v-list-tile-avatar>
-                                            <img v-bind:src="card.src"/>
-                                        </v-list-tile-avatar>
-                                        <v-list-tile-content>
-                                            <v-list-tile-title>@{{ card.title }}</v-list-tile-title>
-                                            <v-list-tile-sub-title>@{{ card.date }}</v-list-tile-sub-title>
-                                        </v-list-tile-content>
-                                    </v-list-tile>
-                                </v-list>
-                            </v-card>
-                            <v-card class="elevation-1 mb-3">
-                                <v-card-text class="py-0">
-                                    <v-subheader class="pl-0">{{ __('CATEGORIES') }}</v-subheader>
-                                </v-card-text>
+                                <v-card class="elevation-0 my-3">
+                                    <v-card-text class="py-0">
+                                        <v-subheader class="pl-0 grey--text text--darken-1">{{ __('POPULAR POSTS') }}</v-subheader>
+                                    </v-card-text>
+                                    <v-list two-line>
+                                        <v-list-tile avatar @click="" ripple v-for="card in pop">
+                                            <v-list-tile-avatar>
+                                                <img v-bind:src="card.src"/>
+                                            </v-list-tile-avatar>
+                                            <v-list-tile-content>
+                                                <v-list-tile-title>@{{ card.title }}</v-list-tile-title>
+                                                <v-list-tile-sub-title>@{{ card.date }}</v-list-tile-sub-title>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                    </v-list>
+                                </v-card>
+
                                 <v-divider></v-divider>
-                                <v-list>
-                                    <v-list-tile avatar @click="" ripple v-for="item in categories" v-bind:key="item.title">
-                                        <v-list-tile-action>
-                                            <v-icon class="primary--text">label</v-icon>
-                                        </v-list-tile-action>
-                                        <v-list-tile-content>
-                                            <v-list-tile-title>@{{ item.title }}</v-list-tile-title>
-                                        </v-list-tile-content>
-                                        <v-list-tile-action>
-                                            <v-chip label small>24</v-chip>
-                                        </v-list-tile-action>
-                                    </v-list-tile>
-                                </v-list>
+                                <v-card class="elevation-0 my-3">
+                                    <v-card-text class="py-0">
+                                        <v-subheader class="pl-0 grey--text text--darken-1">{{ __('CATEGORIES') }}</v-subheader>
+                                    </v-card-text>
+                                    <v-list>
+                                        <v-list-tile avatar @click="" ripple v-for="item in categories" v-bind:key="item.title">
+                                            <v-list-tile-action>
+                                                <v-icon class="primary--text">label</v-icon>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <v-list-tile-title>@{{ item.title }}</v-list-tile-title>
+                                            </v-list-tile-content>
+                                            <v-list-tile-action>
+                                                <v-chip label small>24</v-chip>
+                                            </v-list-tile-action>
+                                        </v-list-tile>
+                                    </v-list>
+                                </v-card>
                             </v-card>
                         </v-flex>
                     </v-layout>
@@ -180,9 +176,6 @@
 
 @push('css')
     <style>
-        #show .crumbs-items:first-child .breadcrumbs__item {
-            padding-left: 0;
-        }
         .fixed-nav {
             position: fixed !important;
             bottom: 0;
@@ -195,7 +188,7 @@
         .fw-500 {
             font-weight: 500;
         }
-        .banner .parallax__content {
+        .banner .parallax_content {
             padding: 0;
         }
         .block {
@@ -276,7 +269,7 @@
                     ],
                     stories: [
                         {
-                            src: '{{ assets('frontier/images/placeholder/17.jpg') }}',
+                            src: '{{ assets('frontier/images/placeholder/gradient.png') }}',
                             avatar: '{{ assets('frontier/images/public/s4.jpg') }}',
                             title: 'Road Tripper Monday: Janrey Ligutan',
                             user: 'Jane Appleseed',
@@ -285,15 +278,15 @@
                         },
                         {
                             src: '{{ assets('frontier/images/placeholder/8.jpg') }}',
-                            avatar: '{{ assets('frontier/images/public/s3.jpg') }}',
+                            avatar: '{{ assets('frontier/images/public/s5.jpg') }}',
                             title: 'Road Tripper Monday: Nikki Escanillas',
                             user: 'Jane Appleseed',
                             date: 'November 11, 2017',
                             overview: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, aliquam! Est eveniet explicabo maiores ea beatae aperiam aliquid quia, dignissimos necessitatibus labore, assumenda consequatur commodi dolore, mollitia provident ad. Ut.'
                         },
                         {
-                            src: '{{ assets('frontier/images/placeholder/city.png') }}',
-                            avatar: '{{ assets('frontier/images/public/1.jpg') }}',
+                            src: '{{ assets('frontier/images/placeholder/city.jpg') }}',
+                            avatar: '{{ assets('frontier/images/public/s3.jpg') }}',
                             title: 'Road Tripper Monday: Nikki Escanillas',
                             user: 'Jane Appleseed',
                             date: 'November 11, 2017',
@@ -320,110 +313,6 @@
                             src: '{{ assets('frontier/images/public/s4.jpg') }}',
                             title: 'Road Tripper Monday: Nikki Escanillas',
                             date: 'November 12, 2017'
-                        },
-                    ],
-                    crumbs: [
-                        {
-                            text: 'Experiences',
-                            disabled: false
-                        },
-                        {
-                            text: 'Random Road Trip',
-                            disabled: false
-                        },
-                        {
-                            text: 'Random Road Trip #1',
-                            disabled: true
-                        }
-                    ],
-                    exp: [
-                        {
-                            title: 'FULL MOON PARTY Luna Sea: A Random Full Moon Party #4',
-                            price: '₱ 6,000',
-                            category: 'Retro Road Trip',
-                            date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/public/alabama.jpg') }}'
-                        },
-                        {
-                            title: 'Retro Road Trip #2',
-                            price: '₱ 10,000',
-                            category: 'Singles Road Trip',
-                            date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/public/el_capitan.jpg') }}'
-                        },
-                        {
-                            title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 13,000',
-                            category: 'Random Road Trip',
-                            date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/placeholder/yosemite.jpg') }}'
-                        },
-                        {
-                            title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 4,000',
-                            category: 'Special Road Trip',
-                            date: 'July 11-13',
-                            src: '{{ assets('frontier/images/public/h3.jpg') }}'
-                        }
-                    ],
-                    reco: [
-                        {
-                            title: 'FULL MOON PARTY Luna Sea: A Random Full Moon Party #4',
-                            price: '₱ 6,000',
-                            category: 'Retro Road Trip',
-                            date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/public/r1.jpg') }}'
-                        },
-                        {
-                            title: 'Retro Road Trip #2',
-                            price: '₱ 10,000',
-                            category: 'Singles Road Trip',
-                            date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/public/r3.jpg') }}'
-                        },
-                        {
-                            title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 13,000',
-                            category: 'Random Road Trip',
-                            date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/public/r2.jpg') }}'
-                        },
-                        {
-                            title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 4,000',
-                            category: 'Special Road Trip',
-                            date: 'July 11-13',
-                            src: '{{ assets('frontier/images/public/r4.jpg') }}'
-                        }
-                    ],
-                    experiences: [
-                        {
-                            title: 'Random Road Trip #1',
-                            price: '₱ 6,000',
-                            category: 'Random Road Trip',
-                            date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/placeholder/windmill.jpg') }}'
-                        },
-                        {
-                            title: 'Random Road Trip #2',
-                            price: '₱ 10,000',
-                            category: 'Random Road Trip',
-                            date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/placeholder/red2.jpg') }}'
-                        },
-                        {
-                            title: 'Random Road Trip #3',
-                            price: '₱ 13,000',
-                            category: 'Random Road Trip',
-                            date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/placeholder/city.png') }}'
-                        },
-                        {
-                            title: 'Random Road Trip #4',
-                            price: '₱ 4,000',
-                            category: 'Random Road Trip',
-                            date: 'July 11-13',
-                            src: '{{ assets('frontier/images/placeholder/9.png') }}'
                         },
                     ],
                 }

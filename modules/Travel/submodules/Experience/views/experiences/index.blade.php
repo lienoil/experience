@@ -125,8 +125,8 @@
 
     <section id="experiences" class="py-5">
         <v-container fluid grid-list-lg>
-            <v-layout row wrap>
-                <v-flex lg10 offset-lg1 md12 sm12 xs12>
+            <v-layout row wrap align-center justify-center>
+                <v-flex lg10 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("CHOOSE A RANDOM ROAD TRIP") }}</h2>
                         <h2 class="subheading grey--text text--darken-1">
@@ -181,10 +181,10 @@
         </v-container>
     </section>
 
-    <section id="why" class="white">
+    {{-- <section id="why" class="white">
         <v-container fluid class="pa-0">
-            <v-layout row wrap>
-                <v-flex lg8 offset-lg2 md10 offset-md1 sm12 xs12>
+            <v-layout row wrap align-center justify-center>
+                <v-flex lg8 md10 sm12 xs12>
                     <div class="text-xs-center py-5 px-3">
                         <h2 class="display-1">{{ __("WHY JOIN US") }}</h2>
                         <h2 class="subheading grey--text text--darken-1" style="line-height: 1.5;">
@@ -223,7 +223,7 @@
                 </v-flex>
             </v-layout>
         </v-container>
-    </section>
+    </section> --}}
 
     @include("Public::sections.footer")
 @endsection

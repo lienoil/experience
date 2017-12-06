@@ -46,8 +46,8 @@ User Interface per Page:
     ✔ Experience Main Page @done (17-12-03 12:13)
         ✔ Experience Single Page @done (17-12-03 12:13)
     ☐ “Pack & Go” Main Page
-    ☐ “Stories” Main Page
-        ☐ Stories Single Page
+    ✔ “Stories” Main Page
+        ✔ Stories Single Page
     ✔ Billing @done (17-12-03 15:49)
         ☐ Billing Form
         ☐ Order Summary
@@ -69,18 +69,14 @@ User Interface per Page:
     ✔ Frequently Asked Questions
     ☐ Sitemap
 
-DEC 4::
-    ✔ FAQ
-    Billing/show (confirm to pay) -- coins.ph, paypal & bank
-    User Profile
-    ✔ Stories/index
-
-
-Home
-FAQ
+Working links:
+align-center justify-center
+align-top justify-center
+Home lg10
+FAQ lg7 md8
 Experience
-Experience/show
-Billing
+Experience/show ? to change layout
+Billing lg8
 Billing/show
 Story
 Story/show

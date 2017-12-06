@@ -1,7 +1,7 @@
 <section id="categories">
     <v-container fluid grid-list-lg>
-        <v-layout row wrap>
-            <v-flex lg10 offset-lg1 md12 sm12 xs12>
+        <v-layout row wrap align-center justify-center>
+            <v-flex lg10 md12 sm12 xs12>
                 <v-card-text class="text-xs-center my-3">
                     <h2 class="display-1">{{ __("POPULAR ROAD TRIPS") }}</h2>
                     <h2 class="subheading grey-

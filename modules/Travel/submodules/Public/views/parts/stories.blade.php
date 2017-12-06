@@ -1,7 +1,7 @@
 <section id="stories">
     <v-container fluid grid-list-lg>
-        <v-layout row wrap>
-            <v-flex lg10 offset-lg1 md12 sm12 xs12>
+        <v-layout row wrap align-center justify-center>
+            <v-flex lg10 md12 sm12 xs12>
                 <v-card-text class="text-xs-center my-3">
                     <h2 class="display-1">{{ __("STORIES FROM THE ROAD") }}</h2>
                     <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</h2>
@@ -72,7 +72,7 @@
                         <a href="\stories/show" class="td-n">
                             <v-card class="elevation-1 c-lift" height="100%">
                                 <v-card-media
-                                    src="{{ assets('frontier/images/public/s1.jpg') }}"
+                                    src="{{ assets('frontier/images/public/s5.jpg') }}"
                                     height="100%"
                                     style="min-height: 200px;"
                                     >
