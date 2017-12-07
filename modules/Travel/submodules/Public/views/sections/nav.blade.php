@@ -23,11 +23,8 @@
                 <v-list-tile-title>Stories</v-list-tile-title>
             </v-list-tile>
             <v-divider></v-divider>
-            <v-list-tile ripple href="\login">
-                <v-list-tile-title>Log in</v-list-tile-title>
-            </v-list-tile>
-            <v-list-tile ripple href="\register">
-                <v-list-tile-title>Register</v-list-tile-title>
+            <v-list-tile ripple href="\stories">
+                <v-list-tile-title>My Account</v-list-tile-title>
             </v-list-tile>
         </v-list>
     </v-menu>
@@ -120,8 +117,23 @@
     <v-btn href="\experiences"flat>{{ __('Roadtrip') }}</v-btn>
     <v-btn href=""flat>{{ __('Pack &amp; Go') }}</v-btn>
     <v-btn href="\stories"flat>{{ __('Stories') }}</v-btn>
-    <v-btn href="\login"flat>{{ __('Login') }}</v-btn>
-    <v-btn href="\register"flat>{{ __('Register') }}</v-btn>
+    <v-menu open-on-hover offset-y>
+        <v-avatar size="35px" slot="activator" class="mr-4 ml-4 elevation-1">
+            <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
+        </v-avatar>
+        <v-list>
+            <v-list-tile ripple @click="">
+                <v-list-tile-action>
+                    <v-icon>flag</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <v-list-tile-title>
+                        {{ __('Report') }}
+                    </v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
+        </v-list>
+    </v-menu>
 </div>
 
 @push('pre-scripts')

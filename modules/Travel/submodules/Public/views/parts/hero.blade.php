@@ -21,7 +21,7 @@
                         >
                         <v-select
                             autocomplete
-                            label="What do you want to do or where do you want to go?"
+                            label="What do you want to experience?"
                             slot="activator"
                             append-icon=""
                             prepend-icon="search"
@@ -155,7 +155,7 @@
                                     <img src="{{ assets('frontier/images/public/map.png') }}" alt="">
                                 </v-list-tile-avatar>
                                 <v-list-tile-content>
-                                    <v-list-tile-title>Seamless & Safe Booking</v-list-tile-title>
+                                    <v-list-tile-title>Seamless & Safe Experience</v-list-tile-title>
                                     <v-list-tile-sub-title>Lorem ipsum dolor cit amet</v-list-tile-sub-title>
                                 </v-list-tile-content>
                             </v-list-tile>

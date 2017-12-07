@@ -49,16 +49,16 @@ User Interface per Page:
     ✔ “Stories” Main Page
         ✔ Stories Single Page
     ✔ Billing @done (17-12-03 15:49)
-        ☐ Billing Form
-        ☐ Order Summary
+        ✔ Billing Form
+        ✔ Order Summary
             ☐ Generate Transaction ID
-            ☐ Summary
-            ☐ Payment Options
-            ☐ Check Out
+            ✔ Summary
+            ✔ Payment Options
+            ✔ Check Out
                 ☐ If Paypal/Coins.PH: SUCCESS/DECLINED
                     ☐ Success Page
                     ☐ Failed Page
-                ☐ Bank Transfer: Acct Details EXPH
+                ✔ Bank Transfer: Acct Details EXPH
                     ☐ Success Page
     ☐ About Us
     ☐ Company Profile
@@ -84,9 +84,10 @@ Story/show
 
 Move Billing to Shop module (top-level)
 
+1600 x 900
 
-
-
-experience now btn
-packupandgo
+remove reco cards on home page, change it to reviews
+packupandgo page
 experience/show -> add video/image
+
+christmas theme

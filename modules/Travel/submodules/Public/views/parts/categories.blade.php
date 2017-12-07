@@ -18,7 +18,7 @@
                             <v-card class="elevation-1 c-lift">
                                 <v-card-media
                                     :src="card.src"
-                                    height="250px"
+                                    height="300px"
                                     >
                                     <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
                                     <v-container fill-height fluid class="pa-0 white--text">

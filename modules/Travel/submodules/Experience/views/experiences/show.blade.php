@@ -45,7 +45,7 @@
                                         </div>
                                     </v-card>
                                         <div class="text-xs-center">
-                                            <v-btn primary large round class="elevation-1 px-4" href="..\billings">Book Now</v-btn>
+                                            <v-btn primary large round class="elevation-1 px-4" href="..\billings">Experience Now</v-btn>
                                         </div>
                                 </v-card-text>
                             </v-card-media>
@@ -448,7 +448,7 @@
                                                 </div>
                                             </v-card>
                                                 <div class="text-xs-center">
-                                                    <v-btn primary large round class="elevation-1 px-4" href="..\billings">Book Now</v-btn>
+                                                    <v-btn primary large round class="elevation-1 px-4" href="..\billings">Experience Now</v-btn>
                                                 </div>
                                         </v-card-text>
                                     </v-card-media>
@@ -515,7 +515,7 @@
                         </v-card-text>
                         <v-spacer></v-spacer>
                         <v-card-text class="py-2 text-xs-right">
-                            <v-btn large primary round class="elevation-1 px-2" href="..\billings">Book Now</v-btn>
+                            <v-btn large primary round class="elevation-1 px-2" href="..\billings">Experience Now</v-btn>
                         </v-card-text>
                     </v-card-actions>
                 </v-flex>

@@ -9,11 +9,23 @@
 			    <img src="{{ assets('frontier/images/public/logo_icon.png') }}" alt="" width="80" style="padding-top: 8px;">
 			</a>
 			<v-spacer></v-spacer>
-			<a href="">
-				<v-avatar size="30px">
-					<img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
-				</v-avatar>
-			</a>
+            <v-menu offset-y>
+                <v-avatar size="30px" slot="activator" class="mr-4">
+                    <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
+                </v-avatar>
+                <v-list>
+                    <v-list-tile ripple @click="">
+                        <v-list-tile-action>
+                            <v-icon>flag</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>
+                                {{ __('Report') }}
+                            </v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </v-list>
+            </v-menu>
         </v-toolbar>
     </v-card>
 	<v-container fluid grid-list-lg>
