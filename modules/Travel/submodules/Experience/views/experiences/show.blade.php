@@ -26,50 +26,60 @@
                     </v-breadcrumbs>
 
                     <div class="sidebar hidden-sm-and-down">
-                        <v-card class="elevation-1 mb-3">
+                        <v-card class="elevation-1 mb-3 card--flex-toolbar">
                             <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
                                 <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
-                                <v-card-text>
-                                    <v-card dark class="elevation-0 transparent">
-                                        <div class="headline pb-3 white--text"><strong>₱ 6, 000</strong></div>
+                                <v-card-text class="text-xs-center">
+                                    <v-card dark class="elevation-0 transparent py-5">
+                                        <div class="title pb-3 white--text"><strong>Random Road Trip #1</strong></div>
+                                        <div class="display-2 white--text">₱<span class="fw-500"> 6,000</span></div>
+                                        <div class="body-2 white--text mb-2">per person</span></div>
 
-                                        <div class="caption mb-1">
-                                            <v-icon dark class="subheading">date_range</v-icon>
-                                            <span class="pl-2">November 24 to 26, 2017</span>
-                                        </div>
-                                        <div class="caption mb-1">
-                                            <v-icon dark class="subheading">schedule</v-icon>
-                                            <span class="pl-2">Starts at 8pm, Friday</span>
-                                        </div>
-                                        <div class="caption mb-1">
-                                            <v-icon dark class="subheading">wb_sunny</v-icon>
-                                            <span class="pl-2">3 days</span>
-                                        </div>
                                         <div>
-                                            <v-icon  n class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                            <v-icon  n class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star_half</v-icon>
                                             <span class="caption">4.6</span>
-                                            <div class="py-3 text-xs-center">
-                                                <v-btn primary large round class="elevation-1 px-4" href="..\billings">Book Now</v-btn>
-                                            </div>
                                         </div>
                                     </v-card>
+                                        <div class="text-xs-center">
+                                            <v-btn primary large round class="elevation-1 px-4" href="..\billings">Book Now</v-btn>
+                                        </div>
                                 </v-card-text>
                             </v-card-media>
-
-                            <v-divider></v-divider>
-                            <v-card-text class="text-xs-center pa-1">
-                                <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-facebook</v-icon></v-btn>
-                                <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-twitter</v-icon></v-btn>
-                                <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-google</v-icon></v-btn>
-                            </v-card-text>
+                            <v-list two-line>
+                                <v-list-tile>
+                                    <v-list-tile-action>
+                                        <v-icon color="indigo">date_range</v-icon>
+                                    </v-list-tile-action>
+                                    <v-list-tile-content>
+                                        <v-list-tile-title>November 24 to 26</v-list-tile-title>
+                                        <v-list-tile-sub-title>2017</v-list-tile-sub-title>
+                                    </v-list-tile-content>
+                                </v-list-tile>
+                                <v-list-tile>
+                                    <v-list-tile-action>
+                                        <v-icon color="indigo">schedule</v-icon>
+                                    </v-list-tile-action>
+                                    <v-list-tile-content>
+                                        <v-list-tile-title>8pm, Friday</v-list-tile-title>
+                                        <v-list-tile-sub-title>3 days</v-list-tile-sub-title>
+                                    </v-list-tile-content>
+                                </v-list-tile>
+                                <v-divider></v-divider>
+                                <v-card-text class="text-xs-center pa-1">
+                                    <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-facebook</v-icon></v-btn>
+                                    <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-twitter</v-icon></v-btn>
+                                    <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-google</v-icon></v-btn>
+                                </v-card-text>
+                            </v-list>
                         </v-card>
+
                         <v-card class="elevation-1">
                             <v-list subheader class="py-0">
-                                <v-subheader>Frequestly Ask Questions</v-subheader>
+                                <v-subheader>Frequently Asked Questions</v-subheader>
                                 <v-list-tile avatar ripple @click="">
                                     <v-list-tile-avatar tile>
                                         <img src="{{ assets('frontier/images/public/question.png') }}"/>
@@ -301,7 +311,7 @@
                                 <v-divider class="hidden-md-and-up"></v-divider>
                                 <v-card class="elevation-0 py-3 hidden-md-and-up">
                                     <v-list subheader class="py-0">
-                                        <v-subheader>Frequestly Ask Questions</v-subheader>
+                                        <v-subheader>Frequently Asked Questions</v-subheader>
                                         <v-list-tile avatar ripple @click="">
                                             <v-list-tile-avatar tile>
                                                 <img src="{{ assets('frontier/images/public/question.png') }}"/>
@@ -359,7 +369,7 @@
                             <div class="pt-3">
                                 <v-layout row wrap align-center>
                                     <v-flex xs12 sm4 md3 v-for="card in experiences">
-                                        <a href="experiences/show" ripple class="td-n">
+                                        <a href="\experiences/show" ripple class="td-n">
                                             <v-card class="elevation-1 c-lift">
                                                 <v-card-media
                                                     height="180px"
@@ -409,8 +419,99 @@
                     <v-card-actions>
                         <v-card-text class="py-2">
                             <div class="subheading"><strong>₱ 6,000</strong> <span class="body-1">per person</span></div>
-                            <div class="body-1 grey--text text--darken-2">November 24 - 26</div>
+                            {{-- <div class="body-1 grey--text text--darken-2">November 24 - 26</div> --}}
                             {{-- <div class="body-1 grey--text text--darken-2">Starts at 8pm, Friday</div> --}}
+                            <v-dialog class="hidden-md-and-up" v-model="dialog.book" fullscreen transition="dialog-bottom-transition" :overlay=false>
+                                <v-btn flat small class="body-2 primary--text details-btn" slot="activator">See details</v-btn>
+                                <v-card>
+                                    <v-toolbar light class="white elevation-0">
+                                        <v-spacer></v-spacer>
+                                        <v-btn icon @click.native="dialog.book = false">
+                                            <v-icon>close</v-icon>
+                                        </v-btn>
+                                    </v-toolbar>
+                                    <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
+                                        <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
+                                        <v-card-text class="text-xs-center">
+                                            <v-card dark class="elevation-0 transparent py-5">
+                                                <div class="title pb-3 white--text"><strong>Random Road Trip #1</strong></div>
+                                                <div class="display-2 white--text">₱<span class="fw-500"> 6,000</span></div>
+                                                <div class="body-2 white--text mb-2">per person</span></div>
+
+                                                <div>
+                                                    <v-icon  n class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                                    <v-icon class="subheading orange--text text--darken-1 pb-1">star_half</v-icon>
+                                                    <span class="caption">4.6</span>
+                                                </div>
+                                            </v-card>
+                                                <div class="text-xs-center">
+                                                    <v-btn primary large round class="elevation-1 px-4" href="..\billings">Book Now</v-btn>
+                                                </div>
+                                        </v-card-text>
+                                    </v-card-media>
+                                    <v-list two-line>
+                                        <v-list-tile>
+                                            <v-list-tile-action>
+                                                <v-icon color="indigo">date_range</v-icon>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <v-list-tile-title>November 24 to 26</v-list-tile-title>
+                                                <v-list-tile-sub-title>2017</v-list-tile-sub-title>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                        <v-list-tile>
+                                            <v-list-tile-action>
+                                                <v-icon color="indigo">schedule</v-icon>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <v-list-tile-title>8pm, Friday</v-list-tile-title>
+                                                <v-list-tile-sub-title>3 days</v-list-tile-sub-title>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                        <v-divider></v-divider>
+                                        <v-card-text class="text-xs-center pa-1">
+                                            <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-facebook</v-icon></v-btn>
+                                            <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-twitter</v-icon></v-btn>
+                                            <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-google</v-icon></v-btn>
+                                        </v-card-text>
+                                    </v-list>
+                                    <v-divider></v-divider>
+                                    <v-list subheader class="py-3">
+                                        <v-list-tile avatar>
+                                            <v-list-tile-avatar tile>
+                                                <img src="{{ assets('frontier/images/public/cancel.png') }}"/>
+                                            </v-list-tile-avatar>
+                                            <v-list-tile-content>
+                                                <v-list-tile-title>Cancellation Policy</v-list-tile-title>
+                                                <v-list-tile-sub-title>Cancel before the trip</v-list-tile-sub-title>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                    </v-list>
+                                    <v-list two-line subheader>
+                                        <v-list-tile avatar>
+                                            <v-list-tile-content>
+                                                <v-list-tile-title class="fw-500">Full Refund</v-list-tile-title>
+                                                <v-list-tile-sub-title>Before 2 weeks</v-list-tile-sub-title>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                        <v-list-tile avatar>
+                                            <v-list-tile-content>
+                                                <v-list-tile-title class="fw-500">Half Refund</v-list-tile-title>
+                                                <v-list-tile-sub-title>5 to 10 business days</v-list-tile-sub-title>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                        <v-list-tile avatar>
+                                            <v-list-tile-content>
+                                                <v-list-tile-title class="fw-500">No Refund</v-list-tile-title>
+                                                <v-list-tile-sub-title>Within or less than 5 days</v-list-tile-sub-title>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
+                                    </v-list>
+                                </v-card>
+                            </v-dialog>
                         </v-card-text>
                         <v-spacer></v-spacer>
                         <v-card-text class="py-2 text-xs-right">
@@ -498,6 +599,9 @@
                     from: null,
                     to: null,
                     menu: false,
+                    dialog: {
+                        book: false
+                    },
                     dates: [
                         { title: 'Click Me' },
                         { title: 'Click Me' },
@@ -510,13 +614,9 @@
                             disabled: false
                         },
                         {
-                            text: 'Random Road Trip',
+                            text: 'Random Road Trip #1',
                             disabled: false
                         },
-                        {
-                            text: 'Random Road Trip #1',
-                            disabled: true
-                        }
                     ],
                     exp: [
                         {

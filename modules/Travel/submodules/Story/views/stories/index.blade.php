@@ -15,6 +15,19 @@
                 <v-flex lg9 md10 sm12 xs12>
                     <v-layout row wrap align-top justify-center>
                         <v-flex md8 xs12>
+                            <v-card class="elevation-1 mb-3 hidden-md-and-up">
+                                <v-select
+                                    autocomplete
+                                    label="Search article.."
+                                    slot="activator"
+                                    append-icon=""
+                                    prepend-icon="search"
+                                    clearable
+                                    search-input
+                                     solo tags>
+                                </v-select>
+                            </v-card>
+
                             <v-card class="elevation-1 mb-3" v-for="card in stories">
                                 <v-card-media :src="card.src" height="280px">
                                     <div class="text-xs-right" style="width: 100%;">
@@ -60,7 +73,7 @@
                             </v-card>
                         </v-flex>
                         <v-flex md4 xs12>
-                            <v-card class="elevation-1 mb-3">
+                            <v-card class="elevation-1 mb-3 hidden-sm-and-down">
                                 <v-select
                                     autocomplete
                                     label="Search article.."

@@ -10,8 +10,8 @@
 			</a>
 			<v-spacer></v-spacer>
 			<a href="">
-				<v-avatar size="40px">
-					<img src="{{ assets('frontier/images/placeholder/man.jpg') }}" alt="">
+				<v-avatar size="30px">
+					<img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
 				</v-avatar>
 			</a>
         </v-toolbar>
@@ -47,10 +47,10 @@
                                     <v-list>
                                         <v-list-tile avatar>
                                             <v-list-tile-avatar>
-                                                <img src="{{ assets('frontier/images/placeholder/man.jpg') }}"/>
+                                                <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}"/>
                                             </v-list-tile-avatar>
                                             <v-list-tile-content>
-                                                <v-list-tile-title>Cole Sprouse</v-list-tile-title>
+                                                <v-list-tile-title>Angelina Jolie</v-list-tile-title>
                                             </v-list-tile-content>
                                             <v-list-tile-action>
                                                 <v-list-tile-sub-title>primary</v-list-tile-sub-title>
@@ -58,18 +58,18 @@
                                         </v-list-tile>
                                         <v-list-tile avatar>
                                             <v-list-tile-avatar>
-                                                <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}"/>
+                                                <img src="{{ assets('frontier/images/placeholder/man.jpg') }}"/>
                                             </v-list-tile-avatar>
                                             <v-list-tile-content>
-                                                <v-list-tile-title>Angelina Jolie</v-list-tile-title>
+                                                <v-list-tile-title>Cole Sprouse</v-list-tile-title>
                                             </v-list-tile-content>
                                         </v-list-tile>
                                         <v-list-tile avatar>
                                             <v-list-tile-avatar>
-                                                <img src="{{ assets('frontier/images/placeholder/man.png') }}"/>
+                                                <img src="{{ assets('frontier/images/public/mark.jpg') }}"/>
                                             </v-list-tile-avatar>
                                             <v-list-tile-content>
-                                                <v-list-tile-title>Veronica Lodge</v-list-tile-title>
+                                                <v-list-tile-title>Mark Zuckerberg</v-list-tile-title>
                                             </v-list-tile-content>
                                         </v-list-tile>
                                         <v-list-tile>
@@ -82,11 +82,13 @@
                                 </div>
                             </v-card-text>
 
+
                             <v-divider class="hidden-sm-and-down"></v-divider>
                             <v-card-text class="text-xs-right hidden-sm-and-down">
-    							<v-btn primary large class="elevation-1" href="\billings/show">Next</v-btn>
+                                <v-btn primary large class="elevation-1" href="\billings/show">Proceed to payment</v-btn>
                             </v-card-text>
                         </v-card>
+                        <v-card class="elevation-0 transparent" height="100px"></v-card>
 					</v-flex>
 
 					<v-flex md4 xs12 class="hidden-sm-and-down">
@@ -191,7 +193,7 @@
                     <v-card-text class="py-2">
                         <div class="subheading"><strong>₱ 6,000</strong> <span class="body-1">per person</span></div>
                         <v-dialog class="hidden-md-and-up" v-model="dialog.billing" fullscreen transition="dialog-bottom-transition" :overlay=false>
-                        <v-btn flat small class="body-2 primary--text ml-0 details-btn" slot="activator">See details</v-btn>
+                            <v-btn flat small class="body-2 primary--text details-btn" slot="activator">See details</v-btn>
 			                <v-card>
 			                    <v-toolbar light class="white elevation-0">
 			                    	<v-spacer></v-spacer>
@@ -287,7 +289,7 @@
                     </v-card-text>
                     <v-spacer></v-spacer>
                     <v-card-text class="py-2 text-xs-right">
-                        <v-btn large primary class="elevation-1 px-2" href="\billings\show">Next</v-btn>
+                        <v-btn large primary class="elevation-1 px-2" href="\billings\show">Proceed</v-btn>
                     </v-card-text>
                 </v-card-actions>
             </v-flex>
@@ -308,10 +310,6 @@
             bottom: 0;
             width: 100%;
             z-index: 1;
-        }
-        .details-btn .btn__content {
-        	padding-left: 0;
-        	padding-right: 0;
         }
         .card--flex-toolbar {
             /*margin-top: -80px;*/

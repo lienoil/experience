@@ -17,8 +17,20 @@
                         <v-toolbar class="transparent elevation-0">
                             <v-btn flat accent href="\stories"><v-icon left>arrow_back</v-icon>Back</v-btn>
                             <v-spacer></v-spacer>
-                            <v-menu full-width>
-                                <v-btn slot="activator" icon v-tooltip:bottom="{'html': 'More Actions'}"><v-icon>more_vert</v-icon></v-btn>
+                            <v-menu bottom left>
+                                <v-btn icon flat slot="activator" v-tooltip:bottom="{ html: 'More Actions' }"><v-icon>more_vert</v-icon></v-btn>
+                                <v-list>
+                                    <v-list-tile ripple @click="">
+                                        <v-list-tile-action>
+                                            <v-icon>flag</v-icon>
+                                        </v-list-tile-action>
+                                        <v-list-tile-content>
+                                            <v-list-tile-title>
+                                                {{ __('Report') }}
+                                            </v-list-tile-title>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                </v-list>
                             </v-menu>
                         </v-toolbar>
                         <v-card-text>
