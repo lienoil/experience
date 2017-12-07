@@ -45,8 +45,14 @@
                         </v-menu>
                     </v-toolbar>
                     <v-card-text class="text-xs-center">
-                        <div class="display-1 mb-2"><strong>Random Road Trip #1</strong></div>
-                        <div class="title fw-400">Life should be filled with sun and water</div>
+                        <div class="display-1 mb-2 grey--text text--darken-2"><strong>Random Road Trip #1</strong></div>
+                        <div class="subheading fw-400">Life should be filled with sun and water</div>
+                        <v-footer class="transparent">
+                            <v-chip label small class="pl-0 ml-0 caption transparent grey--text elevation-0"><v-icon left small class="subheading">label</v-icon><span>Canon Photo Adventure</span></v-chip>
+
+                            <v-chip label small class="pl-0 ml-0 caption transparent grey--text elevation-0"><v-icon left small class="subheading">fa-clock-o</v-icon><span>November 11, 2017</span></v-chip>
+                        </v-footer>
+
                         <div>
                             <v-btn icon><v-icon>fa fa-facebook</v-icon></v-btn>
                             <v-btn icon><v-icon>fa fa-twitter</v-icon></v-btn>
