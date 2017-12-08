@@ -13,38 +13,13 @@
         <v-container fluid grid-list-lg>
             <v-layout row wrap align-center justify-center>
                 <v-flex lg11 sm12 xs12>
-                    <div class="leftbar hidden-sm-and-down">
-                        <v-card class="elevation-0 mb-3">
-                            <v-card-media src="{{ assets('frontier/images/public/surf.jpg') }}" height="350px">
-                            </v-card-media>
-                        </v-card>
-
-                        <v-card class="elevation-1 mb-3">
-                            <v-toolbar class="elevation-0 transparent">
-                                <v-toolbar-title>Travel Manager</v-toolbar-title>
-                            </v-toolbar>
-                            <v-divider></v-divider>
-                            <v-card-text class="text-xs-center">
-                                <div class="mb-2">
-                                    <v-avatar size="100px">
-                                        <img src="{{ assets('frontier/images/placeholder/man.jpg') }}" alt="">
-                                    </v-avatar>
-                                </div>
-                                <span class="body-2 block pb-2">Cole Sprouse</span>
-                                <div>
-                                    The Travel Manager is the guy who will make sure your road trip will be full of adventures, excitement, tales to tell your grandchildren, epic memories and unforgettable experiences.
-                                </div>
-                            </v-card-text>
-                        </v-card>
-                    </div>
-
                     <div class="sidebar hidden-sm-and-down">
                         <v-card class="elevation-1 mb-3">
                             <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
                                 <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
                                 <v-card-text class="text-xs-center">
                                     <v-card dark class="elevation-0 transparent py-5">
-                                        <div class="title pb-3 white--text"><strong>Random Road Trip #1</strong></div>
+                                        <div class="title pb-3 white--text"><strong>Pack and Go!</strong></div>
                                         <div class="display-2 white--text">₱<span class="fw-500"> 6,000</span></div>
                                         <div class="body-2 white--text mb-2">per person</span></div>
 
@@ -57,9 +32,9 @@
                                             <span class="caption">4.6</span>
                                         </div>
                                     </v-card>
-                                        <div class="text-xs-center">
-                                            <v-btn primary large round class="elevation-1 px-4" href="..\billings">Experience Now</v-btn>
-                                        </div>
+                                    <div class="text-xs-center">
+                                        <v-btn primary large round class="elevation-1 px-4" href="..\billings">Experience Now</v-btn>
+                                    </div>
                                 </v-card-text>
                             </v-card-media>
                             <v-list two-line>
@@ -101,9 +76,46 @@
                                     </div>
                                     <div class="py-2">
                                         <v-card-text class="px-4">
-                                            <h4 class="grey--text text--darken-3"><strong>{{ __("Random Road Trip #1") }}</strong></h4>
-                                            <h4 class="title fw-400">Life should be filled with sun and water</h4>
-                                            <div class="subheading mb-2">Travel with us to a secret weekend getaway! If you are a fan of a cool breeze and remote locations, this trip is for you.</div>
+                                            <h4 class="grey--text text--darken-3"><strong>{{ __("Pack and Go!") }}</strong></h4>
+                                            <div class="subheading mb-2">Want to get out of town by air, bus, or train?</div>
+                                            <div class="body-2">We provide:</div>
+                                            <div class="pt-3 subheading">
+                                                <v-card-actions class="pa-0 pb-1">
+                                                    <v-avatar size="40px">
+                                                        <v-icon class="title mr-2 primary--text">airport_shuttle</v-icon>
+                                                    </v-avatar>
+                                                    <div>Travel booking</div>
+                                                </v-card-actions>
+                                                <v-card-actions class="pa-0 pb-1">
+                                                    <v-avatar size="40px">
+                                                        <v-icon class="title mr-2 primary--text">hotel</v-icon>
+                                                    </v-avatar>
+                                                    <div>Accomodation booking</div>
+                                                </v-card-actions>
+                                                <v-card-actions class="pa-0 pb-1">
+                                                    <v-avatar size="40px">
+                                                        <v-icon class="title mr-2 primary--text">location_on</v-icon>
+                                                    </v-avatar>
+                                                    <div>Curated map of recommendations for your destination city</div>
+                                                </v-card-actions>
+                                            </div>
+                                            <div class="mt-3">
+                                                <div class="body-2 mb-2">
+                                                    *Please note that your budget per person covers your travel + accommodation only.
+                                                </div>
+                                                <div class="body-2 mb-2">
+                                                    We require 4 weeks to plan your getaway!
+                                                </div>
+                                                <div class="body-1 mb-2">
+                                                    You may travel by bus, train, or plane depending upon your budget, dates, and departure location.
+                                                </div>
+                                                <div class="body-1 mb-2">
+                                                    All prices are per person.
+                                                </div>
+                                                <div class="body-1">
+                                                    If you have more than 4 travelers, please contact  to coordinate traveler details.
+                                                </div>
+                                            </div>
                                         </v-card-text>
                                         <div class="hidden-md-and-up">
                                             <v-divider></v-divider>
@@ -121,165 +133,6 @@
                                                 </div>
                                             </v-card-text>
                                         </div>
-                                        <v-divider></v-divider>
-                                        <v-card-text class="px-4">
-                                            <div class="title mb-2 grey--text text--darken-2">What is going to happen</div>
-                                            <div class="body-1 mb-2">A Few Details You Might Want To Know</div>
-
-                                            <div class="pt-3 subheading">
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div> Discover a culture green from Manila</div>
-                                                </v-card-actions>
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div> Discover a less touristy place</div>
-                                                </v-card-actions>
-
-                                                <div class="body-2 mt-3">Package Includes</div>
-                                                <v-layout row wrap justify-space-between>
-                                                    <v-flex sm4 xs12 class="py-0">
-                                                        <v-card-actions class="pa-0 pb-1">
-                                                            <v-avatar size="40px">
-                                                                <v-icon class="title mr-2">directions_car</v-icon>
-                                                            </v-avatar>
-                                                            <div> Transport</div>
-                                                        </v-card-actions>
-                                                    </v-flex>
-                                                    <v-flex sm4 xs12 class="py-0">
-                                                        <v-card-actions class="pa-0 pb-1">
-                                                            <v-avatar size="40px">
-                                                                <v-icon class="title mr-2">local_hotel</v-icon>
-                                                            </v-avatar>
-                                                            <div> Accomodation</div>
-                                                        </v-card-actions>
-                                                    </v-flex>
-                                                    <v-flex sm4 xs12 class="py-0">
-                                                        <v-card-actions class="pa-0 pb-1">
-                                                            <v-avatar size="40px">
-                                                                <v-icon class="title mr-2">restaurant</v-icon>
-                                                            </v-avatar>
-                                                            <div> Major Meals</div>
-                                                        </v-card-actions>
-                                                    </v-flex>
-                                                </v-layout>
-                                                <div class="body-1 mt-2">Deadline of Payment is November 15, 2017</div>
-                                            </div>
-                                        </v-card-text>
-                                        <v-divider></v-divider>
-                                        <v-card-text class="px-4">
-                                            <div class="title mb-2 grey--text text--darken-2">What to expect</div>
-                                            <div class="body-1">A Little Something About This Trip</div>
-                                            <div class="pt-3 subheading">
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div> We are going to travel with people we do not know</div>
-                                                </v-card-actions>
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div>It will be about memorable moments, big laughs, and team work</div>
-                                                </v-card-actions>
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div> Kindly bring some extra cash for food, drinks or some snacks</div>
-                                                </v-card-actions>
-                                            </div>
-                                        </v-card-text>
-                                        <v-divider></v-divider>
-                                        <v-card-text class="px-4">
-                                            <div class="title mb-2 grey--text text--darken-2">How to make a reservation</div>
-                                            <div class="body-1 mb-2">Our Payment Options</div>
-                                            <div class="pt-3">
-                                                <div class="body-2">BPI Account Number</div>
-                                                <v-list two-line subheader>
-                                                    <v-list-tile avatar>
-                                                        <v-list-tile-avatar>
-                                                            <v-icon>credit_card</v-icon>
-                                                        </v-list-tile-avatar>
-                                                        <v-list-tile-content>
-                                                            <v-list-tile-title>9641-0003-69</v-list-tile-title>
-                                                            <v-list-tile-sub-title>EXPH Travel Differently Inc.</v-list-tile-sub-title>
-                                                        </v-list-tile-content>
-                                                    </v-list-tile>
-                                                </v-list>
-                                                <div class="body-2">For proof of payment</div>
-                                                <v-list two-line subheader>
-                                                    <v-list-tile avatar>
-                                                        <v-list-tile-avatar>
-                                                            <v-icon>contact_phone</v-icon>
-                                                        </v-list-tile-avatar>
-                                                        <v-list-tile-content>
-                                                            <v-list-tile-title>0917-563-9692</v-list-tile-title>
-                                                            <v-list-tile-sub-title>Send a text message of your deposit</v-list-tile-sub-title>
-                                                        </v-list-tile-content>
-                                                    </v-list-tile>
-                                                    <v-list-tile avatar>
-                                                        <v-list-tile-avatar>
-                                                            <v-icon>email</v-icon>
-                                                        </v-list-tile-avatar>
-                                                        <v-list-tile-content>
-                                                            <v-list-tile-title>adventures@experience.ph</v-list-tile-title>
-                                                            <v-list-tile-sub-title>Send the scanned deposit slip</v-list-tile-sub-title>
-                                                        </v-list-tile-content>
-                                                    </v-list-tile>
-                                                </v-list>
-                                                <div class="body-1">You can pay us through credit card via  Paypal's secured payment website</div>
-                                            </div>
-                                        </v-card-text>
-                                        <v-divider></v-divider>
-                                        <v-card-text class="px-4">
-                                            <div class="title mb-2 grey--text text--darken-2">What to bring</div>
-                                            <div class="body-1 mb-2">Your Roadtrip Essentials</div>
-                                            <div class="pt-3 subheading">
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div>Comfy and reliable shoes for wet, dry, and rocky surfaces</div>
-                                                </v-card-actions>
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div>Swim wear</div>
-                                                </v-card-actions>
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div>Mosquito Repellent</div>
-                                                </v-card-actions>
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div>Lots of sunblock</div>
-                                                </v-card-actions>
-                                            </div>
-                                        </v-card-text>
-                                        <v-divider></v-divider>
-                                        <v-list subheader class="py-0">
-                                            <v-subheader>Frequently Asked Questions</v-subheader>
-                                            <v-list-tile avatar ripple @click="">
-                                                <v-list-tile-avatar tile>
-                                                    <img src="{{ assets('frontier/images/public/question.png') }}"/>
-                                                </v-list-tile-avatar>
-                                                <v-list-tile-content>
-                                                    <v-list-tile-title>Experience Philippines</v-list-tile-title>
-                                                    <v-list-tile-sub-title>Help Center</v-list-tile-sub-title>
-                                                </v-list-tile-content>
-                                            </v-list-tile>
-                                        </v-list>
                                     </div>
                                 </v-card>
                             @include("Public::parts.review-exp")
@@ -511,10 +364,7 @@
                 position: sticky;
                 top: 85px;
                 float: left;
-                width: 25%;
-                margin-right: 10px;
-            }
-            .content {
+                width: 30%;
                 margin-right: 10px;
             }
         }

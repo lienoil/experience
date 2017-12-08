@@ -13,7 +13,7 @@ return [
         'order' => 51,
         'slug' => url(config('path.admin').'/billings'),
         'always_viewable' => false,
-        'icon' => 'monetization_on',
+        'icon' => '',
         'labels' => [
             'title' => __('Billings'),
             'description' => __('Manage billings'),

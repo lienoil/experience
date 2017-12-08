@@ -13,7 +13,7 @@
             <v-list-tile ripple href="\experiences">
                 <v-list-tile-title>Road Trips</v-list-tile-title>
             </v-list-tile>
-            <v-list-tile ripple @click="">
+            <v-list-tile ripple href="\budgets">
                 <v-list-tile-title>Pack &amp; Go</v-list-tile-title>
             </v-list-tile>
             <v-list-tile ripple href="\stories">
@@ -48,14 +48,14 @@
 <div class="hidden-md-and-down">
     <v-btn href="\experiences" flat>{{ __('Experience') }}</v-btn>
     <v-btn href="\experiences"flat>{{ __('Roadtrip') }}</v-btn>
-    <v-btn href=""flat>{{ __('Pack &amp; Go') }}</v-btn>
+    <v-btn href="\budgets"flat>{{ __('Pack &amp; Go') }}</v-btn>
     <v-btn href="\stories"flat>{{ __('Stories') }}</v-btn>
     <v-menu open-on-hover offset-y>
         <v-avatar size="35px" slot="activator" class="mr-4 ml-4 elevation-1">
             <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
         </v-avatar>
         <v-list>
-            <v-list-tile ripple @click="">
+            <v-list-tile ripple href="\budgets">
                 <v-list-tile-action>
                     <v-icon>flag</v-icon>
                 </v-list-tile-action>

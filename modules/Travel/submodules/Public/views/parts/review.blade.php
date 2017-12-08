@@ -13,7 +13,7 @@
     <v-card dark class="elevation-0 transparent card--flex">
         <v-container fluid grid-list-lg>
             <v-layout row wrap align-center justify-center>
-                <v-flex lg8 md12 sm12 xs12>
+                <v-flex lg10 sm12 xs12>
                     <v-layout row wrap align-top justify-top>
                         <v-flex md3 xs12>
                             <h4><strong>Happy Traveller</strong></h4>

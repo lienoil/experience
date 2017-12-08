@@ -6,9 +6,9 @@
     <v-card class="elevation-1 sticky">
         <v-toolbar class="elevation-0 white">
             <a href="\home">
-			    <img src="{{ assets('frontier/images/public/logo_icon.png') }}" alt="" width="80" style="padding-top: 8px;">
-			</a>
-			<v-spacer></v-spacer>
+                <img src="{{ assets('frontier/images/public/logo_icon.png') }}" alt="" width="80" style="padding-top: 8px;">
+            </a>
+            <v-spacer></v-spacer>
             <v-menu offset-y>
                 <v-avatar size="30px" slot="activator" class="mr-4">
                     <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
@@ -28,12 +28,12 @@
             </v-menu>
         </v-toolbar>
     </v-card>
-	<v-container fluid grid-list-lg>
+    <v-container fluid grid-list-lg>
         <v-layout row wrap align-top justify-center>
             <v-flex lg8 md10 sm10 xs12>
-            	<v-layout row wrap align-top justify-center>
-					<v-flex md8 xs12>
-						<v-card class="elevation-1 card--flex-toolbar">
+                <v-layout row wrap align-top justify-center>
+                    <v-flex md8 xs12>
+                        <v-card class="elevation-1 card--flex-toolbar">
                             <v-toolbar class="transparent elevation-0">
                                 <v-toolbar-title>Review Guest Requirements</v-toolbar-title>
                             </v-toolbar>
@@ -49,7 +49,7 @@
                             <v-card-text>
                                 <div class="pt-3 subheading">
                                     <div class="headline mb-2 grey--text text--darken-2"><strong>Who can come</strong></div>
-                                	Guests ages 18 and up can attend.
+                                    Guests ages 18 and up can attend.
                                 </div>
                             </v-card-text>
 
@@ -101,9 +101,9 @@
                             </v-card-text>
                         </v-card>
                         <v-card class="elevation-0 transparent" height="100px"></v-card>
-					</v-flex>
+                    </v-flex>
 
-					<v-flex md4 xs12 class="hidden-sm-and-down">
+                    <v-flex md4 xs12 class="hidden-sm-and-down">
                         <v-card class="elevation-1 mb-3 card--flex-toolbar">
                             <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
                                 <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
@@ -192,8 +192,8 @@
                                 </v-list-tile>
                             </v-list>
                         </v-card>
-					</v-flex>
-            	</v-layout>
+                    </v-flex>
+                </v-layout>
             </v-flex>
         </v-layout>
     </v-container>
@@ -206,13 +206,13 @@
                         <div class="subheading"><strong>₱ 6,000</strong> <span class="body-1">per person</span></div>
                         <v-dialog class="hidden-md-and-up" v-model="dialog.billing" fullscreen transition="dialog-bottom-transition" :overlay=false>
                             <v-btn flat small class="body-2 primary--text details-btn" slot="activator">See details</v-btn>
-			                <v-card>
-			                    <v-toolbar light class="white elevation-0">
-			                    	<v-spacer></v-spacer>
-			                        <v-btn icon @click.native="dialog.billing = false">
-			                            <v-icon>close</v-icon>
-			                        </v-btn>
-			                    </v-toolbar>
+                            <v-card>
+                                <v-toolbar light class="white elevation-0">
+                                    <v-spacer></v-spacer>
+                                    <v-btn icon @click.native="dialog.billing = false">
+                                        <v-icon>close</v-icon>
+                                    </v-btn>
+                                </v-toolbar>
                                 <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
                                     <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
                                     <v-card-text class="text-xs-center">
@@ -296,8 +296,8 @@
                                         </v-list-tile-content>
                                     </v-list-tile>
                                 </v-list>
-			                </v-card>
-			            </v-dialog>
+                            </v-card>
+                        </v-dialog>
                     </v-card-text>
                     <v-spacer></v-spacer>
                     <v-card-text class="py-2 text-xs-right">
@@ -311,7 +311,7 @@
 
 @push('css')
     <style>
-    	.fw-400 {
+        .fw-400 {
             font-weight: 400;
         }
         .fw-500 {
@@ -337,7 +337,7 @@
         mixins.push({
             data () {
                 return {
-                	dialog: {
+                    dialog: {
                         billing: false
                     },
                 }
