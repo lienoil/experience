@@ -25,7 +25,7 @@
                                     src="{{ assets('frontier/images/placeholder/8.jpg') }}"
                                     class="grey lighten-4">
                                 </v-card-media>
-                                <div class="text-xs-center">
+                                <div class="text-xs-center fab">
                                     <v-avatar size="80px" class="">
                                         <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
                                     </v-avatar>
