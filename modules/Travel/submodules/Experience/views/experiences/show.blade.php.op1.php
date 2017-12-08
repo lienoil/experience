@@ -9,28 +9,50 @@
         </v-toolbar>
     </v-card>
 
-    <section id="show">
+    <section id="show" class="white">
         <v-container fluid grid-list-lg>
             <v-layout row wrap align-center justify-center>
-                <v-flex lg11 sm12 xs12>
-                    <div class="leftbar hidden-sm-and-down">
-                        <v-card class="elevation-0 mb-3">
-                            <v-card-media src="{{ assets('frontier/images/public/surf.jpg') }}" height="350px">
-                            </v-card-media>
-                        </v-card>
+                <v-flex lg10 sm12 xs12>
+                    <v-breadcrumbs icons divider="chevron_right" class="pl-0" style="justify-content: flex-start;">
+                        <v-icon slot="divider">chevron_right</v-icon>
+                        <v-breadcrumbs-item
+                            v-for="item in crumbs"
+                            :key="item.text"
+                            :disabled="item.disabled"
+                            class="crumbs-items"
+                            >
+                            <small class="caption">@{{ item.text }}</small>
+                        </v-breadcrumbs-item>
+                    </v-breadcrumbs>
 
-                        <v-card class="elevation-1 mb-3">
+                    <div class="sidebar hidden-sm-and-down">
+                        <v-card class="elevation mb-3">
+                            <v-card-media src="{{ assets('frontier/images/public/surf.jpg') }}" height="300px">
+                                <v-layout row wrap align-center justify-center>
+                                    <v-icon>video_play
+                                </v-layout>
+                            </v-card-media>
+                            <v-card-text>
+                                <v-card-actions>
+                                    <div class="title"> ₱ 6,000 <br>
+                                        <span class="caption grey--text text--darken-1"> per person</span>
+                                    </div> <br>
+                                    <v-spacer></v-spacer>
+                                    <v-btn primary large round class="elevation-1 px-2" href="..\billings">Experience Now</v-btn>
+                                </v-card-actions>
+                            </v-card-text>
+
+                            <v-divider></v-divider>
                             <v-toolbar class="elevation-0 transparent">
                                 <v-toolbar-title>Travel Manager</v-toolbar-title>
                             </v-toolbar>
-                            <v-divider></v-divider>
                             <v-card-text class="text-xs-center">
                                 <div class="mb-2">
                                     <v-avatar size="100px">
                                         <img src="{{ assets('frontier/images/placeholder/man.jpg') }}" alt="">
                                     </v-avatar>
                                 </div>
-                                <span class="body-2 block pb-2">Cole Sprouse</span>
+                                <span class="body-2 block pb-2">Paul Appleseed</span>
                                 <div>
                                     The Travel Manager is the guy who will make sure your road trip will be full of adventures, excitement, tales to tell your grandchildren, epic memories and unforgettable experiences.
                                 </div>
@@ -38,71 +60,54 @@
                         </v-card>
                     </div>
 
-                    <div class="sidebar hidden-sm-and-down">
-                        <v-card class="elevation-1 mb-3">
-                            <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
-                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
-                                <v-card-text class="text-xs-center">
-                                    <v-card dark class="elevation-0 transparent py-5">
-                                        <div class="title pb-3 white--text"><strong>Random Road Trip #1</strong></div>
-                                        <div class="display-2 white--text">₱<span class="fw-500"> 6,000</span></div>
-                                        <div class="body-2 white--text mb-2">per person</span></div>
-
-                                        <div>
-                                            <v-icon  n class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star_half</v-icon>
-                                            <span class="caption">4.6</span>
-                                        </div>
-                                    </v-card>
-                                        <div class="text-xs-center">
-                                            <v-btn primary large round class="elevation-1 px-4" href="..\billings">Experience Now</v-btn>
-                                        </div>
-                                </v-card-text>
-                            </v-card-media>
-                            <v-list two-line>
-                                <v-list-tile>
-                                    <v-list-tile-action>
-                                        <v-icon color="indigo">date_range</v-icon>
-                                    </v-list-tile-action>
-                                    <v-list-tile-content>
-                                        <v-list-tile-title>November 24 to 26</v-list-tile-title>
-                                        <v-list-tile-sub-title>2017</v-list-tile-sub-title>
-                                    </v-list-tile-content>
-                                </v-list-tile>
-                                <v-list-tile>
-                                    <v-list-tile-action>
-                                        <v-icon color="indigo">schedule</v-icon>
-                                    </v-list-tile-action>
-                                    <v-list-tile-content>
-                                        <v-list-tile-title>8pm, Friday</v-list-tile-title>
-                                        <v-list-tile-sub-title>3 days</v-list-tile-sub-title>
-                                    </v-list-tile-content>
-                                </v-list-tile>
-                                <v-divider></v-divider>
-                                <v-card-text class="text-xs-center pa-1">
-                                    <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-facebook</v-icon></v-btn>
-                                    <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-twitter</v-icon></v-btn>
-                                    <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-google</v-icon></v-btn>
-                                </v-card-text>
-                            </v-list>
-                        </v-card>
-                    </div>
-
                     <v-layout row wrap>
-                        <v-flex xs12 class="py-0">
+                        <v-flex md12>
                             <div class="content">
-                                <v-card class="elevation-1 py-3 mb-3">
-
-                                    <v-card-text class="px-4">
+                                <v-card class="elevation-0 py-3">
+                                    <v-card-text class="pb-0 px-0">
                                         <h4 class="grey--text text--darken-3"><strong>{{ __("Random Road Trip #1") }}</strong></h4>
                                         <h4 class="title fw-400">Life should be filled with sun and water</h4>
                                         <div class="subheading mb-2">Travel with us to a secret weekend getaway! If you are a fan of a cool breeze and remote locations, this trip is for you.</div>
+
+                                        <v-card-actions class="py-0">
+                                            <v-avatar size="40px">
+                                                <v-icon class="title mr-2">date_range</v-icon>
+                                            </v-avatar>
+                                            <div>November 24 to 27, 2017 ( 3-day )</div>
+                                        </v-card-actions>
+                                        <v-card-actions class="py-0">
+                                            <v-avatar size="40px">
+                                                <v-icon class="title mr-2">schedule</v-icon>
+                                            </v-avatar>
+                                            <div>8pm, Friday</div>
+                                        </v-card-actions>
+
+                                        <div class="pl-2">
+                                            <span>
+                                                <v-icon class="deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                            </span>
+                                            <span class="subheading">4.6</span>
+                                        </div>
+
+                                        <v-card-actions>
+                                            <div>
+                                                <span class="caption grey--text text--darken-1">Share on:</span>
+                                                <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-facebook</v-icon></v-btn>
+                                                <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-twitter</v-icon></v-btn>
+                                                <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-google</v-icon></v-btn>
+                                            </div>
+                                            <v-spacer></v-spacer>
+                                            <v-btn flat class="red--text text-lighten-1"><v-icon>favorite_border</v-icon><span class="pl-2">WishList</span></v-btn>
+                                        </v-card-actions>
                                     </v-card-text>
-                                    <v-divider></v-divider>
-                                    <v-card-text class="px-4">
+                                </v-card>
+                                <v-divider></v-divider>
+                                <v-card class="elevation-0 py-3">
+                                    <v-card-text class="px-0">
                                         <div class="title mb-2 grey--text text--darken-2">What is going to happen</div>
                                         <div class="body-1 mb-2">A Few Details You Might Want To Know</div>
 
@@ -150,8 +155,10 @@
                                             <div class="body-1 mt-2">Deadline of Payment is November 15, 2017</div>
                                         </div>
                                     </v-card-text>
-                                    <v-divider></v-divider>
-                                    <v-card-text class="px-4">
+                                </v-card>
+                                <v-divider></v-divider>
+                                <v-card class="elevation-0 py-3">
+                                    <v-card-text class="px-0">
                                         <div class="title mb-2 grey--text text--darken-2">What to expect</div>
                                         <div class="body-1">A Little Something About This Trip</div>
                                         <div class="pt-3 subheading">
@@ -175,8 +182,10 @@
                                             </v-card-actions>
                                         </div>
                                     </v-card-text>
-                                    <v-divider></v-divider>
-                                    <v-card-text class="px-4">
+                                </v-card>
+                                <v-divider></v-divider>
+                                <v-card class="elevation-0 py-3">
+                                    <v-card-text class="px-0">
                                         <div class="title mb-2 grey--text text--darken-2">How to make a reservation</div>
                                         <div class="body-1 mb-2">Our Payment Options</div>
                                         <div class="pt-3">
@@ -216,8 +225,10 @@
                                             <div class="body-1">You can pay us through credit card via  Paypal's secured payment website</div>
                                         </div>
                                     </v-card-text>
-                                    <v-divider></v-divider>
-                                    <v-card-text class="px-4">
+                                </v-card>
+                                <v-divider></v-divider>
+                                <v-card class="elevation-0 py-3">
+                                    <v-card-text class="px-0">
                                         <div class="title mb-2 grey--text text--darken-2">What to bring</div>
                                         <div class="body-1 mb-2">Your Roadtrip Essentials</div>
                                         <div class="pt-3 subheading">
@@ -247,7 +258,9 @@
                                             </v-card-actions>
                                         </div>
                                     </v-card-text>
-                                    <v-divider></v-divider>
+                                </v-card>
+                                <v-divider></v-divider>
+                                <v-card class="elevation-0 py-3">
                                     <v-list subheader class="py-0">
                                         <v-subheader>Frequently Asked Questions</v-subheader>
                                         <v-list-tile avatar ripple @click="">
@@ -261,15 +274,46 @@
                                         </v-list-tile>
                                     </v-list>
                                 </v-card>
-                            @include("Public::parts.review-exp")
+                                <v-divider></v-divider>
+                                <v-card class="elevation-0 py-3">
+                                    <v-card-text class="px-0">
+                                        <div class="title mb-2 grey--text text--darken-2">1 Review
+                                            <span>
+                                                <v-icon class="deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="deep-orange--text text--darken-1 pb-1">star</v-icon>
+                                            </span>
+                                        </div>
+                                        <div class="body-1 mb-2"> Lorem ipsum dolor cit amet</div>
+                                        <div class="pt-3">
+                                            <v-card-actions class="mb-3">
+                                                <v-avatar size="50px" class="mr-4">
+                                                    <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
+                                                </v-avatar>
+                                                <div class="body-1">
+                                                    <span class="body-2 block">Veronica</span>
+                                                    <span class="body-1 block">November 14, 2017</span>
+                                                </div>
+                                                <v-spacer></v-spacer>
+                                                <v-btn icon v-tooltip:bottom="{html: 'Report Review'}"><v-icon class="title">fa fa-flag-o</v-icon></v-btn>
+                                            </v-card-actions>
+                                            <div class="subheading">
+                                                Definitely value for money! Very beautiful view in amazing location. Paul Appleseed was also very helpful. Very recommended!
+                                            </div>
+                                        </div>
+                                    </v-card-text>
+                                </v-card>
                             </div>
                         </v-flex>
                     </v-layout>
                 </v-flex>
             </v-layout>
             <v-layout row wrap align-center justify-center>
-                <v-flex lg11 sm12 xs12>
-                    <v-card class="elevation-0 transparent py-3">
+                <v-flex lg10 sm12 xs12>
+                    <v-divider></v-divider>
+                    <v-card class="elevation-0 py-3">
                         <v-card-text class="px-0">
                             <div class="title mb-2 grey--text text--darken-2">Similar Listings</div>
                             <div class="body-1 mb-2"> Lorem ipsum dolor cit amet</div>
@@ -325,7 +369,7 @@
             <v-layout row wrap>
                 <v-flex xs12>
                     <v-card-actions>
-                        <v-card-text class="px-0 py-2">
+                        <v-card-text class="py-2">
                             <div class="subheading"><strong>₱ 6,000</strong> <span class="body-1">per person</span></div>
                             <v-dialog class="hidden-md-and-up" v-model="dialog.book" fullscreen transition="dialog-bottom-transition" :overlay=false>
                                 <v-btn flat small class="body-2 primary--text details-btn" slot="activator">See details</v-btn>
@@ -419,10 +463,8 @@
                                 </v-card>
                             </v-dialog>
                         </v-card-text>
-
                         <v-spacer></v-spacer>
-
-                        <v-card-text class="px-0 py-2">
+                        <v-card-text class="py-2 text-xs-right">
                             <v-btn large primary round class="elevation-1 px-2" href="..\billings">Experience Now</v-btn>
                         </v-card-text>
                     </v-card-actions>
@@ -486,17 +528,10 @@
                 position: sticky;
                 top: 85px;
                 float: right;
-                width: 25%;
-            }
-            .leftbar {
-                position: sticky;
-                top: 85px;
-                float: left;
-                width: 25%;
-                margin-right: 10px;
+                width: 30%;
             }
             .content {
-                margin-right: 10px;
+                margin-right: 30px;
             }
         }
     </style>

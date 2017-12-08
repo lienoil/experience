@@ -67,7 +67,7 @@
                                     </v-flex>
                                     <v-flex md2 sm2 xs12>
                                         <v-card-text class="text-xs-center">
-                                            <v-btn large flat round dark class="deep-orange lighten-1 px-2">Experience Now</v-btn>
+                                            <v-btn large round dark primary class="elevation-1 white--text px-2">Experience Now</v-btn>
                                         </v-card-text>
                                     </v-flex>
                                 </v-layout>

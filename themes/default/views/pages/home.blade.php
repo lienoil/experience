@@ -13,7 +13,7 @@
         @include("Public::parts.hotlist")
         @include("Public::parts.video")
         @include("Public::parts.stories")
-        @include("Public::parts.recommended")
+        @include("Public::parts.review")
         @include("Public::parts.partners")
     </div>
 

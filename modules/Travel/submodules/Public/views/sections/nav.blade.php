@@ -41,7 +41,7 @@
         <v-card id="search-hover" style="max-width: 600px !important;">
             <v-select
                 autocomplete
-                label="What do you want to do or where do you want to go?"
+                label="What do you want to experience?"
                 slot="activator"
                 hide-details
                 append-icon=""
@@ -90,7 +90,7 @@
             <v-card-actions>
                 <v-select
                     autocomplete
-                    label="What do you want to do or where do you want to go?"
+                    label="What do you want to experience?"
                     hide-details
                     append-icon=""
                     prepend-icon="search"

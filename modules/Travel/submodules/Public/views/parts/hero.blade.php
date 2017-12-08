@@ -81,7 +81,7 @@
                         >
                         <v-select
                             autocomplete
-                            label="What do you want to do or where do you want to go?"
+                            label="What do you want to experience?"
                             slot="activator"
                             append-icon=""
                             prepend-icon="search"
