@@ -113,14 +113,14 @@
     </v-card>
 
     <v-card class="banner elevation-1">
-        <v-card-media class="elevation-0" height="350" src="{{ assets('frontier/images/public/sierra.jpg') }}">
+        <v-parallax class="elevation-0" height="450" src="{{ assets('frontier/images/public/sierra.jpg') }}">
             <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
             <v-layout column align-center justify-center class="white--text">
                 <v-card dark class="elevation-0 transparent">
                     <h2 class="mb-2 text-xs-center"><strong>{{ __("RANDOM ROAD TRIPS") }}</strong></h2>
                     <h5 class="mb-3 text-xs-center fw-500">{{__("A Road Trip For The Adventure Seekers")}}</h5>
             </v-layout>
-        </v-card-media>
+        </v-parallax>
     </v-card>
 
     <section id="experiences" class="py-5">

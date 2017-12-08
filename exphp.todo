@@ -45,7 +45,7 @@ User Interface per Page:
     ✔ Homepage @done (17-12-02 23:12)
     ✔ Experience Main Page @done (17-12-03 12:13)
         ✔ Experience Single Page @done (17-12-03 12:13)
-    ☐ “Pack & Go” Main Page
+    ✔ “Pack & Go” Main Page
     ✔ “Stories” Main Page
         ✔ Stories Single Page
     ✔ Billing @done (17-12-03 15:49)
@@ -77,7 +77,6 @@ FAQ lg7 md8
 Experience
 Experience/show ? to change layout
 Billing lg8
-
 Billing/show
 Story
 Story/show
@@ -86,7 +85,7 @@ Move Billing to Shop module (top-level)
 
 1600 x 900
 
-packupandgo page
+✔ packupandgo page
 ✔ experience/show -> add video/image
 my profile
 --
