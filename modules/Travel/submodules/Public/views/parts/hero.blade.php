@@ -16,7 +16,7 @@
                     <v-menu
                         offset-y
                         :close-on-content-click="false"
-                        class="block px-3"
+                        class="block px-3 hero-search"
                         v-model="hero.search"
                         >
                         <v-select
@@ -171,9 +171,14 @@
     <style>
         .hero-search .input-group.input-group--solo {
             min-height: 55px !important;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
         }
         #hero .parallax__content {
             padding: 0;
+        }
+        .hero-search .input-group.input-group--solo label {
+            top: 12px !important;
         }
     </style>
 @endpush
