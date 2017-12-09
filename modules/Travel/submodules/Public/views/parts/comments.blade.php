@@ -10,7 +10,7 @@
                 <v-quill v-model="quill.comment"></v-quill>
                 <v-divider></v-divider>
                 <v-card-text class="text-xs-right pa-0">
-                    <v-btn flat primary class="success--text">Post a comment</v-btn>
+                    <v-btn flat class="primary--text">Post a comment</v-btn>
                 </v-card-text>
             </v-card>
         </v-card-text>
@@ -21,7 +21,7 @@
                     <img src="https://placeimg.com/640/480/any" />
                 </v-list-tile-avatar>
                 <v-list-tile-content>
-                    <v-list-tile-title><a href="#!" class="td-n fw-500">Mark Zuckerberg</a></v-list-tile-title>
+                    <v-list-tile-title><a href="#!" class="td-n fw-500 grey--text text--darken-3">Mark Zuckerberg</a></v-list-tile-title>
                     <v-list-tile-sub-title>November 12, 2017</v-list-tile-sub-title>
                 </v-list-tile-content>
 

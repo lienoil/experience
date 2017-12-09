@@ -112,7 +112,7 @@
     </v-dialog>
 </div>
 
-<div class="hidden-md-and-down">
+<div class="hidden-md-and-down main-nav">
     <v-btn href="\experiences" flat>{{ __('Experience') }}</v-btn>
     <v-btn href="\experiences"flat>{{ __('Roadtrip') }}</v-btn>
     <v-btn href="\budgets"flat>{{ __('Pack &amp; Go') }}</v-btn>
@@ -135,6 +135,14 @@
         </v-list>
     </v-menu>
 </div>
+
+@push('css')
+    <style>
+        .main-nav .btn {
+            height: 65px !important;
+        }
+    </style>
+@endpush
 
 @push('pre-scripts')
     <script src="{{ assets('frontier/vendors/vue/resource/vue-resource.min.js') }}"></script>

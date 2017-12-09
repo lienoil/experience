@@ -87,6 +87,10 @@
                             </v-card>
 
                             <v-card class="elevation-1 mb-3">
+                                <v-btn block large primary class="elevation-0" href="\stories/create">Create a new post</v-btn>
+                            </v-card>
+
+                            <v-card class="elevation-1 mb-3">
                                 <v-card class="elevation-0 mb-3 ">
                                     <v-card-text class="py-0">
                                         <v-subheader class="pl-0 grey--text text--darken-1">{{ __('ABOUT US') }}</v-subheader>
@@ -135,7 +139,7 @@
                                                 <img src="{{ assets('frontier/images/placeholder/15.jpg') }}" alt="" width="100%">
                                             </v-flex>
                                         </v-layout>
-                                        <v-btn block primary class="elevation-1">View on Instagram</v-btn>
+                                        <v-btn block primary flat class="elevation-1">View on Instagram</v-btn>
                                     </v-card-text>
                                 </v-card>
 

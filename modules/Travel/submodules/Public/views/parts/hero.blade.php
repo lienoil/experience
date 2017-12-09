@@ -1,7 +1,7 @@
 <section id="hero">
-    <v-parallax height="600" class="hidden-md-and-down" src="{{ assets('frontier/images/public/alabama.jpg') }}">
+    <v-parallax height="650" class="hidden-md-and-down" src="{{ assets('frontier/images/public/car.jpg') }}">
         <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
-        <v-toolbar class="elevation-0 transparent my-3" dark>
+        <v-toolbar class="elevation-0 transparent" dark>
             <a href="">
                 <img class="pt-3" src="{{ assets('frontier/images/public/exph_logo.png') }}" alt="" width="200">
             </a>
@@ -59,9 +59,9 @@
         </v-layout>
     </v-parallax>
 
-    <v-parallax height="400" class="hidden-lg-and-up" src="{{ assets('frontier/images/public/alabama.jpg') }}">
+    <v-parallax height="400" class="hidden-lg-and-up" src="{{ assets('frontier/images/public/car.jpg') }}">
         <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
-        <v-toolbar class="elevation-0 transparent my-3" dark>
+        <v-toolbar class="elevation-0 transparent" dark>
             <a href="">
                 <img class="pt-3" src="{{ assets('frontier/images/public/exph_logo.png') }}" alt="" width="200">
             </a>

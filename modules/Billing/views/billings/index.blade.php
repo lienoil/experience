@@ -202,8 +202,8 @@
         <v-layout row wrap>
             <v-flex xs12>
                 <v-card-actions>
-                    <v-card-text class="py-2">
-                        <div class="subheading"><strong>₱ 6,000</strong> <span class="body-1">per person</span></div>
+                    <v-card-text class="py-2 px-0">
+                        <div class="subheading pl-4"><strong>₱ 6,000</strong> <span class="body-1">per person</span></div>
                         <v-dialog class="hidden-md-and-up" v-model="dialog.billing" fullscreen transition="dialog-bottom-transition" :overlay=false>
                             <v-btn flat small class="body-2 primary--text details-btn" slot="activator">See details</v-btn>
                             <v-card>

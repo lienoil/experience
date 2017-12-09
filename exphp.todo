@@ -72,6 +72,7 @@ User Interface per Page:
 Working links:
 align-center justify-center
 align-top justify-center
+
 Home lg10
 FAQ lg7 md8
 Experience
@@ -88,6 +89,7 @@ Move Billing to Shop module (top-level)
 ✔ packupandgo page
 ✔ experience/show -> add video/image
 ✔ my profile
+add tooltip of 'add to wishlist' cards
 --
 
 christmas theme

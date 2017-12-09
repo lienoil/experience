@@ -142,7 +142,7 @@
                                         :src="card.src"
                                         class="grey lighten-4">
                                         <div class="text-xs-right" style="width: 100%;">
-                                            <v-btn large icon class="mr-3">
+                                            <v-btn large v-tooltip:left="{ html: 'Add to wishlist' }" icon class="mr-3">
                                                 @include("Experience::components.wishlist")
                                             </v-btn>
                                             <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="card.price" style="position: absolute; bottom: 15px; right: 0;"></v-chip>
@@ -365,10 +365,15 @@
                     ],
                     e7: [],
                     types: [
-                        { title: 'Swim' },
-                        { title: 'Dive' },
-                        { title: 'Nightlife' },
-                        { title: 'Surf' }
+                        { title: 'Nature' },
+                        { title: 'Adventure' },
+                        { title: 'Sports' },
+                        { title: 'Heritage' },
+                        { title: 'Business' },
+                        { title: 'Entertainment' },
+                        { title: 'Skills' },
+                        { title: 'Food' },
+                        { title: 'Outreach' }
                     ],
                     from: null,
                     dialog: {

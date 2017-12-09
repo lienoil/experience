@@ -45,8 +45,7 @@
                                 <v-card-text class="text-xs-center">
                                     <v-card dark class="elevation-0 transparent pt-4">
                                         <div class="title pb-3 white--text"><strong>Multi-Traveler - Road Trip: <br> 3-Day Getaway</strong></div>
-                                        <div class="display-1 white--text">from ₱<span class="fw-500"> 600</span></div>
-                                        <div class="body-2 white--text mb-2">per person</span></div>
+                                        <div class="headline pb-2 white--text">from ₱<span class="fw-500"> 600</span></div>
 
                                         <div>
                                             <v-icon  n class="subheading orange--text text--darken-1 pb-1">star</v-icon>
@@ -61,23 +60,21 @@
                                             <v-flex xs10>
                                                 <div class="py-4">
                                                     <v-select
-                                                        autocomplete
                                                         class="mb-3"
                                                         label="Select budget"
                                                         slot="activator"
                                                         append-icon="keyboard_arrow_down"
                                                         v-bind:items="items"
+                                                        v-model="e1"
+                                                        single-line
                                                         clearable
-                                                        search-input
-                                                        solo tags>
+                                                        solo>
                                                     </v-select>
                                                     <v-select
                                                         autocomplete
                                                         class="mb-3"
                                                         label="Number of Travelers"
-                                                        slot="activator"
-                                                        append-icon="keyboard_arrow_down"
-                                                        v-bind:items="items"
+                                                        append-icon=""
                                                         clearable
                                                         search-input
                                                         solo tags>
@@ -90,8 +87,8 @@
                                         </v-layout>
                                     </v-card>
                                 </v-card-text>
-                            </v-card>
-                        </v-card-media>
+                            </v-card-media>
+                        </v-card>
                     </div>
 
                     <v-layout row wrap>
@@ -105,7 +102,7 @@
                                     <div>
                                         <v-card-text class="px-4">
                                             <h4 class="grey--text text--darken-3"><strong>Multi-Traveler - Road Trip: <br> 3-Day Getaway</strong></h4>
-                                            <h4 class="title fw-400">From ₱ 600</h4>
+                                            <h4 class="title fw-400 my-0">from ₱ 600</h4>
                                         </v-card-text>
                                         <div class="hidden-md-and-up">
                                             <v-divider></v-divider>
@@ -178,7 +175,7 @@
                                                     :src="card.src"
                                                     class="grey lighten-4">
                                                     <div class="text-xs-right" style="width: 100%;">
-                                                        <v-btn large icon class="mr-3">
+                                                        <v-btn large v-tooltip:left="{ html: 'Add to wishlist' }" icon class="mr-3">
                                                             @include("Experience::components.wishlist")
                                                         </v-btn>
                                                         <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="card.price" style="position: absolute; bottom: 15px; right: 0;"></v-chip>
@@ -221,7 +218,7 @@
                 <v-flex xs12>
                     <v-card-actions>
                         <v-card-text class="px-0 py-2">
-                            <div class="subheading"><strong>₱ 6,000</strong> <span class="body-1">per person</span></div>
+                            <div class="subheading pl-4"><strong>from ₱ 6,000</strong> <span class="body-1"></span></div>
                             <v-dialog class="hidden-md-and-up" v-model="dialog.book" fullscreen transition="dialog-bottom-transition" :overlay=false>
                                 <v-btn flat small class="body-2 primary--text details-btn" slot="activator">See details</v-btn>
                                 <v-card>
@@ -234,10 +231,9 @@
                                     <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
                                         <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
                                         <v-card-text class="text-xs-center">
-                                            <v-card dark class="elevation-0 transparent py-5">
-                                                <div class="title pb-3 white--text"><strong>Random Road Trip #1</strong></div>
-                                                <div class="display-2 white--text">₱<span class="fw-500"> 6,000</span></div>
-                                                <div class="body-2 white--text mb-2">per person</span></div>
+                                            <v-card dark class="elevation-0 transparent pt-4">
+                                                <div class="title pb-3 white--text"><strong>Multi-Traveler - Road Trip: <br> 3-Day Getaway</strong></div>
+                                                <div class="headline pb-2 white--text">from ₱<span class="fw-500"> 600</span></div>
 
                                                 <div>
                                                     <v-icon  n class="subheading orange--text text--darken-1 pb-1">star</v-icon>
@@ -247,38 +243,39 @@
                                                     <v-icon class="subheading orange--text text--darken-1 pb-1">star_half</v-icon>
                                                     <span class="caption">4.6</span>
                                                 </div>
+
+                                                <v-layout row wrap justify-center align-center>
+                                                    <v-flex xs10>
+                                                        <div class="py-4">
+                                                            <v-select
+                                                                class="mb-3"
+                                                                label="Select budget"
+                                                                slot="activator"
+                                                                append-icon="keyboard_arrow_down"
+                                                                v-bind:items="items"
+                                                                v-model="e1"
+                                                                single-line
+                                                                clearable
+                                                                solo>
+                                                            </v-select>
+                                                            <v-select
+                                                                autocomplete
+                                                                class="mb-3"
+                                                                label="Number of Travelers"
+                                                                append-icon=""
+                                                                clearable
+                                                                search-input
+                                                                solo tags>
+                                                            </v-select>
+                                                            <div class="text-xs-center">
+                                                                <v-btn primary block large round class="elevation-1 px-4" href="..\billings">Get Going</v-btn>
+                                                            </div>
+                                                        </div>
+                                                    </v-flex>
+                                                </v-layout>
                                             </v-card>
-                                                <div class="text-xs-center">
-                                                    <v-btn primary large round class="elevation-1 px-4" href="..\billings">Experience Now</v-btn>
-                                                </div>
                                         </v-card-text>
                                     </v-card-media>
-                                    <v-list two-line>
-                                        <v-list-tile>
-                                            <v-list-tile-action>
-                                                <v-icon color="indigo">date_range</v-icon>
-                                            </v-list-tile-action>
-                                            <v-list-tile-content>
-                                                <v-list-tile-title>November 24 to 26</v-list-tile-title>
-                                                <v-list-tile-sub-title>2017</v-list-tile-sub-title>
-                                            </v-list-tile-content>
-                                        </v-list-tile>
-                                        <v-list-tile>
-                                            <v-list-tile-action>
-                                                <v-icon color="indigo">schedule</v-icon>
-                                            </v-list-tile-action>
-                                            <v-list-tile-content>
-                                                <v-list-tile-title>8pm, Friday</v-list-tile-title>
-                                                <v-list-tile-sub-title>3 days</v-list-tile-sub-title>
-                                            </v-list-tile-content>
-                                        </v-list-tile>
-                                        <v-divider></v-divider>
-                                        <v-card-text class="text-xs-center pa-1">
-                                            <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-facebook</v-icon></v-btn>
-                                            <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-twitter</v-icon></v-btn>
-                                            <v-btn icon class="social"><v-icon class="subheading grey--text">fa fa-google</v-icon></v-btn>
-                                        </v-card-text>
-                                    </v-list>
                                     <v-divider></v-divider>
                                     <v-list subheader class="py-3">
                                         <v-list-tile avatar>
@@ -316,7 +313,7 @@
                         </v-card-text>
                         <v-spacer></v-spacer>
                         <v-card-text class="px-0 py-2 text-xs-right">
-                            <v-btn large primary round class="elevation-1 px-2" href="..\billings">Experience Now</v-btn>
+                            <v-btn large primary round class="elevation-1 px-2" href="..\billings">Get Going</v-btn>
                         </v-card-text>
                     </v-card-actions>
                 </v-flex>
@@ -376,13 +373,13 @@
 
         @media (min-width: 60em) {
             .sidebar {
-                position: sticky;
+                position: positive;
                 top: 85px;
                 float: right;
                 width: 25%;
             }
             .leftbar {
-                position: sticky;
+                position: positive;
                 top: 85px;
                 float: left;
                 width: 25%;
@@ -516,15 +513,17 @@
                             src: '{{ assets('frontier/images/placeholder/9.png') }}'
                         },
                     ],
+                    e1: null,
                     items: [
-                        { text: 'State 1' },
-                        { text: 'State 2' },
-                        { text: 'State 3' },
-                        { text: 'State 4' },
-                        { text: 'State 5' },
-                        { text: 'State 6' },
-                        { text: 'State 7' }
+                        { text: '₱ 600' },
+                        { text: '₱ 800' },
+                        { text: '₱ 1, 000' },
+                        { text: '₱ 1, 200' },
+                        { text: '₱ 1, 500' },
+                        { text: '₱ 2, 000' },
+                        { text: '₱ 2, 500' }
                     ],
+
                 }
             },
         });

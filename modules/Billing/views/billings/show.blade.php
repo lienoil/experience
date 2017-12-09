@@ -22,21 +22,24 @@
                 <v-layout row wrap align-top justify-center>
                     <v-flex md8 xs12>
                         <v-card class="elevation-1 mb-3">
-                            <v-toolbar class="transparent elevation-0">
+                            <v-toolbar dark class="transparent elevation-1 blue">
                                 <v-toolbar-title>Payment Method</v-toolbar-title>
                             </v-toolbar>
                             <v-divider></v-divider>
-
-                            <v-card-text>
-                                <div class="subheading grey--text text--darken-1"><strong>Paypal</strong></div>
-                                <div class="text-xs-center">
-                                    <v-btn round info class="elevation-1">Log in</v-btn>
+                            <v-card-text class="text-xs-center py-4">
+                                <img src="{{ assets('frontier/images/public/paypal.png') }}" alt="">
+                                <div class=" mt-4">
+                                    <v-btn round info class="elevation-1 px-4">
+                                        <v-icon left class="pr-1">fa fa-paypal</v-icon> Log in
+                                    </v-btn>
                                 </div>
                             </v-card-text>
 
-                            <v-card-text>
-                                <div class="subheading grey--text text--darken-1"><strong>BPI Account Number</strong></div>
-                                <v-card-text>
+                            <v-divider></v-divider>
+
+                            <v-card-text class="text-xs-center py-4">
+                                <img width="100" src="{{ assets('frontier/images/public/bpi.png') }}" alt="">
+                                <v-card-text class="mt-4">
                                     <v-layout row wrap>
                                         <v-flex xs4>
                                             <div class="grey--text subheading">Account Number</div>
@@ -57,27 +60,18 @@
                             </v-card-text>
                         </v-card>
 
-                        {{-- Security --}}
-                       {{--  <v-card class="elevation-1 mb-3">
+                        <v-card class="elevation-1 mb-3">
+                            <v-toolbar class="elevation-0 transparent">
+                            <v-toolbar-side-icon><v-icon warning>warning</v-icon></v-toolbar-side-icon>
+                                <v-toolbar-title> Reminder</v-toolbar-title>
+                            </v-toolbar>
+                            <v-divider></v-divider>
                             <v-card-text>
-                                <v-layout row wrap>
-                                    <v-flex sm6 xs12>
-                                        <v-card-text>
-                                            <v-icon class="mb-2">lock_outline</v-icon>
-                                            <div class="body-2">{{ __('Your Information is Safe') }}</div>
-                                            <div class="body-1">{{ __('We will not sell or rent your personal contact information for any marketing purposes.') }}</div>
-                                        </v-card-text>
-                                    </v-flex>
-                                    <v-flex sm6 xs12>
-                                        <v-card-text>
-                                            <v-icon class="mb-2">security</v-icon>
-                                            <div class="body-2">{{ __('Secure Checkout') }}</div>
-                                            <div class="body-1">{{ __('All information is encrypted. You can trust us!') }}</div>
-                                        </v-card-text>
-                                    </v-flex>
-                                </v-layout>
+                                <div class="subheading grey--text text--darken-2">
+                                    You have 42 hours to pay from the time of booking to pay for this reservation through PayPal/BPI. You will receive your Travel Itinerary via email (useremail@gmail.com) once payment is made.
+                                </div>
                             </v-card-text>
-                        </v-card> --}}
+                        </v-card>
                         <v-card class="elevation-0 transparent" height="100px"></v-card>
                     </v-flex>
 
@@ -134,6 +128,12 @@
                                     </v-list-tile-action>
                                 </v-list-tile>
                             </v-list>
+                            <v-divider></v-divider>
+                            <v-card class="elevation-0 mb-3">
+                                <v-toolbar class="transparent elevation-0">
+                                    <v-toolbar-title class="subheading">Reference Number: 500500266 </v-toolbar-title>
+                                </v-toolbar>
+                            </v-card>
                         </v-card>
 
                         <v-card class="elevation-1 mb-3">
@@ -180,8 +180,8 @@
         <v-layout row wrap>
             <v-flex xs12>
                 <v-card-actions>
-                    <v-card-text class="py-2">
-                        <div class="subheading"><strong>₱ 6,000</strong> <span class="body-1">per person</span></div>
+                    <v-card-text class="px-0 py-2">
+                        <div class="subheading pl-4"><strong>₱ 6,000</strong> <span class="body-1">per person</span></div>
                         <v-dialog class="hidden-md-and-up" v-model="dialog.billing" fullscreen transition="dialog-bottom-transition" :overlay=false>
                             <v-btn flat small class="body-2 primary--text details-btn" slot="activator">See details</v-btn>
                             <v-card>
@@ -243,6 +243,12 @@
                                     </v-list-tile>
                                 </v-list>
                                 <v-divider></v-divider>
+                                <v-card class="elevation-0">
+                                    <v-toolbar class="transparent elevation-0">
+                                        <v-toolbar-title class="subheading">Reference Number: 500500266 </v-toolbar-title>
+                                    </v-toolbar>
+                                </v-card>
+                                <v-divider></v-divider>
                                 <v-list subheader class="py-3">
                                     <v-list-tile avatar>
                                         <v-list-tile-avatar tile>
@@ -276,10 +282,6 @@
                                 </v-list>
                             </v-card>
                         </v-dialog>
-                    </v-card-text>
-                    <v-spacer></v-spacer>
-                    <v-card-text class="py-2 text-xs-right">
-                        <v-btn large primary class="elevation-1 px-2" href="\billings\show">Confirm</v-btn>
                     </v-card-text>
                 </v-card-actions>
             </v-flex>
