@@ -33,29 +33,36 @@
             <v-flex lg8 md10 sm10 xs12>
                 <v-layout row wrap align-top justify-center>
                     <v-flex md8 xs12>
-                        <v-card class="elevation-1 card--flex-toolbar">
-                            <v-toolbar class="transparent elevation-0">
+                        <v-card class="elevation-1">
+                            <v-toolbar dark class="blue elevation-1">
                                 <v-toolbar-title>Review Guest Requirements</v-toolbar-title>
                             </v-toolbar>
+
+                            <v-card-text>
+                                <v-toolbar class="elevation-0 transparent">
+                                    <v-toolbar-title>Alcohol</v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text class="grey--text text--darken-2 subheading">
+                                    <p>This experience includes alcohol. Only guests who meet the legal drinking age will be served alcoholic beverages.</p>
+                                </v-card-text>
+                            </v-card-text>
                             <v-divider></v-divider>
 
                             <v-card-text>
-                                <div class="pt-3 subheading">
-                                    <div class="headline mb-2 grey--text text--darken-2"><strong>Alcohol</strong></div>
-                                    This experience includes alcohol. Only guests who meet the legal drinking age will be served alcoholic beverages.
-                                </div>
+                                <v-toolbar class="elevation-0 transparent">
+                                    <v-toolbar-title>Who can come?</v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text class="grey--text text--darken-2 subheading">
+                                    <p>Guests ages 18 and up can attend.</p>
+                                </v-card-text>
                             </v-card-text>
+                            <v-divider></v-divider>
 
                             <v-card-text>
-                                <div class="pt-3 subheading">
-                                    <div class="headline mb-2 grey--text text--darken-2"><strong>Who can come</strong></div>
-                                    Guests ages 18 and up can attend.
-                                </div>
-                            </v-card-text>
-
-                            <v-card-text>
-                                <div class="pt-3 subheading">
-                                <div class="headline mb-2 grey--text text--darken-2"><strong>Who’s coming</strong></div>
+                                <v-toolbar class="elevation-0 transparent">
+                                    <v-toolbar-title>Who’s coming?</v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text class="grey--text text--darken-2 subheading">
                                     <v-list>
                                         <v-list-tile avatar>
                                             <v-list-tile-avatar>
@@ -85,15 +92,13 @@
                                             </v-list-tile-content>
                                         </v-list-tile>
                                         <v-list-tile>
-                                            <v-spacer></v-spacer>
                                             <v-list-tile-action>
-                                                <v-btn outline small fab v-tooltip:left="{html: 'Add guest'}"><v-icon>add</v-icon></v-btn>
+                                                <v-btn outline small fab v-tooltip:right="{html: 'Add guest'}"><v-icon>add</v-icon></v-btn>
                                             </v-list-tile-action>
                                         </v-list-tile>
                                     </v-list>
-                                </div>
+                                </v-card-text>
                             </v-card-text>
-
 
                             <v-divider class="hidden-sm-and-down"></v-divider>
                             <v-card-text class="text-xs-right hidden-sm-and-down">
@@ -104,7 +109,7 @@
                     </v-flex>
 
                     <v-flex md4 xs12 class="hidden-sm-and-down">
-                        <v-card class="elevation-1 mb-3 card--flex-toolbar">
+                        <v-card class="elevation-1 mb-3">
                             <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
                                 <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
                                 <v-card-text class="text-xs-center">
@@ -173,18 +178,27 @@
                             <v-divider></v-divider>
                             <v-list two-line subheader>
                                 <v-list-tile avatar>
+                                    <v-list-tile-action>
+                                        <v-icon warning>warning</v-icon>
+                                    </v-list-tile-action>
                                     <v-list-tile-content>
                                         <v-list-tile-title class="fw-500">Full Refund</v-list-tile-title>
                                         <v-list-tile-sub-title>Before 2 weeks</v-list-tile-sub-title>
                                     </v-list-tile-content>
                                 </v-list-tile>
                                 <v-list-tile avatar>
+                                    <v-list-tile-action>
+                                        <v-icon warning>warning</v-icon>
+                                    </v-list-tile-action>
                                     <v-list-tile-content>
                                         <v-list-tile-title class="fw-500">Half Refund</v-list-tile-title>
                                         <v-list-tile-sub-title>5 to 10 business days</v-list-tile-sub-title>
                                     </v-list-tile-content>
                                 </v-list-tile>
                                 <v-list-tile avatar>
+                                    <v-list-tile-action>
+                                        <v-icon warning>warning</v-icon>
+                                    </v-list-tile-action>
                                     <v-list-tile-content>
                                         <v-list-tile-title class="fw-500">No Refund</v-list-tile-title>
                                         <v-list-tile-sub-title>Within or less than 5 days</v-list-tile-sub-title>
@@ -278,18 +292,27 @@
                                 </v-list>
                                 <v-list two-line subheader>
                                     <v-list-tile avatar>
+                                        <v-list-tile-action>
+                                            <v-icon warning>warning</v-icon>
+                                        </v-list-tile-action>
                                         <v-list-tile-content>
                                             <v-list-tile-title class="fw-500">Full Refund</v-list-tile-title>
                                             <v-list-tile-sub-title>Before 2 weeks</v-list-tile-sub-title>
                                         </v-list-tile-content>
                                     </v-list-tile>
                                     <v-list-tile avatar>
+                                        <v-list-tile-action>
+                                            <v-icon warning>warning</v-icon>
+                                        </v-list-tile-action>
                                         <v-list-tile-content>
                                             <v-list-tile-title class="fw-500">Half Refund</v-list-tile-title>
                                             <v-list-tile-sub-title>5 to 10 business days</v-list-tile-sub-title>
                                         </v-list-tile-content>
                                     </v-list-tile>
                                     <v-list-tile avatar>
+                                        <v-list-tile-action>
+                                            <v-icon warning>warning</v-icon>
+                                        </v-list-tile-action>
                                         <v-list-tile-content>
                                             <v-list-tile-title class="fw-500">No Refund</v-list-tile-title>
                                             <v-list-tile-sub-title>Within or less than 5 days</v-list-tile-sub-title>
@@ -322,9 +345,6 @@
             bottom: 0;
             width: 100%;
             z-index: 1;
-        }
-        .card--flex-toolbar {
-            /*margin-top: -80px;*/
         }
     </style>
 @endpush

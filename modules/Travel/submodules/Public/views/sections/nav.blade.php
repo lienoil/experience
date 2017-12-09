@@ -28,13 +28,8 @@
             </v-list-tile>
         </v-list>
     </v-menu>
-
-    <v-menu>
-        <v-list tile>
-
-        </v-list>
-    </v-menu>
 </div>
+
 <div class="hidden-sm-and-down">
     <v-menu open-on-hover top offset-y>
         <v-btn flat slot="activator" class="grey--text text--darken-1"><v-icon left>search</v-icon>Search</v-btn>
@@ -100,7 +95,7 @@
                 </v-select>
                 <v-btn primary flat @click.native="dialog.search = false">Go</v-btn>
             </v-card-actions>
-            <v-divider></v-divider>
+            {{-- <v-divider></v-divider> --}}
             <v-card-text>
                 <v-subheader>Popular Experiences</v-subheader>
                 <v-btn class="elevation-0" small accent>Random</v-btn>

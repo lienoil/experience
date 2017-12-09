@@ -151,18 +151,27 @@
                             <v-divider></v-divider>
                             <v-list two-line subheader>
                                 <v-list-tile avatar>
+                                    <v-list-tile-action>
+                                        <v-icon warning>warning</v-icon>
+                                    </v-list-tile-action>
                                     <v-list-tile-content>
                                         <v-list-tile-title class="fw-500">Full Refund</v-list-tile-title>
                                         <v-list-tile-sub-title>Before 2 weeks</v-list-tile-sub-title>
                                     </v-list-tile-content>
                                 </v-list-tile>
                                 <v-list-tile avatar>
+                                    <v-list-tile-action>
+                                        <v-icon warning>warning</v-icon>
+                                    </v-list-tile-action>
                                     <v-list-tile-content>
                                         <v-list-tile-title class="fw-500">Half Refund</v-list-tile-title>
                                         <v-list-tile-sub-title>5 to 10 business days</v-list-tile-sub-title>
                                     </v-list-tile-content>
                                 </v-list-tile>
                                 <v-list-tile avatar>
+                                    <v-list-tile-action>
+                                        <v-icon warning>warning</v-icon>
+                                    </v-list-tile-action>
                                     <v-list-tile-content>
                                         <v-list-tile-title class="fw-500">No Refund</v-list-tile-title>
                                         <v-list-tile-sub-title>Within or less than 5 days</v-list-tile-sub-title>
@@ -262,18 +271,27 @@
                                 </v-list>
                                 <v-list two-line subheader>
                                     <v-list-tile avatar>
+                                        <v-list-tile-action>
+                                            <v-icon warning>warning</v-icon>
+                                        </v-list-tile-action>
                                         <v-list-tile-content>
                                             <v-list-tile-title class="fw-500">Full Refund</v-list-tile-title>
                                             <v-list-tile-sub-title>Before 2 weeks</v-list-tile-sub-title>
                                         </v-list-tile-content>
                                     </v-list-tile>
                                     <v-list-tile avatar>
+                                        <v-list-tile-action>
+                                            <v-icon warning>warning</v-icon>
+                                        </v-list-tile-action>
                                         <v-list-tile-content>
                                             <v-list-tile-title class="fw-500">Half Refund</v-list-tile-title>
                                             <v-list-tile-sub-title>5 to 10 business days</v-list-tile-sub-title>
                                         </v-list-tile-content>
                                     </v-list-tile>
                                     <v-list-tile avatar>
+                                        <v-list-tile-action>
+                                            <v-icon warning>warning</v-icon>
+                                        </v-list-tile-action>
                                         <v-list-tile-content>
                                             <v-list-tile-title class="fw-500">No Refund</v-list-tile-title>
                                             <v-list-tile-sub-title>Within or less than 5 days</v-list-tile-sub-title>

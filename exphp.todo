@@ -73,23 +73,23 @@ Working links:
 align-center justify-center
 align-top justify-center
 
-Home lg10
-FAQ lg7 md8
+Home
+FAQ
 Experience
-Experience/show ? to change layout
-Billing lg8
+Experience/show
+Billing
 Billing/show
 Story
 Story/show
 
-Move Billing to Shop module (top-level)
-
 1600 x 900
 
-✔ packupandgo page
-✔ experience/show -> add video/image
-✔ my profile
-add tooltip of 'add to wishlist' cards
 --
 
 christmas theme
+packupandgo
+packupandgo/show
+create road trip module and contents, just like experiences
+my profile
+booking receipt (aribnb)
+

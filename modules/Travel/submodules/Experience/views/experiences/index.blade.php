@@ -69,7 +69,7 @@
                 </v-card>
             </v-dialog>
 
-            <v-menu
+            {{-- <v-menu
                 origin="center center"
                 transition="scale-transition"
                 offset-y center
@@ -87,7 +87,7 @@
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
-            </v-menu>
+            </v-menu> --}}
 
             <v-menu
                 origin="center center"
@@ -96,7 +96,7 @@
                 class="elevation-0"
                 :nudge-width="150"
                 >
-                <v-btn class="grey--text text--darken-1" flat slot="activator">Types <v-icon>keyboard_arrow_down</v-icon></v-btn>
+                <v-btn class="grey--text text--darken-1" flat slot="activator">Categories <v-icon>keyboard_arrow_down</v-icon></v-btn>
                     <v-list>
                     <v-list-tile ripple avatar v-for="item in types" v-bind:key="item.title" @click="">
                         <v-list-tile-action>
@@ -117,7 +117,7 @@
             <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
             <v-layout column align-center justify-center class="white--text">
                 <v-card dark class="elevation-0 transparent">
-                    <h2 class="mb-2 text-xs-center"><strong>{{ __("RANDOM ROAD TRIPS") }}</strong></h2>
+                    <h2 class="mb-2 text-xs-center"><strong>{{ __("EXPERIENCES") }}</strong></h2>
                     <h5 class="mb-3 text-xs-center fw-500">{{__("A Road Trip For The Adventure Seekers")}}</h5>
             </v-layout>
         </v-parallax>
@@ -128,7 +128,7 @@
             <v-layout row wrap align-center justify-center>
                 <v-flex lg10 xs12>
                     <v-card-text class="text-xs-center my-3">
-                        <h2 class="display-1">{{ __("CHOOSE A RANDOM ROAD TRIP") }}</h2>
+                        <h2 class="display-1">{{ __("CHOOSE AN EXPERIENCE") }}</h2>
                         <h2 class="subheading grey--text text--darken-1">
                             {{ __("Discover more about yourself, about others and about the beautiful country called the Philippines. Book your Experience with us now.") }}
                         </h2>
