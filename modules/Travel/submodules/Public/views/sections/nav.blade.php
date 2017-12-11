@@ -13,7 +13,7 @@
             <v-list-tile ripple href="\experiences">
                 <v-list-tile-title>Experience</v-list-tile-title>
             </v-list-tile>
-            <v-list-tile ripple href="\experiences">
+            <v-list-tile ripple href="\roadtrips">
                 <v-list-tile-title>Road Trips</v-list-tile-title>
             </v-list-tile>
             <v-list-tile ripple href="\budgets">
@@ -23,8 +23,23 @@
                 <v-list-tile-title>Stories</v-list-tile-title>
             </v-list-tile>
             <v-divider></v-divider>
-            <v-list-tile ripple href="\stories">
-                <v-list-tile-title>My Account</v-list-tile-title>
+            <v-list-tile ripple href="\myprofile">
+                <v-list-tile-action>
+                    <v-icon>account_circle</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-title>My Profile</v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile ripple href="\notifications">
+                <v-list-tile-action>
+                    <v-icon>settings</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-title>Account Settings</v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile ripple href="\logout">
+                <v-list-tile-action>
+                    <v-icon>exit_to_app</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-title>Log out</v-list-tile-title>
             </v-list-tile>
         </v-list>
     </v-menu>
@@ -109,7 +124,7 @@
 
 <div class="hidden-md-and-down main-nav">
     <v-btn href="\experiences" flat>{{ __('Experience') }}</v-btn>
-    <v-btn href="\experiences"flat>{{ __('Roadtrip') }}</v-btn>
+    <v-btn href="\roadtrips"flat>{{ __('Roadtrip') }}</v-btn>
     <v-btn href="\budgets"flat>{{ __('Pack &amp; Go') }}</v-btn>
     <v-btn href="\stories"flat>{{ __('Stories') }}</v-btn>
     <v-menu open-on-hover offset-y>
@@ -117,14 +132,32 @@
             <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
         </v-avatar>
         <v-list>
-            <v-list-tile ripple @click="">
+            <v-list-tile ripple href="\myprofile">
                 <v-list-tile-action>
-                    <v-icon>flag</v-icon>
+                    <v-icon>account_circle</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title>
-                        {{ __('Report') }}
-                    </v-list-tile-title>
+                    <v-list-tile-title> {{ __('My Profile') }} </v-list-title-title>
+                </v-list-tile-content>
+            </v-list-tile>
+        </v-list>
+        <v-list>
+            <v-list-tile ripple href="\notifications">
+                <v-list-tile-action>
+                    <v-icon>settings</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <v-list-tile-title> {{ __('Account Settings') }} </v-list-title-title>
+                </v-list-tile-content>
+            </v-list-tile>
+        </v-list>
+        <v-list>
+            <v-list-tile ripple href="\logout">
+                <v-list-tile-action>
+                    <v-icon>exit_to_app</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                    <v-list-tile-title> {{ __('Log out') }} </v-list-title-title>
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>

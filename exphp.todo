@@ -40,7 +40,7 @@ Clone Project:
 
 User Interface per Page:
     ✔ Global Toolbar @done (17-12-02 20:58)
-    ☐ Profile Account Page
+    ✔ Profile Account Page
     ✔ Registration Page @done (17-12-02 20:58)
     ✔ Homepage @done (17-12-02 23:12)
     ✔ Experience Main Page @done (17-12-03 12:13)
@@ -51,7 +51,7 @@ User Interface per Page:
     ✔ Billing @done (17-12-03 15:49)
         ✔ Billing Form
         ✔ Order Summary
-            ☐ Generate Transaction ID
+            ✔ Generate Transaction ID
             ✔ Summary
             ✔ Payment Options
             ✔ Check Out
@@ -77,6 +77,8 @@ Home
 FAQ
 Experience
 Experience/show
+Roadtrip
+Roadtrip/show
 Billing
 Billing/show
 Story
@@ -87,9 +89,7 @@ Story/show
 --
 
 christmas theme
-packupandgo
-packupandgo/show
-create road trip module and contents, just like experiences
 my profile
-booking receipt (aribnb)
+transactions
+
 

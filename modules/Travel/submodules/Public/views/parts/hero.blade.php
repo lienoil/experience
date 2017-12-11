@@ -16,7 +16,7 @@
                     <v-menu
                         offset-y
                         :close-on-content-click="false"
-                        class="block px-3 hero-search"
+                        class="block px-3 pt-4 hero-search"
                         v-model="hero.search"
                         >
                         <v-select

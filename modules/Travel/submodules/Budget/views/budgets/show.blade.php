@@ -9,326 +9,355 @@
         </v-toolbar>
     </v-card>
 
-    <section id="show">
-        <v-container fluid grid-list-lg>
-            <v-layout row wrap align-center justify-center>
-                <v-flex lg11 sm12 xs12>
-                    <div class="leftbar hidden-sm-and-down">
-                        <v-card class="elevation-0 mb-3">
-                            <v-card-media src="{{ assets('frontier/images/public/surf.jpg') }}" height="350px">
-                            </v-card-media>
-                        </v-card>
-
-                        <v-card class="elevation-1 mb-3">
-                            <v-toolbar class="elevation-0 transparent">
-                                <v-toolbar-title>Travel Manager</v-toolbar-title>
-                            </v-toolbar>
-                            <v-divider></v-divider>
-                            <v-card-text class="text-xs-center">
-                                <div class="mb-2">
-                                    <v-avatar size="100px">
-                                        <img src="{{ assets('frontier/images/placeholder/man.jpg') }}" alt="">
-                                    </v-avatar>
-                                </div>
-                                <span class="body-2 block pb-2">Cole Sprouse</span>
-                                <div>
-                                    The Travel Manager is the guy who will make sure your road trip will be full of adventures, excitement, tales to tell your grandchildren, epic memories and unforgettable experiences.
-                                </div>
-                            </v-card-text>
-                        </v-card>
-                    </div>
-
-                    <div class="sidebar hidden-sm-and-down">
-                        <v-card class="elevation-1 mb-3">
-                            <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
-                                <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
-                                <v-card-text class="text-xs-center">
-                                    <v-card dark class="elevation-0 transparent pt-4">
-                                        <div class="title pb-3 white--text"><strong>Multi-Traveler - Road Trip: <br> 3-Day Getaway</strong></div>
-                                        <div class="headline pb-2 white--text">from ₱<span class="fw-500"> 600</span></div>
-
-                                        <div>
-                                            <v-icon  n class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading orange--text text--darken-1 pb-1">star_half</v-icon>
-                                            <span class="caption">4.6</span>
-                                        </div>
-
-                                        <v-layout row wrap justify-center align-center>
-                                            <v-flex xs10>
-                                                <div class="py-4">
-                                                    <v-select
-                                                        class="mb-3"
-                                                        label="Select budget"
-                                                        slot="activator"
-                                                        append-icon="keyboard_arrow_down"
-                                                        v-bind:items="items"
-                                                        v-model="e1"
-                                                        single-line
-                                                        clearable
-                                                        solo>
-                                                    </v-select>
-                                                    <v-select
-                                                        autocomplete
-                                                        class="mb-3"
-                                                        label="Number of Travelers"
-                                                        append-icon=""
-                                                        clearable
-                                                        search-input
-                                                        solo tags>
-                                                    </v-select>
-                                                    <div class="text-xs-center">
-                                                        <v-btn primary block large round class="elevation-1 px-4" href="..\billings">Get Going</v-btn>
-                                                    </div>
-                                                </div>
-                                            </v-flex>
-                                        </v-layout>
-                                    </v-card>
-                                </v-card-text>
-                            </v-card-media>
-                        </v-card>
-                    </div>
-
-                    <v-layout row wrap>
-                        <v-flex xs12 class="py-0">
-                            <div class="content">
-                                <v-card class="elevation-1 mb-3">
-                                    <div class="hidden-md-and-up">
-                                        <v-card-media src="{{ assets('frontier/images/public/surf.jpg') }}" height="200px">
-                                        </v-card-media>
-                                    </div>
-                                    <div>
-                                        <v-card-text class="px-4">
-                                            <h4 class="grey--text text--darken-3"><strong>Multi-Traveler - Road Trip: <br> 3-Day Getaway</strong></h4>
-                                            <h4 class="title fw-400 my-0">from ₱ 600</h4>
-                                        </v-card-text>
-                                        <div class="hidden-md-and-up">
-                                            <v-divider></v-divider>
-                                            <v-card-text class="px-4">
-                                                <div class="title mb-2 grey--text text--darken-2">Travel Manager</div>
-                                                <div class="body-1 mb-2">A Few Details You Might Want To Know</div>
-                                                <div class="mb-2">
-                                                    <v-avatar size="100px">
-                                                        <img src="{{ assets('frontier/images/placeholder/man.jpg') }}" alt="">
-                                                    </v-avatar>
-                                                </div>
-                                                <span class="body-2 block pb-2">Cole Sprouse</span>
-                                                <div>
-                                                    The Travel Manager is the guy who will make sure your road trip will be full of adventures, excitement, tales to tell your grandchildren, epic memories and unforgettable experiences.
-                                                </div>
-                                            </v-card-text>
-                                        </div>
-                                        <v-divider></v-divider>
-                                        <v-card-text class="px-4">
-                                            <div class="title mb-2 grey--text text--darken-2">Have a car?</div>
-                                            <div class="body-2 mt-3">We'll provide:</div>
-                                            <div class="pt-3 subheading">
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div> Directions to your destination</div>
-                                                </v-card-actions>
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div>  Accommodation reservation</div>
-                                                </v-card-actions>
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div>  Curated map of recommendations for your destination.</div>
-                                                </v-card-actions>
-                                                <v-card-actions class="pa-0 pb-1">
-                                                    <v-avatar size="40px">
-                                                        <v-icon class="title mr-2 green--text text--lighten-1">check_circle</v-icon>
-                                                    </v-avatar>
-                                                    <div>  Recommendations for roadside attractions along the way</div>
-                                                </v-card-actions>
-                                            </div>
-                                        </v-card-text>
-                                    </div>
-                                </v-card>
-                            @include("Public::parts.review-exp")
+    <v-card class="elevation-1 hidden-sm-and-down">
+        <v-card-media src="{{ assets('frontier/images/public/car.jpg') }}" height="450px"></v-card-media>
+    </v-card>
+    <v-container fluid grid-list-lg>
+        <v-layout row wrap>
+            <v-flex md3 xs12 class="hidden-sm-and-down">
+                <div class="stickybar">
+                    <v-card class="elevation-1 mb-3">
+                        <v-toolbar class="elevation-0 transparent">
+                            <v-toolbar-title>Travel Manager</v-toolbar-title>
+                        </v-toolbar>
+                        <v-divider></v-divider>
+                        <v-card-text class="text-xs-center">
+                            <div class="mb-2">
+                                <v-avatar size="100px">
+                                    <img src="{{ assets('frontier/images/placeholder/man.jpg') }}" alt="">
+                                </v-avatar>
                             </div>
-                        </v-flex>
-                    </v-layout>
-                </v-flex>
-            </v-layout>
-            <v-layout row wrap align-center justify-center>
-                <v-flex lg11 sm12 xs12>
-                    <v-card class="elevation-0 transparent py-3">
-                        <v-card-text class="px-0">
-                            <div class="title mb-2 grey--text text--darken-2">Similar Listings</div>
-                            <div class="body-1 mb-2"> Lorem ipsum dolor cit amet</div>
-                            <div class="pt-3">
-                                <v-layout row wrap align-center>
-                                    <v-flex xs12 sm4 md3 v-for="card in experiences">
-                                        <a href="\experiences/show" ripple class="td-n">
-                                            <v-card class="elevation-1 c-lift">
-                                                <v-card-media
-                                                    height="180px"
-                                                    :src="card.src"
-                                                    class="grey lighten-4">
-                                                    <div class="text-xs-right" style="width: 100%;">
-                                                        <v-btn large v-tooltip:left="{ html: 'Add to wishlist' }" icon class="mr-3">
-                                                            @include("Experience::components.wishlist")
-                                                        </v-btn>
-                                                        <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="card.price" style="position: absolute; bottom: 15px; right: 0;"></v-chip>
-                                                    </div>
-                                                </v-card-media>
-                                                <v-divider class="grey lighten-3"></v-divider>
-                                                <v-toolbar card dense class="transparent pt-2">
-                                                    <v-toolbar-title class="mr-3 subheading">
-                                                        <span class="body-2">@{{ card.title }}</span><br>
-                                                        <span class="caption">@{{ card.date }}</span><br>
-                                                    </v-toolbar-title>
-                                                </v-toolbar>
-                                                <v-card-text class="grey--text pt-4">
-                                                    <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                                    <span class="caption">@{{ card.category }}</span>
-                                                    <div>
-                                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                                        <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
-                                                        4.6
-                                                    </div>
-                                                </v-card-text>
-                                            </v-card>
-                                        </a>
-                                    </v-flex>
-                                </v-layout>
+                            <span class="body-2 block pb-2">Cole Sprouse</span>
+                            <div>
+                                The Travel Manager is the guy who will make sure your road trip will be full of adventures, excitement, tales to tell your grandchildren, epic memories and unforgettable experiences.
                             </div>
                         </v-card-text>
                     </v-card>
-                </v-flex>
-            </v-layout>
-        </v-container>
 
-        {{-- mobile viewport --}}
-        <v-card class="elevation-1 fixed-nav hidden-md-and-up" style="z-index: 3;">
-            <v-divider></v-divider>
-            <v-layout row wrap>
-                <v-flex xs12>
-                    <v-card-actions>
-                        <v-card-text class="px-0 py-2">
-                            <div class="subheading pl-4"><strong>from ₱ 6,000</strong> <span class="body-1"></span></div>
-                            <v-dialog class="hidden-md-and-up" v-model="dialog.book" fullscreen transition="dialog-bottom-transition" :overlay=false>
-                                <v-btn flat small class="body-2 primary--text details-btn" slot="activator">See details</v-btn>
-                                <v-card>
-                                    <v-toolbar light class="white elevation-0">
-                                        <v-spacer></v-spacer>
-                                        <v-btn icon @click.native="dialog.book = false">
-                                            <v-icon>close</v-icon>
-                                        </v-btn>
-                                    </v-toolbar>
-                                    <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
-                                        <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
-                                        <v-card-text class="text-xs-center">
-                                            <v-card dark class="elevation-0 transparent pt-4">
-                                                <div class="title pb-3 white--text"><strong>Multi-Traveler - Road Trip: <br> 3-Day Getaway</strong></div>
-                                                <div class="headline pb-2 white--text">from ₱<span class="fw-500"> 600</span></div>
+                    <v-card class="elevation-1 mb-3">
+                        <v-list subheader class="py-3">
+                            <v-list-tile avatar>
+                                <v-list-tile-avatar tile>
+                                    <img src="{{ assets('frontier/images/public/cancel.png') }}"/>
+                                </v-list-tile-avatar>
+                                <v-list-tile-content>
+                                    <v-list-tile-title>Cancellation Policy</v-list-tile-title>
+                                    <v-list-tile-sub-title>Cancel before the trip</v-list-tile-sub-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                        </v-list>
+                        <v-divider></v-divider>
+                        <v-list two-line subheader>
+                            <v-list-tile avatar>
+                                <v-list-tile-action>
+                                    <v-icon warning>warning</v-icon>
+                                </v-list-tile-action>
+                                <v-list-tile-content>
+                                    <v-list-tile-title class="fw-500">Full Refund</v-list-tile-title>
+                                    <v-list-tile-sub-title>Before 2 weeks</v-list-tile-sub-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                            <v-list-tile avatar>
+                                <v-list-tile-action>
+                                    <v-icon warning>warning</v-icon>
+                                </v-list-tile-action>
+                                <v-list-tile-content>
+                                    <v-list-tile-title class="fw-500">Half Refund</v-list-tile-title>
+                                    <v-list-tile-sub-title>5 to 10 business days</v-list-tile-sub-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                            <v-list-tile avatar>
+                                <v-list-tile-action>
+                                    <v-icon warning>warning</v-icon>
+                                </v-list-tile-action>
+                                <v-list-tile-content>
+                                    <v-list-tile-title class="fw-500">No Refund</v-list-tile-title>
+                                    <v-list-tile-sub-title>Within or less than 5 days</v-list-tile-sub-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                        </v-list>
+                    </v-card>
+                </div>
+            </v-flex>
 
-                                                <div>
-                                                    <v-icon  n class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                                    <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                                    <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                                    <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
-                                                    <v-icon class="subheading orange--text text--darken-1 pb-1">star_half</v-icon>
-                                                    <span class="caption">4.6</span>
+            <v-flex md6 xs12>
+                <v-card class="elevation-1 mb-3">
+                    <div class="hidden-md-and-up">
+                        <v-card-media class="elevation-1" src="{{ assets('frontier/images/public/car.jpg') }}" height="200px">
+                        </v-card-media>
+                    </div>
+                    <v-toolbar dark class="elevation-1 blue">
+                        <v-toolbar-title>Multi-Traveler - Road Trip: 3-Day Getaway</v-toolbar-title>
+                    </v-toolbar>
+                    <div class="hidden-md-and-up">
+                        <v-card-text>
+                            <v-toolbar class="elevation-0 transparent">
+                                <v-toolbar-title>Travel Manager</v-toolbar-title>
+                            </v-toolbar>
+                            <v-card-text class="grey--text text--darken-2 subheading">
+                                <p>A Few Details You Might Want To Know</p>
+                                <p>
+                                    <v-avatar size="100px">
+                                        <img src="{{ assets('frontier/images/placeholder/man.jpg') }}" alt="">
+                                    </v-avatar>
+                                </p>
+                                <p><strong>Cole Sprouse</strong></p>
+                                <p>The Travel Manager is the guy who will make sure your road trip will be full of adventures, excitement, tales to tell your grandchildren, epic memories and unforgettable experiences.</p>
+                            </v-card-text>
+                        </v-card-text>
+                    </div>
+                    <v-divider></v-divider>
+
+                    <v-card-text>
+                        <v-toolbar class="elevation-0 transparent">
+                            <v-toolbar-title>Have your own car? Hit the road!</v-toolbar-title>
+                        </v-toolbar>
+                        <v-card-text class="grey--text text--darken-2 subheading">
+                            <p>Have a car? We'll provide:</p>
+                            <ul>
+                                <li>Directions to your destination</li>
+                                <li>Accommodation reservation</li>
+                                <li>Recommendations for roadside attractions along the way</li>
+                                <li>Curated map of recommendations for your destination.</li>
+                            </ul>
+                        </v-card-text>
+                        <v-card-text class="grey--text text--darken-2 subheading">
+                            <p><strong>You MUST provide your own car for this travel option.</strong></p>
+                            <p>Your destination will be within ~3-4 hours of your departure location.</p>
+                            <p>Budget selection is per person.</p>
+                            <p>If you have more than 4 travelers, please contact giancarlo@experience.ph to coordinate traveler details.</p>
+                        </v-card-text>
+                    </v-card-text>
+
+                    <v-divider class="hidden-md-and-up"></v-divider>
+                    <v-list subheader class="py-0 hidden-md-and-up">
+                        <v-subheader>Frequently Asked Questions</v-subheader>
+                        <v-list-tile avatar ripple href="\faq">
+                            <v-list-tile-avatar tile>
+                                <img src="{{ assets('frontier/images/public/question.png') }}"/>
+                            </v-list-tile-avatar>
+                            <v-list-tile-content>
+                                <v-list-tile-title>Experience Philippines</v-list-tile-title>
+                                <v-list-tile-sub-title>Help Center</v-list-tile-sub-title>
+                            </v-list-tile-content>
+                        </v-list-tile>
+                    </v-list>
+                </v-card>
+                @include("Public::parts.review-exp")
+            </v-flex>
+
+            <v-flex md3 xs12 class="hidden-sm-and-down">
+                <div class="stickybar">
+                    <v-card class="elevation-1 mb-3">
+                        <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
+                            <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
+                            <v-card-text class="text-xs-center">
+                                <v-card dark class="elevation-0 transparent pt-4">
+                                    <div class="title pb-3 white--text"><strong>Multi-Traveler - Road Trip: <br> 3-Day Getaway</strong></div>
+                                    <div class="headline pb-2 white--text">from ₱<span class="fw-500"> 600</span></div>
+
+                                    <div>
+                                        <v-icon  n class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                        <v-icon class="subheading orange--text text--darken-1 pb-1">star_half</v-icon>
+                                        <span class="caption">4.6</span>
+                                    </div>
+
+                                    <v-layout row wrap justify-center align-center>
+                                        <v-flex xs12>
+                                            <div class="py-4">
+                                                <v-select
+                                                    class="mb-3"
+                                                    label="Select budget"
+                                                    slot="activator"
+                                                    append-icon="keyboard_arrow_down"
+                                                    v-bind:items="items"
+                                                    v-model="e1"
+                                                    single-line
+                                                    clearable
+                                                    solo>
+                                                </v-select>
+                                                <v-select
+                                                    autocomplete
+                                                    class="mb-3"
+                                                    label="Number of Travelers"
+                                                    append-icon=""
+                                                    clearable
+                                                    search-input
+                                                    solo tags>
+                                                </v-select>
+                                                <div class="text-xs-center">
+                                                    <v-dialog v-model="dialog.budget" fullscreen transition="dialog-bottom-transition" :overlay=false>
+                                                        <v-btn primary block large round class="elevation-1 px-5" slot="activator">Get Going</v-btn>
+                                                        @include("Budget::widgets.form")
+                                                    </v-dialog>
                                                 </div>
-
-                                                <v-layout row wrap justify-center align-center>
-                                                    <v-flex xs10>
-                                                        <div class="py-4">
-                                                            <v-select
-                                                                class="mb-3"
-                                                                label="Select budget"
-                                                                slot="activator"
-                                                                append-icon="keyboard_arrow_down"
-                                                                v-bind:items="items"
-                                                                v-model="e1"
-                                                                single-line
-                                                                clearable
-                                                                solo>
-                                                            </v-select>
-                                                            <v-select
-                                                                autocomplete
-                                                                class="mb-3"
-                                                                label="Number of Travelers"
-                                                                append-icon=""
-                                                                clearable
-                                                                search-input
-                                                                solo tags>
-                                                            </v-select>
-                                                            <div class="text-xs-center">
-                                                                <v-btn primary block large round class="elevation-1 px-4" href="..\billings">Get Going</v-btn>
-                                                            </div>
-                                                        </div>
-                                                    </v-flex>
-                                                </v-layout>
-                                            </v-card>
-                                        </v-card-text>
-                                    </v-card-media>
-                                    <v-divider></v-divider>
-                                    <v-list subheader class="py-3">
-                                        <v-list-tile avatar>
-                                            <v-list-tile-avatar tile>
-                                                <img src="{{ assets('frontier/images/public/cancel.png') }}"/>
-                                            </v-list-tile-avatar>
-                                            <v-list-tile-content>
-                                                <v-list-tile-title>Cancellation Policy</v-list-tile-title>
-                                                <v-list-tile-sub-title>Cancel before the trip</v-list-tile-sub-title>
-                                            </v-list-tile-content>
-                                        </v-list-tile>
-                                    </v-list>
-                                    <v-list two-line subheader>
-                                        <v-list-tile avatar>
-                                            <v-list-tile-content>
-                                                <v-list-tile-title class="fw-500">Full Refund</v-list-tile-title>
-                                                <v-list-tile-sub-title>Before 2 weeks</v-list-tile-sub-title>
-                                            </v-list-tile-content>
-                                        </v-list-tile>
-                                        <v-list-tile avatar>
-                                            <v-list-tile-content>
-                                                <v-list-tile-title class="fw-500">Half Refund</v-list-tile-title>
-                                                <v-list-tile-sub-title>5 to 10 business days</v-list-tile-sub-title>
-                                            </v-list-tile-content>
-                                        </v-list-tile>
-                                        <v-list-tile avatar>
-                                            <v-list-tile-content>
-                                                <v-list-tile-title class="fw-500">No Refund</v-list-tile-title>
-                                                <v-list-tile-sub-title>Within or less than 5 days</v-list-tile-sub-title>
-                                            </v-list-tile-content>
-                                        </v-list-tile>
-                                    </v-list>
+                                            </div>
+                                        </v-flex>
+                                    </v-layout>
                                 </v-card>
-                            </v-dialog>
-                        </v-card-text>
-                        <v-spacer></v-spacer>
-                        <v-card-text class="px-0 py-2 text-xs-right">
-                            <v-btn large primary round class="elevation-1 px-2" href="..\billings">Get Going</v-btn>
-                        </v-card-text>
-                    </v-card-actions>
-                </v-flex>
-            </v-layout>
-        </v-card>
-    </section>
+                            </v-card-text>
+                        </v-card-media>
+                    </v-card>
+
+                    <v-card class="elevation-1 mb-3">
+                        <v-list subheader class="py-0">
+                            <v-subheader>Frequently Asked Questions</v-subheader>
+                            <v-list-tile avatar ripple href="\faq">
+                                <v-list-tile-avatar tile>
+                                    <img src="{{ assets('frontier/images/public/question.png') }}"/>
+                                </v-list-tile-avatar>
+                                <v-list-tile-content>
+                                    <v-list-tile-title>Experience Philippines</v-list-tile-title>
+                                    <v-list-tile-sub-title>Help Center</v-list-tile-sub-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                        </v-list>
+                    </v-card>
+                </div>
+            </v-flex>
+        </v-layout>
+
+        <v-layout row wrap align-center justify-center>
+            <v-flex lg10 sm12 xs12>
+                @include("Public::parts.similar-listing")
+            </v-flex>
+        </v-layout>
+    </v-container>
+
+    {{-- mobile viewport --}}
+    <v-card class="elevation-1 fixed-nav hidden-md-and-up" style="z-index: 3;">
+        <v-divider></v-divider>
+        <v-layout row wrap>
+            <v-flex xs12>
+                <v-card-actions>
+                    <v-card-text class="px-0 py-2">
+                        <div class="subheading pl-4"><strong>₱ 6,000</strong> <span class="body-1">per person</span></div>
+                        <v-dialog class="hidden-md-and-up" v-model="dialog.book" fullscreen transition="dialog-bottom-transition" :overlay=false>
+                            <v-btn flat small class="body-2 primary--text details-btn" slot="activator">See details</v-btn>
+                            <v-card>
+                                <v-toolbar light class="white elevation-0">
+                                    <v-spacer></v-spacer>
+                                    <v-btn icon @click.native="dialog.book = false">
+                                        <v-icon>close</v-icon>
+                                    </v-btn>
+                                </v-toolbar>
+                                <v-card-media src="{{ assets('frontier/images/placeholder/red2.jpg') }}">
+                                    <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
+                                    <v-card-text class="text-xs-center">
+                                        <v-card dark class="elevation-0 transparent pt-4">
+                                            <div class="title pb-3 white--text"><strong>Multi-Traveler - Road Trip: <br> 3-Day Getaway</strong></div>
+                                            <div class="headline pb-2 white--text">from ₱<span class="fw-500"> 600</span></div>
+
+                                            <div>
+                                                <v-icon  n class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="subheading orange--text text--darken-1 pb-1">star</v-icon>
+                                                <v-icon class="subheading orange--text text--darken-1 pb-1">star_half</v-icon>
+                                                <span class="caption">4.6</span>
+                                            </div>
+
+                                            <v-layout row wrap justify-center align-center>
+                                                <v-flex xs12>
+                                                    <div class="py-4">
+                                                        <v-select
+                                                            class="mb-3"
+                                                            label="Select budget"
+                                                            slot="activator"
+                                                            append-icon="keyboard_arrow_down"
+                                                            v-bind:items="items"
+                                                            v-model="e1"
+                                                            single-line
+                                                            clearable
+                                                            solo>
+                                                        </v-select>
+                                                        <v-select
+                                                            autocomplete
+                                                            class="mb-3"
+                                                            label="Number of Travelers"
+                                                            append-icon=""
+                                                            clearable
+                                                            search-input
+                                                            solo tags>
+                                                        </v-select>
+                                                        <div class="text-xs-center">
+                                                            <v-dialog v-model="dialog.budget" fullscreen transition="dialog-bottom-transition" :overlay=false>
+                                                                <v-btn primary block large round class="elevation-1 px-5" slot="activator">Get Going</v-btn>
+                                                                @include("Budget::widgets.form")
+                                                            </v-dialog>
+                                                        </div>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                        </v-card>
+                                    </v-card-text>
+                                </v-card-media>
+
+                                <v-divider></v-divider>
+                                <v-list subheader class="py-3">
+                                    <v-list-tile avatar>
+                                        <v-list-tile-avatar tile>
+                                            <img src="{{ assets('frontier/images/public/cancel.png') }}"/>
+                                        </v-list-tile-avatar>
+                                        <v-list-tile-content>
+                                            <v-list-tile-title>Cancellation Policy</v-list-tile-title>
+                                            <v-list-tile-sub-title>Cancel before the trip</v-list-tile-sub-title>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                </v-list>
+                                <v-divider></v-divider>
+                                <v-list two-line subheader>
+                                    <v-list-tile avatar>
+                                        <v-list-tile-action>
+                                            <v-icon warning>warning</v-icon>
+                                        </v-list-tile-action>
+                                        <v-list-tile-content>
+                                            <v-list-tile-title class="fw-500">Full Refund</v-list-tile-title>
+                                            <v-list-tile-sub-title>Before 2 weeks</v-list-tile-sub-title>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                    <v-list-tile avatar>
+                                        <v-list-tile-action>
+                                            <v-icon warning>warning</v-icon>
+                                        </v-list-tile-action>
+                                        <v-list-tile-content>
+                                            <v-list-tile-title class="fw-500">Half Refund</v-list-tile-title>
+                                            <v-list-tile-sub-title>5 to 10 business days</v-list-tile-sub-title>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                    <v-list-tile avatar>
+                                        <v-list-tile-action>
+                                            <v-icon warning>warning</v-icon>
+                                        </v-list-tile-action>
+                                        <v-list-tile-content>
+                                            <v-list-tile-title class="fw-500">No Refund</v-list-tile-title>
+                                            <v-list-tile-sub-title>Within or less than 5 days</v-list-tile-sub-title>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                </v-list>
+                            </v-card>
+                        </v-dialog>
+                    </v-card-text>
+                    <v-spacer></v-spacer>
+                    <v-card-text class="px-0 py-2 text-xs-right">
+                        <v-dialog v-model="dialog.budget" fullscreen transition="dialog-bottom-transition" :overlay=false>
+                            <v-btn large primary round class="elevation-1 px-5" slot="activator">Get Going</v-btn>
+                            @include("Budget::widgets.form")
+                        </v-dialog>
+                    </v-card-text>
+                </v-card-actions>
+            </v-flex>
+        </v-layout>
+    </v-card>
     @include("Public::sections.footer")
 @endsection
 
 
 @push('css')
     <style>
-        #show .crumbs-items:first-child .breadcrumbs__item {
-            padding-left: 0;
-        }
         .fixed-nav {
             position: fixed !important;
             bottom: 0;
@@ -372,21 +401,9 @@
         }
 
         @media (min-width: 60em) {
-            .sidebar {
-                position: positive;
-                top: 85px;
-                float: right;
-                width: 25%;
-            }
-            .leftbar {
-                position: positive;
-                top: 85px;
-                float: left;
-                width: 25%;
-                margin-right: 10px;
-            }
-            .content {
-                margin-right: 10px;
+            .stickybar {
+                position: sticky;
+                top: 80px;
             }
         }
     </style>
@@ -407,21 +424,14 @@
                     dialog: {
                         book: false
                     },
+                    dialog: {
+                        budget: false
+                    },
                     dates: [
                         { title: 'Click Me' },
                         { title: 'Click Me' },
                         { title: 'Click Me' },
                         { title: 'Click Me 2' }
-                    ],
-                    crumbs: [
-                        {
-                            text: 'Experiences',
-                            disabled: false
-                        },
-                        {
-                            text: 'Random Road Trip #1',
-                            disabled: false
-                        },
                     ],
                     exp: [
                         {
@@ -523,7 +533,16 @@
                         { text: '₱ 2, 000' },
                         { text: '₱ 2, 500' }
                     ],
-
+                    a1: null,
+                    a2: null,
+                    b1: null,
+                    b2: null,
+                    b3: null,
+                    b4: null,
+                    b5: null,
+                    text: 'center',
+                    schedule: null,
+                    insurance: 'radio-1',
                 }
             },
         });

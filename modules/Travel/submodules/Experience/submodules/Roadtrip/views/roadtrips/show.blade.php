@@ -297,21 +297,6 @@
                             </v-card-text>
                         </v-list>
                     </v-card>
-
-                    <v-card class="elevation-1 mb-3">
-                        <v-list subheader class="py-0">
-                            <v-subheader>Frequently Asked Questions</v-subheader>
-                            <v-list-tile avatar ripple href="\faq">
-                                <v-list-tile-avatar tile>
-                                    <img src="{{ assets('frontier/images/public/question.png') }}"/>
-                                </v-list-tile-avatar>
-                                <v-list-tile-content>
-                                    <v-list-tile-title>Experience Philippines</v-list-tile-title>
-                                    <v-list-tile-sub-title>Help Center</v-list-tile-sub-title>
-                                </v-list-tile-content>
-                            </v-list-tile>
-                        </v-list>
-                    </v-card>
                 </div>
             </v-flex>
         </v-layout>
@@ -427,6 +412,19 @@
                                         <v-list-tile-content>
                                             <v-list-tile-title class="fw-500">No Refund</v-list-tile-title>
                                             <v-list-tile-sub-title>Within or less than 5 days</v-list-tile-sub-title>
+                                        </v-list-tile-content>
+                                    </v-list-tile>
+                                </v-list>
+                                <v-divider></v-divider>
+                                <v-list subheader class="py-0">
+                                    <v-subheader>Frequently Asked Questions</v-subheader>
+                                    <v-list-tile avatar ripple href="\faq">
+                                        <v-list-tile-avatar tile>
+                                            <img src="{{ assets('frontier/images/public/question.png') }}"/>
+                                        </v-list-tile-avatar>
+                                        <v-list-tile-content>
+                                            <v-list-tile-title>Experience Philippines</v-list-tile-title>
+                                            <v-list-tile-sub-title>Help Center</v-list-tile-sub-title>
                                         </v-list-tile-content>
                                     </v-list-tile>
                                 </v-list>
