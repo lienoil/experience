@@ -51,6 +51,13 @@
                     </h2>
                 </v-card-text>
 
+                <v-card-text class="text-xs-center my-3">
+                    <h2 class="display-1">{{ __("OUR MISSION AND VISION") }}</h2>
+                    <h2 class="subheading grey--text text--darken-1">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
+                    </h2>
+                </v-card-text>
+
                 <v-layout row wrap>
                     <v-flex md4 xs12>
                         <v-card class="elevation-1" height="100%">
@@ -63,7 +70,7 @@
 
                             <v-card-text class="text-xs-center">
                                 <p class="title">Experience Local</p>
-                                <div class="subheading">Our trips are all about local experiences. We just do not see beautiful sites but we learn for them.</div>
+                                <div>Our trips are all about local experiences. We just do not see beautiful sites but we learn for them.</div>
                             </v-card-text>
                         </v-card>
                     </v-flex>
@@ -73,13 +80,13 @@
                             <v-toolbar class="elevation-0 transparent"></v-toolbar>
                             <v-card class="elevation-0 transparent text-xs-center review--flex">
                                 <v-avatar size="60px" class="cyan lighten-1 rounded">
-                                    <v-icon class="white--text">language</v-icon>
+                                    <v-icon class="white--text">fa fa-globe</v-icon>
                                 </v-avatar>
                             </v-card>
 
                             <v-card-text class="text-xs-center">
-                                <p class="title">Experience Local</p>
-                                <div class="subheading">Our trips are all about local experiences. We just do not see beautiful sites but we learn for them.</div>
+                                <p class="title">Philippine Class Service</p>
+                                <div>In the Philippines, we put great importance in hospitality. Our road trips  are always cheerful and with a smile.</div>
                             </v-card-text>
                         </v-card>
                     </v-flex>
@@ -89,13 +96,13 @@
                             <v-toolbar class="elevation-0 transparent"></v-toolbar>
                             <v-card class="elevation-0 transparent text-xs-center review--flex">
                                 <v-avatar size="60px" class="cyan lighten-1 rounded">
-                                    <v-icon class="white--text">language</v-icon>
+                                    <v-icon class="white--text">thumb_up</v-icon>
                                 </v-avatar>
                             </v-card>
 
                             <v-card-text class="text-xs-center">
-                                <p class="title">Experience Local</p>
-                                <div class="subheading">Our trips are all about local experiences. We just do not see beautiful sites but we learn for them.</div>
+                                <p class="title">Best Price Guarantee</p>
+                                <div>We provide the best value for money for Philippine budget travel.</div>
                             </v-card-text>
                         </v-card>
                     </v-flex>
