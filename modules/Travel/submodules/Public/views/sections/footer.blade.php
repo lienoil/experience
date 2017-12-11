@@ -25,7 +25,7 @@
                                                     <v-flex sm5 offset-sm1>
                                                         <div class="body-2 mb-2 white--text">Experience Philippines</div>
                                                         <div class="mb-1">
-                                                        <a href="" class="td-n grey--text">
+                                                        <a href="\about" class="td-n grey--text">
                                                             Who We Are
                                                         </a>
                                                         </div>

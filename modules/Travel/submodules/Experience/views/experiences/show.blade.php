@@ -10,7 +10,11 @@
     </v-card>
 
     <v-card class="elevation-1 hidden-sm-and-down">
-        <v-card-media src="{{ assets('frontier/images/public/car.jpg') }}" height="450px"></v-card-media>
+        <v-card-media src="{{ assets('frontier/images/public/car.jpg') }}" height="450px">
+            <v-toolbar dark class="elevation-0 transparent">
+                <v-btn flat href="\experiences"><v-icon>keyboard_backspace</v-icon> Back</v-btn>
+            </v-toolbar>
+        </v-card-media>
     </v-card>
     <v-container fluid grid-list-lg>
         <v-layout row wrap>

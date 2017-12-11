@@ -68,27 +68,6 @@
                     </v-flex>
                 </v-card>
             </v-dialog>
-
-            {{-- <v-menu
-                origin="center center"
-                transition="scale-transition"
-                offset-y center
-                class="elevation-0"
-                :nudge-width="150"
-                >
-                <v-btn flat primary slot="activator">Random <v-icon>keyboard_arrow_down</v-icon></v-btn>
-                <v-list>
-                    <v-list-tile ripple avatar v-for="item in items" v-bind:key="item.title" @click="">
-                        <v-list-tile-action>
-                            <v-icon color="pink">whatshot</v-icon>
-                        </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </v-list>
-            </v-menu> --}}
-
             <v-menu
                 origin="center center"
                 transition="scale-transition"
