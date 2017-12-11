@@ -76,7 +76,7 @@
                     <v-menu
                         offset-y
                         :close-on-content-click="false"
-                        class="block px-3"
+                        class="block px-3 pt-4"
                         v-model="search"
                         >
                         <v-select

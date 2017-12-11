@@ -41,75 +41,102 @@
         </v-card-text>
     </v-card>
 
-    <v-container fluid grid-list-lg>
-        <v-layout row wrap justify-center align-top>
-            <v-flex md10 xs12>
-                <v-card-text class="text-xs-center my-3">
-                    <h2 class="display-1">{{ __("CHECK OUT OUR WILD ADVENTURES") }}</h2>
-                    <h2 class="subheading grey--text text--darken-1">
-                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
-                    </h2>
-                </v-card-text>
+    <section id="mv" class="py-3">
+        <v-container fluid grid-list-lg>
+            <v-layout row wrap justify-center align-top>
+                <v-flex lg8 xs12>
+                    <v-card-text class="text-xs-center my-3">
+                        <h2 class="display-1">{{ __("WE ARE ABOUT UNIQUE ADVENTURES") }}</h2>
+                        <h2 class="subheading grey--text text--darken-1">
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
+                        </h2>
+                    </v-card-text>
 
-                <v-card-text class="text-xs-center my-3">
-                    <h2 class="display-1">{{ __("OUR MISSION AND VISION") }}</h2>
-                    <h2 class="subheading grey--text text--darken-1">
-                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
-                    </h2>
-                </v-card-text>
+                    <v-card class="elevation-0 transparent mb-4">
+                        <v-carousel hide-delimiters hide-controls style="height: 350px;">
+                            <v-carousel-item v-for="(item,i) in gallery" v-bind:src="item.src" :key="i"></v-carousel-item>
+                        </v-carousel>
+                    </v-card>
 
-                <v-layout row wrap>
-                    <v-flex md4 xs12>
-                        <v-card class="elevation-1" height="100%">
-                            <v-toolbar class="elevation-0 transparent"></v-toolbar>
-                            <v-card class="elevation-0 transparent text-xs-center review--flex">
-                                <v-avatar size="60px" class="cyan lighten-1 rounded">
-                                    <v-icon class="white--text">star</v-icon>
-                                </v-avatar>
+
+                    <v-card-text class="text-xs-center my-3">
+                        <h2 class="display-1">{{ __("OUR MISSION AND VISION") }}</h2>
+                        <h2 class="subheading grey--text text--darken-1">
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
+                        </h2>
+                    </v-card-text>
+
+                    <v-layout row wrap>
+                        <v-flex md8 xs12>
+                            <v-card class="elevation-1 pa-4" height="100%">
+                                <v-toolbar class="elevation-0 transparent">
+                                    <v-toolbar-title>Objectives</v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text class="subheading">
+                                    <ul>
+                                        <li>To provide UNIQUE ADVENTURES of places in the Philippines not frequently visited by foreign and local tourists.</li>
+                                        <li>To provide an alternative transport and lodging solution.</li>
+                                        <li>To introduce a different kind of travel experience classified as either fixed itineraries or random road trips.</li>
+                                        <li>To encourage individuals to experiment and experience “unplanned” journeys by moving them out of their comfort zones through random road trips with random people to random places for some random fun and adventure.</li>
+                                    </ul>
+                                </v-card-text>
                             </v-card>
+                        </v-flex>
 
-                            <v-card-text class="text-xs-center">
-                                <p class="title">Experience Local</p>
-                                <div>Our trips are all about local experiences. We just do not see beautiful sites but we learn for them.</div>
-                            </v-card-text>
-                        </v-card>
-                    </v-flex>
-
-                    <v-flex md4 xs12>
-                        <v-card class="elevation-1" height="100%">
-                            <v-toolbar class="elevation-0 transparent"></v-toolbar>
-                            <v-card class="elevation-0 transparent text-xs-center review--flex">
-                                <v-avatar size="60px" class="cyan lighten-1 rounded">
-                                    <v-icon class="white--text">fa fa-globe</v-icon>
-                                </v-avatar>
+                        <v-flex md4 xs12>
+                            {{-- <v-card dark class="elevation-1" height="100%" style="background-image: linear-gradient(80deg, #871752, #007fa9) !important;"> --}}
+                            <v-card class="elevation-1" height="100%">
+                                <v-toolbar dark class="elevation-0 transparent pb-3">
+                                    <v-toolbar-title>Mission Statement</v-toolbar-title>
+                                </v-toolbar>
+                                <v-card-text>
+                                    <h4 class="mb-2 text-xs-center headline">{{ __("We want you to experience and explore the beauty and charm of the Philippines Islands in a different way by travelling differently.") }}</h4>
+                                </v-card-text>
                             </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </section>
 
-                            <v-card-text class="text-xs-center">
-                                <p class="title">Philippine Class Service</p>
-                                <div>In the Philippines, we put great importance in hospitality. Our road trips  are always cheerful and with a smile.</div>
-                            </v-card-text>
-                        </v-card>
-                    </v-flex>
-
-                    <v-flex md4 xs12>
-                        <v-card class="elevation-1" height="100%">
-                            <v-toolbar class="elevation-0 transparent"></v-toolbar>
-                            <v-card class="elevation-0 transparent text-xs-center review--flex">
-                                <v-avatar size="60px" class="cyan lighten-1 rounded">
-                                    <v-icon class="white--text">thumb_up</v-icon>
-                                </v-avatar>
+    <section id="services" class="white py-3">
+        <v-container fluid grid-list-lg>
+            <v-layout row wrap justify-center align-top>
+                <v-flex lg8 xs12>
+                    <v-layout row wrap>
+                        <v-flex md4 xs12>
+                            <v-card class="elevation-0">
+                                <v-card-text class="text-xs-center">
+                                    <p class="mb-4"><v-icon class="display-2 red--text text--lighten-1">star_border</v-icon></p>
+                                    <p class="title">Experience Local</p>
+                                    <p>Our trips are all about local experiences. We just do not see beautiful sites but we learn for them.</p>
+                                </v-card-text>
                             </v-card>
-
-                            <v-card-text class="text-xs-center">
-                                <p class="title">Best Price Guarantee</p>
-                                <div>We provide the best value for money for Philippine budget travel.</div>
-                            </v-card-text>
-                        </v-card>
-                    </v-flex>
-                </v-layout>
-            </v-flex>
-        </v-layout>
-    </v-container>
+                        </v-flex>
+                        <v-flex md4 xs12>
+                            <v-card class="elevation-0">
+                                <v-card-text class="text-xs-center">
+                                    <p class="mb-4"><v-icon class="display-2 red--text text--lighten-1">fa fa-globe</v-icon></p>
+                                    <p class="title">Philippine Class Service</p>
+                                    <p>In the Philippines, we put great importance in hospitality. Our road trips  are always cheerful and with a smile.</p>
+                                </v-card-text>
+                            </v-card>
+                        </v-flex>
+                        <v-flex md4 xs12>
+                            <v-card class="elevation-0">
+                                <v-card-text class="text-xs-center">
+                                    <p class="mb-4"><v-icon class="display-2 red--text text--lighten-1">fa fa-thumbs-o-up</v-icon></p>
+                                    <p class="title">Best Price Guarantee</p>
+                                    <p>We provide the best value for money for Philippine budget travel.</p>
+                                </v-card-text>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </section>
 
 
     @include("Public::sections.footer")
@@ -161,6 +188,17 @@
                 return {
                     menu: false,
                     search: null,
+                    gallery: [
+                        {
+                            src: '{{ assets('frontier/images/placeholder/city.png') }}'
+                        },
+                        {
+                            src: '{{ assets('frontier/images/placeholder/8.jpg') }}'
+                        },
+                        {
+                            src: '{{ assets('frontier/images/placeholder/city.jpg') }}'
+                        }
+                    ]
                 }
             },
         });
