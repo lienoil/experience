@@ -19,7 +19,7 @@
                     <h5 class="mb-3 text-xs-center fw-500">{{__("Let's Go Travel Differently")}}</h5>
             </v-layout>
         </v-parallax>
-        <v-card-text class="pa-2 white">
+        <v-card-text class="pa-2 white hidden-xs-only">
             <v-layout wrap justify-space-around align-center>
                 <v-list class="text-xs-center">
                     <div class="headline primary--text text--darken-2">465</div>
@@ -41,69 +41,78 @@
         </v-card-text>
     </v-card>
 
-    <section id="mv" class="py-3">
+    <div class="py-3">
+        <section id="gallery" class="py-3">
+            <v-container fluid>
+                <v-layout row wrap justify-center align-center>
+                    <v-flex lg10 xs12>
+                        <v-card-text class="text-xs-center my-3">
+                            <h2 class="display-1">{{ __("WE ARE ABOUT UNIQUE ADVENTURES") }}</h2>
+                            <h2 class="subheading grey--text text--darken-1">
+                                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
+                            </h2>
+                        </v-card-text>
+
+                        <v-card class="elevation-0 transparent mb-4">
+                            <v-carousel hide-delimiters hide-controls style="height: 350px;">
+                                <v-carousel-item v-for="(item,i) in gallery" v-bind:src="item.src" :key="i"></v-carousel-item>
+                            </v-carousel>
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+        </section>
+
+        <section id="objective" class="py-3">
+            <v-container fluid>
+                <v-layout row wrap justify-center align-top>
+                    <v-flex lg10 xs12>
+                        <v-card-text class="text-xs-center my-3">
+                            <h2 class="display-1">{{ __("OUR MISSION AND VISION") }}</h2>
+                            <h2 class="subheading grey--text text--darken-1">
+                                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
+                            </h2>
+                        </v-card-text>
+
+                        <v-layout row wrap>
+                            <v-flex md8 xs12>
+                                <v-card class="elevation-1 pa-4" height="100%">
+                                    <v-toolbar class="elevation-0 transparent">
+                                        <v-toolbar-title>Objectives</v-toolbar-title>
+                                    </v-toolbar>
+                                    <v-card-text class="subheading">
+                                        <ul>
+                                            <li>To provide UNIQUE ADVENTURES of places in the Philippines not frequently visited by foreign and local tourists.</li>
+                                            <li>To provide an alternative transport and lodging solution.</li>
+                                            <li>To introduce a different kind of travel experience classified as either fixed itineraries or random road trips.</li>
+                                            <li>To encourage individuals to experiment and experience “unplanned” journeys by moving them out of their comfort zones through random road trips with random people to random places for some random fun and adventure.</li>
+                                        </ul>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+
+                            <v-flex md4 xs12>
+                                <v-card-media class="elevation-1" style="background: linear-gradient(80deg, #871752, #007fa9) !important;" height="450">
+                                    <v-layout column align-center justify-center class="white--text">
+                                        <v-card dark class="elevation-0 transparent">
+                                            <v-card-text>
+                                                <p class="mb-1 text-xs-center headline">"{{ __("We want you to experience and explore the beauty and charm of the Philippines Islands in a different way by travelling differently.") }}"</p>
+                                            </v-card-text>
+                                        </v-card>
+                                    </v-layout>
+                                </v-card-media>
+                            </v-flex>
+                        </v-layout>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+        </section>
+    </div>
+
+    <section id="services" class="white mt-5 py-5">
         <v-container fluid grid-list-lg>
             <v-layout row wrap justify-center align-top>
-                <v-flex lg8 xs12>
-                    <v-card-text class="text-xs-center my-3">
-                        <h2 class="display-1">{{ __("WE ARE ABOUT UNIQUE ADVENTURES") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
-                        </h2>
-                    </v-card-text>
-
-                    <v-card class="elevation-0 transparent mb-4">
-                        <v-carousel hide-delimiters hide-controls style="height: 350px;">
-                            <v-carousel-item v-for="(item,i) in gallery" v-bind:src="item.src" :key="i"></v-carousel-item>
-                        </v-carousel>
-                    </v-card>
-
-
-                    <v-card-text class="text-xs-center my-3">
-                        <h2 class="display-1">{{ __("OUR MISSION AND VISION") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
-                        </h2>
-                    </v-card-text>
-
-                    <v-layout row wrap>
-                        <v-flex md8 xs12>
-                            <v-card class="elevation-1 pa-4" height="100%">
-                                <v-toolbar class="elevation-0 transparent">
-                                    <v-toolbar-title>Objectives</v-toolbar-title>
-                                </v-toolbar>
-                                <v-card-text class="subheading">
-                                    <ul>
-                                        <li>To provide UNIQUE ADVENTURES of places in the Philippines not frequently visited by foreign and local tourists.</li>
-                                        <li>To provide an alternative transport and lodging solution.</li>
-                                        <li>To introduce a different kind of travel experience classified as either fixed itineraries or random road trips.</li>
-                                        <li>To encourage individuals to experiment and experience “unplanned” journeys by moving them out of their comfort zones through random road trips with random people to random places for some random fun and adventure.</li>
-                                    </ul>
-                                </v-card-text>
-                            </v-card>
-                        </v-flex>
-
-                        <v-flex md4 xs12>
-                            {{-- <v-card dark class="elevation-1" height="100%" style="background-image: linear-gradient(80deg, #871752, #007fa9) !important;"> --}}
-                            <v-card class="elevation-1" height="100%">
-                                <v-toolbar dark class="elevation-0 transparent pb-3">
-                                    <v-toolbar-title>Mission Statement</v-toolbar-title>
-                                </v-toolbar>
-                                <v-card-text>
-                                    <h4 class="mb-2 text-xs-center headline">{{ __("We want you to experience and explore the beauty and charm of the Philippines Islands in a different way by travelling differently.") }}</h4>
-                                </v-card-text>
-                            </v-card>
-                        </v-flex>
-                    </v-layout>
-                </v-flex>
-            </v-layout>
-        </v-container>
-    </section>
-
-    <section id="services" class="white py-3">
-        <v-container fluid grid-list-lg>
-            <v-layout row wrap justify-center align-top>
-                <v-flex lg8 xs12>
+                <v-flex lg10 xs12>
                     <v-layout row wrap>
                         <v-flex md4 xs12>
                             <v-card class="elevation-0">
@@ -137,7 +146,6 @@
             </v-layout>
         </v-container>
     </section>
-
 
     @include("Public::sections.footer")
 @endsection

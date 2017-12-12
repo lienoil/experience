@@ -11,7 +11,7 @@
 
     <v-container fluid grid-list-lg>
         <v-layout row wrap justify-center align-top>
-            <v-flex md10 xs12>
+            <v-flex lg10 md12 xs12>
                 <v-layout row wrap>
                     <v-flex md3 sm4 xs12>
                         <v-card class="elevation-1">
@@ -33,6 +33,16 @@
                                     <v-list-tile-content>
                                         <v-list-tile-title>
                                             {{ __('Transaction History') }}
+                                        </v-list-tile-title>
+                                    </v-list-tile-content>
+                                </v-list-tile>
+                                <v-list-tile ripple href="\wishlist">
+                                    <v-list-tile-action>
+                                        <v-icon>favorite</v-icon>
+                                    </v-list-tile-action>
+                                    <v-list-tile-content>
+                                        <v-list-tile-title>
+                                            {{ __('Wishlist') }}
                                         </v-list-tile-title>
                                     </v-list-tile-content>
                                 </v-list-tile>

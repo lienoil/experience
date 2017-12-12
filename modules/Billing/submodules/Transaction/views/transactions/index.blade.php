@@ -11,7 +11,7 @@
 
     <v-container fluid grid-list-lg>
         <v-layout row wrap justify-center align-top>
-            <v-flex md10 xs12>
+            <v-flex lg10 md12 xs12>
                 <v-layout row wrap>
                     <v-flex md3 sm4 xs12>
                         <v-card class="elevation-1">
@@ -36,6 +36,16 @@
                                         </v-list-tile-title>
                                     </v-list-tile-content>
                                 </v-list-tile>
+                                <v-list-tile ripple href="\wishlist">
+                                    <v-list-tile-action>
+                                        <v-icon>favorite</v-icon>
+                                    </v-list-tile-action>
+                                    <v-list-tile-content>
+                                        <v-list-tile-title>
+                                            {{ __('Wishlist') }}
+                                        </v-list-tile-title>
+                                    </v-list-tile-content>
+                                </v-list-tile>
                             </v-list>
                         </v-card>
                     </v-flex>
@@ -57,23 +67,16 @@
                                     v-model="dataset.searchform.query"
                                     v-show="dataset.searchform.model"
                                 ></v-text-field>
-                                {{--  <v-select
-                                    label="Search"
-                                    chips
-                                    tags
-                                    solo
-                                    prepend-icon="search"
-                                    append-icon=""
-                                    clearable
-                                    autofocus
-                                    >
-                                </v-select> --}}
                                 <v-btn v-show="!dataset.searchform.model" icon v-tooltip:left="{'html': dataset.searchform.model ? 'Clear' : 'Search resources'}" @click.native="dataset.searchform.model = !dataset.searchform.model;dataset,searchform.query = '';"><v-icon>search</v-icon></v-btn>
                             </template>
                             {{-- /Search --}}
 
                             <v-btn icon v-tooltip:left="{ html: 'Filter' }">
                                 <v-icon class="subheading">fa fa-filter</v-icon>
+                            </v-btn>
+
+                            <v-btn icon v-tooltip:left="{ html: 'Export to Excel' }">
+                                <v-icon>file_download</v-icon>
                             </v-btn>
 
                             {{-- Batch Commands --}}
@@ -100,7 +103,7 @@
                                             flat
                                             icon
                                             type="submit"
-                                            v-tooltip:left="{'html': `Move ${dataset.selected.length} selected items to Trash`}"
+                                            v-tooltip:left="{'html': `Move ${ dataset.selected.length } selected items to Trash`}"
                                         ><v-icon warning>delete_sweep</v-icon></v-btn>
                                     </form>
                                 </template>

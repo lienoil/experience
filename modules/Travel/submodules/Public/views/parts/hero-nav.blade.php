@@ -19,6 +19,9 @@
             <v-list-tile ripple href="\stories">
                 <v-list-tile-title>Stories</v-list-tile-title>
             </v-list-tile>
+            <v-list-tile ripple href="\host">
+                <v-list-tile-title class="green--text fw-500">Become a Host</v-list-tile-title>
+            </v-list-tile>
             <v-divider></v-divider>
             <v-list-tile ripple href="\myprofile">
                 <v-list-tile-action>
@@ -62,9 +65,10 @@
 
 <div class="hidden-md-and-down main-nav">
     <v-btn href="\experiences" flat>{{ __('Experience') }}</v-btn>
-    <v-btn href="\roadtrips"flat>{{ __('Roadtrip') }}</v-btn>
-    <v-btn href="\budgets"flat>{{ __('Pack &amp; Go') }}</v-btn>
-    <v-btn href="\stories"flat>{{ __('Stories') }}</v-btn>
+    <v-btn href="\roadtrips" flat>{{ __('Roadtrip') }}</v-btn>
+    <v-btn href="\budgets" flat>{{ __('Pack &amp; Go') }}</v-btn>
+    <v-btn href="\stories" flat>{{ __('Stories') }}</v-btn>
+    <v-btn href="\host" flat success class="success--text">{{ __('Become a Host') }}</v-btn>
     <v-menu open-on-hover offset-y>
         <v-avatar size="35px" slot="activator" class="mr-4 ml-4 elevation-1">
             <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
