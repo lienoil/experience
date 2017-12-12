@@ -3,7 +3,7 @@
         <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.3); position: absolute; width: 100%; height: 100%;"></div>
         <v-toolbar class="elevation-0 transparent" dark>
             <a href="">
-                <img class="pt-3" src="{{ assets('frontier/images/public/exph_logo.png') }}" alt="" width="200">
+                <img class="pt-5" src="{{ assets('frontier/images/public/exph_logo.png') }}" alt="" width="320">
             </a>
             @include("Public::parts.hero-nav")
         </v-toolbar>
