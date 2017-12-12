@@ -13,7 +13,7 @@ return [
         'order' => 51,
         'slug' => url(config('path.admin').'/roadtrips'),
         'always_viewable' => false,
-        'icon' => '',
+        'icon' => 'directions_car',
         'labels' => [
             'title' => __('Roadtrips'),
             'description' => __('Manage roadtrips'),

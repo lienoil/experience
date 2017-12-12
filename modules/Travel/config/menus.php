@@ -13,7 +13,7 @@ return [
         'order' => 51,
         'slug' => url(config('path.admin').'/travels'),
         'always_viewable' => false,
-        'icon' => '',
+        'icon' => 'place',
         'labels' => [
             'title' => __('Travels'),
             'description' => __('Manage travels'),

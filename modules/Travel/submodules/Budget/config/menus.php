@@ -13,7 +13,7 @@ return [
         'order' => 51,
         'slug' => url(config('path.admin').'/budgets'),
         'always_viewable' => false,
-        'icon' => '',
+        'icon' => 'attach_money',
         'labels' => [
             'title' => __('Budgets'),
             'description' => __('Manage budgets'),

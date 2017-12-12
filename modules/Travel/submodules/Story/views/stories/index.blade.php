@@ -87,7 +87,7 @@
                             </v-card>
 
                             <v-card class="elevation-1 mb-3">
-                                <v-btn block large primary class="elevation-0" href="\stories/create">Create a new post</v-btn>
+                                <v-btn block large success class="elevation-0" href="\stories/create">Create a new story</v-btn>
                             </v-card>
 
                             <v-card class="elevation-1 mb-3">

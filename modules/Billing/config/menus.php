@@ -13,7 +13,7 @@ return [
         'order' => 51,
         'slug' => url(config('path.admin').'/billings'),
         'always_viewable' => false,
-        'icon' => '',
+        'icon' => 'local_grocery_store',
         'labels' => [
             'title' => __('Billings'),
             'description' => __('Manage billings'),

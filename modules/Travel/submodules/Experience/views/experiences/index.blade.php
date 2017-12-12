@@ -124,7 +124,7 @@
                                             <v-btn large v-tooltip:left="{ html: 'Add to wishlist' }" icon class="mr-3">
                                                 @include("Experience::components.wishlist")
                                             </v-btn>
-                                            <v-chip label class="ma-0 white--text deep-orange darken-1" v-html="card.price" style="position: absolute; bottom: 15px; right: 0;"></v-chip>
+                                            <v-chip label class="ma-0 white--text green lighten-1" v-html="card.price" style="position: absolute; bottom: 15px; right: 0;"></v-chip>
                                         </div>
                                     </v-card-media>
                                     <v-divider class="grey lighten-3"></v-divider>
@@ -138,11 +138,11 @@
                                         <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
                                         <span class="caption">@{{ card.category }}</span>
                                         <div>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star</v-icon>
-                                            <v-icon class="subheading deep-orange--text text--darken-1 pb-1">star_half</v-icon>
+                                            <v-icon class="subheading primary--text pb-1">star</v-icon>
+                                            <v-icon class="subheading primary--text pb-1">star</v-icon>
+                                            <v-icon class="subheading primary--text pb-1">star</v-icon>
+                                            <v-icon class="subheading primary--text pb-1">star</v-icon>
+                                            <v-icon class="subheading primary--text pb-1">star_half</v-icon>
                                             4.6
                                         </div>
                                     </v-card-text>

@@ -18,10 +18,10 @@
                             <v-list class="py-0">
                                 <v-list-tile ripple href="\notifications">
                                     <v-list-tile-action>
-                                        <v-icon>notifications</v-icon>
+                                        <v-icon primary>notifications</v-icon>
                                     </v-list-tile-action>
                                     <v-list-tile-content>
-                                        <v-list-tile-title>
+                                        <v-list-tile-title class="primary--text">
                                             {{ __('Notifications') }}
                                         </v-list-tile-title>
                                     </v-list-tile-content>
@@ -43,6 +43,32 @@
                     <v-flex md9 sm8 xs12>
                         <v-layout row wrap>
                             <v-flex md6 xs12>
+                                <v-card class="mb-3 elevation-1">
+                                    <v-toolbar class="elevation-0">
+                                        <v-toolbar-title>Messages</v-toolbar-title>
+                                    </v-toolbar>
+                                    <v-card-text>
+                                        <p>Receive messages from hosts and guests.</p>
+                                        <v-checkbox
+                                            label="Email"
+                                            color="success"
+                                            v-model="n1"
+                                            class="pt-0">
+                                        </v-checkbox>
+                                        <v-checkbox
+                                            label="Push notifications"
+                                            color="success"
+                                            v-model="n2"
+                                            class="pt-0">
+                                        </v-checkbox>
+                                        <v-checkbox
+                                            label="Text messages"
+                                            color="success"
+                                            v-model="n3"
+                                            class="pt-0">
+                                        </v-checkbox>
+                                    </v-card-text>
+                                </v-card>
                                 <v-card class="mb-3 elevation-1">
                                     <v-toolbar class="elevation-0">
                                         <v-toolbar-title>Messages</v-toolbar-title>

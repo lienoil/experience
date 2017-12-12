@@ -15,31 +15,27 @@
             <v-layout column align-center justify-center class="white--text">
                 <v-card dark class="elevation-0 transparent">
                     <h2 class="mb-2 text-xs-center"><strong>{{ __("PRESS AND MEDIA") }}</strong></h2>
-                    <h5 class="mb-3 text-xs-center fw-500">{{__(" Philippine’s First Experience Travel Company")}}</h5>
+                    <h5 class="mb-3 text-xs-center fw-500">{{__("A travel company that creates unique, memorable, and epic experiences")}}</h5>
             </v-layout>
         </v-parallax>
     </v-card>
 
-    <section id="mv" class="py-3">
-        <v-container fluid grid-list-lg>
-            <v-layout row wrap justify-center align-top>
-                <v-flex lg8 xs12>
-                    <v-card-text class="text-xs-center my-3">
-                        <h2 class="display-1">{{ __("WE ARE ABOUT UNIQUE ADVENTURES") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
-                        </h2>
-                    </v-card-text>
-                </v-flex>
-            </v-layout>
-        </v-container>
-    </section>
-
     <v-container fluid grid-list-lg>
         <v-layout row wrap align-center justify-center>
-            <v-flex lg8 sm12 xs12>
+            <v-flex lg8 md10 xs12>
+                <v-card-text class="text-xs-center my-3">
+                    <h2 class="display-1">{{ __("Philippine’s First Experience Travel Company") }}</h2>
+                    <h2 class="subheading grey--text text--darken-1">
+                        With more than 3 years of experience as the pioneers of Random Road Trip, Experience Philippines is driven towards enabling students and working professionals to explore the Philippines by creating experiences filled with adventure and discovery. It’s with this kind of unrivalled knowledge that we’re able to inspire travelers, individuals, soul seekers to create the ultimate experience, no matter their age or budget.
+                    </h2>
+                </v-card-text>
+            </v-flex>
+        </v-layout>
+        <v-layout row wrap align-center justify-center>
+            <v-flex lg10 sm12 xs12>
+
                 <v-layout row wrap>
-                    <v-flex md6 xs12>
+                    <v-flex md4 sm6 xs12>
                         <v-card class="elevation-1 mb-3">
                             <v-card-media height="200px" src="{{ assets('frontier/images/public/go.jpg') }}"></v-card-media>
                             <v-toolbar class="elevation-0">
@@ -58,7 +54,6 @@
                 </v-layout>
             </v-flex>
         </v-layout>
-
     </v-container>
 
     @include("Public::sections.footer")

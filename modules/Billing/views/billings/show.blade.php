@@ -68,7 +68,7 @@
                             <v-divider></v-divider>
                             <v-card-text>
                                 <div class="subheading grey--text text--darken-2">
-                                    You have 42 hours to pay from the time of booking to pay for this reservation through PayPal/BPI. You will receive your Travel Itinerary via email (useremail@gmail.com) once payment is made.
+                                    You have 42 hours to pay from the time of booking to pay for this reservation through PayPal/BPI. You will receive a confirmation email (useremail@gmail.com) once payment is made.
                                 </div>
                             </v-card-text>
                         </v-card>
