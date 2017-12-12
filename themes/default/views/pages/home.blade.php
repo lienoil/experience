@@ -8,7 +8,7 @@
 
     @include("Public::parts.hero")
     <div class=""
-        style=" background-image: url(http://experience/assets/frontier/images/placeholder/xl.png);
+        style=" background-image: url(http://experience/assets/frontier/images/placeholder/a.png);
                 background-repeat: repeat-x;
                 width: 100%;
                 height: 50px;
