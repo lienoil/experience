@@ -60,7 +60,6 @@
 
                                             <div>
                                                 <div class="caption grey--text mr-2">Share on:</div>
-
                                                 <v-btn icon><v-icon>fa fa-facebook-official</v-icon></v-btn>
                                                 <v-btn icon><v-icon>fa fa-twitter</v-icon></v-btn>
                                                 <v-btn icon><v-icon>fa fa-pinterest</v-icon></v-btn>
@@ -88,15 +87,15 @@
                         </v-card-text>
                         <div class="pa-3">
                             <v-card-text>
-                                <div class="body-2 pb-3">What do you do for a living?</div>
+                                <div class="subheading fw-500 pb-3">What do you do for a living?</div>
                                 <div class="subheading">I’m a Talent Services Delivery Lead in IBM. I work on an outsourced account for recruitment services, helping our client get the best people for their team. </div>
                             </v-card-text>
                             <v-card-text>
-                                <div class="body-2 pb-3">What is the title of the movie of your life?</div>
+                                <div class="subheading fw-500 pb-3">What is the title of the movie of your life?</div>
                                 <div class="subheading">Buying books. It used to just be a “pleasure” but I have 47 books on my “to read” pile now (I counted), so I really shouldn’t be getting any more. I have very poor impulse control when it comes to books.</div>
                             </v-card-text>
                             <v-card-text>
-                                <div class="body-2 pb-3">What is one of your guilty pleasures?</div>
+                                <div class="subheading fw-500 pb-3">What is one of your guilty pleasures?</div>
                                 <div class="subheading">“How to Alienate People with Sarcasm, an Introverted Personality, and a Resting Bitch Face”. It’s a tragicomedy!</div>
                             </v-card-text>
                         </div>

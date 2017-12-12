@@ -63,6 +63,44 @@
             </v-container>
         </section>
 
+
+        <section id="mv" class="py-3">
+            <v-container fluid grid-list-lg>
+                <v-layout row wrap justify-center align-center>
+                    <v-flex md3 xs12>
+                        <v-card class="transparent elevation-0" height="100%">
+                            <v-card dark class="elevation-1 mb-3" style="background: linear-gradient(80deg, rgb(135, 23, 82), rgb(0, 127, 169)) !important">
+                                <v-card-text>
+                                    To provide UNIQUE ADVENTURES of places in the Philippines not frequently visited by foreign and local tourists.
+                                </v-card-text>
+                            </v-card>
+
+                            <v-card dark class="elevation-1 mb-3" style="background: linear-gradient(80deg, rgb(135, 23, 82), rgb(0, 127, 169)) !important">
+                                <v-card-text>
+                                    To introduce a different kind of travel experience classified as either fixed itineraries or random road trips.
+                                </v-card-text>
+                            </v-card>
+                            <v-card dark class="elevation-1 mb-3" style="background: linear-gradient(80deg, rgb(135, 23, 82), rgb(0, 127, 169)) !important">
+                                <v-card-text>
+                                    To encourage individuals to experiment and experience “unplanned” journeys by moving them out of their comfort zones through random road trips with random people to random places for some random fun and adventure.
+                                </v-card-text>
+                            </v-card>
+                            <v-card dark class="elevation-1 mb-3" style="background: linear-gradient(80deg, rgb(135, 23, 82), rgb(0, 127, 169)) !important">
+                                <v-card-text>
+                                    To provide an alternative transport and lodging solution.
+                                </v-card-text>
+                            </v-card>
+                        </v-card>
+                    </v-flex>
+                    <v-flex md4 xs12>
+                        <v-card dark class="elevation-1" height="100%">
+                            <v-card-media src="{{ assets('frontier/images/placeholder/9.png') }}" height="400px"></v-card-media>
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+        </section>
+
         <section id="objective" class="py-3">
             <v-container fluid>
                 <v-layout row wrap justify-center align-top>

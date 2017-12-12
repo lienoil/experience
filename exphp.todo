@@ -69,31 +69,38 @@ User Interface per Page:
     ☐ Sitemap
 
 Working links:
-align-center justify-center
-align-top justify-center
+    align-center justify-center
+    align-top justify-center
+
     background-image: url(http://experience/assets/frontier/images/placeholder/xl.png);
     background-repeat: repeat-x;
     width: 100%;
     height: 250px;
-Home
-FAQ
-Experience
-Experience/show
-Roadtrip
-Roadtrip/show
-Billing
-Billing/show
-Story
-Story/show
-Transactions
-Transactions/show
+✔ Home
+✔ Experience
+✔ Experience/show
+✔ Roadtrip
+✔ Roadtrip/show
+✔ Billing
+✔ Billing/show
+✔ Story
+✔ Story/show
+✔ Transactions
+✔ Transactions/show
+
+
+✔ notifications
+✔ wishlist
+✔ transaction
+✔ FAQ
 
 press
 about
 profile
-notifications
-wishlist
-host
+sponsor
+partnership
+meet the team
+
 
 1600 x 900
 

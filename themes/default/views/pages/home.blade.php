@@ -7,14 +7,8 @@
     @include("Public::sections.header")
 
     @include("Public::parts.hero")
-    <div class=""
-        style=" background-image: url(http://experience/assets/frontier/images/placeholder/a.png);
-                background-repeat: repeat-x;
-                width: 100%;
-                height: 50px;
-                margin-top: 20px;"
-                >
-    </div>
+    {{-- @include("Public::parts.top-light") --}}
+
     <div class="py-5">
         @include("Public::parts.categories")
         @include("Public::parts.hotlist")
@@ -23,14 +17,9 @@
         @include("Public::parts.review")
         @include("Public::parts.partners")
     </div>
-    <div class=""
-        style=" background-image: url(http://experience/assets/frontier/images/placeholder/xl-bottom.png);
-                background-repeat: repeat-x;
-                width: 100%;
-                height: 50px;
-                margin-bottom: 20px;"
-                >
-    </div>
+
+    {{-- @include("Public::parts.bottom-light") --}}
+
     @include("Public::parts.cta")
     @include("Public::sections.footer")
 @endsection
