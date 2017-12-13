@@ -94,7 +94,35 @@
                                         <v-card dark class="elevation-0 transparent">
                                             <v-card-text class="caption grey--text">
                                                 <div class="body-2 mb-2 white--text">Contact Us</div>
-                                                <v-btn outline block class="mb-2 mx-0 grey--text">Ask Us</v-btn>
+                                                <v-dialog v-model="dialog.contact" persistent width="500px">
+                                                    <v-btn outline class="mb-2 mx-0 grey--text" slot="activator">Ask Us</v-btn>
+                                                    <v-card>
+                                                        <v-toolbar dark class="blue elevation-0">
+                                                            <v-toolbar-title>Contact Us</v-toolbar-title>
+                                                        </v-toolbar>
+                                                        <v-card-text>
+                                                            <v-container grid-list-md>
+                                                                <v-layout wrap>
+                                                                    <v-flex xs12>
+                                                                        <v-text-field label="Full Name" required></v-text-field>
+                                                                    </v-flex>
+                                                                    <v-flex xs12>
+                                                                        <v-text-field label="Email" required></v-text-field>
+                                                                    </v-flex>
+                                                                    <v-flex xs12>
+                                                                        <v-text-field label="Mobile Number" required></v-text-field>
+                                                                    </v-flex>
+                                                                </v-layout>
+                                                            </v-container>
+                                                            <small>*indicates required field</small>
+                                                        </v-card-text>
+                                                        <v-card-actions>
+                                                            <v-btn color="blue darken-1" flat @click.native="dialog.contact = false">Cancel</v-btn>
+                                                            <v-spacer></v-spacer>
+                                                            <v-btn class="primary--text" flat @click.native="dialog.contact = false">Submit</v-btn>
+                                                        </v-card-actions>
+                                                    </v-card>
+                                                </v-dialog>
                                                 <div>Mobile: +63 917 563 9692</div>
                                                 <div>Landline: +632 710 5641</div>
                                                 <div>Email: giancarlo@experience.ph</div>
@@ -157,6 +185,23 @@
             opacity: 1;
         }
     </style>
+@endpush
+
+@push('pre-scripts')
+    <script src="{{ assets('frontier/vendors/vue/resource/vue-resource.min.js') }}"></script>
+    <script>
+        Vue.use(VueResource);
+
+        mixins.push({
+            data () {
+                return {
+                    dialog: {
+                        contact: false,
+                    }
+                }
+            },
+        });
+    </script>
 @endpush
 
 
