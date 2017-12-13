@@ -54,7 +54,7 @@
                             </v-flex>
                             <v-flex md6 xs12>
                                 <v-card dark class="elevation-1" height="100%">
-                                    <v-carousel hide-delimiters hide-controls style="height: 350px;">
+                                    <v-carousel hide-delimiters hide-controls style="height: 500px;">
                                     <v-carousel-item v-for="(item,i) in gallery" v-bind:src="item.src" :key="i"></v-carousel-item>
                                 </v-carousel>
                                 </v-card>
@@ -65,55 +65,74 @@
             </v-container>
         </section>
 
-        <section id="objective" class="my-3 white">
+         <section id="mv" class="py-3 white">
             <v-container fluid>
                 <v-layout row wrap justify-center align-top>
                     <v-flex lg10 xs12>
-                        <v-card-text class="text-xs-center my-3">
-                            <h2 class="display-1">{{ __("OUR MISSION AND VISION") }}</h2>
-                            <h2 class="subheading grey--text text--darken-1">
-                                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
-                            </h2>
-                        </v-card-text>
-
                         <v-layout row wrap>
-                            <v-flex md6 xs12>
+                            <v-flex sm6 xs12>
+                                <v-card-text class="text-xs-center">
+                                    {{-- <img src="{{ assets('frontier/images/placeholder/pack.jpg') }}"> --}}
+                                </v-card-text>
+                            </v-flex>
+
+                            <v-flex sm6 xs12>
                                 <v-card class="elevation-0 pa-4" height="100%">
-                                    <v-toolbar class="elevation-0 transparent">
-                                        <v-toolbar-title>Vision</v-toolbar-title>
-                                    </v-toolbar>
                                     <v-card-text class="subheading">
-                                        <ul>
-                                            <li>To provide UNIQUE ADVENTURES of places in the Philippines not frequently visited by foreign and local tourists.</li>
-                                            <li>To provide an alternative transport and lodging solution.</li>
-                                            <li>To introduce a different kind of travel experience classified as either fixed itineraries or random road trips.</li>
-                                            <li>To encourage individuals to experiment and experience unplanned journeys by moving them out of their comfort zones through random road trips with random people to random places for some random fun and adventure.</li>
-                                        </ul>
+                                        <h2 class="display-1">{{ __("Mission Statement") }}</h2>
+                                        <v-card-text class="text-xs-center">
+                                            <p class="headline">“ We want you to experience and explore the beauty and charm of the Philippines Islands in a different way by travelling differently. ”</p>
+                                        </v-card-text>
+                                    </v-card-text>
+                                </v-card>
+                            </v-flex>
+                        </v-layout>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+        </section>
+
+        <section id="mv" class="py-3 white">
+            <v-container fluid>
+                <v-layout row wrap justify-center align-top>
+                    <v-flex lg10 xs12>
+                        <v-layout row wrap>
+                            <v-flex sm6 xs12>
+                                <v-card class="elevation-0 pa-4" height="100%">
+                                    <v-card-text class="subheading">
+                                        <h2 class="display-1">{{ __("Vision") }}</h2>
+                                        <v-card-actions class="mb-3">
+                                            <v-avatar>
+                                                <v-icon class="display-1 red--text text--lighten-1">terrain</v-icon>
+                                            </v-avatar>
+                                            <p>To provide <strong>unique adventures</strong> of places in the Philippines not frequently visited by foreign and local tourists.</p>
+                                        </v-card-actions>
+                                        <v-card-actions class="mb-3">
+                                            <v-avatar>
+                                                <v-icon class="display-1 red--text text--lighten-1">directions_car</v-icon>
+                                            </v-avatar>
+                                            <p>To provide an alternative transport and lodging solution.</p>
+                                        </v-card-actions>
+                                        <v-card-actions class="mb-3">
+                                            <v-avatar>
+                                                <v-icon class="display-1 red--text text--lighten-1">place</v-icon>
+                                            </v-avatar>
+                                            <p>To introduce a different kind of travel experience classified as either fixed itineraries or random road trips.</p>
+                                        </v-card-actions>
+                                        <v-card-actions class="mb-3">
+                                            <v-avatar>
+                                                <v-icon class="display-1 red--text text--lighten-1">zoom_out_map</v-icon>
+                                            </v-avatar>
+                                            <p>To encourage individuals to experiment and experience unplanned journeys by moving them out of their comfort zones through random road trips with random people to random places for some random fun and adventure.</p>
+                                        </v-card-actions>
                                     </v-card-text>
                                 </v-card>
                             </v-flex>
 
-                            <v-flex md6 xs12>
-                                {{-- <v-card-media class="elevation-1" style="background: linear-gradient(80deg, #871752, #007fa9) !important;" height="450">
-                                    <v-layout column align-center justify-center class="white--text">
-                                        <v-card dark class="elevation-0 transparent">
-                                            <v-card-text>
-                                                <div class="title white--text"><span class="display-3 primary--text">M</span>ission</div> <br>
-                                                <p class="mb-1 text-xs-center headline">"{{ __("We want you to experience and explore the beauty and charm of the Philippines Islands in a different way by travelling differently.") }}"</p>
-                                            </v-card-text>
-                                        </v-card>
-                                    </v-layout>
-                                </v-card-media> --}}
-
-                                <v-layout column align-center justify-center class="white--text">
-                                <v-card class="elevation-0">
-                                <v-card-media>
-                                    <v-card-text class="text-xs-center">
-                                        <img src="{{ assets('frontier/images/placeholder/pack.jpg') }}" style="width: 250px;">
-                                    </v-card-text>
-                                </v-card-media>
-                                </v-card>
-                                </v-layout>
+                            <v-flex sm6 xs12>
+                                <v-card-text class="text-xs-center">
+                                    {{-- <img src="{{ assets('frontier/images/placeholder/pack.jpg') }}"> --}}
+                                </v-card-text>
                             </v-flex>
                         </v-layout>
                     </v-flex>
@@ -122,7 +141,7 @@
         </section>
     </div>
 
-    <section id="services" class="white mt-5 py-5">
+    {{-- <section id="services" class="white mt-5 py-5">
         <v-container fluid grid-list-lg>
             <v-layout row wrap justify-center align-top>
                 <v-flex lg10 md8 xs12>
@@ -158,7 +177,7 @@
                 </v-flex>
             </v-layout>
         </v-container>
-    </section>
+    </section> --}}
 
     @include("Public::sections.footer")
 @endsection

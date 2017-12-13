@@ -26,7 +26,7 @@
                 <v-card-text class="text-xs-center my-3">
                     <h2 class="display-1">{{ __("Philippine’s First Experience Travel Company") }}</h2>
                     <h2 class="subheading grey--text text--darken-1">
-                        With more than 3 years of experience as the pioneers of Random Road Trip, Experience Philippines is driven towards enabling students and working professionals to explore the Philippines by creating experiences filled with adventure and discovery. It’s with this kind of unrivalled knowledge that we’re able to inspire travelers, individuals, soul seekers to create the ultimate experience, no matter their age or budget.
+                        With more than 3 years of experience as the pioneers of Random Road Trip
                     </h2>
                 </v-card-text>
             </v-flex>
