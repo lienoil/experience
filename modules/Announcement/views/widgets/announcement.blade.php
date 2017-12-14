@@ -47,15 +47,15 @@
             <v-list three-line class="pa-0">
                 <v-list-tile avatar ripple  @click="">
                     <v-list-tile-content>
-                        <v-list-tile-title>No Classes on 01 September 2017 - Eid Al-Adha</v-list-tile-title>
-                        <v-list-tile-sub-title>Happy holidays to all students!</v-list-tile-sub-title>
+                        <v-list-tile-title>New layouts coming up!</v-list-tile-title>
+                        <v-list-tile-sub-title>We are all excited to annouce that we are having a new layout for our website. There's a lot of features added and more sleek design. So stay tuned!</v-list-tile-sub-title>
                     </v-list-tile-content>
                 </v-list-tile>
                 <v-divider></v-divider>
                 <v-list-tile avatar ripple  @click="">
                     <v-list-tile-content>
-                        <v-list-tile-title>No Classes on 26 June 2017 - Hari Raya</v-list-tile-title>
-                        <v-list-tile-sub-title>Happy Ramadan to all Muslim Students!</v-list-tile-sub-title>
+                        <v-list-tile-title>Under Construction</v-list-tile-title>
+                        <v-list-tile-sub-title>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus at unde obcaecati quam nam, voluptatibus voluptas dolorem nihil saepe atque expedita ad, amet necessitatibus quia laborum culpa, exercitationem quibusdam illo.</v-list-tile-sub-title>
                     </v-list-tile-content>
                 </v-list-tile>
             </v-list>

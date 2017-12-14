@@ -5,7 +5,7 @@
         transition="slide-y-transition"
         style="background: #fff;">
         <v-toolbar light class="transparent elevation-0 sortable-handle">
-            <v-toolbar-title class="subheading w--500">Courses with Low Student Participation</v-toolbar-title>
+            <v-toolbar-title class="subheading w--500">Top 3 Most Viewed Stories</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-menu bottom left>
                 <v-btn icon slot="activator" v-tooltip:left="{ html: 'More Actions' }"><v-icon>more_vert</v-icon></v-btn>
@@ -38,8 +38,8 @@
             <v-card-text v-show="!hidedonut_t">
                 <v-card dark flat class="transparent text-xs-center">
                     <v-card-text class="pt-0 pb-3 pink--text text--darken-1">
-                        <div class="body-2">DPE OPS,
-                            <span class="caption pink--text text--lighten-1"><em>89 students</em></span>
+                        <div class="body-2">RTM: Janrey Ligutan,
+                            <span class="caption pink--text text--lighten-1"><em>89 views</em></span>
                         </div>
                     </v-card-text>
                 </v-card>
@@ -91,7 +91,7 @@
             type: 'doughnut',
 
             data: {
-                labels: ["DPE SUP", "DPE OPS", "PSDM SUP"],
+                labels: ["RTM 1", "RTM 2", "RTM 3"],
                 datasets: [{
                     backgroundColor: [
                         "rgba(194, 24, 91, 1)",

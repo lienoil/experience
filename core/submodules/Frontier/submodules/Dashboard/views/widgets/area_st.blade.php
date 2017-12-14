@@ -4,7 +4,7 @@
         v-show="!removearea_st"
         transition="slide-y-transition">
         <v-toolbar light class="transparent elevation-0 sortable-handle">
-            <v-toolbar-title class="subheading w--500">Courses with Low Trainer Ratings</v-toolbar-title>
+            <v-toolbar-title class="subheading w--500">Top Travel Managers</v-toolbar-title>
             <v-spacer></v-spacer>
 
             <v-menu bottom left>
@@ -38,8 +38,8 @@
             <v-card-text v-show="!hidearea_st">
                 <v-card dark flat class="transparent text-xs-center">
                     <v-card-text class="pt-0 pb-5 pink--text text--darken-1">
-                        <div class="body-2">DPE OPS,
-                            <span class="caption pink--text text--lighten-1"><em>89 students</em></span>
+                        <div class="body-2">Cole Sprouse,
+                            <span class="caption pink--text text--lighten-1"><em>98%</em></span>
                         </div>
                     </v-card-text>
                 </v-card>
@@ -92,9 +92,18 @@
             type: 'line',
 
             data: {
-                labels: ["DPE SUP", "DPE OPS", "PSDM SUP", "PSDM OPS", "FECE SUP", "FEWT SUP", "MPPE OPS", "CREW OPS"],
+                labels: [
+                    "Paul Appleseed",
+                    "Jane Doe",
+                    "Anna Scott",
+                    "Robin Scott",
+                    "Jonathan",
+                    "Sherlock Holmes",
+                    "Rachel Green",
+                    "Ulesys"
+                ],
                 datasets: [{
-                    label: "Courses with Low Trainer Ratings",
+                    label: "Rating",
                     backgroundColor: gradient,
                     borderColor: "rgb(236, 64, 122)",
                     borderWidth: 2,

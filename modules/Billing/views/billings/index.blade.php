@@ -157,7 +157,7 @@
                                         <v-list-tile-title class="grey--text text--darken-1">Total ( PHP )</v-list-tile-title>
                                     </v-list-tile-content>
                                     <v-list-tile-action>
-                                        <v-list-tile-title class="title">₱ <strong>18,000</strong></v-list-tile-title>
+                                        <v-list-tile-title><strong>18,000</strong></v-list-tile-title>
                                     </v-list-tile-action>
                                 </v-list-tile>
                             </v-list>
@@ -274,7 +274,7 @@
                                             <v-list-tile-title class="grey--text text--darken-1">Total ( PHP )</v-list-tile-title>
                                         </v-list-tile-content>
                                         <v-list-tile-action>
-                                            <v-list-tile-title class="title">₱ <strong>18,000</strong></v-list-tile-title>
+                                            <v-list-tile-title><strong>18,000</strong></v-list-tile-title>
                                         </v-list-tile-action>
                                     </v-list-tile>
                                 </v-list>

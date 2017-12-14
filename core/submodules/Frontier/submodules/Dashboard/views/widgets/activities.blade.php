@@ -48,8 +48,8 @@
                         <img src="https://placeimg.com/640/480/any/grayscale/1"/>
                       </v-list-tile-avatar>
                     <v-list-tile-content>
-                        <v-list-tile-title>Paul Smith (Trainer)</v-list-tile-title>
-                        <v-list-tile-sub-title>added a new assignment to course Develop Personal Effectiveness At Operations Level</v-list-tile-sub-title>
+                        <v-list-tile-title>Paul Smith</v-list-tile-title>
+                        <v-list-tile-sub-title>booked an experience for Random Road Trip #1</v-list-tile-sub-title>
                     </v-list-tile-content>
                 </v-list-tile>
                 <v-divider inset></v-divider>
@@ -58,9 +58,8 @@
                         <img src="https://placeimg.com/640/480/any/grayscale/2"/>
                     </v-list-tile-avatar>
                     <v-list-tile-content>
-                        <v-list-tile-title>Julianna Robert (Student)</v-list-tile-title>
-                        <v-list-tile-sub-title>commented on Develop Personal Effectiveness At Operations Level
-                            I have finished this course and I earned a badge!</v-list-tile-sub-title>
+                        <v-list-tile-title>Julianna Robert</v-list-tile-title>
+                        <v-list-tile-sub-title>commented on Random Road Trip #22</v-list-tile-sub-title>
                     </v-list-tile-content>
                 </v-list-tile>
             </v-list>

@@ -22,11 +22,11 @@
                         {{-- Bulk Delete --}}
                         <v-slide-y-transition>
                             <template v-if="dataset.selected.length > 1">
-                                <form action="{{ route('pages.many.destroy') }}" method="POST" class="inline">
+                                <form action="{{ route('roles.many.destroy') }}" method="POST" class="inline">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <template v-for="item in dataset.selected">
-                                        <input type="hidden" name="pages[]" :value="item.id">
+                                        <input type="hidden" name="roles[]" :value="item.id">
                                     </template>
                                     <v-btn
                                         flat
@@ -59,7 +59,7 @@
                         <v-btn
                             icon
                             flat
-                            href="{{ route('pages.trash') }}"
+                            href="{{ route('roles.trash') }}"
                             light
                             v-tooltip:left="{'html': `View trashed items`}"
                         ><v-icon class="grey--after" v-badge:{{ $trashed }}.overlap>archive</v-icon></v-btn>
@@ -76,7 +76,8 @@
                         v-bind:headers="dataset.headers"
                         v-bind:items="dataset.items"
                         v-bind:pagination.sync="dataset.pagination"
-                        v-model="dataset.selected">
+                        v-model="dataset.selected"
+                    >
                         <template slot="headerCell" scope="props">
                             <span v-tooltip:bottom="{'html': props.header.text}">
                                 @{{ props.header.text }}
@@ -91,14 +92,18 @@
                                 ></v-checkbox>
                             </td>
                             <td>@{{ prop.item.id }}</td>
-                            <td><strong v-tooltip:bottom="{'html': prop.item.description ? prop.item.description : prop.item.title}">@{{ prop.item.title }}</strong></td>
+                            <td><strong v-tooltip:bottom="{'html': prop.item.description ? prop.item.description : prop.item.name}">@{{ prop.item.name }}</strong></td>
+                            <td>@{{ prop.item.alias }}</td>
                             <td>@{{ prop.item.code }}</td>
+                            <td class="text-xs-right">
+                                <span v-tooltip:bottom="{'html': 'Number of grants associated'}">@{{ prop.item.grants ? prop.item.grants.length : 0 }}</span>
+                            </td>
                             <td>@{{ prop.item.created }}</td>
                             <td class="text-xs-center">
                                 <v-menu bottom left>
                                     <v-btn icon flat slot="activator"><v-icon>more_vert</v-icon></v-btn>
                                     <v-list>
-                                        <v-list-tile :href="route(urls.pages.show, (prop.item.id))">
+                                        <v-list-tile :href="route(urls.roles.show, (prop.item.id))">
                                             <v-list-tile-action>
                                                 <v-icon info>search</v-icon>
                                             </v-list-tile-action>
@@ -108,7 +113,7 @@
                                                 </v-list-tile-title>
                                             </v-list-tile-content>
                                         </v-list-tile>
-                                        <v-list-tile :href="route(urls.pages.edit, (prop.item.id))">
+                                        <v-list-tile :href="route(urls.roles.edit, (prop.item.id))">
                                             <v-list-tile-action>
                                                 <v-icon accent>edit</v-icon>
                                             </v-list-tile-action>
@@ -118,8 +123,18 @@
                                                 </v-list-tile-title>
                                             </v-list-tile-content>
                                         </v-list-tile>
+                                        <v-list-tile @click.native.stop="post(route(urls.roles.api.clone, (prop.item.id)))">
+                                            <v-list-tile-action>
+                                                <v-icon accent>content_copy</v-icon>
+                                            </v-list-tile-action>
+                                            <v-list-tile-content>
+                                                <v-list-tile-title>
+                                                    {{ __('Clone') }}
+                                                </v-list-tile-title>
+                                            </v-list-tile-content>
+                                        </v-list-tile>
                                         <v-list-tile
-                                            @click.native.stop="destroy(route(urls.pages.api.destroy, prop.item.id),
+                                            @click.native.stop="destroy(route(urls.roles.api.destroy, prop.item.id),
                                             {
                                                 '_token': '{{ csrf_token() }}'
                                             })">
@@ -156,18 +171,13 @@
                             model: false,
                         },
                     },
-                    urls: {
-                        pages: {
-                            edit: '{{ route('pages.edit', 'null') }}',
-                            show: '{{ route('pages.show', 'null') }}',
-                            delete: '{{ route('pages.destroy', 'null') }}',
-                        }
-                    },
                     dataset: {
                         headers: [
                             { text: '{{ __("ID") }}', align: 'left', value: 'id' },
                             { text: '{{ __("Name") }}', align: 'left', value: 'name' },
+                            { text: '{{ __("Alias") }}', align: 'left', value: 'alias' },
                             { text: '{{ __("Code") }}', align: 'left', value: 'code' },
+                            { text: '{{ __("Grants") }}', align: 'left', value: 'grants' },
                             { text: '{{ __("Last Modified") }}', align: 'left', value: 'updated_at' },
                             { text: '{{ __("Actions") }}', align: 'center', sortable: false, value: 'updated_at' },
                         ],
@@ -207,7 +217,7 @@
                             take: rowsPerPage,
                         };
 
-                        this.api().search('{{ route('api.pages.search') }}', query)
+                        this.api().search('{{ route('api.roles.search') }}', query)
                             .then((data) => {
                                 this.dataset.items = data.items.data ? data.items.data : data.items;
                                 this.dataset.totalItems = data.items.total ? data.items.total : data.total;

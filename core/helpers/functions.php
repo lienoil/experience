@@ -410,7 +410,7 @@ if (! function_exists('assets')) {
      */
     function assets($file)
     {
-        return url("assets/$file");
+        return url("~assets/$file");
     }
 }
 

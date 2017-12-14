@@ -31,7 +31,7 @@
                                                     slot="activator"
                                                     append-icon="date_range"
                                                     light solo hide-details single-line
-                                                    placeholder="From"
+                                                    label="From"
                                                     v-model="schedule"
                                                     readonly
                                                 ></v-text-field>
@@ -56,7 +56,7 @@
                                                     slot="activator"
                                                     append-icon="date_range"
                                                     light solo hide-details single-line
-                                                    placeholder="To"
+                                                    label="To"
                                                     v-model="schedule"
                                                     readonly
                                                 ></v-text-field>

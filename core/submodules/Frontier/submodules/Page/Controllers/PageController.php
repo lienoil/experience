@@ -2,14 +2,9 @@
 
 namespace Page\Controllers;
 
-use Catalogue\Models\Catalogue;
-use Crowfeather\Traverser\Traverser;
 use Frontier\Controllers\AdminController as Controller;
 use Illuminate\Http\Request;
 use Page\Models\Page;
-use Page\Requests\PageRequest;
-use Template\Models\Template;
-use User\Models\User;
 
 class PageController extends Controller
 {
@@ -45,11 +40,9 @@ class PageController extends Controller
     {
         \Illuminate\Support\Facades\DB::beginTransaction();
         $resource = Page::sharedLock()->findOrFail($id);
-        $templates = Template::getTemplatesFromFiles();
-        $catalogues = Catalogue::mediabox();
-        // \Illuminate\Support\Facades\DB::commit();
+        \Illuminate\Support\Facades\DB::commit();
 
-        return view("Page::pages.edit")->with(compact('resource', 'templates', 'catalogues'));
+        return view("Page::pages.edit")->with(compact('resource'));
     }
 
     public function update(Request $request, $id)
@@ -57,12 +50,10 @@ class PageController extends Controller
         \Illuminate\Support\Facades\DB::beginTransaction();
         $page = Page::findOrFail($id);
         $page->title = $request->input('title');
-        $page->code = $request->input('code');
-        $page->feature = $request->input('feature');
+        $page->slug = $request->input('slug');
         $page->body = $request->input('body');
         $page->delta = $request->input('delta');
-        $page->template = $request->input('template');
-        $page->user()->associate(User::find(user()->id));
+        $page->feature = $request->input('feature');
         $page->save();
         \Illuminate\Support\Facades\DB::commit();
 
@@ -77,28 +68,22 @@ class PageController extends Controller
      */
     public function create(Request $request)
     {
-        $templates = Template::getTemplatesFromFiles();
-        $catalogues = Catalogue::mediabox();
-
-        return view("Page::pages.create")->with(compact('templates', 'catalogues'));
+        return view("Page::pages.create");
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Page\Requests\PageRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PageRequest $request)
+    public function store(Request $request)
     {
         $page = new Page();
         $page->title = $request->input('title');
-        $page->code = $request->input('code');
-        $page->feature = $request->input('feature');
+        $page->slug = $request->input('slug');
         $page->body = $request->input('body');
         $page->delta = $request->input('delta');
-        $page->template = $request->input('template');
-        $page->user()->associate(User::find(user()->id));
         $page->save();
 
         return back();

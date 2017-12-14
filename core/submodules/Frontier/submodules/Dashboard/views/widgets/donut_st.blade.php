@@ -5,7 +5,7 @@
         transition="slide-y-transition"
         style="#fff">
         <v-toolbar light class="transparent elevation-0 sortable-handle">
-            <v-toolbar-title class="subheading w--500">Top 3 Most Courses Enrolled</v-toolbar-title>
+            <v-toolbar-title class="subheading w--500">Top 3 Users</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-menu bottom left>
                 <v-btn icon slot="activator" v-tooltip:left="{ html: 'More Actions' }"><v-icon>more_vert</v-icon></v-btn>
@@ -38,8 +38,8 @@
             <v-card-text v-show="!hidedonut_st">
                 <v-card dark flat class="transparent text-xs-center">
                     <v-card-text class="pt-0 pb-3 cyan--text text--darken-3">
-                        <div class="body-2">DPE OPS,
-                            <span class="caption cyan--text"><em>89 students</em></span>
+                        <div class="body-2">Julian Appleseed,
+                            <span class="caption cyan--text"><em>89 experience</em></span>
                         </div>
                     </v-card-text>
                 </v-card>
@@ -91,7 +91,7 @@
             type: 'doughnut',
 
             data: {
-                labels: ["DPE SUP", "DPE OPS", "PSDM SUP"],
+                labels: ["France Scott", "Gabrielle Smith", "Rebecca"],
                 datasets: [{
                     backgroundColor: [
                         "rgba(0, 151, 167, 1)",

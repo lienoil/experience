@@ -175,9 +175,9 @@
     <v-card flat class="text-xs-center pa-5" v-if="!dataset.items.length && !bulk.upload.model">
         <v-card-text class=" grey--text">
             <img src="{{ assets('frontier/images/placeholder/zip.png') }}" class="pb-4" width="100%" style="max-width: 120px !important;" height="auto">
-            <div class="display-1 grey--text text--lighten-1">{{ __('Your library is empty') }}</div>
-            <div class="subheading grey--text text--lighten-1">{{ __("Everything you upload will be here.") }}</div>
-            <v-btn primary round class="elevation-0 mt-4" @click="bulk.upload.model = !bulk.upload.model">{{ __('Start Upload') }}</v-btn>
+            <h4>{{ __('Your library is empty') }}</h4>
+            <h6>{{ __("Everything you upload will be here.") }}</h6>
+            <v-btn primary round class="elevation-0" @click="bulk.upload.model = !bulk.upload.model">{{ __('Start Upload') }}</v-btn>
         </v-card-text>
     </v-card>
     {{-- /Empty --}}
@@ -230,7 +230,7 @@
                 </tr>
             </template>
             {{-- Thumbnail --}}
-            {{-- <template slot="card" scope="{prop}">
+            <template slot="card" scope="{prop}">
                 <v-card-media height="150px" :src="prop.item.thumbnail" class="grey lighten-4"></v-card-media>
                 <v-divider class="grey lighten-3"></v-divider>
                 <v-toolbar card dense class="transparent pt-2">
@@ -254,7 +254,7 @@
                     <span class="caption" v-html="prop.item.filesize"></span>
                     <div class="caption grey--text" v-html="prop.item.created"></div>
                 </v-card-text>
-            </template> --}}
+            </template>
         </v-dataset>
     </v-container>
 @endsection

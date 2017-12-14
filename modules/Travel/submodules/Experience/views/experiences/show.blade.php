@@ -211,7 +211,7 @@
                                         </v-list-tile-content>
                                     </v-list-tile>
                                 </v-list>
-                                <p>You can pay us through credit card via  Paypal's secured payment website</p>
+                                <p>You can pay us through credit card via  PayPal's secured payment website</p>
                         </v-card-text>
                     </v-card-text>
                     <v-divider></v-divider>

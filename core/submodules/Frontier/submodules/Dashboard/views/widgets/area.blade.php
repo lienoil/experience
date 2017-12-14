@@ -5,7 +5,7 @@
         transition="slide-y-transition"
         style="background: #fff">
         <v-toolbar light class="transparent elevation-0 sortable-handle">
-            <v-toolbar-title class="subheading w--500">Students Enrolled per Courses</v-toolbar-title>
+            <v-toolbar-title class="subheading w--500">Most Viewed Experience</v-toolbar-title>
             <v-spacer></v-spacer>
 
             <v-menu bottom left>
@@ -39,8 +39,8 @@
             <v-card-text v-show="!hidearea">
                 <v-card dark flat class="transparent text-xs-center">
                     <v-card-text class="pt-0 pb-5 cyan--text text--darken-3">
-                        <div class="body-2">DPE OPS,
-                            <span class="caption cyan--text text--lighten-1"><em>89 students</em></span>
+                        <div class="body-2">Random Road Trip #1,
+                            <span class="caption cyan--text text--lighten-1"><em>89 views</em></span>
                         </div>
                     </v-card-text>
                 </v-card>
@@ -93,9 +93,9 @@
             type: 'line',
 
             data: {
-                labels: ["DPE SUP", "DPE OPS", "PSDM SUP", "PSDM OPS", "FECE SUP", "FEWT SUP", "MPPE OPS", "CREW OPS"],
+                labels: ["Random Road Trip #2", "Random Road Trip #3", "Random Road Trip #4", "Random Road Trip #5", "Random Road Trip #6", "Random Road Trip #7", "Random Road Trip #8", "Random Road Trip #9"],
                 datasets: [{
-                    label: "Count of Learners Enrolled",
+                    label: "Count of views",
                     backgroundColor: gradient,
                     borderColor: "rgb(0, 188, 212)",
                     borderWidth: 2,

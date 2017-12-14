@@ -42,19 +42,17 @@ class CreatePagesTable extends Migration
      */
     public function up()
     {
-        if ($this->schema->hasTable($this->tablename)) {
-            return;
-        }
-
         $this->schema->create($this->tablename, function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('code')->unique();
+            $table->string('slug')->unique();
             $table->text('feature')->nullable();
             $table->text('body')->nullable();
             $table->text('delta')->nullable();
-            $table->string('template')->default('generic')->nullable();
             $table->integer('user_id')->unsigned();
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->integer('lft')->unsigned()->nullable();
+            $table->integer('rgt')->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();
 

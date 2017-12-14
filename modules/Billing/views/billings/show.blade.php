@@ -124,15 +124,16 @@
                                         <v-list-tile-title class="grey--text text--darken-1">Total ( PHP )</v-list-tile-title>
                                     </v-list-tile-content>
                                     <v-list-tile-action>
-                                        <v-list-tile-title class="title success--text">₱ <strong>18,000</strong></v-list-tile-title>
+                                        <v-list-tile-title class="success--text"><strong>18,000</strong></v-list-tile-title>
                                     </v-list-tile-action>
                                 </v-list-tile>
                             </v-list>
                             <v-divider></v-divider>
-                            <v-card class="elevation-0 mb-3">
-                                <v-toolbar class="transparent elevation-0">
-                                    <v-toolbar-title class="subheading">Reference Number: 500500266 </v-toolbar-title>
-                                </v-toolbar>
+                            <v-card class="elevation-0">
+                                <v-card-text>
+                                    <div class="body-2 mb-1">Reference Number</div>
+                                    <div class="subheading mb-1 primary--text"><strong>500500266</strong></div>
+                                </v-card-text>
                             </v-card>
                         </v-card>
 
@@ -247,15 +248,16 @@
                                             <v-list-tile-title class="grey--text text--darken-1">Total ( PHP )</v-list-tile-title>
                                         </v-list-tile-content>
                                         <v-list-tile-action>
-                                            <v-list-tile-title class="title success--text">₱ <strong>18,000</strong></v-list-tile-title>
+                                            <v-list-tile-title class="success--text"><strong>18,000</strong></v-list-tile-title>
                                         </v-list-tile-action>
                                     </v-list-tile>
                                 </v-list>
                                 <v-divider></v-divider>
                                 <v-card class="elevation-0">
-                                    <v-toolbar class="transparent elevation-0">
-                                        <v-toolbar-title class="subheading">Reference Number: 500500266 </v-toolbar-title>
-                                    </v-toolbar>
+                                    <v-card-text>
+                                        <div class="body-2 mb-1">Reference Number</div>
+                                        <div class="subheading mb-1 primary--text"><strong>500500266</strong></div>
+                                    </v-card-text>
                                 </v-card>
                                 <v-divider></v-divider>
                                 <v-list subheader class="py-3">

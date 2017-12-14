@@ -5,7 +5,7 @@
         transition="slide-y-transition"
         style="background: #fff;">
         <v-toolbar light class="transparent elevation-0 sortable-handle">
-            <v-toolbar-title class="subheading w--500">Courses with Minimal Activity</v-toolbar-title>
+            <v-toolbar-title class="subheading w--500">Most Booked Experience</v-toolbar-title>
             <v-spacer></v-spacer>
 
             <v-menu bottom left>
@@ -39,8 +39,8 @@
             <v-card-text v-show="!hidebar_st">
                 <v-card dark flat class="transparent text-xs-center">
                     <v-card-text class="pt-0 pb-5 light-blue--text text--darken-3">
-                        <div class="body-2">PSDM OPS,
-                            <span class="caption light-blue--text text--lighten-1"><em>88%</em></span>
+                        <div class="body-2">Random Road Trip #14,
+                            <span class="caption light-blue--text text--lighten-1"><em>80%</em></span>
                         </div>
                     </v-card-text>
                 </v-card>
@@ -93,9 +93,18 @@
             type: 'bar',
 
             data: {
-                labels: ["DPE SUP", "PSDM OPS", "PSDM SUP", "DPE OPS", "FECE SUP", "FEWT SUP", "MPPE OPS", "CREW OPS"],
+                labels: [
+                    "Random Road Trip #2",
+                    "Random Road Trip #3",
+                    "Random Road Trip #4",
+                    "Random Road Trip #5",
+                    "Random Road Trip #6",
+                    "Random Road Trip #7",
+                    "Random Road Trip #8",
+                    "Random Road Trip #9"
+                ],
                 datasets: [{
-                    label: "Courses with Minimal Activity",
+                    label: "People booked",
                     backgroundColor: gradient,
                     borderColor: "rgb(3, 150, 243)",
                     borderWidth: 2,

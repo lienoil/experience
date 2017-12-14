@@ -3,9 +3,7 @@
 @section("content")
     @include("Theme::partials.banner")
 
-    {{-- @can('view-mainanalytics') --}}
-    @include("Dashboard::widgets.stat")
-    {{-- @endcan --}}
+    {{-- @include("Dashboard::widgets.stat") --}}
 
     <v-container fluid grid-list-lg>
         <v-layout row wrap>
@@ -18,32 +16,24 @@
                                     class="sortable-container"
                                     :options="{animation: 150, handle: '.sortable-handle', group: 'lessons', draggable: '.draggable-lesson', forceFallback: true}">
 
-                                    @can('view-area')
                                     <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
                                         @include("Dashboard::widgets.area")
                                     </v-card>
-                                    @endcan
 
-                                    @can('view-bar_st')
                                     <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
                                        @include("Dashboard::widgets.bar_st")
                                     </v-card>
-                                    @endcan
 
-                                    @can('view-donut_t')
                                     <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
                                        @include("Dashboard::widgets.donut_t")
                                     </v-card>
-                                    @endcan
 
-                                    @can('view-assignments')
                                     <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
-                                       @include("Assignment::widgets.assignment")
+                                       {{-- @include("Assignment::widgets.assignment") --}}
                                     </v-card>
-                                    @endcan
 
                                    <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
-                                       @include("Dashboard::widgets.todo-list")
+                                       {{-- @include("Dashboard::widgets.todo-list") --}}
                                    </v-card>
                                 </draggable>
                             </v-flex>
@@ -54,29 +44,21 @@
                         <draggable
                             class="sortable-container"
                             :options="{animation: 150, handle: '.sortable-handle', group: 'lessons', draggable: '.draggable-lesson', forceFallback: true}">
-                                @can('view-donut')
                                 <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
                                     @include("Dashboard::widgets.donut")
                                 </v-card>
-                                @endcan
 
-                                @can('view-area_st')
                                 <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
                                    @include("Dashboard::widgets.area_st")
                                 </v-card>
-                                @endcan
 
-                                @can('view-bar_t')
                                 <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
-                                   @include("Dashboard::widgets.bar_t")
+                                   {{-- @include("Dashboard::widgets.bar_t") --}}
                                 </v-card>
-                                @endcan
 
-                                @can('view-announcements')
                                 <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
                                     @include("Announcement::widgets.announcement")
                                 </v-card>
-                                @endcan
                        </draggable>
                     </v-flex>
 
@@ -84,29 +66,21 @@
                         <draggable
                             class="sortable-container"
                             :options="{animation: 150, handle: '.sortable-handle', group: 'lessons', draggable: '.draggable-lesson', forceFallback: true}">
-                                @can('view-bar')
                                 <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
                                     @include("Dashboard::widgets.bar")
                                 </v-card>
-                                @endcan
 
-                                @can('view-donut_st')
                                 <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
                                    @include("Dashboard::widgets.donut_st")
                                 </v-card>
-                                @endcan
 
-                                @can('view-area_t')
                                 <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
-                                   @include("Dashboard::widgets.area_t")
+                                   {{-- @include("Dashboard::widgets.area_t") --}}
                                 </v-card>
-                                @endcan
 
-                                @can('view-activities')
                                 <v-card class="draggable-lesson elevation-0 transparent" v-for="(draggable, key) in draggables.items">
                                     @include("Dashboard::widgets.activities")
                                 </v-card>
-                               @endcan
                        </draggable>
                     </v-flex>
                 </v-layout>
