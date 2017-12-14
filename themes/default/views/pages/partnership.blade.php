@@ -37,7 +37,7 @@
         <v-layout row wrap align-center justify-center>
             <v-flex md6 xs12>
                 <v-card class="elevation-1">
-                    <v-card-media src="{{ assets('frontier/images/placeholder/9.png') }}" height="450px"></v-card-media>
+                    <v-card-media src="{{ assets('frontier/images/public/car.jpg') }}" height="450px"></v-card-media>
                 </v-card>
             </v-flex>
             <v-flex md4 xs12>
@@ -63,11 +63,6 @@
 
     <section id="2" class="py-3">
         <v-layout row wrap align-center justify-center>
-            <v-flex md6 xs12>
-                <v-card class="elevation-1">
-                    <v-card-media src="{{ assets('frontier/images/placeholder/9.png') }}" height="450px"></v-card-media>
-                </v-card>
-            </v-flex>
             <v-flex md4 xs12>
                 <v-card class="elevation-1 hidden-sm-and-down" style="margin-left: -80px;">
                     <v-card-text class="pa-4">
@@ -84,6 +79,11 @@
                         <p>They believe that the BLOC Technology is a God-given-gift and it is only entrusted to us by God to serve as our enabling tool to fulfill the Mission He gave us. The Mission is to innovatively eradicate “homelessness” thru the BLOC Revolution.</p>
                         <p>BLOC Revolution is a Mission-in-Action to bring about a radical change in the way humankind dwells here on Earth.</p>
                     </v-card-text>
+                </v-card>
+            </v-flex>
+             <v-flex md6 xs12>
+                <v-card class="elevation-1">
+                    <v-card-media src="{{ assets('frontier/images/public/v2.jpg') }}" height="450px"></v-card-media>
                 </v-card>
             </v-flex>
         </v-layout>

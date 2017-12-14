@@ -70,7 +70,7 @@
                                                         :src="card.src"
                                                         class="grey lighten-4">
                                                         <div class="text-xs-right" style="width: 100%;">
-                                                            <v-btn large v-tooltip:left="{ html: 'Remove to wishlist' }" icon class="mr-3">
+                                                            <v-btn large v-tooltip:left="{ html: 'Remove from wishlist' }" icon class="mr-3">
                                                                 @include("Experience::components.wishlisted")
                                                             </v-btn>
                                                             <v-chip label class="ma-0 white--text green lighten-1" v-html="card.price" style="position: absolute; bottom: 15px; right: 0;"></v-chip>

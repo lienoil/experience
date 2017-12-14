@@ -18,91 +18,51 @@
         </v-parallax>
     </v-card>
 
-    <section class="py-5">
-        <v-container fluid>
+    <section id="hotlist" class="my-5">
+        <v-container fluid grid-list-lg>
             <v-layout row wrap align-center justify-center>
-                <v-flex lg10 xs12>
+                <v-flex lg10 md12 sm12 xs12>
                     <v-card-text class="text-xs-center my-3">
                         <h2 class="display-1">{{ __("TRAVEL MANAGERS") }}</h2>
-                        <h2 class="subheading grey--text text--darken-1">
-                            {{ __("Check out the loveable and crazy bunch of Travel Managers of Experience Philippines.") }}
-                        </h2>
+                        <h2 class="subheading grey--text text--darken-1">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</h2>
                     </v-card-text>
 
-                    {{-- founders --}}
-                    <v-layout row wrap align-top justify-center>
-                        <v-flex md3 xs12>
-                            <v-card class="elevation-1">
-                                <v-card-media src="{{ assets('frontier/images/public/car.jpg') }}" height="400px"></v-card-media>
-                            </v-card>
-                        </v-flex>
-                        <v-flex md3 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-text>
-                                    <div class="title mb-1">Giancarlo G.</div>
-                                    <p class="body-2 red--text text--lighten-1">Founder</p>
-                                    Gian is the founder of Experience Philippines. One of his impeccable skills is being able to strike a conversation with any traveller along the way because of his warm personality and endless curiosity. He can easily be bribed with milk tea 25% sweetness level, less ice.. you can add pearl toppings na rin.
-                                </v-card-text>
-                            </v-card>
-                        </v-flex>
-                        <v-flex md3 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-media src="{{ assets('frontier/images/public/car.jpg') }}" height="400px"></v-card-media>
-                            </v-card>
-                        </v-flex>
-                        <v-flex md3 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-text>dfdfdf</v-card-text>
-                            </v-card>
-                        </v-flex>
+                    <v-layout row wrap>
+                        <v-flex xs12>
+                            <div class="ssl-1">
+                                <section class="regular slider ssl-2 my-2" >
+                                    <div class="my-2 ssl-3" v-for="card in exp">
+                                        <div class="ssl-4">
+                                            <div class="ssl-5 mb-3">
+                                                <v-card class="elevation-1" height="100%">
+                                                    <v-card-media
+                                                        height="250px"
+                                                        :src="card.src"
+                                                        class="grey lighten-4">
+                                                    </v-card-media>
+                                                    <v-divider class="grey lighten-3"></v-divider>
+                                                    <v-toolbar card dense class="transparent pt-2">
+                                                        <v-toolbar-title class="mr-3 subheading">
+                                                            <span class="subheading"><strong>@{{ card.title }}</strong></span><br>
+                                                            <span class="body-2 primary--text">@{{ card.category }}</span><br>
+                                                        </v-toolbar-title>
+                                                    </v-toolbar>
+                                                    <v-card-text class=" pt-4">
+                                                        <div class="subheading">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae ullam, labore autem? Quod ut possimus suscipit vel optio ipsum molestiae quasi quas consequatur at dignissimos earum molestias, totam nulla fugiat!</div>
+                                                    </v-card-text>
+                                                    <v-card-actions>
+                                                        <v-btn icon><v-icon class="title">fa fa-facebook</v-icon></v-btn>
+                                                        <v-btn icon><v-icon class="title">fa fa-twitter</v-icon></v-btn>
+                                                        <v-btn icon><v-icon class="title">fa fa-pinterest</v-icon></v-btn>
+                                                    </v-card-actions>
+                                                </v-card>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                    </v-flex>
                     </v-layout>
-                    {{-- tm --}}
-                    <v-layout row wrap align-top justify-center>
-                        <v-flex sm3 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-text>dfdfdf</v-card-text>
-                            </v-card>
-                        </v-flex>
-                        <v-flex sm3 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-media src="{{ assets('frontier/images/public/car.jpg') }}" height="200px"></v-card-media>
-                            </v-card>
-                        </v-flex>
-                        <v-flex sm3 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-text>dfdfdf</v-card-text>
-                            </v-card>
-                        </v-flex>
-                        <v-flex sm3 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-media src="{{ assets('frontier/images/public/car.jpg') }}" height="200px"></v-card-media>
-                            </v-card>
-                        </v-flex>
-                    </v-layout>
-                    {{-- tm --}}
-                    <v-layout row wrap align-top justify-center>
-                        <v-flex sm3 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-media src="{{ assets('frontier/images/public/car.jpg') }}" height="200px"></v-card-media>
-                            </v-card>
-                        </v-flex>
-                        <v-flex sm3 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-text>dfdfdf</v-card-text>
-                            </v-card>
-                        </v-flex>
-                        <v-flex sm3 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-media src="{{ assets('frontier/images/public/car.jpg') }}" height="200px"></v-card-media>
-                            </v-card>
-                        </v-flex>
-                        <v-flex sm3 xs12>
-                            <v-card class="elevation-1" height="100%">
-                                <v-card-text>dfdfdf</v-card-text>
-                            </v-card>
-                        </v-flex>
-                    </v-layout>
-
                 </v-flex>
             </v-layout>
         </v-container>
@@ -155,6 +115,19 @@
         .slick-slide {
             transition: all ease-in-out .3s;
         }
+        .slick-slide {
+      transition: all ease-in-out .3s;
+      opacity: .2;
+    }
+
+    .slick-active {
+      opacity: .5;
+    }
+
+    .slick-current {
+      opacity: 1;
+    }
+
         .slick-next {
             background: #fff !important;
             right: -10px;
@@ -299,53 +272,24 @@
                 return {
                     exp: [
                         {
-                            title: 'FULL MOON PARTY Luna Sea: A Random Full Moon Party #4',
-                            price: '₱ 6,000',
-                            category: 'Retro Road Trip',
-                            date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/placeholder/windmill.jpg') }}'
+                            title: 'Giancarlo',
+                            category: 'Founder',
+                            src: '{{ assets('frontier/images/public/team/founder.jpg') }}'
                         },
                         {
                             title: 'Retro Road Trip #2',
-                            price: '₱ 10,000',
                             category: 'Singles Road Trip',
-                            date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/placeholder/red2.jpg') }}'
+                            src: '{{ assets('frontier/images/public/team/cofounder.jpg') }}'
                         },
                         {
-                            title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 13,000',
-                            category: 'Random Road Trip',
-                            date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/placeholder/city.png') }}'
+                            title: 'Sheena Pena',
+                            category: 'Travel Manager',
+                            src: '{{ assets('frontier/images/public/team/tm1.jpg') }}'
                         },
                         {
-                            title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 4,000',
-                            category: 'Special Road Trip',
-                            date: 'July 11-13',
-                            src: '{{ assets('frontier/images/placeholder/9.png') }}'
-                        },
-                         {
-                            title: 'FULL MOON PARTY Luna Sea: A Random Full Moon Party #4',
-                            price: '₱ 6,000',
-                            category: 'Retro Road Trip',
-                            date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/placeholder/windmill.jpg') }}'
-                        },
-                        {
-                            title: 'Retro Road Trip #2',
-                            price: '₱ 10,000',
-                            category: 'Singles Road Trip',
-                            date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/placeholder/red2.jpg') }}'
-                        },
-                        {
-                            title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 13,000',
-                            category: 'Random Road Trip',
-                            date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/placeholder/city.png') }}'
+                            title: 'Paul Smith',
+                            category: 'Travel Manager',
+                            src: '{{ assets('frontier/images/public/team/tm2.jpg') }}'
                         },
                     ],
                 }
@@ -371,32 +315,26 @@
         $(document).on('ready', function() {
             $(".regular").slick({
                 dots: false,
-                infinite: false,
-                slidesToShow: 4,
-                slidesToScroll: 4,
-                autoplay: false,
+                centerMode: true,
+                centerPadding: '60px',
+                slidesToShow: 3,
                 responsive: [
                     {
-                        breakpoint: 1024,
+                        breakpoint: 768,
                         settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            infinite: true,
-                            dots: false
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 3
                         }
                     },
                     {
                         breakpoint: 480,
                         settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
                         }
                     }
                 ]
