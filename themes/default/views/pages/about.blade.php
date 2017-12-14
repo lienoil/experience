@@ -41,116 +41,143 @@
         </v-card-text>
     </v-card>
 
-    <div class="py-3">
-        <section id="mv" class="py-3">
-            <v-container fluid>
-                <v-layout row wrap justify-center align-center>
-                    <v-flex lg10 xs12>
-                        <v-layout row wrap>
-                            <v-flex md6 xs12>
-                                <v-card class="elevation-1" height="100%">
-                                    <v-card-text>test-text</v-card-text>
-                                </v-card>
-                            </v-flex>
-                            <v-flex md6 xs12>
-                                <v-card dark class="elevation-1" height="100%">
-                                    <v-carousel hide-delimiters hide-controls style="height: 500px;">
-                                    <v-carousel-item v-for="(item,i) in gallery" v-bind:src="item.src" :key="i"></v-carousel-item>
-                                </v-carousel>
-                                </v-card>
-                            </v-flex>
-                        </v-layout>
-                    </v-flex>
-                </v-layout>
-            </v-container>
-        </section>
-
-         <section id="mv" class="py-3 white">
-            <v-container fluid>
-                <v-layout row wrap justify-center align-top>
-                    <v-flex lg10 xs12>
-                        <v-layout row wrap>
-                            <v-flex sm6 xs12>
-                                <v-card-text class="text-xs-center">
-                                    {{-- <img src="{{ assets('frontier/images/placeholder/pack.jpg') }}"> --}}
+    <section id="gallery" class="my-5">
+        <v-container fluid>
+            <v-layout row wrap justify-center align-center>
+                <v-flex lg10 xs12>
+                    <v-layout row wrap>
+                        <v-flex md6 xs12>
+                            <v-card class="elevation-1" height="100%">
+                                <v-card-text>
+                                    <h5>Test-text</h5>
                                 </v-card-text>
-                            </v-flex>
+                            </v-card>
+                        </v-flex>
+                        <v-flex md6 xs12>
+                            <v-card dark class="elevation-1" height="100%">
+                                <v-carousel hide-delimiters hide-controls style="height: 500px;">
+                                <v-carousel-item v-for="(item,i) in gallery" v-bind:src="item.src" :key="i"></v-carousel-item>
+                            </v-carousel>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </section>
 
-                            <v-flex sm6 xs12>
-                                <v-card class="elevation-0 pa-4" height="100%">
-                                    <v-card-text class="subheading">
-                                        <h2 class="display-1">{{ __("Mission Statement") }}</h2>
-                                        <v-card-text class="text-xs-center">
-                                            <p class="headline">“ We want you to experience and explore the beauty and charm of the Philippines Islands in a different way by travelling differently. ”</p>
-                                        </v-card-text>
-                                    </v-card-text>
-                                </v-card>
-                            </v-flex>
-                        </v-layout>
-                    </v-flex>
-                </v-layout>
-            </v-container>
-        </section>
+    <section id="ms" class="white py-5">
+        <v-container fluid>
+            <v-layout row wrap justify-center align-top>
+                <v-flex md8 xs12>
+                    <v-layout row wrap justify-center align-center>
+                        <v-flex sm6 xs12 order-lg1 order-md1 order-sm1 order-xs2>
+                            <div class="text-xs-center">
+                                <img src="{{ assets('frontier/images/placeholder/pack.jpg') }}" width="100%" style="max-width: 400px;">
+                            </div>
+                        </v-flex>
 
-        <section id="mv" class="py-3 white">
-            <v-container fluid>
-                <v-layout row wrap justify-center align-top>
-                    <v-flex lg10 xs12>
-                        <v-layout row wrap>
-                            <v-flex sm6 xs12>
-                                <v-card class="elevation-0 pa-4" height="100%">
-                                    <v-card-text class="subheading">
-                                        <h2 class="display-1">{{ __("Vision") }}</h2>
-                                        <v-card-actions class="mb-3">
-                                            <v-avatar>
-                                                <v-icon class="display-1 red--text text--lighten-1">terrain</v-icon>
-                                            </v-avatar>
-                                            <p>To provide <strong>unique adventures</strong> of places in the Philippines not frequently visited by foreign and local tourists.</p>
-                                        </v-card-actions>
-                                        <v-card-actions class="mb-3">
-                                            <v-avatar>
-                                                <v-icon class="display-1 red--text text--lighten-1">directions_car</v-icon>
-                                            </v-avatar>
-                                            <p>To provide an alternative transport and lodging solution.</p>
-                                        </v-card-actions>
-                                        <v-card-actions class="mb-3">
-                                            <v-avatar>
-                                                <v-icon class="display-1 red--text text--lighten-1">place</v-icon>
-                                            </v-avatar>
-                                            <p>To introduce a different kind of travel experience classified as either fixed itineraries or random road trips.</p>
-                                        </v-card-actions>
-                                        <v-card-actions class="mb-3">
-                                            <v-avatar>
-                                                <v-icon class="display-1 red--text text--lighten-1">zoom_out_map</v-icon>
-                                            </v-avatar>
-                                            <p>To encourage individuals to experiment and experience unplanned journeys by moving them out of their comfort zones through random road trips with random people to random places for some random fun and adventure.</p>
-                                        </v-card-actions>
-                                    </v-card-text>
-                                </v-card>
-                            </v-flex>
+                        <v-flex sm6 xs12 order-lg2 order-md2 order-sm2 order-xs1>
+                            <v-card class="elevation-0" height="100%">
+                                <div class="subheading">
+                                    <h2 class="display-1 mb-3">{{ __("Mission Statement") }}</h2>
+                                    <p class="headline">“ We want you to experience and explore the beauty and charm of the Philippines Islands in a different way by travelling differently. ”</p>
+                                </div>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </section>
 
-                            <v-flex sm6 xs12>
-                                <v-card-text class="text-xs-center">
-                                    {{-- <img src="{{ assets('frontier/images/placeholder/pack.jpg') }}"> --}}
+    <section id="vs" class="white pb-5">
+        <v-container fluid>
+            <v-layout row wrap justify-center align-top>
+                <v-flex md8 xs12>
+                    <v-layout row wrap justify-center align-center>
+                        <v-flex sm6 xs12>
+                            <v-card class="elevation-0" height="100%">
+                                <div class="subheading">
+                                    <h2 class="display-1">{{ __("Vision") }}</h2>
+                                    <v-card-actions class="mb-3">
+                                        <v-avatar>
+                                            <v-icon class="display-1 red--text text--lighten-1">terrain</v-icon>
+                                        </v-avatar>
+                                        <p>To provide <strong>unique adventures</strong> of places in the Philippines not frequently visited by foreign and local tourists.</p>
+                                    </v-card-actions>
+                                    <v-card-actions class="mb-3">
+                                        <v-avatar>
+                                            <v-icon class="display-1 red--text text--lighten-1">directions_car</v-icon>
+                                        </v-avatar>
+                                        <p>To provide an alternative transport and lodging solution.</p>
+                                    </v-card-actions>
+                                    <v-card-actions class="mb-3">
+                                        <v-avatar>
+                                            <v-icon class="display-1 red--text text--lighten-1">place</v-icon>
+                                        </v-avatar>
+                                        <p>To introduce a different kind of travel experience classified as either fixed itineraries or random road trips.</p>
+                                    </v-card-actions>
+                                    <v-card-actions class="mb-3">
+                                        <v-avatar>
+                                            <v-icon class="display-1 red--text text--lighten-1">zoom_out_map</v-icon>
+                                        </v-avatar>
+                                        <p>To encourage individuals to experiment and experience unplanned journeys by moving them out of their comfort zones through random road trips with random people to random places for some random fun and adventure.</p>
+                                    </v-card-actions>
+                                </div>
+                            </v-card>
+                        </v-flex>
+
+                        <v-flex sm6 xs12>
+                            <v-card-text class="text-xs-center">
+                                <img src="{{ assets('frontier/images/placeholder/pack.jpg') }}" width="100%" style="max-width: 400px;">
+                            </v-card-text>
+                        </v-flex>
+                    </v-layout>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </section>
+
+    <section id="gallery" class="my-5">
+        <v-container fluid>
+            <v-layout row wrap justify-center align-center>
+                <v-flex lg10 xs12>
+                    <v-layout row wrap>
+                        <v-flex md6 xs12>
+                            <v-card dark class="elevation-1" height="100%">
+                                <v-carousel hide-delimiters hide-controls style="height: 500px;">
+                                <v-carousel-item v-for="(item,i) in gallery" v-bind:src="item.src" :key="i"></v-carousel-item>
+                            </v-carousel>
+                            </v-card>
+                        </v-flex>
+                        <v-flex md6 xs12>
+                            <v-card class="elevation-1" height="100%">
+                                <v-card-text>
+                                    <h5>Test-text</h5>
                                 </v-card-text>
-                            </v-flex>
-                        </v-layout>
-                    </v-flex>
-                </v-layout>
-            </v-container>
-        </section>
-    </div>
+                            </v-card>
+                        </v-flex>
+                    </v-layout>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </section>
 
-    {{-- <section id="services" class="white mt-5 py-5">
+    <section id="services" class="white mt-5 py-5">
         <v-container fluid grid-list-lg>
             <v-layout row wrap justify-center align-top>
-                <v-flex lg10 md8 xs12>
+                <v-flex md8 xs12>
                     <v-layout row wrap>
                         <v-flex md4 sm4 xs12>
                             <v-card class="elevation-0">
                                 <v-card-text class="text-xs-center">
-                                    <p class="mb-4"><v-icon class="display-2 red--text text--lighten-1">star_border</v-icon></p>
-                                    <p class="title">Experience Local</p>
+                                    <p class="mb-4">
+                                        <v-avatar tile size="60px">
+                                            <img src="{{ assets('frontier/images/public/favorite_place.png') }}" alt="">
+                                        </v-avatar>
+                                    </p>
+                                    <p class="subheading fw-500">Experience Local</p>
                                     <p>Our trips are all about local experiences. We just do not see beautiful sites but we learn for them.</p>
                                 </v-card-text>
                             </v-card>
@@ -158,8 +185,12 @@
                         <v-flex md4 sm4 xs12>
                             <v-card class="elevation-0">
                                 <v-card-text class="text-xs-center">
-                                    <p class="mb-4"><v-icon class="display-2 red--text text--lighten-1">fa fa-globe</v-icon></p>
-                                    <p class="title">Philippine Class Service</p>
+                                    <p class="mb-4">
+                                        <v-avatar tile size="60px">
+                                            <img src="{{ assets('frontier/images/public/sunbed.png') }}" alt="">
+                                        </v-avatar>
+                                    </p>
+                                    <p class="subheading fw-500">Philippine Class Service</p>
                                     <p>In the Philippines, we put great importance in hospitality. Our road trips  are always cheerful and with a smile.</p>
                                 </v-card-text>
                             </v-card>
@@ -167,8 +198,12 @@
                         <v-flex md4 sm4 xs12>
                             <v-card class="elevation-0">
                                 <v-card-text class="text-xs-center">
-                                    <p class="mb-4"><v-icon class="display-2 red--text text--lighten-1">fa fa-thumbs-o-up</v-icon></p>
-                                    <p class="title">Best Price Guarantee</p>
+                                    <p class="mb-4">
+                                        <v-avatar tile size="60px">
+                                            <img src="{{ assets('frontier/images/public/budget.png') }}" alt="">
+                                        </v-avatar>
+                                    </p>
+                                    <p class="subheading fw-500">Best Price Guarantee</p>
                                     <p>We provide the best value for money for Philippine budget travel.</p>
                                 </v-card-text>
                             </v-card>
@@ -177,7 +212,7 @@
                 </v-flex>
             </v-layout>
         </v-container>
-    </section> --}}
+    </section>
 
     @include("Public::sections.footer")
 @endsection
@@ -201,15 +236,19 @@
         .fw-400 {
             font-weight: 400;
         }
+
         .fw-500 {
             font-weight: 500;
         }
+
         .block {
             display: block !important;
         }
+
         .c-lift {
             transition: all .2s ease;
         }
+
         .c-lift:hover {
             -webkit-transform: translateY(-6px);
             transform: translateY(-6px);

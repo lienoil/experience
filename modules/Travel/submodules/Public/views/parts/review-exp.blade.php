@@ -1,3 +1,4 @@
+{{-- Editor --}}
 {{-- reply --}}
 <v-card class="elevation-1">
     <v-toolbar class="transparent elevation-0">
@@ -7,7 +8,12 @@
     <v-card-text class="pa-0 pb-3">
         <v-card-text class="pa-0">
             <v-card class="elevation-0">
-                <v-quill v-model="quill.comment"></v-quill>
+                    <v-quill class="elevation-0" source :upload-params="{_token: '{{ csrf_token() }}', 'return': 1}" :options="{uploadUrl: '{{ route('api.library.upload') }}', placeholder: '{{ __('Write something...') }}'}" v-model="resource.quill" class="mb-3 card--flat white elevation-1" :fonts="mediabox.fonts" @toggle-mediabox="() => { mediabox.model = ! mediabox.model }" :mediabox.sync="mediabox.url">
+                    <template>
+                        <input type="hidden" name="body" :value="resource.quill.html">
+                        <input type="hidden" name="delta" :value="JSON.stringify(resource.quill.delta)">
+                    </template>
+                </v-quill>
                 <v-divider></v-divider>
                 <v-card-text class="text-xs-right pa-0">
                     <v-btn flat class="primary--text">Post a comment</v-btn>
@@ -62,10 +68,13 @@
     </v-card-text>
 </v-card>
 
+{{-- /Editor --}}
+
 @push('css')
+    {{-- <link rel="stylesheet" href="{{ assets('frontier/vuetify-mediabox/dist/vuetify-mediabox.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ assets('frontier/vuetify-quill/dist/vuetify-quill.min.css') }}">
     <style>
-        .text-decor-none {
+    .text-decor-none {
             text-decoration: none;
         }
         .pl-7 {
@@ -74,9 +83,6 @@
         .comment-field .input-group__input {
             padding-top: 0 !important;
             border: 1px solid #9e9e9e !important;
-        }
-        .input-group__details {
-            display: none;
         }
         .ql-container {
             min-height: 120px !important;
@@ -96,17 +102,27 @@
 @endpush
 
 @push('pre-scripts')
+    {{-- <script src="{{ assets('frontier/vendors/vue/resource/vue-resource.min.js') }}"></script> --}}
+    {{-- <script src="{{ assets('frontier/vuetify-mediabox/dist/vuetify-mediabox.min.js') }}"></script> --}}
     <script src="{{ assets('frontier/vuetify-quill/dist/vuetify-quill.min.js') }}"></script>
-    <script src="{{ assets('frontier/vendors/vue/resource/vue-resource.min.js') }}"></script>
-    <script src="{{ assets('test/vuetify-mediabox/dist/vuetify-mediabox.min.js') }}"></script>
     <script>
-        Vue.use(VueResource);
-
+        // Vue.use(VueResource);
         mixins.push({
             data () {
                 return {
-                    quill: {
-                        comment: {}
+                    resource: {
+                        quill: {
+                            html: '{!! old('body') !!}',
+                            delta: JSON.parse({!! json_encode(old('delta')) !!}),
+                        }
+                    },
+                    mediabox: {
+                        model: false,
+                        fonts: {!! json_encode(config('editor.fonts.enabled', [])) !!},
+                        url: '',
+                        resource: {
+                            thumbnail: '',
+                        },
                     },
                 }
             },

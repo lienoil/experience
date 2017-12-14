@@ -52,23 +52,6 @@
                             </v-card-actions>
                         </v-card>
                     </v-flex>
-                    <v-flex md4 sm6 xs12>
-                        <v-card class="elevation-1 mb-3">
-                            <v-card-media height="200px" src="{{ assets('frontier/images/public/go.jpg') }}"></v-card-media>
-                            <v-card-text>
-                                <div class="subheading fw-500">Window Seat Philippines</div>
-                                <div class="caption grey--text text--darken-1"><v-icon class="body-1 mb-1">schedule</v-icon> March 25, 2017</div>
-                            </v-card-text>
-                            <v-card-text>
-                                <p>What does <span class="primary--text">www.windowseat.ph</span> have to say?</p>
-                                <p>Experience.ph is a travel website that pioneered touring people around on random road trips. They won’t take you on planned trips to a known place.</p>
-                            </v-card-text>
-                            <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn flat primary href="http://windowseat.ph/experience-philippines-random-roadtrips">Read More</v-btn>
-                            </v-card-actions>
-                        </v-card>
-                    </v-flex>
                 </v-layout>
             </v-flex>
         </v-layout>
@@ -134,109 +117,6 @@
         mixins.push({
             data () {
                 return {
-                    e1: 'recent',
-                    from: null,
-                    to: null,
-                    menu: false,
-                    dialog: {
-                        book: false
-                    },
-                    dates: [
-                        { title: 'Click Me' },
-                        { title: 'Click Me' },
-                        { title: 'Click Me' },
-                        { title: 'Click Me 2' }
-                    ],
-                    exp: [
-                        {
-                            title: 'FULL MOON PARTY Luna Sea: A Random Full Moon Party #4',
-                            price: '₱ 6,000',
-                            category: 'Retro Road Trip',
-                            date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/public/alabama.jpg') }}'
-                        },
-                        {
-                            title: 'Retro Road Trip #2',
-                            price: '₱ 10,000',
-                            category: 'Singles Road Trip',
-                            date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/public/el_capitan.jpg') }}'
-                        },
-                        {
-                            title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 13,000',
-                            category: 'Random Road Trip',
-                            date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/placeholder/yosemite.jpg') }}'
-                        },
-                        {
-                            title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 4,000',
-                            category: 'Special Road Trip',
-                            date: 'July 11-13',
-                            src: '{{ assets('frontier/images/public/h3.jpg') }}'
-                        }
-                    ],
-                    reco: [
-                        {
-                            title: 'FULL MOON PARTY Luna Sea: A Random Full Moon Party #4',
-                            price: '₱ 6,000',
-                            category: 'Retro Road Trip',
-                            date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/public/r1.jpg') }}'
-                        },
-                        {
-                            title: 'Retro Road Trip #2',
-                            price: '₱ 10,000',
-                            category: 'Singles Road Trip',
-                            date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/public/r3.jpg') }}'
-                        },
-                        {
-                            title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 13,000',
-                            category: 'Random Road Trip',
-                            date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/public/r2.jpg') }}'
-                        },
-                        {
-                            title: 'Super Mega Awesome Random Road Trip #3',
-                            price: '₱ 4,000',
-                            category: 'Special Road Trip',
-                            date: 'July 11-13',
-                            src: '{{ assets('frontier/images/public/r4.jpg') }}'
-                        }
-                    ],
-                    experiences: [
-                        {
-                            title: 'Random Road Trip #1',
-                            price: '₱ 6,000',
-                            category: 'Random Road Trip',
-                            date: 'Oct 21-22',
-                            src: '{{ assets('frontier/images/placeholder/windmill.jpg') }}'
-                        },
-                        {
-                            title: 'Random Road Trip #2',
-                            price: '₱ 10,000',
-                            category: 'Random Road Trip',
-                            date: 'Sep 11-13',
-                            src: '{{ assets('frontier/images/placeholder/red2.jpg') }}'
-                        },
-                        {
-                            title: 'Random Road Trip #3',
-                            price: '₱ 13,000',
-                            category: 'Random Road Trip',
-                            date: 'Aug 21-22',
-                            src: '{{ assets('frontier/images/placeholder/city.png') }}'
-                        },
-                        {
-                            title: 'Random Road Trip #4',
-                            price: '₱ 4,000',
-                            category: 'Random Road Trip',
-                            date: 'July 11-13',
-                            src: '{{ assets('frontier/images/placeholder/9.png') }}'
-                        },
-                    ],
                 }
             },
         });

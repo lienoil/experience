@@ -51,44 +51,57 @@
                     </v-flex>
 
                     <v-flex md9 sm8 xs12>
-                        <v-layout row wrap>
-                            <v-flex xs12 sm6 md4 v-for="card in experiences">
-                                <a href="experiences/show" ripple class="td-n">
-                                    <v-card class="elevation-1 c-lift">
-                                        <v-card-media
-                                            height="180px"
-                                            :src="card.src"
-                                            class="grey lighten-4">
-                                            <div class="text-xs-right" style="width: 100%;">
-                                                <v-btn large v-tooltip:left="{ html: 'Remove to wishlist' }" icon class="mr-3">
-                                                    @include("Experience::components.wishlisted")
-                                                </v-btn>
-                                                <v-chip label class="ma-0 white--text green lighten-1" v-html="card.price" style="position: absolute; bottom: 15px; right: 0;"></v-chip>
-                                            </div>
-                                        </v-card-media>
-                                        <v-divider class="grey lighten-3"></v-divider>
-                                        <v-toolbar card dense class="transparent pt-2">
-                                            <v-toolbar-title class="mr-3 subheading">
-                                                <span class="body-2">@{{ card.title }}</span><br>
-                                                <span class="caption">@{{ card.date }}</span><br>
-                                            </v-toolbar-title>
-                                        </v-toolbar>
-                                        <v-card-text class="grey--text pt-4">
-                                            <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
-                                            <span class="caption">@{{ card.category }}</span>
-                                            <div>
-                                                <v-icon class="subheading primary--text pb-1">star</v-icon>
-                                                <v-icon class="subheading primary--text pb-1">star</v-icon>
-                                                <v-icon class="subheading primary--text pb-1">star</v-icon>
-                                                <v-icon class="subheading primary--text pb-1">star</v-icon>
-                                                <v-icon class="subheading primary--text pb-1">star_half</v-icon>
-                                                4.6
-                                            </div>
-                                        </v-card-text>
-                                    </v-card>
-                                </a>
-                            </v-flex>
-                        </v-layout>
+                        <v-toolbar dark class="blue elevation-1">
+                            <v-toolbar-title>Wishlists</v-toolbar-title>
+                            <v-spacer></v-spacer>
+
+                            <v-btn icon v-tooltip:left="{ 'html': 'Search' }"><v-icon>search</v-btn>
+                            <v-btn icon v-tooltip:left="{ 'html': 'Filter' }"><v-icon>fa fa-filter</v-btn>
+                        </v-toolbar>
+                        <v-container fluid grid-list-lg>
+                            <v-layout row wrap>
+                                <v-flex xs12>
+                                    <v-layout row wrap>
+                                        <v-flex xs12 sm6 md4 v-for="card in experiences">
+                                            <a href="experiences/show" ripple class="td-n">
+                                                <v-card class="elevation-1 c-lift">
+                                                    <v-card-media
+                                                        height="180px"
+                                                        :src="card.src"
+                                                        class="grey lighten-4">
+                                                        <div class="text-xs-right" style="width: 100%;">
+                                                            <v-btn large v-tooltip:left="{ html: 'Remove to wishlist' }" icon class="mr-3">
+                                                                @include("Experience::components.wishlisted")
+                                                            </v-btn>
+                                                            <v-chip label class="ma-0 white--text green lighten-1" v-html="card.price" style="position: absolute; bottom: 15px; right: 0;"></v-chip>
+                                                        </div>
+                                                    </v-card-media>
+                                                    <v-divider class="grey lighten-3"></v-divider>
+                                                    <v-toolbar card dense class="transparent pt-2">
+                                                        <v-toolbar-title class="mr-3 subheading">
+                                                            <span class="body-2">@{{ card.title }}</span><br>
+                                                            <span class="caption">@{{ card.date }}</span><br>
+                                                        </v-toolbar-title>
+                                                    </v-toolbar>
+                                                    <v-card-text class="grey--text pt-4">
+                                                        <v-icon class="subheading grey--text text--lighten-1 pb-1">whatshot</v-icon>
+                                                        <span class="caption">@{{ card.category }}</span>
+                                                        <div>
+                                                            <v-icon class="subheading primary--text pb-1">star</v-icon>
+                                                            <v-icon class="subheading primary--text pb-1">star</v-icon>
+                                                            <v-icon class="subheading primary--text pb-1">star</v-icon>
+                                                            <v-icon class="subheading primary--text pb-1">star</v-icon>
+                                                            <v-icon class="subheading primary--text pb-1">star_half</v-icon>
+                                                            4.6
+                                                        </div>
+                                                    </v-card-text>
+                                                </v-card>
+                                            </a>
+                                        </v-flex>
+                                    </v-layout>
+                                </v-flex>
+                            </v-layout>
+                        </v-container>
                     </v-flex>
                 </v-layout>
             </v-flex>

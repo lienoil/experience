@@ -2,20 +2,15 @@
 
 namespace Page\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Pluma\Models\Model;
+use Frontier\Models\Page as Model;
+use Page\Support\Traits\BelongsToPage;
+use Page\Support\Traits\PageHasManyPages;
+use Page\Support\Traits\PageMutators;
+use User\Support\Traits\BelongsToUser;
 
 class Page extends Model
 {
-    use SoftDeletes;
+    use BelongsToPage, PageHasManyPages, BelongsToUser, PageMutators;
 
-    protected $with = [];
-
-    protected $searchables = ['name', 'code', 'description', 'schedule', 'created_at', 'updated_at'];
-
-    // public function getPrettyScheduleAttribute()
-    // {
-    //     return date(settings('date_format', 'F d, Y'), strtotime($this->schedule) );
-    //     protected $appends = ['schedule'];
-    // }
+    protected $searchables = ['title', 'code', 'created_at', 'updated_at'];
 }

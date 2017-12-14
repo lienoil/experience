@@ -2,49 +2,85 @@
 
 namespace Page\Controllers;
 
-use Frontier\Controllers\AdminController;
+use Catalogue\Models\Catalogue;
+use Crowfeather\Traverser\Traverser;
+use Frontier\Controllers\AdminController as Controller;
 use Illuminate\Http\Request;
 use Page\Models\Page;
 use Page\Requests\PageRequest;
+use Template\Models\Template;
+use User\Models\User;
 
-class PageController extends AdminController
+class PageController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Show list of resources.
      *
      * @param  Request $request
-     * @return \Illuminate\Http\Response
+     * @return Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         $resources = Page::paginate();
         $trashed = Page::onlyTrashed()->count();
 
-        return view("Theme::pages.index")->with(compact('resources', 'trashed'));
+        return view("Page::pages.index")->with(compact('resources', 'trashed'));
     }
 
     /**
-     * Display the specified resource.
+     * Show a given page resource.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  Request $request
+     * @param  string  $slug
+     * @return Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show(Request $request)
     {
-        $resource = Page::findOrFail($id);
+        $resource = Page::findOrFail($request->get('page'));
 
-        return view("Theme::pages.show")->with(compact('resource'));
+        return view("Page::pages.show")->with(compact('resource'));
+    }
+
+    public function edit(Request $request, $id)
+    {
+        \Illuminate\Support\Facades\DB::beginTransaction();
+        $resource = Page::sharedLock()->findOrFail($id);
+        $templates = Template::getTemplatesFromFiles();
+        $catalogues = Catalogue::mediabox();
+        // \Illuminate\Support\Facades\DB::commit();
+
+        return view("Page::pages.edit")->with(compact('resource', 'templates', 'catalogues'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        \Illuminate\Support\Facades\DB::beginTransaction();
+        $page = Page::findOrFail($id);
+        $page->title = $request->input('title');
+        $page->code = $request->input('code');
+        $page->feature = $request->input('feature');
+        $page->body = $request->input('body');
+        $page->delta = $request->input('delta');
+        $page->template = $request->input('template');
+        $page->user()->associate(User::find(user()->id));
+        $page->save();
+        \Illuminate\Support\Facades\DB::commit();
+
+        return back();
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param  Request $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view("Theme::pages.create");
+        $templates = Template::getTemplatesFromFiles();
+        $catalogues = Catalogue::mediabox();
+
+        return view("Page::pages.create")->with(compact('templates', 'catalogues'));
     }
 
     /**
@@ -56,106 +92,15 @@ class PageController extends AdminController
     public function store(PageRequest $request)
     {
         $page = new Page();
-        $page->name = $request->input('name');
+        $page->title = $request->input('title');
         $page->code = $request->input('code');
-        $page->description = $request->input('description');
-        if (null !== $request->input('schedule')) {
-            $page->schedule = date('Y-m-d H:i:s', strtotime($request->input('schedule')));
-        }
+        $page->feature = $request->input('feature');
+        $page->body = $request->input('body');
+        $page->delta = $request->input('delta');
+        $page->template = $request->input('template');
+        $page->user()->associate(User::find(user()->id));
         $page->save();
 
         return back();
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Request $request, $id)
-    {
-        $resource = Page::findOrFail($id);
-
-        return view("Theme::pages.edit")->with(compact('resource'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Page\Requests\PageRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(PageRequest $request, $id)
-    {
-        $page = Page::findOrFail($id);
-        $page->name = $request->input('name');
-        $page->code = $request->input('code');
-        $page->description = $request->input('description');
-        if (null !== $request->input('schedule')) {
-            $page->schedule = date('Y-m-d H:i:s', strtotime($request->input('schedule')));
-        }
-        $page->save();
-
-        return back();
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request, $id)
-    {
-        $page = Page::findOrFail($id);
-        $page->delete();
-
-        return redirect()->route('pages.index');
-    }
-
-    /**
-     * Display a listing of the trashed resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function trash()
-    {
-        $resources = Page::onlyTrashed()->paginate();
-
-        return view("Theme::pages.trash")->with(compact('resources'));
-    }
-
-    /**
-     * Restore the specified resource from storage.
-     *
-     * @param  \Page\Requests\PageRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function restore(Request $request, $id)
-    {
-        $page = Page::onlyTrashed()->findOrFail($id);
-        $page->restore();
-
-        return back();
-    }
-
-    /**
-     * Delete the specified resource from storage permanently.
-     *
-     * @param  \Page\Requests\PageRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function delete(Request $request, $id)
-    {
-        $page = Page::withTrashed()->findOrFail($id);
-        $page->forceDelete();
-
-        return redirect()->route('pages.trash');
     }
 }

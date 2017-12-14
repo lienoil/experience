@@ -27,7 +27,7 @@
                         <v-divider></v-divider>
                         <v-card-text class="text-xs-center">
                             <div class="mb-2">
-                                <v-avatar size="100px">
+                                <v-avatar size="200px">
                                     <img src="{{ assets('frontier/images/placeholder/man.jpg') }}" alt="">
                                 </v-avatar>
                             </div>
@@ -246,7 +246,7 @@
                         </v-list-tile>
                     </v-list>
                 </v-card>
-                {{-- @include("Public::parts.review-exp") --}}
+                @include("Public::parts.review-exp")
             </v-flex>
 
             <v-flex md3 xs12 class="hidden-sm-and-down">

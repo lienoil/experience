@@ -51,7 +51,7 @@
                     </v-flex>
 
                     <v-flex md9 sm8 xs12>
-                        <v-toolbar dark class="light-blue elevation-1 sticky">
+                        <v-toolbar dark class="blue elevation-1 sticky">
                             <v-toolbar-title >{{ __($application->page->title) }}</v-toolbar-title>
                             <v-spacer></v-spacer>
 
@@ -244,7 +244,7 @@
                         },
                         headers: [
                             { text: '{{ __("ID") }}', align: 'left', value: 'id' },
-                            { text: '{{ __("Date") }}', align: 'left', value: 'date' },
+                            { text: '{{ __("Date Booked") }}', align: 'left', value: 'date' },
                             { text: '{{ __("Experience") }}', align: 'left', value: 'experience' },
                             { text: '{{ __("Type") }}', align: 'left', value: 'type' },
                             { text: '{{ __("Paid Out") }}', align: 'left', value: 'paid' },

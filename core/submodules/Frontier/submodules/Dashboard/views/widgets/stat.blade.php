@@ -24,9 +24,10 @@
                 <v-icon>@{{ hidden ? 'visibility' : 'visibility_off' }}</v-icon>
             </v-btn>
         </v-toolbar>
+
         <v-slide-y-transition>
             <v-card class="elevation-0 transparent" v-show="!hidden" transition="slide-y-transition">
-                <v-card-text>
+                {{-- <v-card-text>
                     <v-layout row wrap justify-center align-center>
                         <v-flex sm8 xs12>
                             <div class="chart-container">
@@ -106,7 +107,7 @@
                             <div class="mt-2 caption">Overall Courses</div>
                         </v-list>
                     </v-layout>
-                </v-card-text>
+                </v-card-text> --}}
             </v-card>
         </v-slide-y-transition>
     </v-card-media>
