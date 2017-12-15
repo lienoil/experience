@@ -46,11 +46,11 @@
             data () {
                 return {
                     categories: [
-                        { title: '2017 SCHEDULE', src: '{{ assets('frontier/images/placeholder/9.png') }}', flex: 8, height: '100%' },
-                        { title: 'SPECIAL', src: '{{ assets('frontier/images/placeholder/14.jpg') }}', flex: 4 },
-                        { title: 'SINGLES', src: '{{ assets('frontier/images/placeholder/city.png') }}', flex: 3},
-                        { title: 'EAT AND EXPLORE', src: '{{ assets('frontier/images/placeholder/8.jpg') }}', flex: 6},
-                        { title: 'RANDOM', src: '{{ assets('frontier/images/placeholder/red2.jpg') }}', flex: 3},
+                        { title: '2017 SCHEDULE', src: '{{ assets('frontier/images/public/cat1.png') }}', flex: 8, height: '100%' },
+                        { title: 'SPECIAL', src: '{{ assets('frontier/images/public/cat2.jpg') }}', flex: 4 },
+                        { title: 'SINGLES', src: '{{ assets('frontier/images/public/cat3.jpg') }}', flex: 3},
+                        { title: 'EAT AND EXPLORE', src: '{{ assets('frontier/images/public/cat5.jpg') }}', flex: 6},
+                        { title: 'RANDOM', src: '{{ assets('frontier/images/public/cat4.jpg') }}', flex: 3},
                     ],
                 }
             },

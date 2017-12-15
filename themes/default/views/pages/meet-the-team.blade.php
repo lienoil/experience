@@ -15,7 +15,7 @@ Version: 1.0
     </v-card>
 
     <v-card class="banner elevation-1">
-        <v-parallax class="elevation-0" height="450" src="{{ assets('frontier/images/public/car.jpg') }}">
+        <v-parallax class="elevation-0" height="450" src="{{ assets('frontier/images/public/sierra.jpg') }}">
             <div class="insert-overlay" style="background: rgba(0, 0, 0, 0.4); position: absolute; width: 100%; height: 100%;"></div>
             <v-layout column align-center justify-center class="white--text">
                 <v-card dark class="elevation-0 transparent">
@@ -41,7 +41,7 @@ Version: 1.0
                                     <div class="my-2 ssl-3" v-for="card in exp">
                                         <div class="ssl-4">
                                             <div class="ssl-5 mb-3">
-                                                <v-card class="elevation-1" height="100%">
+                                                <v-card class="elevation-1" max-height="100%">
                                                     <v-card-media
                                                         height="250px"
                                                         :src="card.src"
@@ -55,7 +55,7 @@ Version: 1.0
                                                         </v-toolbar-title>
                                                     </v-toolbar>
                                                     <v-card-text class=" pt-4">
-                                                        <div class="subheading">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae ullam, labore autem? Quod ut possimus suscipit vel optio ipsum molestiae quasi quas consequatur at dignissimos earum molestias, totam nulla fugiat!</div>
+                                                        <div class="subheading">@{{ card.description }}</div>
                                                     </v-card-text>
                                                     <v-card-actions>
                                                         <v-btn icon><v-icon class="title">fa fa-facebook</v-icon></v-btn>
@@ -211,7 +211,6 @@ Version: 1.0
 
         .content .content-overlay {
             background: rgba(0, 0, 0, 0.7);
-            /*background: linear-gradient(to top, rgba(0,0,0,0.65), transparent 100%);*/
             position: absolute;
             height: 100%;
             width: 100%;
@@ -279,24 +278,46 @@ Version: 1.0
                 return {
                     exp: [
                         {
-                            title: 'Giancarlo',
+                            title: 'Giancarlo G.',
                             category: 'Founder',
-                            src: '{{ assets('frontier/images/public/team/founder.jpg') }}'
+                            src: '{{ assets('frontier/images/public/team/founder.jpg') }}',
+                            description: 'Gian is the founder of Experience Philippines. One of his impeccable skills is being able to strike a conversation with any traveller along the way because of his warm personality and endless curiosity. He can easily be bribed with milk tea 25% sweetness level, less ice.. you can add pearl toppings na rin.'
                         },
                         {
-                            title: 'Jeff',
+                            title: 'Jeffrey Patrick Lui',
                             category: 'Co-founder',
-                            src: '{{ assets('frontier/images/public/team/cofounder.jpg') }}'
+                            src: '{{ assets('frontier/images/public/team/cofounder.jpg') }}',
+                            description: 'Jeff is one of the biggest pillars behind Experience Philippines. Although he is a very busy man with numerous projects and adventures, Jeff squeezes time to wall climb and meet his friends. One of his assets during road trips is being ridiculously good at mental math. His favorite quote is "Basta driver, sweet lover"'
                         },
                         {
-                            title: 'Sheena Pena',
+                            title: 'Sheena Peña',
                             category: 'Travel Manager',
-                            src: '{{ assets('frontier/images/public/team/tm1.jpg') }}'
+                            src: '{{ assets('frontier/images/public/team/tm1.jpg') }}',
+                            description: 'Sheena is a combination of an Energizer Bunny and a chill cat during road trips. Although she prefers to stay behind the spotlight, she can quickly stand out with her quirky personality and eagerness to explore hipster locations. After hearing Jennylyn Mercado say that funny can also be sexy.'
                         },
                         {
-                            title: 'Paul Smith',
+                            title: 'Tom Salangad',
                             category: 'Travel Manager',
-                            src: '{{ assets('frontier/images/public/team/tm2.jpg') }}'
+                            src: '{{ assets('frontier/images/public/team/tm2.jpg') }}',
+                            description: 'Charismatic. Enthusiastic. Jet-setter. Those are the three words that would perfectly fit on this guy. With his insane humor and infectious enthusiasm for adventure, for sure there will never be any boring moments with him! Check out his instagram @hergemiltom and see his #TOMyadventures that will attest why he deserves the title "kilabot ng mga bebot"! LIKOD PALANG, ULAM NA!'
+                        },
+                        {
+                            title: 'Debby Francisco',
+                            category: 'Travel Manager',
+                            src: '{{ assets('frontier/images/public/team/tm3.jpg') }}',
+                            description: 'If you were to include her in the Oxford dictionary, Debby would be defined as a strong independent woman... except when it is time to jump off a cliff over a waterfall or off a boat into the deep blue sea. Always with her during road trips is her handy dandy salbabida."'
+                        },
+                        {
+                            title: 'Gibe Lavides',
+                            category: 'Travel Manager',
+                            src: '{{ assets('frontier/images/public/team/tm4.jpg') }}',
+                            description: 'Gibe, your one stop shop-a friend, a brother or a kuya, and like a father all in one! There is no one who can outmatch Gibe when it comes to brotherly care and concern. He is always ready to listen,  laugh, cry and and encourage you during those days you feel that you do not want to adult. "Pandesal ba kamo? Halika sa tabi ko. #AbsNiGibe #KuyaTonipet.'
+                        },
+                        {
+                            title: 'Rob Equiza',
+                            category: 'Travel Manager',
+                            src: '{{ assets('frontier/images/public/team/tm4.jpg') }}',
+                            description: 'Hipster, songwriter, rock music and film-enthusiast, Rob likes to balance life and ideas. He exists in the border that separates the old and the new, restraint and carelessness, individuality and sense of belongingness - wobbly walking the thin line between dreams and reality.'
                         },
                     ],
                 }
