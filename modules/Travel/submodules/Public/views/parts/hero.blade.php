@@ -248,6 +248,9 @@
                             src: '{{ assets('frontier/images/placeholder/8.jpg') }}'
                         },
                     ],
+                    hero: {
+                        search: false,
+                    }
                 }
             },
         });

@@ -1,3 +1,10 @@
+{{--
+Template Name: Home Template
+Description: A page for all experiences.
+Author: Princess Ellen Alto
+Version: 1.0
+--}}
+
 @extends("Theme::layouts.auth")
 
 @section("head-title", __($application->page->title))

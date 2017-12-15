@@ -1,3 +1,10 @@
+{{--
+Template Name: Team Template
+Description: A page for all experiences.
+Author: Princess Ellen Alto
+Version: 1.0
+--}}
+
 @extends("Theme::layouts.auth")
 
 @section("content")
@@ -277,8 +284,8 @@
                             src: '{{ assets('frontier/images/public/team/founder.jpg') }}'
                         },
                         {
-                            title: 'Retro Road Trip #2',
-                            category: 'Singles Road Trip',
+                            title: 'Jeff',
+                            category: 'Co-founder',
                             src: '{{ assets('frontier/images/public/team/cofounder.jpg') }}'
                         },
                         {

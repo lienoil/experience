@@ -26,7 +26,7 @@
                 <v-list-tile-title class="success--text fw-500">Become a Host</v-list-tile-title>
             </v-list-tile>
             <v-divider></v-divider>
-            <v-list-tile ripple href="\myprofile">
+            <v-list-tile ripple href="\my-profile">
                 <v-list-tile-action>
                     <v-icon>account_circle</v-icon>
                 </v-list-tile-action>
@@ -136,7 +136,7 @@
             <img src="{{ assets('frontier/images/placeholder/woman.jpg') }}" alt="">
         </v-avatar>
         <v-list>
-            <v-list-tile ripple href="\myprofile">
+            <v-list-tile ripple href="\my-profile">
                 <v-list-tile-action>
                     <v-icon>account_circle</v-icon>
                 </v-list-tile-action>
