@@ -1,3 +1,10 @@
+{{--
+Template Name: Transaction Template
+Description: A page for all experiences.
+Author: Princess Ellen Alto
+Version: 1.0
+--}}
+
 @extends("Theme::layouts.auth")
 @section("head-title", __($application->page->title))
 @section("page-title", __($application->page->title))
