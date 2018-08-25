@@ -1,0 +1,86 @@
+
+Tasks:
+  ☐ User upload images
+    ☐ Sync with Facebook/Gmail
+
+  Categories UI:
+    ☐ @high Add per Province
+
+  Stories:
+    ☐ Preserve slug/url when migrating
+    ☐ Write stories migration
+    ☐ Add Widgets:
+      ☐ Recent posts
+
+  Booking:
+
+  Book a Surprise:
+    ☐ @low details soon.
+
+  Profile:
+    ☐ Allow edit profile -- may kulang
+    ☐ Add additional fields, if...
+
+  Public/Footer:
+    ☐ Remove Links:
+      -- Crowd Funding
+      -- @dependency list of menus to be removed
+
+    ☐ Change contents:
+      -- @dependency Gian's contents
+
+
+ Editor:
+   ☐ Add video embed
+
+ Experience/categories:
+   ✔ Experiences @done (18-08-05 21:45)
+
+ Roadtrip/categories:
+   ✔ Roadtrip @done (18-08-05 21:45)
+
+ Experience/create:
+   ☐ Autogenerate reference number
+     -- @dependency refnum format
+
+ Ameneties:
+   ✔ Change name to `Inclusions` @done (18-08-05 21:30)
+   ✔ fix ameneties error page @done (18-08-05 21:30)
+
+ Homepage/Partners:
+
+ Homepage/Searchbar:
+   ☐ Extend search width on toobar | [logo] [search ___________]  [menus] |
+   ☐ Hide book a surprise menu
+
+ Tags:
+   ☐ Add tagging
+   ☐ add components
+
+ Yolo:
+   ☐ Add yolo page with yolo button (randomizer)
+
+
+
+Misc:
+  ☐ displaying categories on roadtrips.all
+  ☐ end date range roadtrips.all and experiences.all
+  ☐ filter categories.index on experiences and roadtrips
+
+
+
+
+
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ Change FAQ page to popup component @done (18-07-31 18:46) @project(Tasks / FAQ)
+ ✔ Add user info fields on User Details Field when booking a product @done (18-07-31 16:58) @project(Tasks / Booking)
+  @dependency List of fields - metadata?
+ ✔ -- @dependency Gian's roadtrip category list @done (18-07-31 16:56) @project(Tasks / Categories UI)
+  Name, Birthday, T-shirt Size
+ ✔ @high Change categories UI @done (18-07-31 15:05) @project(Tasks / Categories UI)
+ ✔ @high Change Roadtrip categories @done (18-07-31 10:43) @project(Tasks / Categories UI)
+ ✔ Change Travel manager to experience manager @done (18-07-29 21:03) @project(Tasks / Experience/create)
+ ✔ Adjust logo sizes, height: auto @done (18-07-29 16:34) @project(Tasks / Homepage/Partners)
+ ✔ Add v-cloak @done (18-07-29 16:33) @project(Tasks)

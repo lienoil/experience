@@ -1,0 +1,37 @@
+Tasks:
+
+  @Ellen
+  Main menu:
+    ☐ tooltip all menus (Title Case description)
+    ☐ add tootip to experience, roadtrip, book a surprise.
+    ☐ Change "Stories" menu to "Stories from the Road"
+    ☐ Video section: change to lightbox display (add video management backend, settings)
+
+  Footer:
+    ☐ Change Road Trips footer-link-2 to main-menu
+
+  Settings:
+    ☐ change footer copyright to (C) date - date EXPERIENCE PHILIPPINES (R)
+
+  Register Page:
+    ☐ Hide google and facebook login
+    ☐ Change background from _blue_ to *orange*
+
+  Registered Page:
+    ☐ Add site_logo to layout
+
+  Experience:
+    ☐ all.blade - fix overflowing text on cards
+    ☐ show.blade - change blue colors to primary
+    ☐ show.blade - move title to header
+    ☐ show.blade - remove/hide social media buttons
+    ☐ billing/payment.blade - (Checkout PayPal) - create reminder and cancelation policy blurb to settings
+    ☐ show.blade - Change Travel Manager card to "Experience Manager"
+    ☐ remove refund card for experiences
+    ☐ @high Email Template -> You have been booked for an experience
+
+  Profile / User:
+    ☐ add details - birthday, address, mobile_number, email_address, shirt_size
+
+  Stories:
+    ☐ include stories.css amending .page-content h1-h6 font-size: sakto;
